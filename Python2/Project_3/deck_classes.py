@@ -1,20 +1,19 @@
 
+## TODO A card class to keep track of the card details (suit / color, value, etc.)
+class create_deck:
+    """This Class creates a new deck"""
+    suits = ["Diamonds","Spades","Hearts","Clubs"]
+    deck = []
+    for suit in suits:
+        for i in range(1,14):
+            deck.append([i,suit])
+    # return(deck)
 
-class TestCount(unittest.TestCase):
+
+##TODO Comments noting any time you use an alias, reference, deep copy, or shallow copy (likely drawing cards or other interactions)
 
 
+##TODO (4pt) The project is uploaded correctly to your git repository
 
-def main():
-    """This main function allows the code to be run through the command line. It will also print out the dictionary
-    that is returned from search flags in csv format"""
-    ## Can search the comand line with set up
-    # args = sys.argv[1:]
-    # d = searchflags(args)
-    deal_game()
-
-## If the name is main. Run the main Function
-if __name__ == "__main__":
-    main()
-
-if __name__ == '__main__':
-    unittest.main()
+##TODO (10pt) This criterion is linked to a Learning OutcomeComments on Aliases, References, Shallow Copies, and Deep copies
+## You commented on EACH occurrence of the above topics

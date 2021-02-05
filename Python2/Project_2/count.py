@@ -5,19 +5,23 @@
 # Teacher: dalton.crutchfield@du.edu
 # TA: sunny.shrestha@du.edu
 
-# This program counts the number of letters in a txt file. There are a few variations. Including
 
-# Only counting certain characters, like vowels. Indicated by the -l followed by a string of letters to only count
-# Ignoring case, so that 'a' and 'A' are counted as different letters. Indicated by -c
-# Counting characters in multiple files.
-# Printing out lines for characters with a frequency of zero. Indicated by -z
 import sys
+import string
+
+
+def dict_2_csv_format(d):
+    """This function takes a dictionary "d" and returns it in csv format as "csv" for saving files or printing"""
+    csv = ""
+    for key, value in sorted(d.items()):
+        csv = csv + "'" + key + "'," + str(value) + "\n"
+    return csv
 
 
 def add_frequencies(d, file, remove_case):
-    """This def reads a file or files and counts the occurences of letters.
-     if the remove case is TRUE the function counts lowercase. If remove case is False the function counts upper
-     and lower case characters"""
+    """This function goes through a "file", counts all the ascii characters then stores and returns the values in
+    a dictionary, "d". If "remove_case" is True, it will count everything as lowercase. Elif "remove_case" is
+     false both upper and lower case ascii characters will be counted. """
 
     # Opening file and storing characters as list per line
     filetext = []
@@ -25,115 +29,105 @@ def add_frequencies(d, file, remove_case):
         for line in f:
             filetext.append(line.rstrip('\n'))
 
-    # Running through each line in the file. Going through the characters and adding them to a dictionary
+    ## Counting characters in the file
     for line in filetext:
         for char in line:
-            if char.isalnum() == True:  # Making sure it is a letter
-                if remove_case == True:  # Turning all cases into lower
+            if char.isalnum() == True:  # Making sure that the char is a ascii character
+                if remove_case == True:  # Only counting lower case. So Switching all file chars lower
                     char = char.lower()
-                if char not in d:
-                    d[char] = 1
-                else:
-                    d[char] += 1
+                    if char in d:
+                        d[char] += 1
+                    else:
+                        d[char] = 1
+                elif remove_case == False:  # No case distinction. Add char count to dictionary
+                    if char in d:
+                        d[char] += 1
+                    else:
+                        d[char] = 1
     return d
 
 
-def createdict():
-    """This Functions makes a dictionary of both upperletter_list and lowerletter_list"""
-    lowerletter_list = []
-    upperletter_list = []
-    alpha = 'a'
-    for i in range(0, 26):
-        lowerletter_list.append(alpha)
-        upperletter_list.append(alpha.upper())
-        alpha = chr(ord(alpha) + 1)
-    return (upperletter_list, lowerletter_list)
+def searchflags(args):
+    """This Function Searches for flags '-z', '-c', '-l'. If there is a -z flag the dictionary returns 0 for
+    every value that does not have a count. -c Counts both upper and lower cases. -l only counts characters that are
+    given in the argument statement. .txt are the files that will be read. .csv files will not be considered.
+    Any string that does not start with - or end with .txt .cvs will be considered the l flags counting list"""
 
-def commandline():
-    """This runs the script that is in the command line"""
-    list = []
-    for val in sys.argv:
-        list.append(val)
-    return list
+    ## Setting the alphabet, and defaults for remove cases and z flag print zeros
+    upper_lower_chars = string.ascii_letters
+    remove_case = True
+    print_zeroes = False
 
-def searchflags(commandlist):
-    """This goes through the raw list in main and parses through it"""
-    filenames = []  # a list of file names to loop through
-    flaglist = []  # a list of flags
-    only_chars = ""  # a stromg of characters to count
-    for num in commandlist:
-        if num[0] == "-":
-            if len(num) == 2:  # For a single flag, i.e. -c
-                flaglist.append(num[1])
-            elif len(num) >=2:  # For multiple flags, ie. -lc or -lcz
-                for letter in num:
-                    if letter != "-" and letter not in flaglist:
-                        flaglist.append(letter)
-        elif num[-4:] == ".txt":  #Adding file names to list
-            filenames.append(num)
-        elif num[-3:] != ".py":  #Adding specific characters to count
-            only_chars += num
-    return [filenames, flaglist, only_chars]
+    ## Creating Flag List, files to read, and l flag characters to print
+    flaglist = []
+    readfiles = []
+    savefile = ""
+    only_chars = ""
 
-def main(name):
-    """This functions creates a upper and lower case alphabet. It then goes through and parses the command line
-    arguments -c (case sensitive), -l letter (only count letters listed), -z (display dictionary of 0 counts)."""
-    #Call Alphabet dictionary
-    upperlower = createdict()
-    upperletter_list = upperlower[0]
-    lowerletter_list = upperlower[1]
+    ## Looping through args to parse through the flaglists, .txt files and .csv files. If there is an l flag, and a
+    ## If '-l' is in the flags and the arg item does not end with '.txt' or '.csv' it will only count those characters
+    for arg in args:
+       if arg[0] == "-":
+          if len(arg) == 2:
+             flaglist.append(arg[1])
+          elif len(arg) >= 2:
+             for char in arg:
+                if char != "-" and arg not in flaglist:
+                   flaglist.append(char)
+       elif arg[-4:] == ".txt":  # Adding file names to list
+            readfiles.append(arg)
+       elif arg[-4:] == ".csv":  # This is just a catch incase the a .csv file for saving gets pass through
+          savefile = arg
+       elif arg[-3:] != ".py" and "l" or "L" in flaglist:
+          only_chars += arg
 
-
-    commandlist = name.split(" ")
-    splitsearch = searchflags(commandlist)
-
-    flaglist = splitsearch[1]
-    only_chars = splitsearch[2]
-    filenames = splitsearch[0]
-
-    # 2. Create an empty dictionary
-    d = {}
-
-    #flag '-c':  remove cases sensitivity
+    ## Parsing through the -c flag
     if "c" in flaglist:
         remove_case = False
-        letters_list = lowerletter_list + upperletter_list  # Making a letter dictionary for upper and lower case
-    else:
-        remove_case = True
-        letters_list = lowerletter_list  # Making a letter dictionary for the lower case alphabet
 
-    # 3. Add the frequencies for each file in the argument list to that dictionary
-    for file in filenames:
+    ## Changing z flag setting
+    if "z" in flaglist:
+        print_zeroes = True
+
+    ## Creating Dictionary
+    d ={}
+
+    ## Calling Add Frequencies to count ascii letter in files and return as dictionary
+    for file in readfiles:
         d = add_frequencies(d, file, remove_case)
 
-
-    #l flag dictionary filter
+    ## Parsing through -l flag
     if "l" in flaglist:
-        ldict = {}
-        for letter in d:
-            if "c" not in flaglist:  # -c is the case flag. This way we are only counting lower letters.
-                only_chars = only_chars.lower()
-                if letter in only_chars:
-                    ldict[letter] = d[letter]
-            else:
-                if letter in only_chars:
-                    ldict[letter] = d[letter]
-        d = ldict
+        l_d = {}
+        for key, value in sorted(d.items()):
+            if key in only_chars:
+               l_d[key] = value
+        d = l_d
 
-    #z flag. Add the corresponding library
-    if "z" in flaglist:
-        for letter in letters_list:
+    ## Parsing through -z flag
+    if print_zeroes == True:
+        for letter in upper_lower_chars:
+            letter = letter.lower()
             if letter not in d:
                 d[letter] = 0
 
-    # 4. Print out the elements of that dictionary in CSV format
-    csv = ""
-    for key, value in sorted(d.items()):
-        csv = csv + '"' + key + '"' + "," + str(value) + "\n"
-    return csv
+    # Parsing throuch -zc flag combo
+    if print_zeroes == True and "c" in flaglist:
+        for letter in upper_lower_chars:
+            if letter not in d:
+                d[letter] = 0
 
-# name = "text.txt -c"
-# newcsv = main(name)
-# print(newcsv)
+    return d
 
-#testing push from pycharm v 3:44
+
+def main():
+    """This main function allows the code to be run through the command line. It will also print out the dictionary
+    that is returned from search flags in csv format"""
+    args = sys.argv[1:]
+    d = searchflags(args)
+    print(dict_2_csv_format(d))
+
+## If the name is main. Run the main Function
+if __name__ == "__main__":
+    main()
+
