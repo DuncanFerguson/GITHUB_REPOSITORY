@@ -1,29 +1,26 @@
-import tkinter as tk
-class Passwordchecker(tk.Frame):
-   def __init__(self, parent):
-       tk.Frame.__init__(self, parent)
-       self.parent = parent
-       self.initialize_user_interface()
+import mysql.connector
 
-   def initialize_user_interface(self):
-       self.parent.geometry("200x200")
-       self.parent.title("Password checker")
-       self.entry=tk.Entry(self.parent)
-       self.entry.pack()
-       self.button=tk.Button(self.parent,text="Enter", command=self.PassCheck)
-       self.button.pack()
-       self.label=tk.Label(self.parent,text="Please a password")
-       self.label.pack()
+class DBTest():
+    def __init__(self):
+        self.__init__()
+        self.mydb = mysql.connector.connect(user='root',
+                                            password='64d^)4H6zsQ}',
+                                            host='127.0.0.1',
+                                            database='henry_books')
+        self.mycur = self.mydb.cursor()
 
-   def PassCheck(self):
-       password = self.entry.get()
-       if len(password)>=9 and len(password)<=12:
-          self.label.config(text="Password is correct")
-       else:
-          self.label.config(text="Password is incorrect")
+    def close(self):
+        self.mydb.commit()
+        self.mydb.close()
 
-if __name__ == '__main__':
+    def getbooks(self):
+        sql = "SELECT * FROM henry_authors"
+        self.mycur.execute(sql)
 
-   root = tk.Tk()
-   run = Passwordchecker(root)
-   root.mainloop()
+        for row in self.mycur:
+            print(row[1], " ,", row[2])
+
+
+test = DBTest()
+test.getbooks()
+test.close()
