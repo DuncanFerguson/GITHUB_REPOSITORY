@@ -5,10 +5,7 @@
 
 from tkinter import *
 import tkinter as tk
-import pandas as pd
 import mysql.connector
-from mysql.connector import errorcode
-
 
 class bookstore(tk.Frame):
     def __init__(self, parent):
@@ -16,32 +13,23 @@ class bookstore(tk.Frame):
         self.parent = parent
         self.initial_user_interface()
 
-        # self.check_button_1 = IntVar()
-        # self.check_button_1 = bookstore.search_cat(self)
-        # self.sb = bookstore.submit_button(self)
-
 
     def initial_user_interface(self):
         self.parent.title("Henry's Bookstore")
         self.parent.geometry("700x700")
-        self.label=tk.Label(self.parent, text="Type of Search")
-        self.cb= IntVar()
-        self.b1 = tk.Checkbutton(self.parent, text="Search By Author", variable=self.cb, onvalue=1, offvalue=0, command=self.isCheck).pack()
-        self.b2 = tk.Checkbutton(self.parent, text="Search by Category", variable=self.cb, onvalue=2, offvalue=0, command=self.isCheck).pack()
-        self.b3 = tk.Checkbutton(self.parent, text="Search By Publisher", variable=self.cb, onvalue=3, offvalue=0, command=self.isCheck).pack()
-        self.submit_button()
+        # TODO make label look better
+        self.label=tk.Label(self.parent, text="Type of Search").pack()
+        self.cb= StringVar()
+        self.b1 = tk.Checkbutton(self.parent, text="Author", variable=self.cb, onvalue='author', offvalue="").pack()
+        self.b2 = tk.Checkbutton(self.parent, text="Category", variable=self.cb, onvalue='category', offvalue="").pack()
+        self.b3 = tk.Checkbutton(self.parent, text="Publisher", variable=self.cb, onvalue='publisher', offvalue="").pack()
+        self.submit_button = tk.Button(self.parent, text="Submit", state=NORMAL, command=self.submitted, padx=20, pady=5).pack()
 
-    def submit_button(self):
-        Button(self.parent, text="Submit", state=NORMAL, padx=20, pady=5).pack()
 
-    def isCheck(self):
+    def submitted(self):
         # TODO have the button return the right value
-
-        choice = self.b1
-        if choice == 1:
-            print("Yes")
-        else:
-            print("no")
+        selection = self.cb.get()
+        print(selection)
         return
 
 
@@ -52,6 +40,7 @@ class DBTest():
                                             password='64d^)4H6zsQ}',
                                             host='127.0.0.1',
                                             database='henry_books')
+        self.table = table
         self.mycur = self.mydb.cursor()
 
     def close(self):
@@ -70,6 +59,7 @@ if __name__ == '__main__':
    root = tk.Tk()
    run = bookstore(root)
    root.mainloop()
+   test = DBTest()
    test.getbooks()
    test.close()
 
