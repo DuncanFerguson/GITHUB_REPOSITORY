@@ -23,28 +23,26 @@ class bookstore(tk.Frame):
 
     def initial_user_interface(self):
         self.parent.title("Henry's Bookstore")
-        self.parent.geometry("1000x1000")
+        self.parent.geometry("700x700")
         self.label=tk.Label(self.parent, text="Type of Search")
-        self.b1 = tk.Checkbutton(self.root, text="Search By Author", variable=self.check_button_1, onvalue=1, offvalue=0, command=self.isCheck).pack()
-        self.b2 = tk.Checkbutton(self.root, text="Search by Category", variable=self.check_button_1, onvalue=2, offvalue=0, command=self.isCheck).pack()
-        self.b3 = tk.Checkbutton(self.root, text="Search By Publisher", variable=self.check_button_1, onvalue=3, offvalue=0, command=self.isCheck).pack()
+        self.cb= IntVar()
+        self.b1 = tk.Checkbutton(self.parent, text="Search By Author", variable=self.cb, onvalue=1, offvalue=0, command=self.isCheck).pack()
+        self.b2 = tk.Checkbutton(self.parent, text="Search by Category", variable=self.cb, onvalue=2, offvalue=0, command=self.isCheck).pack()
+        self.b3 = tk.Checkbutton(self.parent, text="Search By Publisher", variable=self.cb, onvalue=3, offvalue=0, command=self.isCheck).pack()
+        self.submit_button()
 
-    # def search_cat(self):
-    #     """Searching by Author, Category and Publisher"""
-    #
-    #     return
-    #
-    # def submit_button(self):
-    #     Button(self.parent, text="Submit", state=NORMAL, padx=20, pady=5).pack()
-    #
-    #     # TODO: make this so that it returns the query
-    #
-    # def isCheck(self):
-    #     if self.parent.get == 1:
-    #         Label(self.root, text=f'Checkbutton is checked:').pack()
-    #     else:
-    #         Label(self.root, text=f'Checkbutton is checked:').pack()
-    #     return
+    def submit_button(self):
+        Button(self.parent, text="Submit", state=NORMAL, padx=20, pady=5).pack()
+
+    def isCheck(self):
+        # TODO have the button return the right value
+
+        choice = self.b1
+        if choice == 1:
+            print("Yes")
+        else:
+            print("no")
+        return
 
 
 
