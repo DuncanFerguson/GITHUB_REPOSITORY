@@ -13,10 +13,34 @@ def mergeSort(L):
     L.sort()
     return L
 
-def insertionSort(L):
+def insertionSort(array):
     # print("insertion Sort" , L)
-    x = 1123412349867*23452345234523452345234523
-    return L
+    for i in range(1, len(array)):
+        # This is the element we want to position in its
+        # correct place
+        key_item = array[i]
+
+        # Initialize the variable that will be used to
+        # find the correct position of the element referenced
+        # by `key_item`
+        j = i - 1
+
+        # Run through the list of items (the left
+        # portion of the array) and find the correct position
+        # of the element referenced by `key_item`. Do this only
+        # if `key_item` is smaller than its adjacent values.
+        while j >= 0 and array[j] > key_item:
+            # Shift the value one position to the left
+            # and reposition j to point to the next element
+            # (from right to left)
+            array[j + 1] = array[j]
+            j -= 1
+
+        # When you finish shifting the elements, you can position
+        # `key_item` in its correct location
+        array[j + 1] = key_item
+
+    return array
 
 
 def bubbleSort(L):
@@ -42,7 +66,7 @@ def bubbleSort(L):
 
 # Setting up increments
 start = 100
-stop = 5000000
+stop = 5000
 increment = 100
 
 # Columns Result table
@@ -51,29 +75,32 @@ results = []
 # Setting up results table
 for n in range(start,stop+1,increment):
     A = [i for i in range(n)]
-    random.shuffle(A)
+
 
     # Merge Sort
+    random.shuffle(A)
     t1 = time()
     m_Sort = mergeSort(A)
     t2 = time()
     mtime = (t2-t1)*1000
 
     # insertion Sort
+    random.shuffle(A)
     t3 = time()
     m_Sort = insertionSort(A)
     t4 = time()
     itime = (t4-t3)*1000
 
     # Bubble Sort
+    random.shuffle(A)
     t5 = time()
     m_Sort = bubbleSort(A)
     t6 = time()
     btime = (t6-t5)*1000
 
-    results.append([n,round(mtime,2), round(itime,2), round(btime,2)])
+    results.append([n,round(mtime,1), round(itime,1), round(btime,1)])
 
-cols = ['N','Merge','Insert','Bubble']  # Setting Up columns for data frame
-panda = pd.DataFrame(results, columns=cols)  # Changing the List into a dataframe
+# Converting results to a dataframe and printing the results
+panda = pd.DataFrame(results, columns=['N','Merge','Insert','Bubble'])
 print(panda.to_string(index=False))
 
