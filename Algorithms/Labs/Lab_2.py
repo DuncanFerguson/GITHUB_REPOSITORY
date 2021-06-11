@@ -8,40 +8,46 @@ from time import time
 import random
 import pandas as pd
 
+def merge(A,B):
+    out = []
+    I,J = 0,0
+    while I < len(A) and J < len(B):
+        if A[I] < B[J]:
+            out.append(A[I])
+            I += 1
+        else:
+            out.append(B[J])
+            J += 1
+    while I < len(A):
+        out.append(A[I])
+        I += 1
+    while J < len(B):
+        out.append(B[J])
+        J += 1
+    return out
+
+
 def mergeSort(L):
-    # print("Merge Sort", L)
-    L.sort()
+    """ Merge Sort Taken from class notes"""
+    if len(L) < 2:
+        return L[:]
+    else:
+        mid = len(L)//2
+        Left = mergeSort(L[:mid])
+        Right = mergeSort(L[mid:])
+        return merge(Left, Right)
+
+
+def insertionSort(L):
+    """Code Taken From Class Slides"""
+    for i in range(len(L)):
+        key = L[i]
+        j = i-1
+        while j >= 0 and L[j] > key:
+            L[j+1] = L[j]
+            j = j-1
+        L[j+1] = key
     return L
-
-def insertionSort(array):
-    # print("insertion Sort" , L)
-    for i in range(1, len(array)):
-        # This is the element we want to position in its
-        # correct place
-        key_item = array[i]
-
-        # Initialize the variable that will be used to
-        # find the correct position of the element referenced
-        # by `key_item`
-        j = i - 1
-
-        # Run through the list of items (the left
-        # portion of the array) and find the correct position
-        # of the element referenced by `key_item`. Do this only
-        # if `key_item` is smaller than its adjacent values.
-        while j >= 0 and array[j] > key_item:
-            # Shift the value one position to the left
-            # and reposition j to point to the next element
-            # (from right to left)
-            array[j + 1] = array[j]
-            j -= 1
-
-        # When you finish shifting the elements, you can position
-        # `key_item` in its correct location
-        array[j + 1] = key_item
-
-    return array
-
 
 def bubbleSort(L):
     """Will have to code Bubble Sort"""
@@ -75,7 +81,6 @@ results = []
 # Setting up results table
 for n in range(start,stop+1,increment):
     A = [i for i in range(n)]
-
 
     # Merge Sort
     random.shuffle(A)
