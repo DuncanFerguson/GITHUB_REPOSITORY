@@ -11,6 +11,7 @@
 periodic table. Include columns for name, symbol, and atomic number. Read that
 into a pandas DataFrame. Inside the program, add a ninth and 10th element, and
 then add a column with the atomic weights rounded to the nearest integer.
+#DONE
 
 • Assignment 1, Part 2: Make a list of strings for nine Greek letters, for example
 ‘alpha’. Make that list such that the strings are not in alphabetic order. Make two
@@ -37,6 +38,7 @@ import pandas as pd
 import random
 import numpy as np
 
+# Part 1
 # Reading in CSV file for periodic table
 df = pd.read_csv("Periodic_Table.csv")
 
@@ -52,7 +54,7 @@ df['Atomic Weights'] = Atomic_Weights
 df['Atomic Weights'] = df['Atomic Weights'].round(decimals=0).astype(int)
 print(df)
 
-
+# Part 2
  # Make another array holding
 # the cosine of that ‘angle’ array. Construct a dictionary from all of the above. Form
 # a DataFrame from that dictionary, and print it out. Sort the DataFrame ascending
@@ -81,8 +83,6 @@ print(angle)
 # Make another array holding the cosine of that ‘angle’ array.
 cosine_angle = np.cos(angle)
 print(cosine_angle)
-
-
 
 
 # Construct a dictionary from all of the above.
