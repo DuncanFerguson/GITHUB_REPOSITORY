@@ -1,0 +1,1005 @@
+Id,Name,BillingStreet_Raw,BillingStreet,BillingCity,BillingStateCode,BillingPostalCode,BillingCountry,Landman_ID,Account_Stage
+1,AAA,#2 Hanover Drive,#2 Hanover Drive,Midland,TX,79705,United States,1,Assigned
+4,BBB,10 Cherry Vale Drive,10 Cherry Vale Drive,Englewood,CO,80113,United States,2,Assigned
+5,Douglas Brian Malcom and Karena Sue Malcom,10 Dos Rios,10 Dos Rios,Greeley,CO,80634,United States,3,Assigned
+6,The Kenneth Kendal King Foundation,100 Fillmore St Ste 500,100 Fillmore St Ste 500,Denver,CO,80206,United States,5,Assigned
+7,Thomas D Farmer and Jill C Farmer,100 North Norma Avenue,100 North Norma Avenue,Milliken,CO,80203,United States,4,Assigned
+8,Estate of W J Peters,100 O Street,100 O Street,Greeley,CO,80631,United States,1,Assigned
+9,BWAB Incorporated,100 Saint Paul St Ste 305,100 Saint Paul St Ste 305,Denver,CO,80206,United States,4,Assigned
+10,Denver Mineral and Royalty Company LLC,"100 St. Paul Street, Suite 400","100 St. Paul Street, Suite 400",Denver,CO,80206,United States,4,Assigned
+11,Najla Zahia Ferris,"1001 East 62nd Avenue, # 507","1001 East 62nd Avenue, # 507",Denver,CO,80216,United States,7,Assigned
+12,Clinton E Fiscus,10014 HWY 6,10014 HWY 6,Merino,CO,80741,United States,2,Assigned
+13,Pevita Properties LLC,1001-A E. Harmony Rd. #213,1001-A E. Harmony Rd. #213,Fort Collins,CO,80525,United States,1,Assigned
+14,David L Brecheisen and Dina Brecheisen Living Trust,"1001A E. Harmony Road, #241","1001A E. Harmony Road, #241",Fort Collins,CO,80525,United States,7,Assigned
+15,Jacqueline M Prebish,10020 Trainstation Cir.,10020 Trainstation Cir.,Lone Tree,CO,80124,United States,3,Assigned
+16,OGG & S LLC,1004 Richmond Rd.,1004 Richmond Rd.,Edmund,OK,73034,United States,7,Assigned
+17,Judith Christine Swayne,1005 Eagle Bay Dr.,1005 Eagle Bay Dr.,Ossining,NY,10562,United States,5,Assigned
+18,MKL Gas and Oil LLC,1005 Rilma Lane,1005 Rilma Lane,Los Altos,CA,94022,United States,7,Assigned
+19,James D Barrington and C Roberta Barrington,10056 CR 76.5,10056 CR 76.5,Windsor,CO,80550,United States,3,Assigned
+20,Edgar J Hoff,1009 13th Avenue,1009 13th Avenue,Greeley,CO,80631,United States,1,Assigned
+21,Donald A Shine,1009 31st Street Lane,1009 31st Street Lane,Evans,CO,80620,United States,3,Assigned
+22,J!TSM LLC,1009 Medicine Man Court,1009 Medicine Man Court,Windsor,CO,80550,United States,7,Assigned
+23,Dora L Keys,10090 Sky Lane,10090 Sky Lane,Beaumont,CA,92223,United States,4,Assigned
+24,Map2009 Ok,"101 N. Robinson, Suite 1000","101 N. Robinson, Suite 1000",Oklahoma City,OK,73102,United States,4,Assigned
+25,Larry Enderson,101 Turk Ave.,101 Turk Ave.,Cheyenne,WY,82007,United States,5,Assigned
+26,Sharon L Rock,1011 S. Valentia St. #138,1011 S. Valentia St. #138,Denver,CO,80247,United States,5,Assigned
+27,Estate of Robert W Thomas,1012 Main Street,1012 Main Street,Fort Morgan,CO,80701,United States,2,Assigned
+28,John J Standley,1013 4th Street,1013 4th Street,Coronado,CA,92118,United States,7,Assigned
+29,FirstBank of Northern Colorado,1013 East Harmony Road,1013 East Harmony Road,Fort Collins,CO,80525,United States,6,Assigned
+30,Wade A Loustalet,10131 Brady Place,10131 Brady Place,Highlands Ranch,CO,80130,United States,4,Assigned
+31,James L Sirios Residuary Trust,10139 S. Piedmont Ct.,10139 S. Piedmont Ct.,Highlands Ranch,CO,80126,United States,3,Assigned
+32,Breanna Hixon,10150 E Virginia Ave Unit 10-307,10150 E Virginia Ave Unit 10-307,Denver,CO,80247,United States,7,Assigned
+33,Lisa Jo Westerhausen-Shaffer,1017 Chalks Road,1017 Chalks Road,Wake Forest,NC,27587,United States,3,Assigned
+34,Divid Bret Nicholl and Amy Louise Nicholl,1017 Indian Trail Drive,1017 Indian Trail Drive,Windsor,CO,80550,United States,5,Assigned
+35,Lafarge West Inc,10170 CHURCH RANCH WAY UNIT 201,10170 CHURCH RANCH WAY UNIT 201,BROOMFIELD,CO,80021,United States,5,Assigned
+36,Joan H Gruenler,1018 Laurel Valley Drive,1018 Laurel Valley Drive,New Berm,NC,28562,United States,6,Assigned
+37,K & R Livestock Commission Co,10185 E. Lake Drive,10185 E. Lake Drive,Englewood,CO,80111,United States,2,Assigned
+38,Greeley Land Fund LLC,"102 South Tejon, suite 700","102 South Tejon, suite 700",Colorado Springs,CO,80903,United States,1,Assigned
+39,Weld County School District No RE-4,1020 W. Main St.,1020 W. Main St.,Windsor,CO,80550,United States,2,Assigned
+40,Heirs of Lelia R Green,1021 30th Ave. Court,1021 30th Ave. Court,Greeley,CO,80634,United States,2,Assigned
+41,Francisco Parra Payan and Alma B Parra-Rodarte,1021 East 24th Street Lane,1021 East 24th Street Lane,Greeley,CO,80631,United States,1,Assigned
+42,Carol I Cozart,10210 W Center Ave,10210 W Center Ave,Lakewood,CO,80226,United States,6,Assigned
+43,CF Investments LLC,10214 S. Knoll Ct.,10214 S. Knoll Ct.,Littleton,CO,80130,United States,6,Assigned
+44,Brett Reichert,10215 Collett Way,10215 Collett Way,San Diego,CA,92124,United States,7,Assigned
+45,Weld County School District No 6,1025 9th Avenue,1025 9th Avenue,Greeley,CO,80631,United States,2,Assigned
+46,Mary Gonzalez,1025 C St.,1025 C St.,Greeley,CO,80631,United States,4,Assigned
+47,Thomas Edwin Kadlub,1025 Highland Road,1025 Highland Road,Cleburne,TX,76033,United States,4,Assigned
+48,Doris A Thurston,10251 SW Riverbend Road,10251 SW Riverbend Road,McMinnville,OR,97128,United States,3,Assigned
+49,Gerald Werner,10254 S. 700 W,10254 S. 700 W,Union Mills,IN,46382,United States,7,Assigned
+50,Kathleen Dillard,10255 E. Via Linda,10255 E. Via Linda,Scottsdale,AZ,85258,United States,3,Assigned
+51,Young Jin Kwon and Lily Kwon,10293 E Iliff Ave.,10293 E Iliff Ave.,Aurora,CO,80247,United States,2,Assigned
+52,CNL Funding 2000-A LP,"103 Foulk Road, Suite 202","103 Foulk Road, Suite 202",Wilmington,DE,19803,United States,3,Assigned
+53,Richard A Landis,103 Meng Road Route 2,103 Meng Road Route 2,Schwenksville,PA,19473,United States,1,Assigned
+54,Edna L Hoover,103 North Hampden Ct.,103 North Hampden Ct.,Greenwood,SC,29649,United States,2,Assigned
+55,Rosemary V Polimeni,103 Rivermeadow Drive,103 Rivermeadow Drive,Rochester,NY,14623,United States,1,Assigned
+56,Bradley D Skaare and Carrie E Skaare,1030 Indian Trail Drive,1030 Indian Trail Drive,Windsor,CO,80550,United States,3,Assigned
+57,Lillie J Scarborough,1032 South Eugene,1032 South Eugene,Grand Island,NE,68801,United States,7,Assigned
+58,Rodella Minerals LLC,10320 N. Chatfield Drive,10320 N. Chatfield Drive,Littleton,CO,80125,United States,2,Assigned
+59,Al Johnson,10343 Hwy. 22 South,10343 Hwy. 22 South,Walhalla,ND,58282,United States,4,Assigned
+60,William Ward Giltner and Cynthia Louise Giltner,1036 Country Club Estates Dr,1036 Country Club Estates Dr,Castle Rock,CO,80108,United States,4,Assigned
+61,FARISH BURNS STEVENS,10365 WCR 7,10365 WCR 7,Longmont,CO,80504,United States,1,Assigned
+62,Craig Alan Kadlub,10387 Burensburg Ave.,10387 Burensburg Ave.,Las Vegas,NV,89135,United States,2,Assigned
+63,Douglas Kurt Parce,10391 S. Deer Cr. Road,10391 S. Deer Cr. Road,Littleton,CO,80127,United States,3,Assigned
+64,Gregory K Larson and Vicki L Larson,10447 CR 70,10447 CR 70,Windsor,CO,80550,United States,3,Assigned
+65,Alf Equinox Todd Creek Village North LLC,10450 E. 159th Ct.,10450 E. 159th Ct.,Brighton,CO,80602,United States,2,Assigned
+66,Jane Gwynne Groves,10488 Starhill Dr.,10488 Starhill Dr.,Saint Louis,MO,63128,United States,7,Assigned
+67,Central Weld County Water District,105 18th Street,105 18th Street,Greeley,CO,80631,United States,5,Assigned
+68,John M Wilson,105 Dorrington Blvd,105 Dorrington Blvd,Metairie,LA,70005,United States,4,Assigned
+69,Karen R Woods,1050 48 Av,1050 48 Av,Greeley,CO,80634,United States,3,Assigned
+70,John E Adams,1050 N. First Ave.,1050 N. First Ave.,Greeley,CO,80631,United States,4,Assigned
+71,Phillip E Camenisch,10504 WCR 7,10504 WCR 7,Longmont,CO,80601,United States,7,Assigned
+72,Estate of Albert W Gebauer,"1051 6th St., Apt. 127","1051 6th St., Apt. 127",Greeley,CO,80631,United States,3,Assigned
+73,Colorado Land Services LLC,1051-D West Highway 34,1051-D West Highway 34,Loveland,CO,80537,United States,1,Assigned
+74,Thomas S Templeton,10528 Havenwood Pl.,10528 Havenwood Pl.,Whittier,CA,90606,United States,6,Assigned
+75,Carlee McKay,10537 Cameron Canyon Road,10537 Cameron Canyon Road,Mojave,CA,93501,United States,5,Assigned
+76,Koch Family Joint Trust,10565 N. Birch Ave.,10565 N. Birch Ave.,Hastings,NE,68901,United States,4,Assigned
+77,Country Estates LLC,"10580 N. McCarran Blvd. #115, PMB 404","10580 N. McCarran Blvd. #115, PMB 404",Reno,NV,89513,United States,6,Assigned
+78,Shauna Grace,10590 Audrey Street,10590 Audrey Street,Firestone,CO,80504,United States,7,Assigned
+79,Veronica L Melton and Scott A Melton,10609 County Rd 74,10609 County Rd 74,Severance,CO,80550,United States,2,Assigned
+80,David A Lee and Michelle R Lee,10621 County Rd 74,10621 County Rd 74,Severance,CO,80550,United States,3,Assigned
+81,Loup Reservoir Co,10624 State Highway 392,10624 State Highway 392,Windsor,CO,80550,United States,7,Assigned
+82,Charles J Manweiler and Linda Hess,10625 CR 72,10625 CR 72,Windsor,CO,80550,United States,6,Assigned
+83,Diane Jean Nelson,10707 River Oaks Dr.,10707 River Oaks Dr.,Frisco,TX,75035,United States,1,Assigned
+84,Jackes LLC,1078 S. Coffman St.,1078 S. Coffman St.,Longmont,CO,80501,United States,4,Assigned
+85,Phyllis E Jenkins,1078 Virginia Road,1078 Virginia Road,Cheyenne,WY,82009,United States,4,Assigned
+86,Mike's Oil Well LLC,108 Martinek Lane,108 Martinek Lane,Palmer,TX,75152,United States,1,Assigned
+87,David Lee Johnson and Peggy Johnson,1085 CR 74,1085 CR 74,Severance,CO,80550,United States,6,Assigned
+88,Olivia Aymami,10895 West Powers Avenue,10895 West Powers Avenue,Littleton,CO,80127,United States,1,Assigned
+89,Steve E Hurt and Marie A Hurt,109 6th Avenue SE,109 6th Avenue SE,Lemars,IA,51031,United States,6,Assigned
+90,Tim A French Living Trust,109 Rattler Road,109 Rattler Road,Powell,WY,82435,United States,1,Assigned
+91,Dann Brown,109 Wesst Sunset View Circle,109 Wesst Sunset View Circle,Centerville,UT,84014,United States,5,Assigned
+92,Helen H Wells,10930 E Berry Pl.,10930 E Berry Pl.,Englewood,CO,80111,United States,5,Assigned
+93,Jay A Gorham Jr,1095 Kiva Circle,1095 Kiva Circle,Windsor,CO,80550,United States,1,Assigned
+94,Virginia Lee Mantle,1099 18th St.,1099 18th St.,Denver,CO,80202,United States,6,Assigned
+95,Quentin Oil Associates,"1099 18th St., Suite 2600","1099 18th St., Suite 2600",Denver,CO,80202,United States,6,Assigned
+96,John R Launer and Margaret W Launer,10998 CR 76.5,10998 CR 76.5,Windsor,CO,80550,United States,5,Assigned
+97,H3 LLC,"11 E. Marigold Dr.,","11 E. Marigold Dr.,",Denver,CO,80221,United States,5,Assigned
+98,Joell K Matthews,"110 52nd Ave.,","110 52nd Ave.,",Greeley,CO,80634,United States,2,Assigned
+99,Margaret Amy Royer,110 Splendid View,110 Splendid View,Kalispell,MT,59901,United States,6,Assigned
+100,MPT Trust,110 Thistle Trail Road,110 Thistle Trail Road,Idaho Springs,CO,80452,United States,1,Assigned
+101,James E Beetham,110 Washington Street,110 Washington Street,Golden,CO,80403,United States,2,Assigned
+102,James Joseph Brnak,110 West Morgan,110 West Morgan,Keenesburg,CO,80643,United States,6,Assigned
+103,Greeley Urban Renewal Authority,"1100 10 St., Ste. 201","1100 10 St., Ste. 201",Greeley,CO,80631,United States,1,Assigned
+104,City of Greeley A Municipal Corporation,"1100 10th Street, Suite 401","1100 10th Street, Suite 401",Greeley,CO,80631,United States,2,Assigned
+105,The Milliken Sanitation District,"1101 Broad St.,","1101 Broad St.,",Milliken,CO,80543,United States,5,Assigned
+106,Joseph Ivan Genua,1102 74th Avenue,1102 74th Avenue,Greeley,CO,80634,United States,6,Assigned
+107,Russell L Rosales Jr,1102 Village Dr.,1102 Village Dr.,Fort Lupton,CO,80621,United States,5,Assigned
+108,Gayle Ann Latham,1102-74th Avenue,1102-74th Avenue,Greeley,CO,80634,United States,5,Assigned
+109,William Droegemueller,1103 Burning Tree Drive,1103 Burning Tree Drive,Chapel Hill,NC,27514,United States,5,Assigned
+110,Matthew S Powell,1105 Stone Mountain Dr.,1105 Stone Mountain Dr.,Windsor,CO,80550,United States,4,Assigned
+111,George Benner's Family LLC,1106 50th Ave.,1106 50th Ave.,Greeley,CO,80634,United States,1,Assigned
+112,Heirs of Dorothy J Tegtman,11091 Thunderbird,11091 Thunderbird,Longmont,CO,80504,United States,6,Assigned
+113,Weber Family Living Trust,"111 Porter Lane,","111 Porter Lane,",Port Townsend,WA,98368,United States,1,Assigned
+114,SUZANNE B KOCH,1111 Civic Street 333,1111 Civic Street 333,Walnut Creek,CA,94596,United States,2,Assigned
+115,Seldin Mineral Trust,"1111 Race Street, Apt. 9-B","1111 Race Street, Apt. 9-B",Denver,CO,80206,United States,3,Assigned
+116,Cozzens Living Trust,"1112 Oakridge Dr. #104, Box 208","1112 Oakridge Dr. #104, Box 208",Fort Collins,CO,80525,United States,7,Assigned
+117,Dc Heritage Trust,1112 Oakridge Drive # 104/208,1112 Oakridge Drive # 104/208,Fort Collins,CO,80525,United States,3,Assigned
+118,Debbie A Barth,1113 Avenue K,1113 Avenue K,Boulder City,NV,89005,United States,4,Assigned
+119,Flexer Family Trust,1114 Redwood Blvd Apt C,1114 Redwood Blvd Apt C,Hudson,OH,44236,United States,4,Assigned
+120,Camalu LLC,11146 WCR 76,11146 WCR 76,Windsor,CO,80550,United States,1,Assigned
+121,Hoyman Grandchildren's Trust,1115 11th Avenue,1115 11th Avenue,Greeley,CO,80631,United States,5,Assigned
+122,William D Anderson,1118 Sherman Mountain Loop,1118 Sherman Mountain Loop,Cheyenne,WY,82009,United States,2,Assigned
+123,Colleen Stewart,112 N Walnut Street,112 N Walnut Street,LaSalle,CO,80645,United States,4,Assigned
+124,Phillip R McCarthy,112 Roch Bridge Court,112 Roch Bridge Court,Windsor,CO,80550,United States,3,Assigned
+125,Marilu King Peterson,1120 17th St.,1120 17th St.,Greeley,CO,80631,United States,4,Assigned
+126,Whitefish Partners LLC,"1120 Lincoln Street, Suite 1511","1120 Lincoln Street, Suite 1511",Denver,CO,80203,United States,1,Assigned
+127,Oscar T Carlson Revocable Trust,1120 Vermillion Road,1120 Vermillion Road,Longmont,CO,80504,United States,4,Assigned
+128,Angela Higgins and Mathew Paul Rosell,11200 WCR 49,11200 WCR 49,Hudson,CO,80642,United States,7,Assigned
+129,Tod Moore,11208 County Road 49,11208 County Road 49,Hudson,CO,80642,United States,1,Assigned
+130,Randal G Ross and Melissa M Rogers,11210 COUNTY ROAD 17,11210 COUNTY ROAD 17,LONGMONT,CO,80504,United States,2,Assigned
+131,Darrell E Rice,11220 W. Exposition Ave.,11220 W. Exposition Ave.,Lakewood,CO,80226,United States,2,Assigned
+132,Andrew L Peabody,1124 Lower Woodville Rd,1124 Lower Woodville Rd,Natchez,MS,39120,United States,6,Assigned
+133,John Smith and Dee Smith,11240 County Road 49,11240 County Road 49,Hudson,CO,80642,United States,5,Assigned
+134,Joyce Temby,1125 Sunnyhills road,1125 Sunnyhills road,Oakland,CA,94610,United States,3,Assigned
+135,Anant N Mauskar,11260 Greenbay Street,11260 Greenbay Street,Houston,TX,77024,United States,1,Assigned
+136,Patricia Ann Brunner,11269 STATE HIGHWAY 60,11269 STATE HIGHWAY 60,MILLIKEN,CO,80543,United States,6,Assigned
+137,Kevin S Russell and Diane l Russell,11270 County Road 49,11270 County Road 49,Hudson,CO,80642,United States,4,Assigned
+138,Colton D  Boxberger and Sheryl D Boxberger,11274 County Road 49,11274 County Road 49,Hudson,CO,80642,United States,5,Assigned
+139,Richard Bruce Biggs,11275 N. Via Rancho Narajo,11275 N. Via Rancho Narajo,Tucson,AZ,85737,United States,4,Assigned
+140,Barbara Austin,113 35th Street SW,113 35th Street SW,Loveland,CO,80537,United States,5,Assigned
+141,Debra Kirkdorfer,113 Lakeview Dr,113 Lakeview Dr,North Port,FL,34287,United States,2,Assigned
+142,Bensler Familly LLLP,1130 38th Ave. Suite B.,1130 38th Ave. Suite B.,Greeley,CO,80634,United States,6,Assigned
+143,Donald E Schlagel,1131 Lindenmeier Rd.,1131 Lindenmeier Rd.,Fort Collins,CO,80524,United States,2,Assigned
+144,Nelson Family Joint Revocable Trust,11315 Geronimo Rd.,11315 Geronimo Rd.,Cheyenne,WY,82009,United States,7,Assigned
+145,James P Bornhoft and Annette Bornhoft,11319 Weld County Road 72,11319 Weld County Road 72,Eaton,CO,80615,United States,6,Assigned
+146,Estate of George C Sweeney,1132 E. Gilbert Ave,1132 E. Gilbert Ave,Coeur D' Alene,ID,83815,United States,5,Assigned
+147,Evelyn K Stampley,1133 Glenmore Ave,1133 Glenmore Ave,Baton Rouge,LA,70806,United States,4,Assigned
+148,Riley Family Trust,1135 Huckleberry Lane # 35,1135 Huckleberry Lane # 35,Eaton,CO,80615,United States,1,Assigned
+149,Dvorak Associates LLC,11367 North 131st Place,11367 North 131st Place,Scottsdale,AZ,80634,United States,7,Assigned
+150,Weld County Bi Products Inc,1138 N 11 Av,1138 N 11 Av,Greeley,CO,80631,United States,7,Assigned
+151,Joanne Koehler,11384 Xavier Dr Unit 101,11384 Xavier Dr Unit 101,Westminster,CO,80031,United States,5,Assigned
+152,Theresa M Sartz,114 38th Ave,114 38th Ave,Greeley,CO,80634,United States,7,Assigned
+153,Greeley Holdings I LLC,1140 E. 8th Street,1140 E. 8th Street,Greeley,CO,80631,United States,6,Assigned
+154,Linda Sue French,1140 San Sophia Dr,1140 San Sophia Dr,Montrose,CO,81403,United States,2,Assigned
+155,Kenneth D Ibsen and Judith Ibsen,"11400 W, 25th Pl.","11400 W, 25th Pl.",Denver,CO,80215,United States,2,Assigned
+156,David Lind,11401 WCR 74,11401 WCR 74,Eaton,CO,80615,United States,5,Assigned
+157,Estate of Willie Lind,11409 3rd St SW,11409 3rd St SW,Killdeer,ND,58640,United States,2,Assigned
+158,Alan W Lind,11409 3rd Street SW,11409 3rd Street SW,Killdeer,ND,58640,United States,5,Assigned
+159,Shirley J Unrein,1142 Westview Drive,1142 Westview Drive,Sterling,CO,80751,United States,7,Assigned
+160,Jacquelyn M Speake,11420 Road 20,11420 Road 20,Cortez,CO,81321,United States,6,Assigned
+161,Bryan L Bond and Brandie K Bond,1150 'O' Street,1150 'O' Street,Greeley,CO,80631,United States,2,Assigned
+162,Alvin Dechant Jr,11521 CR 49,11521 CR 49,Hudson,CO,80642,United States,1,Assigned
+163,David Alan Dechant,11521 WCR 29,11521 WCR 29,Hudson,CO,80642,United States,6,Assigned
+164,Don McEndaffer,1155 S. Saint Vrain Ave. #U,1155 S. Saint Vrain Ave. #U,Estes Park,CO,80517,United States,2,Assigned
+165,Rae Lynn Kelly,11552 Albion Ct,11552 Albion Ct,Thornton,CO,80233,United States,3,Assigned
+166,Alexandra Woodmansee,11564 Killdeer Ave,11564 Killdeer Ave,Glencoe,MN,55336,United States,5,Assigned
+167,Alexandra Eaton Woodmansee,11564 Killdeer Ave.,11564 Killdeer Ave.,Glencoe,MN,55336,United States,5,Assigned
+168,Carol E Nott,11595 Holly St.,11595 Holly St.,Northglenn,CO,80233,United States,2,Assigned
+169,Constance K Bobka,"1161 E. Ave No., 1637","1161 E. Ave No., 1637",Broomfield,CO,80020,United States,5,Assigned
+170,Caria Felte Robb,"11613 Kensinton Ct.,","11613 Kensinton Ct.,",Boca Raton,FL,33428,United States,4,Assigned
+171,Harold Homyak,11619 N. 31st Lane,11619 N. 31st Lane,Phoenix,AZ,85029,United States,7,Assigned
+172,825 31st Ave LLC,11673 Decatur Dr.,11673 Decatur Dr.,Westminster,CO,80234,United States,6,Assigned
+173,Clifton C Trostel and Pamela A Trostel,11678 Montgomery Cir.,11678 Montgomery Cir.,Longmont,CO,80504,United States,4,Assigned
+174,Leanna A Claunch,117 W. Cielo Ave.,117 W. Cielo Ave.,Ridgecrest,CA,93555,United States,2,Assigned
+175,Houa Thoa Mee Lo Thai Yang and Yia Thao,11742 Chambers Drive,11742 Chambers Drive,Commerce City,CO,80022,United States,1,Assigned
+176,US Minerals II LLC,"11757 W. Ken Caryl Avenue, Suite F-506","11757 W. Ken Caryl Avenue, Suite F-506",Littleton,CO,80127,United States,4,Assigned
+177,Frances Royall Trust,1176 Lucky John Drive,1176 Lucky John Drive,Park City,UT,84060,United States,1,Assigned
+178,Thomas J Betz,11760 County Road 49,11760 County Road 49,Hudson,CO,80642,United States,6,Assigned
+179,Harold W Dutton and Colette T Dutton,11790 County Road 49,11790 County Road 49,Hudson,CO,80642,United States,6,Assigned
+180,Palmer Family Living Trust,1181 Hubbard Pl.,1181 Hubbard Pl.,Saint George,UT,84790,United States,1,Assigned
+181,Wayne D Huppert and Ann C Huppert,11830 CR 49,11830 CR 49,Hudson,CO,80642,United States,7,Assigned
+182,Lorraine Cheney,1184 N Main St Apt 15,1184 N Main St Apt 15,Fort Bragg,CA,95437,United States,5,Assigned
+183,Jeffery Jarod Reck,1185 Grayhawk Road,1185 Grayhawk Road,Eaton,CO,80615,United States,4,Assigned
+184,Janice K Lind,"11856 Rocio St., #200","11856 Rocio St., #200",Fort Myers,FL,33912,United States,1,Assigned
+185,Estate of Glen Droegemueller,119 14th Ave,119 14th Ave,Greeley,CO,80631,United States,2,Assigned
+186,William L Fiscus,119 Logan Street,119 Logan Street,Peetz,CO,80747,United States,5,Assigned
+187,David Andolsek,119 N 49TH AVENUE PL,119 N 49TH AVENUE PL,GREELEY,CO,80634,United States,5,Assigned
+188,Williams Farm Partnership LLLP,1190 Grayhawk Rd,1190 Grayhawk Rd,Eaton,CO,80615,United States,4,Assigned
+189,S Sauer LLC,11910 Allison Street,11910 Allison Street,Broomfield,CO,80020,United States,3,Assigned
+190,Town of Mead,11995 El Camino Real # 101,11995 El Camino Real # 101,San Diego,CA,92130,United States,6,Assigned
+191,Rex William Monahan and Sherrel Lee Monahan,12 Dos Rios,12 Dos Rios,Greeley,CO,80634,United States,2,Assigned
+192,Jennifer Haefeli,12 Pembroke Street,12 Pembroke Street,Somerville,MA,2145,United States,3,Assigned
+193,San Diego Rescue Mission,120 Elm Street,120 Elm Street,San Diego,CA,92101,United States,7,Assigned
+194,James C McCreery,120 Maple Ave.,120 Maple Ave.,Eaton,CO,80615,United States,4,Assigned
+195,Thomas A Bruch and Dorothy K Bruch,120 N. 48th Avenue,120 N. 48th Avenue,Greeley,CO,80634,United States,3,Assigned
+196,First Baptist Church of Windsor CO,1200 Cornerstone Dr.,1200 Cornerstone Dr.,Windsor,CO,80550,United States,7,Assigned
+197,Robin Sue Nelson,1200 S. Kimbark St.,1200 S. Kimbark St.,Longmont,CO,80501,United States,4,Assigned
+198,Rowan and Nancy Mcquarrie Revocable Living Trust,1201 Landons Way,1201 Landons Way,Missoula,MT,59803,United States,2,Assigned
+199,Irene A Emery,1201 Langhorne Road,1201 Langhorne Road,Lynchburg,VA,24503,United States,7,Assigned
+200,Thomas M Holton,12032 Hwy 52,12032 Hwy 52,Fort Lupton,CO,80621,United States,4,Assigned
+201,Order of the Holy Family,1204 Galisteo Parkway,1204 Galisteo Parkway,Santa Fe,NM,87501,United States,1,Assigned
+202,Delzie Yolande Weiss Busse,12045 S 1600 Rd.,12045 S 1600 Rd.,Nevada,MO,64772,United States,7,Assigned
+203,Kent A Crawford and Jacqueline J Crawford,12050 WCR 76,12050 WCR 76,Eaton,CO,80615,United States,6,Assigned
+204,J Brent Steinbock,1208 Harris Dr,1208 Harris Dr,Fort Collins,CO,80524,United States,1,Assigned
+205,Mark2 Investments LLC,1208 S Gaylord Street,1208 S Gaylord Street,Denver,CO,80210,United States,1,Assigned
+206,Erica Suchman Trust,1209 Newson Street,1209 Newson Street,Fort Collins,CO,80524,United States,2,Assigned
+207,LaDonna J Moore,121 E Padonia Rd.,121 E Padonia Rd.,Lutherville,MD,21093,United States,3,Assigned
+208,Judith A Townsend,1211 12th Street,1211 12th Street,Vienna,WV,26105,United States,4,Assigned
+209,Mahfoodh Al-Neemy,1212 8th Avenue,1212 8th Avenue,Greeley,CO,80631,United States,3,Assigned
+210,Kober Family Joint Trust,1212 W. 13th St.,1212 W. 13th St.,Hastings,NE,68901,United States,3,Assigned
+211,Alexis Elizabeth Ferris,"12146 W. Nevada Drive, #21","12146 W. Nevada Drive, #21",Lakewood,CO,80228,United States,1,Assigned
+212,James Thomas Ferris,"12155 W. Nevada Drive, #21","12155 W. Nevada Drive, #21",Lakewood,CO,80228,United States,1,Assigned
+213,Alan Watada,12165 Rosemary Ct,12165 Rosemary Ct,Brighton,CO,80602,United States,1,Assigned
+214,Dianna M Peterson,"1217 Sheridan Rd, Ste B","1217 Sheridan Rd, Ste B",Winthrop Harbor,IL,60096,United States,1,Assigned
+215,Stromquist Family Trust,12189 Oxford Road,12189 Oxford Road,Longmont,CO,80504,United States,7,Assigned
+216,Fred Franklin,122 Diamond Ln,122 Diamond Ln,Gunnison,CO,81230,United States,6,Assigned
+217,Elberta Jean Ottesen,122 E 15th St.,122 E 15th St.,Hereford,TX,79045,United States,7,Assigned
+218,Harvey F Giesick,1221 10TH ST APT 8,1221 10TH ST APT 8,GREELEY,CO,80631,United States,4,Assigned
+219,Flat Iron Land Trust,1221 28th Ave,1221 28th Ave,Greeley,CO,80634,United States,6,Assigned
+220,George H Sperry,1221 Linden Lane,1221 Linden Lane,Worland,WY,82401,United States,6,Assigned
+221,Glaze Industrial Properties LLC,12224 Wheeling Court,12224 Wheeling Court,Henderson,CO,80640,United States,5,Assigned
+222,Steven K Ulrich,1223 47th Avenue,1223 47th Avenue,Greeley,CO,80634,United States,2,Assigned
+223,Darrell J Brunner,12234 COUNTY ROAD 66,12234 COUNTY ROAD 66,Greeley,CO,80631,United States,3,Assigned
+224,Ryan Pring,1224 Snyder Way,1224 Snyder Way,Superior,CO,80027,United States,6,Assigned
+225,Howard S Franklin Revocable Trust,12241 Johnson Ave.,12241 Johnson Ave.,San Luis Obispo,CA,93401,United States,1,Assigned
+226,Elizabeth La Page,1225 W. Prospect Rd,1225 W. Prospect Rd,Fort Collins,CO,80526,United States,2,Assigned
+227,Lane D Newby,12260 WCR 5,12260 WCR 5,Longmont,CO,80504,United States,7,Assigned
+228,Luke L Lind and Becky Lind,12276 WCR 74,12276 WCR 74,Eaton,CO,80615,United States,3,Assigned
+229,Bernhardt Farms LLC,12281 State Highway 60,12281 State Highway 60,Milliken,CO,80543,United States,4,Assigned
+230,Rodney Harrington,1231 Gristmill Dr.,1231 Gristmill Dr.,Charlottesville,VA,22902,United States,5,Assigned
+231,Terry and Teresa Deines Marital Trust,12315 WCR 72,12315 WCR 72,Eaton,CO,80615,United States,1,Assigned
+232,Margaret Alice Smith,1243 Aikins Way,1243 Aikins Way,Boulder,CO,80305,United States,6,Assigned
+233,Charles Stromquist,12467 Oxford Road,12467 Oxford Road,Longmont,CO,80504,United States,7,Assigned
+234,Brad Montgomery Hester,12491 COUNTY ROAD 74,12491 COUNTY ROAD 74,EATON,CO,80615,United States,4,Assigned
+235,Joanne Elaine Terriere,12498 Rd X 5,12498 Rd X 5,Weldona,CO,80653,United States,5,Assigned
+236,Eleanor Shakin,"125 East 93rd Street, Apt. 3A","125 East 93rd Street, Apt. 3A",New York,NY,10128,United States,1,Assigned
+237,BHP BILLITON PET (TXLA OP) CO,125 Rio Retiro Lane,125 Rio Retiro Lane,Ingram,TX,78025,United States,5,Assigned
+238,Richard M McNamara and Moira L McNamara,12507 Woodgreen St.,12507 Woodgreen St.,Los Angeles,CA,90066,United States,7,Assigned
+239,Lois Helen Genua,12528 WCR 76,12528 WCR 76,Eaton,CO,80615,United States,7,Assigned
+240,Bonnie Stevens,126 Eagle Avenue,126 Eagle Avenue,Mead,CO,80542,United States,4,Assigned
+241,Gary T Nessan,126 Sunset,126 Sunset,Lewiston,MT,59451,United States,4,Assigned
+242,Deborah Duval Arnold,1261 Aupupu Place,1261 Aupupu Place,Kailua,HI,96734,United States,7,Assigned
+243,Vern Kammerzell and Carolyn A Kammerzell,12614 Highway 60,12614 Highway 60,Milliken,CO,80543,United States,1,Assigned
+244,Rinn Valley Farms LLC,1262 WCR 201/2,1262 WCR 201/2,Longmont,CO,80504,United States,7,Assigned
+245,Shable Homestead LLC,12705 Hwy 60,12705 Hwy 60,Milliken,CO,80543,United States,7,Assigned
+246,Douglas E Schwed Revocable Trust,12722 Ne 28th Street,12722 Ne 28th Street,Bellevue,WA,98005,United States,5,Assigned
+247,David Pool,128 E Hickey Rd,128 E Hickey Rd,Pie Town,NM,87827,United States,2,Assigned
+248,Countryside Inc,1280 North 7th Ave,1280 North 7th Ave,Greeley,CO,80631,United States,7,Assigned
+249,Harry Bruntz,12801 WCR 64 1/2,12801 WCR 64 1/2,Greeley,CO,80631,United States,7,Assigned
+250,Harry R Bruntz,12801 Weld County Road 64.5,12801 Weld County Road 64.5,Greeley,CO,80631,United States,7,Assigned
+251,Ethel Luanne Yoder,12821 N. Camelot Dr.,12821 N. Camelot Dr.,Milford,IN,46542,United States,1,Assigned
+252,Larry Schupbach,129 Country Club Dr.,129 Country Club Dr.,Graham,TX,76450,United States,4,Assigned
+253,Lloyd Burke and Karolyn Burke,12905 Linda Vista Drive,12905 Linda Vista Drive,Longmont,CO,80501,United States,2,Assigned
+254,Michael Aberle,12988 CR 4,12988 CR 4,Brighton,CO,80603,United States,3,Assigned
+255,Deborah D Carter and Kent D Carter,13 Dos Rios,13 Dos Rios,Greeley,CO,80634,United States,4,Assigned
+256,Ellen J Yastrow,1300 Fairway 5 Dr,1300 Fairway 5 Dr,Fort Collins,CO,80525,United States,5,Assigned
+257,Metlife Insurance Company of Connecut,1300 Hall Blvd,1300 Hall Blvd,Bloomfield,CT,6002,United States,6,Assigned
+258,Archdiocese of Denver,1300 S. Steele Street,1300 S. Steele Street,Denver,CO,80210,United States,4,Assigned
+259,Kay R Collins,1301 Swainson Rd,1301 Swainson Rd,Eaton,CO,80615,United States,3,Assigned
+260,Basin Oil and Gas LLC,1301 Thomas Place,1301 Thomas Place,Forth Worth,TX,76107,United States,4,Assigned
+261,Orr Marital Trust,1303 33RD ST,1303 33RD ST,EVANS,CO,80620,United States,4,Assigned
+262,David L Glardon,1303 Lashley Street,1303 Lashley Street,Longmont,CO,80501,United States,7,Assigned
+263,Mary Lois Aspinwall,1305 27th St.,1305 27th St.,Greeley,CO,80631,United States,2,Assigned
+264,Charles V Leffler,1305 Colorado Pkwy.,1305 Colorado Pkwy.,Eaton,CO,80615,United States,2,Assigned
+265,Julie M Kort,1305 N Williams Ave,1305 N Williams Ave,Hastings,NE,68901,United States,1,Assigned
+266,Villano Brothers Family Investments LLC,13050 WCR 10,13050 WCR 10,Fort Lupton,CO,80621,United States,6,Assigned
+267,Leroy J Baker And Nancy J Baker,1307 Nonaham Lane,1307 Nonaham Lane,Erie,CO,80516,United States,1,Assigned
+268,Anita L Plumb,1308 N. Vista Road,1308 N. Vista Road,Ellensburg,WA,98926,United States,6,Assigned
+269,Sharon Eileen Brandt,1311 Whispering Pines Drive,1311 Whispering Pines Drive,Houston,TX,77055,United States,7,Assigned
+270,Clarkson Corporation,1313 Clarkson St.,1313 Clarkson St.,Denver,CO,80210,United States,7,Assigned
+271,Glenda Hughes,1313 SW 26th St.,1313 SW 26th St.,Troutdale,OR,97060,United States,2,Assigned
+272,Super America  LLC,"1314 Main Street, Suite 102","1314 Main Street, Suite 102",Louisville,CO,80027,United States,3,Assigned
+273,Joann L Firestien,13149 Highway 14,13149 Highway 14,Ault,CO,80610,United States,4,Assigned
+274,Alan R Herman,1321 E. 24th Street,1321 E. 24th Street,Greeley,CO,80631,United States,1,Assigned
+275,Ted W Crim,13210 County Road 4,13210 County Road 4,Brighton,CO,80603,United States,7,Assigned
+276,Jeannette L Roller,13222 Bellaire Circle,13222 Bellaire Circle,Thornton,CO,80241,United States,3,Assigned
+277,Gerald L Croissant,1323 E. Bennett Avenue,1323 E. Bennett Avenue,Glendora,CA,91741,United States,6,Assigned
+278,Marguerite L Dill,1325 52nd Avenue Court,1325 52nd Avenue Court,Greeley,CO,80634,United States,5,Assigned
+279,Clayton L Vandergriff,1326 S Elm St,1326 S Elm St,Denver,CO,80222,United States,5,Assigned
+280,William Benner,1327 Third Ave.,1327 Third Ave.,Greeley,CO,80631,United States,1,Assigned
+281,Welker Farms LLC,1329 Cedar Ave,1329 Cedar Ave,Boulder,CO,80304,United States,1,Assigned
+282,William C Sears,1329 Cedar Ave.,1329 Cedar Ave.,Boulder,CO,80304,United States,5,Assigned
+283,Rebekah Hubert,1330 Dearborn Ave,1330 Dearborn Ave,Shelton,WA,98584,United States,3,Assigned
+284,Virginia M Lindblad,13313 Highway 392,13313 Highway 392,Greeley,CO,80631,United States,3,Assigned
+285,Dalton LLC,1335 Hawkridge Rd.,1335 Hawkridge Rd.,Eaton,CO,80615,United States,2,Assigned
+286,James Brown Farms Co,1336 Plains Court,1336 Plains Court,Eaton,CO,80615,United States,5,Assigned
+287,Joy L Ash,13380 S. Martin Lane,13380 S. Martin Lane,Empire,MI,49630,United States,2,Assigned
+288,Front Range Feedlots LLC,"134 Oak, P.O. Box 517","134 Oak, P.O. Box 517",Eaton,CO,80615,United States,3,Assigned
+289,Croissant Mineral Properties LLC,134 Ptarmigan Dr,134 Ptarmigan Dr,Glenwood Springs,CO,81601,United States,2,Assigned
+290,Karla Winter,1340 2nd Street,1340 2nd Street,Eaton,CO,80615,United States,6,Assigned
+291,Grant A Ritchey and Dawn D Ritchey,13408 CR 43,13408 CR 43,Hudson,CO,80642,United States,7,Assigned
+292,Craig E Ritchey,13408 WCR 43,13408 WCR 43,Hudson,CO,80642,United States,3,Assigned
+293,Charles H Eaton Living Trust,135 Ulen Blvd,135 Ulen Blvd,Lebanon,IN,46052,United States,7,Assigned
+294,Charles H Eaton aka Charles Herbert Eaton,135 Ulen Blvd.,135 Ulen Blvd.,Lebanon,IN,46052,United States,2,Assigned
+295,Stonebridge Energy Inc,"1350 S. Boulder Ave., Suite 710","1350 S. Boulder Ave., Suite 710",Tulsa,OK,74119,United States,2,Assigned
+296,Charles G Nelson,13509 CR 44,13509 CR 44,Platteville,CO,80651,United States,4,Assigned
+297,Stanley L Hiller,13509 Weld County Road 4,13509 Weld County Road 4,Brighton,CO,80603,United States,3,Assigned
+298,David P Wenzel,1353 WCR 37,1353 WCR 37,Lochbuie,CO,80603,United States,1,Assigned
+299,Londel O'Neil Williams Trust,"1355 S. Colorado Blvd., Suite 920","1355 S. Colorado Blvd., Suite 920",Denver,CO,80222,United States,4,Assigned
+300,Tulie King,1357 43 Ave #63,1357 43 Ave #63,Greeley,CO,80634,United States,5,Assigned
+301,Tulu King,"1357 43 Ave.,","1357 43 Ave.,",Greeley,CO,80634,United States,4,Assigned
+302,Windsor Industrial Park LLC,1357 43 Avenue #7,1357 43 Avenue #7,Greeley,CO,80634,United States,2,Assigned
+303,Waters Investments LLC,1357 43rd Ave Unit 19,1357 43rd Ave Unit 19,Greeley,CO,80634,United States,3,Assigned
+304,The John D Stephenson Family Trust,1357 43rd Avenue # 27,1357 43rd Avenue # 27,Greeley,CO,80634,United States,3,Assigned
+305,Maxine Tyrell,1357 43rd Avenue #5,1357 43rd Avenue #5,Greeley,CO,80634,United States,3,Assigned
+306,A Swink LLC,13595 Harvest Road,13595 Harvest Road,Commerce City,CO,80022,United States,4,Assigned
+307,Phillip K and Grace M Nething,136 53rd Avenue Court,136 53rd Avenue Court,Greeley,CO,80634,United States,6,Assigned
+308,Mark Strader,13611 Greystone Drive,13611 Greystone Drive,Dallas,TX,75244,United States,6,Assigned
+309,Larry D Feuerstein,13621 CR 64,13621 CR 64,Greeley,CO,80631,United States,6,Assigned
+310,Kathleen A Martin,1368 Fantail Ct.,1368 Fantail Ct.,Fort Collins,CO,80525,United States,7,Assigned
+311,Grace E Volger Testamentary Trust,13696 CR 74,13696 CR 74,Eaton,CO,80615,United States,5,Assigned
+312,Darlene Lindsey,13746 WCR #8,13746 WCR #8,Fort Lupton,CO,80621,United States,3,Assigned
+313,Marian L Herzberger,1376 College Avenue,1376 College Avenue,Elko,NV,89801,United States,2,Assigned
+314,Double J Farms and Feeding Inc,13789 Highway 14,13789 Highway 14,Ault,CO,80610,United States,2,Assigned
+315,Steven G Bagley and Erika C Bagley,1381 Ridge Court,1381 Ridge Court,Eaton,CO,80615,United States,3,Assigned
+316,Ritchey Land & Cattle Co Inc,13821 Sable Blvd.,13821 Sable Blvd.,Brighton,CO,80601,United States,2,Assigned
+317,Ervin L Mondt and Patsy H Mondt,1384 Via La Presa,1384 Via La Presa,Hemet,CA,92545,United States,3,Assigned
+318,Mark S Mancini,139 Dekker Drive,139 Dekker Drive,Golden,CO,80401,United States,1,Assigned
+319,Veryl M Schoen,13916 WCR 8,13916 WCR 8,Fort Lupton,CO,80621,United States,4,Assigned
+320,Clinton L Sattler Jr and Erika A Sattler,13918 E MISSISSIPPI AVE,13918 E MISSISSIPPI AVE,AURORA,CO,80012,United States,7,Assigned
+321,Leon O Martin and Ricky L Martin,13925 Benson Avenue,13925 Benson Avenue,Chino,CA,91710,United States,6,Assigned
+322,Mary A Beattie,13930 W 73rd Ave,13930 W 73rd Ave,Arvada,CO,80005,United States,6,Assigned
+323,Karen S Taylor,13931 Manilla Rd,13931 Manilla Rd,Hudson,CO,80642,United States,3,Assigned
+324,Dolores A Horst,"13962 Legend Way, #101","13962 Legend Way, #101",Broomfield,CO,80020,United States,1,Assigned
+325,Arthur P Garcia,13998 CR 378,13998 CR 378,Milliken,CO,80543,United States,1,Assigned
+326,Stephanie S Lucero,13999 Fairfax St.,13999 Fairfax St.,Brighton,CO,80602,United States,2,Assigned
+327,Collin Mark McCloud and Stacy Ann Madera,14 Caballo Trail,14 Caballo Trail,Greeley,CO,80634,United States,1,Assigned
+328,"Richard C Apgar, William Apgar, Arthur Apgar and Gail A Reilly",14 Smith Lane,14 Smith Lane,Somers,NY,10589,United States,2,Assigned
+329,Linda L Montague,14 Southridge Way,14 Southridge Way,Littleton,CO,80120,United States,1,Assigned
+330,James A French,14 West Winthrop Street,14 West Winthrop Street,Newcastle,WY,82701,United States,4,Assigned
+331,IMAGO Enterprises Inc,140 Palmer Drive,140 Palmer Drive,Fort Collins,CO,80525,United States,5,Assigned
+332,DPOC LLC,1400 16th Street # 300,1400 16th Street # 300,Denver,CO,80202,United States,1,Assigned
+333,Missouri Improvement Company,"1400 Douglas Street, Mail Stop 1690","1400 Douglas Street, Mail Stop 1690",Omaha,NE,68179,United States,2,Assigned
+334,Dalton Oil LLC,1400 Falcon Ridge Road,1400 Falcon Ridge Road,Eaton,CO,80615,United States,7,Assigned
+335,Norma Ruth Johnson,1400 S. Collyer,1400 S. Collyer,Longmont,CO,80501,United States,7,Assigned
+336,Digby Family LLLP,1400 W. 64th Avenue,1400 W. 64th Avenue,Denver,CO,80221,United States,5,Assigned
+337,Marquis D Mininger and Judy D Mininger,1401 AA Street,1401 AA Street,Greeley,CO,80631,United States,6,Assigned
+338,Bill Howard,1401 River Trail Blvd.,1401 River Trail Blvd.,Kent,OH,44240,United States,7,Assigned
+339,Richard Barhite,1404 Via Fonte,1404 Via Fonte,Modesto,CA,95357,United States,6,Assigned
+340,Susanne Stephens,1406 Stove Prairie Rd.,1406 Stove Prairie Rd.,Bellevue,CO,80512,United States,1,Assigned
+341,Lawrence A Myers and Margaret C Myers,1407 70th Street NW,1407 70th Street NW,Bradenton,FL,34209,United States,1,Assigned
+342,Gary Hergert,1408 West 42nd Street,1408 West 42nd Street,Scottsbluff,NE,89361,United States,3,Assigned
+343,Gerald D Wolfe,1409 Lincoln Avenue,1409 Lincoln Avenue,Rock Springs,WY,92901,United States,1,Assigned
+344,Teakwood Enterprises RLLP,1409 Teakwood Dr.,1409 Teakwood Dr.,Fort Collins,CO,80525,United States,3,Assigned
+345,Alvin J Herman,1411 E. 24th Street,1411 E. 24th Street,Greeley,CO,80631,United States,1,Assigned
+346,Estate of William W Danielson,1411 W. Smith Street Apt,1411 W. Smith Street Apt,Kent,WA,98032,United States,1,Assigned
+347,Mary O Lang,1414 E. Fremont,1414 E. Fremont,Los Altos,CA,94024,United States,2,Assigned
+348,John L Swayne,1414 Eagle View Dr.,1414 Eagle View Dr.,Colorado Springs,CO,80909,United States,5,Assigned
+349,Travis Dean Conover and Kimberly J Conover,1414 WCR 37,1414 WCR 37,Brighton,CO,80601,United States,3,Assigned
+350,Jorge A Magana,1415 6th Avenue,1415 6th Avenue,Greeley,CO,80631,United States,7,Assigned
+351,Estate of Geneva Stark,1420 Logan Street,1420 Logan Street,Denver,CO,80203,United States,7,Assigned
+352,Bettie K Miller,14200 Upper Frericktown Road,14200 Upper Frericktown Road,Fredericktown,OH,43019,United States,6,Assigned
+353,Great White Pressure Control LLC,14201 Caliber Dr. Suite 300,14201 Caliber Dr. Suite 300,Oklahoma City,OK,73134,United States,4,Assigned
+354,Aziz Zandi and Hamideh Abdolmohammadzadeh,1421 42nd Ave.,1421 42nd Ave.,GREELEY,CO,80631,United States,7,Assigned
+355,Frank R Rice Jr,14211 E Evans Ave Apt 371,14211 E Evans Ave Apt 371,Aurora,CO,80014,United States,4,Assigned
+356,Neal J Jandreau and Raquel Jandreau,1422 8th Avenue,1422 8th Avenue,Greeley,CO,80631,United States,5,Assigned
+357,Anne Tarbel,"1423 East 34th St.,","1423 East 34th St.,",Tulsa,OK,74015,United States,7,Assigned
+358,Clarence David Hergert,1424 Avenue B,1424 Avenue B,Scottsbluff,NE,69361,United States,3,Assigned
+359,Daniel Endres,1425 30th Avenue,1425 30th Avenue,Greeley,CO,80634,United States,5,Assigned
+360,Hicks Johnson Dacano Farms LLP,1427 Rembrandt Road,1427 Rembrandt Road,Boulder,CO,80302,United States,3,Assigned
+361,Daniel W Jones,1427 W 600 S,1427 W 600 S,Claypool,IN,46510,United States,1,Assigned
+362,Tanner J Morgan,"14300 North 83rd, apt. 3101","14300 North 83rd, apt. 3101",Peoria,AZ,85381,United States,3,Assigned
+363,Duane A Schwartz and Dennis E Schwartz,14312 SE22nd Cir,14312 SE22nd Cir,Vancouver,WA,98683,United States,2,Assigned
+364,Marjorie A Blossom,1432 SW Blaine St,1432 SW Blaine St,McMinnville,OR,97128,United States,5,Assigned
+365,Duran Enterprises LLC,14332 Co Rd. 64,14332 Co Rd. 64,Greeley,CO,80631,United States,1,Assigned
+366,Plumb Ridge LLC,14339 Weld County Road 74,14339 Weld County Road 74,Eaton,CO,80615,United States,3,Assigned
+367,Joaquim F Florencio,14406 Turkey Foot Rd. N.,14406 Turkey Foot Rd. N.,Potomac,MD,20878,United States,2,Assigned
+368,Gary H Loustalet,14408 Arkansas Drive,14408 Arkansas Drive,Aurora,CO,80012,United States,6,Assigned
+369,Robert V Frank,1443 41st Avenue,1443 41st Avenue,Greeley,CO,80634,United States,7,Assigned
+370,John William Haefeli,1445 43rd Avenue,1445 43rd Avenue,Greeley,CO,80634,United States,3,Assigned
+371,Robert Lanteigne,1451 Fernwood Dr.,1451 Fernwood Dr.,Windsor,CO,80550,United States,2,Assigned
+372,TRP Minerals LLC,"1455 West Loop South, Suite 230","1455 West Loop South, Suite 230",Houston,TX,77027,United States,6,Assigned
+373,Allison L Sawallesh,14611 N. Maywood Ct.,14611 N. Maywood Ct.,Brighton,CO,80603,United States,4,Assigned
+374,Antoinette Disney,1471 S. Vaughn Circle,1471 S. Vaughn Circle,Aurora,CO,80012,United States,5,Assigned
+375,Jelts LLC,14711 Zuni St,14711 Zuni St,Broomfield,CO,80023,United States,7,Assigned
+376,Eulalie I Lauridson Trust,14711 Zuni St.,14711 Zuni St.,Broomfield,CO,80023,United States,4,Assigned
+377,Advantage Bank,1475 North Denver Avenue,1475 North Denver Avenue,Loveland,CO,80538,United States,6,Assigned
+378,Alma I Bohlender,1476 43rd Ave.,1476 43rd Ave.,Greeley,CO,80634,United States,1,Assigned
+379,Larry H Bohlender and Karen G Bohlender,1476 43rd Avnue,1476 43rd Avnue,Greeley,CO,80634,United States,5,Assigned
+380,Gordon McGlothlin,1477 Appling Dr,1477 Appling Dr,Mount Pleasant,SC,29464,United States,7,Assigned
+381,Meadow Oil and Gas LLC,1480 Combie Road,1480 Combie Road,Meadow Vista,CA,95722,United States,1,Assigned
+382,John Rohn,1480 Falcon Ridge Rd,1480 Falcon Ridge Rd,Eaton,CO,8615,United States,2,Assigned
+383,Robert LeRoy Hettinger,1480 Waterwood Drive,1480 Waterwood Drive,Windsor,CO,80550,United States,5,Assigned
+384,Coy R Glenn,149 South 5th Street,149 South 5th Street,LaSalle,CO,80645,United States,2,Assigned
+385,Cheryl M Swisher,1490 Delgany St Apt 931,1490 Delgany St Apt 931,Denver,CO,80202,United States,3,Assigned
+386,Taylor J Morgan,1490 Northeast Del Rio Avenue,1490 Northeast Del Rio Avenue,Mountain Home,ID,83648,United States,3,Assigned
+387,Jolene Arnold,1494 WCR 63,1494 WCR 63,Keensburg,CO,80643,United States,4,Assigned
+388,Sheila Ash,14943 Highway 14,14943 Highway 14,Ault,CO,80610,United States,3,Assigned
+389,Jana Lee Rumelhart,1496 Astor Way,1496 Astor Way,Woodburn,OR,97071,United States,4,Assigned
+390,Gallegos Family Properties LLC,14970 Clinton St.,14970 Clinton St.,Brighton,CO,80602,United States,7,Assigned
+391,Stephen P Pabst and Cynthia K Pabst,1499 Fernwood Dr.,1499 Fernwood Dr.,Windsor,CO,80550,United States,7,Assigned
+392,Eric H Hahn and Lillian W Hahn,15 Dos Rios,15 Dos Rios,Greeley,CO,80634,United States,4,Assigned
+393,Sandra M Ballard,15 Mallard Drive,15 Mallard Drive,Columbus,MS,39702,United States,3,Assigned
+394,Thomas E Shows and Edna M Shows,150 Tom Shows Rd.,150 Tom Shows Rd.,Seminary,MS,39479,United States,5,Assigned
+395,Joan Hill Omansiek and Walter David Omansiek,1500 Fergason Ave.,1500 Fergason Ave.,Deltona,FL,32725,United States,1,Assigned
+396,Cheryl Grable,1500 W. Melissa Drive,1500 W. Melissa Drive,Flagstaff,AZ,86005,United States,2,Assigned
+397,David Allan Rock,15000 Picadilly Road,15000 Picadilly Road,Brighton,CO,80603,United States,5,Assigned
+398,Amy Babbette Grant,1505 Pinewood Ct,1505 Pinewood Ct,Longmont,CO,80504,United States,3,Assigned
+399,Julie Gavito,1511 County Road 241,1511 County Road 241,Newcastle,CO,81647,United States,2,Assigned
+400,Julie Gravito,1511 Road 241,1511 Road 241,Newcastle,CO,81647,United States,1,Assigned
+401,Perkins Land and Livestock III LLC,1514 Main St.,1514 Main St.,Unionville,MO,63565,United States,1,Assigned
+402,Holland Real Estate LLC,1515 N. Academy Blvd. #400,1515 N. Academy Blvd. #400,Colorado Springs,CO,80909,United States,3,Assigned
+403,Samuel Gary Jr and Associates,"1515 Wynkoop, Suite 700","1515 Wynkoop, Suite 700",Denver,CO,80202,United States,5,Assigned
+404,Charles L Johnson,15167 E. Nassau Ave.,15167 E. Nassau Ave.,Aurora,CO,80014,United States,6,Assigned
+405,Joseph F Haefeli,152 Pine Tree Road,152 Pine Tree Road,Ithaca,NY,14850,United States,4,Assigned
+406,Estate of Rudy Ybarra,1524 N. 25th Ave. Ct.,1524 N. 25th Ave. Ct.,Greeley,CO,80631,United States,6,Assigned
+407,Richard M Borys,1525 Glenmere Blvd.,1525 Glenmere Blvd.,Greeley,CO,80631,United States,1,Assigned
+408,Larry Madison and Mary A Madison,15250 WCR 49,15250 WCR 49,LaSalle,CO,80645,United States,7,Assigned
+409,Gregorio Quintero,1529 7th Street,1529 7th Street,Greeley,CO,80631,United States,5,Assigned
+410,Ruby Resources LLC,1530 P B Lane # 3592,1530 P B Lane # 3592,Wichita Falls,TX,76302,United States,3,Assigned
+411,Caspian Holdings LLC,15300 Bothwell Way NE,15300 Bothwell Way NE,Lake Forest Park,WA,98155,United States,7,Assigned
+412,Beverly Boies,1531 Everlea Road,1531 Everlea Road,Marriottsville,MD,21104,United States,4,Assigned
+413,Sonia L Burron Living Trust,15374 County Road 70,15374 County Road 70,Greeley,CO,80631,United States,6,Assigned
+414,Marsha Nelson Burrows,1538 Crescent Glen,1538 Crescent Glen,San Antonio,TX,78258,United States,4,Assigned
+415,Apollo Operating LLC,1538 Wazee St Ste 200,1538 Wazee St Ste 200,Denver,CO,80202,United States,7,Assigned
+416,Prometheus Minerals LLC,"1538 Wazee Street, Suite 200","1538 Wazee Street, Suite 200",Denver,CO,80202,United States,6,Assigned
+417,Osage-Longmont LLC,"1540 Main Street, Ste. 218-224","1540 Main Street, Ste. 218-224",Windsor,CO,80550,United States,6,Assigned
+418,Eric L Eaton,1540 Parkview Road,1540 Parkview Road,Maple Plain,MN,55359,United States,2,Assigned
+419,David Owen,"1540 Poppybank Ct.,","1540 Poppybank Ct.,",Pleasanton,CA,94566,United States,4,Assigned
+420,Joan Lynn Todd,15491 E. Prentice Drive,15491 E. Prentice Drive,Centennial,CO,80015,United States,3,Assigned
+421,Mountain States Minerals LLC,"1550 Larimer Street, #313","1550 Larimer Street, #313",Denver,CO,80202,United States,1,Assigned
+422,Patricia Ann O'Keefe,1550 S. Monroe St.,1550 S. Monroe St.,Denver,CO,80210,United States,4,Assigned
+423,Benita Joyce Leppard-Buzzell,1551 Knox Road,1551 Knox Road,Roanoke,TX,76262,United States,1,Assigned
+424,Grant Avery,15542 S.E. Frontage Rd.,15542 S.E. Frontage Rd.,Plainfield,IL,60544,United States,2,Assigned
+425,Benson Mineral Group Inc,"1560 Broadway, Suite 1900","1560 Broadway, Suite 1900",Denver,CO,80202,United States,4,Assigned
+426,Mildred Feit,15670 WCR 66,15670 WCR 66,Greeley,CO,80631,United States,1,Assigned
+427,Connie Henderson,15677 County Road 24,15677 County Road 24,Sterling,CO,80751,United States,7,Assigned
+428,Walter J and Isabelle I Henderson Trust,15677 WCR 24,15677 WCR 24,Sterling,CO,80751,United States,1,Assigned
+429,Richard L Nichols,157 Cositano Circle,157 Cositano Circle,Redwood,CA,94065,United States,6,Assigned
+430,Western Colorado Energy LLC,15700 E Jamison Dr Unit 7304,15700 E Jamison Dr Unit 7304,Englewood,CO,80112,United States,4,Assigned
+431,Bruce G Duell,1575 Monroe Street,1575 Monroe Street,Denver,CO,80206,United States,1,Assigned
+432,Margaret A Stephenson,"1575 Ocean Shore Blvd, Apt. 602","1575 Ocean Shore Blvd, Apt. 602",Ormond Beach,FL,32176,United States,4,Assigned
+433,Polly Ann Kurtz,"1576 Millfleet Dr.,","1576 Millfleet Dr.,",Windsor,CO,80550,United States,4,Assigned
+434,Barbara Wiggins,15822 East Bates Place,15822 East Bates Place,Aurora,CO,80013,United States,1,Assigned
+435,David Wesley Ritchey,15905 Rector Leader Mile Rd,15905 Rector Leader Mile Rd,Wiggins,CO,80654,United States,2,Assigned
+436,Hurle A Schneider,1598 Carriage Dr.,1598 Carriage Dr.,Eaton,CO,80615,United States,7,Assigned
+437,Rumsey Family Limited Partnership,15999 County Road 50,15999 County Road 50,LaSalle,CO,80645,United States,4,Assigned
+438,Deborah Voyles,160 Ina Road,160 Ina Road,Whiteville,TN,38075,United States,1,Assigned
+439,HARVEY ANDREW FEEHAN,1600 Broadway,1600 Broadway,Denver,CO,80202,United States,6,Assigned
+440,Theodore M Olson,1601 Doe Run Dr.,1601 Doe Run Dr.,Craig,CO,81625,United States,4,Assigned
+441,Duell Family Irrevocable Trust,1601 Rosewood Drive,1601 Rosewood Drive,Brentwood,TN,37027,United States,3,Assigned
+442,Carroll L Baker,16041 W. 74th Avenue,16041 W. 74th Avenue,Arvada,CO,80293,United States,3,Assigned
+443,Betty A Achziger,"1606 Plains Dr.,","1606 Plains Dr.,",Eaton,CO,80615,United States,7,Assigned
+444,Eugene Kammerzell and Betty Achziger,1606 Plains Drive,1606 Plains Drive,Eaton,CO,80615,United States,6,Assigned
+445,Todd J Andre,1606 South 1100 West,1606 South 1100 West,Syracuse,UT,84075,United States,2,Assigned
+446,A Leroy Measner And Evelyn S Measner,1607 10th Avenue,1607 10th Avenue,Greeley,CO,80631,United States,4,Assigned
+447,Rothe Family Co LLC,1610 37th Avenue Place,1610 37th Avenue Place,Greeley,CO,80634,United States,6,Assigned
+448,David Rohn,1610 6th Ave,1610 6th Ave,Greeley,CO,80634,United States,5,Assigned
+449,Estee A Sanchez,16100 Cavanaugh Mile Rd.,16100 Cavanaugh Mile Rd.,Keenesburg,CO,80643,United States,4,Assigned
+450,Nancy Allera,1611 E. Laura Lane,1611 E. Laura Lane,Tempe,AZ,85253,United States,1,Assigned
+451,E&M Eisenman Company,1612 1st Avenue,1612 1st Avenue,Greeley,CO,80631,United States,5,Assigned
+452,Ruth Barsch,16140 Krameria Ct,16140 Krameria Ct,Brighton,CO,80602,United States,4,Assigned
+453,Panayes Dikeou,"1615 California Street, Suite 707","1615 California Street, Suite 707",Denver,CO,80202,United States,7,Assigned
+454,Guy D Burke and Felecia Lyn Burke,1616 N 35TH AVE,1616 N 35TH AVE,GREELEY,CO,80631,United States,5,Assigned
+455,Ellen Mae Weiss Tavares,1617 14th Avenue,1617 14th Avenue,Greeley,CO,80631,United States,3,Assigned
+456,Evelyn Sue Gatsiopoulos,1617 North 35th Ave Court,1617 North 35th Ave Court,Greeley,CO,80634,United States,3,Assigned
+457,River View Homeowners Association,1617 North 35th Ave. Ct.,1617 North 35th Ave. Ct.,Greeley,CO,80631,United States,2,Assigned
+458,Francis M Loustalet Revocable Trust,1618 37th Avenue Place,1618 37th Avenue Place,Greeley,CO,80634,United States,3,Assigned
+459,Gregg K Newby,16202 WCR 15,16202 WCR 15,Platteville,CO,80651,United States,6,Assigned
+460,Robbie Glen Smith and Geneva Beatriz Smith,16208 CR 6,16208 CR 6,Fort Lupton,CO,80621,United States,4,Assigned
+461,Scott C Marquardt and Ilene L Marquardt,16219 WCR 13,16219 WCR 13,Platteville,CO,80651,United States,1,Assigned
+462,Robert Barry Copeland and Sandra Jean Copeland,1624 Fairacre Rd.,1624 Fairacre Rd.,Greeley,CO,80631,United States,2,Assigned
+463,Mark J Paulson,16249 WCR 13,16249 WCR 13,Platteville,CO,80651,United States,5,Assigned
+464,SOCO Wattenberg Corporation,1625 Broadway Suite 2000,1625 Broadway Suite 2000,Denver,CO,80202,United States,6,Assigned
+465,Janet Laverne Rudd,1625 E Trojan Dr,1625 E Trojan Dr,Casper,WY,82609,United States,2,Assigned
+466,Greeley Columbus Club AssoInc,1626 26th Avenue Ct.,1626 26th Avenue Ct.,Greeley,CO,80631,United States,5,Assigned
+467,Keith E Olson and Valerie L Olson,1626 N 35TH AVENUE CT,1626 N 35TH AVENUE CT,GREELEY,CO,80631,United States,7,Assigned
+468,Kim D Harding,1626 Ohms Way,1626 Ohms Way,Costa Mesa,CA,92627,United States,6,Assigned
+469,Martin Marietta Materials Inc,1627 Cole Blvd St 200,1627 Cole Blvd St 200,Lakewood,CO,80401,United States,7,Assigned
+470,Mitch E Wagy and Melody J Wagy,1627 North 35th Ave. Court,1627 North 35th Ave. Court,GREELEY,CO,80631,United States,6,Assigned
+471,Ivan E Grein Living Trust,16300 E. 168th Ave.,16300 E. 168th Ave.,Brighton,CO,80601,United States,4,Assigned
+472,John T Jacobs,1631 11 Ave,1631 11 Ave,Greeley,CO,80631,United States,4,Assigned
+473,Adam James Wickam and Jessica Ann Wickam,1631 35th Ave. Court,1631 35th Ave. Court,GREELEY,CO,80631,United States,5,Assigned
+474,Alvin Ray Anderson,1631 North 23Rd Ave.,1631 North 23Rd Ave.,Greeley,CO,80631,United States,3,Assigned
+475,Mary Alice Barber,1633 Melvina Lane SW,1633 Melvina Lane SW,Alexandria,MN,56308,United States,1,Assigned
+476,Darren Keith Martin,1634 North 35th Ave.,1634 North 35th Ave.,GREELEY,CO,80631,United States,3,Assigned
+477,Kenneth Lee Adams,16340 Highway 392,16340 Highway 392,Greeley,CO,80631,United States,2,Assigned
+478,Diane Wiest and Richard Wiest,16347 8TH ST,16347 8TH ST,MEAD,CO,80542,United States,6,Assigned
+479,KTC Farm LLC,16350 WCR 76,16350 WCR 76,Eaton,CO,80615,United States,6,Assigned
+480,Bambi Fernandez 2004 Trust,1637 Edmonton Avenue,1637 Edmonton Avenue,Sunnyvale,CA,94087,United States,3,Assigned
+481,Lori Lee Cronquist,1638 55th Avenue,1638 55th Avenue,Greeley,CO,80634,United States,2,Assigned
+482,William H Dillard III,1638 Polk Ave.,1638 Polk Ave.,San Diego,CA,92103,United States,2,Assigned
+483,Mark D Becker and Patricia L Becker,1639 N 35TH AVENUE CT,1639 N 35TH AVENUE CT,GREELEY,CO,80631,United States,6,Assigned
+484,Daniel L Follett and Loretta S Follett,1644 N 35TH AVE APT AVCT,1644 N 35TH AVE APT AVCT,GREELEY,CO,80631,United States,2,Assigned
+485,Mallard LLC,1649 Metropolitan Drive,1649 Metropolitan Drive,Longmont,CO,80504,United States,1,Assigned
+486,SEK Oil and Gas Company,165 Glengary Place,165 Glengary Place,Castle Rock,CO,80108,United States,1,Assigned
+487,Pauline C Townsend,165 Lee Creek Road,165 Lee Creek Road,Belleville,WV,26133,United States,3,Assigned
+488,Thomas A Chalk and Christy L Chalk,1650 Thistle Ridge Road,1650 Thistle Ridge Road,Highlands Ranch,CO,80126,United States,2,Assigned
+489,Wardell Family Ltd LLLP,16512 Essex Road North,16512 Essex Road North,Platteville,CO,80651,United States,1,Assigned
+490,Edward Merkle Phillips,1653 S. Lamar St,1653 S. Lamar St,Lakewood,CO,80232,United States,5,Assigned
+491,Karamjit Grewal and Ranbir Gill,1655 E. Eisenhower Blvd.,1655 E. Eisenhower Blvd.,Loveland,CO,80537,United States,5,Assigned
+492,JMF Cattle Company,"1660 South Albion Street, Suite 412","1660 South Albion Street, Suite 412",Denver,CO,80222,United States,4,Assigned
+493,HSBC Bank USA NA,"1661 Worthington Road, Suite 100","1661 Worthington Road, Suite 100",West Palm Beach,FL,33409,United States,6,Assigned
+494,James T Woody and Kristine Woody,1666 17 Avenue Pl.,1666 17 Avenue Pl.,Greeley,CO,80634,United States,5,Assigned
+495,Bryan S & Yavette S Brooks,16668 CR 5,16668 CR 5,Mead,CO,80542,United States,1,Assigned
+496,Von L Newby,1670 W. Amos Drive,1670 W. Amos Drive,Columbia,MO,65203,United States,5,Assigned
+497,Paul D Hoffman and Margot L Hoffman,16724 County Road 5,16724 County Road 5,Mead,CO,80542,United States,7,Assigned
+498,Andrea Summerville,"1681 Westview Dr.,","1681 Westview Dr.,",Laramie,WY,82070,United States,7,Assigned
+499,Kenneth W Jurgens,16839 COUNTY ROAD 394,16839 COUNTY ROAD 394,LA SALLE,CO,80645,United States,3,Assigned
+500,Karen Ludwig,1685 Case Road,1685 Case Road,Columbus,OH,43224,United States,5,Assigned
+501,Gretchen Kanters,1686 Royal Blvd.,1686 Royal Blvd.,Glendale,CA,91207,United States,5,Assigned
+502,Delbert Temple and Vivian E Temple,16900 Weld County Road 7                                                     P.O. Box 254,16900 Weld County Road 7                                                     P.O. Box 254,Mead,CO,80542,United States,5,Assigned
+503,Jane E Sprouse,16920 County Road 5,16920 County Road 5,Mead,CO,80542,United States,5,Assigned
+504,Kevin Schmidt,16924 County Road 42,16924 County Road 42,La Salle,CO,80645,United States,1,Assigned
+505,R&I Oil LLC,16924 CR 42,16924 CR 42,LaSalle,CO,80645,United States,3,Assigned
+506,Courtney Stout,16930 County Road 5,16930 County Road 5,Mead,CO,80542,United States,1,Assigned
+507,Eva M Trunbull,16942 E. Eastman Place,16942 E. Eastman Place,Aurora,CO,80013,United States,2,Assigned
+508,Brian Foss and Vivian Foss,16969 County Road 76,16969 County Road 76,Eaton,CO,80615,United States,3,Assigned
+509,Joyce J Allely,17 Dos Rios,17 Dos Rios,Greeley,CO,80634,United States,6,Assigned
+510,Jeffrey Sobeski Melissa Sobeski Michael Sobeski,17 Rutherford Avenue,17 Rutherford Avenue,Johnstown,CO,80534,United States,4,Assigned
+511,Kristin Morrell,17 Ward Street,17 Ward Street,Norwalk,CT,6851,United States,3,Assigned
+512,Keish Noriyuki and Marge Noriyuki,17 West 208 South,17 West 208 South,Burley,ID,83318,United States,7,Assigned
+513,Sally Ann Hooks,170 Lafayette Street,170 Lafayette Street,Denver,CO,80218,United States,6,Assigned
+514,Grizzly Petroleum Company LLC,"1700 Broadway, Ste. 650","1700 Broadway, Ste. 650",Denver,CO,80290,United States,6,Assigned
+515,NCR Acquisitions 1 LLC,"1700 Broadway, suite 650","1700 Broadway, suite 650",Denver,CO,80290,United States,3,Assigned
+516,Gwyn M Peppler,17043 Highway 394,17043 Highway 394,La Salle,CO,80645,United States,7,Assigned
+517,Mary Ruhnke,17063 Brandon Avenue,17063 Brandon Avenue,Petersburg,VA,23805,United States,6,Assigned
+518,Francis Royalties LLC,1707 61st Ave.,1707 61st Ave.,Greeley,CO,80634,United States,7,Assigned
+519,Kaitlynn Griffith,1709 12th Ave,1709 12th Ave,Coralville,IA,52241,United States,1,Assigned
+520,Patricia Marvin,17109 Merganser Dr,17109 Merganser Dr,Bend,OR,97707,United States,3,Assigned
+521,Scott T Laramore and S Lynn Laramore,1711 AA Street,1711 AA Street,Greeley,CO,80631,United States,5,Assigned
+522,Luberta Ann and Robert Christianson,1715 Royal Rd.,1715 Royal Rd.,Aberdeen,SD,57401,United States,1,Assigned
+523,Robert N Kern,17154 WCR 29,17154 WCR 29,Platteville,CO,80651,United States,2,Assigned
+524,Marilyn Smith,1717 South Harris,1717 South Harris,Independence,MO,64052,United States,1,Assigned
+525,Wilfred L Varela and Helen Varela,1718 12th Ave.,1718 12th Ave.,Greeley,CO,80631,United States,7,Assigned
+526,International Investments,1719 9th Street,1719 9th Street,Greeley,CO,80631,United States,2,Assigned
+527,James Holman & Elizabeth M Holman,"1720 32nd St., #24","1720 32nd St., #24",Evans,CO,80620,United States,6,Assigned
+528,Sunflower Royalties LLC,1720 S. Bellaire St. Ste. 1209,1720 S. Bellaire St. Ste. 1209,Denver,CO,80222,United States,4,Assigned
+529,Magic M&R LLC,"1720 So. Bellaire St., Suite 1209","1720 So. Bellaire St., Suite 1209",Denver,CO,80222,United States,4,Assigned
+530,Jennifer D Sears,1722 Glen Meadow Drive,1722 Glen Meadow Drive,Greeley,CO,80631,United States,7,Assigned
+531,Charles Ross Riggs,17247 E Peach Tree Rd.,17247 E Peach Tree Rd.,Mayer,AZ,86333,United States,4,Assigned
+532,Tina C Longoria,1725 29th Ave,1725 29th Ave,Greeley,CO,80634,United States,2,Assigned
+533,Karen Schroedel,1726 44th Ave SW,1726 44th Ave SW,Seattle,WA,98116,United States,7,Assigned
+534,Bruce A Sauter,17327 CR 46,17327 CR 46,Sterling,CO,80751,United States,6,Assigned
+535,Rex C Eaton III,1736 Clermont Street,1736 Clermont Street,Denver,CO,80220,United States,1,Assigned
+536,Kern Family Trust B,17362 WCR 29,17362 WCR 29,Platteville,CO,80651,United States,4,Assigned
+537,Carol F Roehrs,1739 70th Ave.,1739 70th Ave.,Greeley,CO,80634,United States,6,Assigned
+538,Elizabeth K Mount,174 Settlers Ridge Road,174 Settlers Ridge Road,Milford,CT,6460,United States,6,Assigned
+539,Norwest Publishing Co,17401 Northeast Halsey,17401 Northeast Halsey,Portland,OR,97230,United States,7,Assigned
+540,70's Farm LLC,1742 37th Avenue PL,1742 37th Avenue PL,Greeley,CO,80634,United States,6,Assigned
+541,Christy Harras,1742 Deweese Street,1742 Deweese Street,Fort Collins,CO,80526,United States,1,Assigned
+542,Michael E Gittlein,17442 County Road 53,17442 County Road 53,La Salle,CO,80645,United States,6,Assigned
+543,Calvin J Dyer and Cynthia Lee Dyer,17457 CR 34,17457 CR 34,Julesburg,CO,80737,United States,5,Assigned
+544,Allen Burghart,17500 WCR 55,17500 WCR 55,La Salle,CO,80645,United States,5,Assigned
+545,Virginia Charles Carlson,1751 Shavano St.,1751 Shavano St.,Longmont,CO,80501,United States,6,Assigned
+546,Evelia Patino and Sergio Patino Gomez,1752 County Road 27,1752 County Road 27,Brighton,CO,80603,United States,5,Assigned
+547,Shawna Stevens,1753 Irvine Avenue,1753 Irvine Avenue,Newport Beach,CA,92660,United States,1,Assigned
+548,Paul M Oster,17550 CR 49,17550 CR 49,LaSalle,CO,80645,United States,2,Assigned
+549,Carbon Peak Energy,17576 West Copper Ridge Drive,17576 West Copper Ridge Drive,Goodyear,AZ,85338,United States,7,Assigned
+550,Denise Bergin,17591 County Road 78,17591 County Road 78,Eaton,CO,80615,United States,4,Assigned
+551,Jerry D Carlile,17594 County Road 41,17594 County Road 41,Sterling,CO,80751,United States,7,Assigned
+552,Clarence Croissant,17594 Road 41,17594 Road 41,Sterling,CO,80751,United States,3,Assigned
+553,KLC Properties LLC,17688 County Road 29,17688 County Road 29,Platteville,CO,80651,United States,3,Assigned
+554,Estate of Larry N Gill,177 N CHURCH AVE STE 711,177 N CHURCH AVE STE 711,TUCSON,AZ,85701,United States,6,Assigned
+555,Linda Lee Lauridson Friskney,17732 W 83rd Pl.,17732 W 83rd Pl.,Arvada,CO,80007,United States,4,Assigned
+556,Greg R Thome,17737 E. Belleview Place,17737 E. Belleview Place,Centennial,CO,80015,United States,6,Assigned
+557,Masters Investment Company,"1775 Sherman St., Unit 1700","1775 Sherman St., Unit 1700",Denver,CO,80203,United States,1,Assigned
+558,Petroleum Development Corporation,"1775 Sherman Street, Suite 3000","1775 Sherman Street, Suite 3000",Denver,CO,80203,United States,6,Assigned
+559,DAPCO LLC,"1776 S. Jackson, Suite 1000","1776 S. Jackson, Suite 1000",Denver,CO,80210,United States,1,Assigned
+560,Marty Land Company LLLP,1777 CR 46,1777 CR 46,Berthoud,CO,80513,United States,3,Assigned
+561,Alfred T Watada,1780 Harlow Ave,1780 Harlow Ave,Pueblo,CO,81006,United States,4,Assigned
+562,Judy J Kaveny,1780 Stove Prairie Cir.,1780 Stove Prairie Cir.,Loveland,CO,80538,United States,5,Assigned
+563,J and L Mineral Rights LLC,1781 Pioneer Place,1781 Pioneer Place,Eaton,CO,80615,United States,7,Assigned
+564,Carolyn Gilliland,17812 SE Alder St.,17812 SE Alder St.,Portland,OR,97233,United States,7,Assigned
+565,Knaub Family Living Trust,17915 WCR 39,17915 WCR 39,Platteville,CO,80651,United States,3,Assigned
+566,Tagawa Greenhouses Inc,17999 Weld County Road 4,17999 Weld County Road 4,Brighton,CO,80603,United States,2,Assigned
+567,University of Colorado School of Medicine,"1800 Grant St #600, 25 UCA Room E1354","1800 Grant St #600, 25 UCA Room E1354",Denver,CO,80203,United States,2,Assigned
+568,Alfred R Cuykendall,1800 Grant Street Ste 600,1800 Grant Street Ste 600,Denver,CO,80203,United States,1,Assigned
+569,Freida K Strome,"18002 N. 12th St., No. 22","18002 N. 12th St., No. 22",Phoenix,AZ,85022,United States,2,Assigned
+570,Northern Colorado Royalties LLC,"1801 Broadway, Ste 500","1801 Broadway, Ste 500",Denver,CO,80202,United States,4,Assigned
+571,Antelope Energy Company LLC,"1801 Broadway, Suite 1550","1801 Broadway, Suite 1550",Denver,CO,80202,United States,3,Assigned
+572,Prima Oil and Gas Company,"1801 Broadway, Suite 500","1801 Broadway, Suite 500",Denver,CO,80202,United States,7,Assigned
+573,David Ludwig,18010 CR 38,18010 CR 38,Plateville,CO,80651,United States,1,Assigned
+574,David L Ludwig,18010 WCR 38,18010 WCR 38,Platteville,CO,80651,United States,6,Assigned
+575,Theresa M Meyers,1804 18th Ave.,1804 18th Ave.,Greeley,CO,80631,United States,4,Assigned
+576,Donna J Nelson,1805 44th Ave. Ct.,1805 44th Ave. Ct.,Greeley,CO,80634,United States,2,Assigned
+577,Estate of Richard Garcia,1805 85th Avenue Ct.,1805 85th Avenue Ct.,Greeley,CO,80634,United States,1,Assigned
+578,James Homer Rowe Jr,181 Rusty Plank Ave.,181 Rusty Plank Ave.,Las Vegas,NV,89148,United States,6,Assigned
+579,Ardis Kerns,1811 Montview Blvd.,1811 Montview Blvd.,Greeley,CO,80634,United States,7,Assigned
+580,Texo LLC,"1813 61 Avenue, #200","1813 61 Avenue, #200",Greeley,CO,80634,United States,6,Assigned
+581,Ed Orr,"1813 61st Avenue, Suite 200","1813 61st Avenue, Suite 200",Greeley,CO,80634,United States,3,Assigned
+582,Melvin Dinner,1814 14th Avenue,1814 14th Avenue,Greeley,CO,80631,United States,2,Assigned
+583,Mary Lind,1815 26th Ave. Ct.,1815 26th Ave. Ct.,Greeley,CO,80631,United States,4,Assigned
+584,First Presbyterian Church of Boulder Colorado,1820 15th Street,1820 15th Street,Boulder,CO,80302,United States,6,Assigned
+585,Lone Star LLC,1820 N. I-35,1820 N. I-35,Gainesville,TX,76240,United States,7,Assigned
+586,Steven R Mammen,1821 15th Avenue,1821 15th Avenue,Greeley,CO,80632,United States,4,Assigned
+587,Sasaki Family Holdings LLC,1821 WCR 27,1821 WCR 27,Brighton,CO,80601,United States,5,Assigned
+588,Sylvia Felix,183 20th Ave. Ct.,183 20th Ave. Ct.,Greeley,CO,80631,United States,4,Assigned
+589,Good Shepherd Lutheran Home,"18350 Mt. Langley St., Suite 205","18350 Mt. Langley St., Suite 205",Fountain Valley,CA,92708,United States,4,Assigned
+590,Ovid A Plumb,1837 Indian Hills Circle,1837 Indian Hills Circle,Fort Collins,CO,80525,United States,1,Assigned
+591,Deborah Ann Casey,18385 Deer Drive,18385 Deer Drive,Saucier,MS,39574,United States,7,Assigned
+592,Larry J Wikholm and Karen L Wikholm,1841 Frontier Road,1841 Frontier Road,Greeley,CO,80634,United States,5,Assigned
+593,Stephen Hart,185 Admiral Road,185 Admiral Road,Buffalo,NY,14216,United States,5,Assigned
+594,Santos Simental and Sonia Simental,18526 CR 8,18526 CR 8,Brighton,CO,80601,United States,7,Assigned
+595,Brian Rupp,18548 Nordhoff Street,18548 Nordhoff Street,Northridge,CA,91324,United States,1,Assigned
+596,Thomas A Schupman and Yvette B Shupman,18560 CR 8,18560 CR 8,Brighton,CO,80601,United States,3,Assigned
+597,Marla De John,1860 23rd Ave.,1860 23rd Ave.,Greeley,CO,80631,United States,1,Assigned
+598,Gary K De John,1860 23rd Avenue,1860 23rd Avenue,Greeley,CO,80631,United States,5,Assigned
+599,Gregory A Holton and Victoria M Holton,187 Chuniloti Way,187 Chuniloti Way,Loudon,TN,37774,United States,7,Assigned
+600,Stellar Resources LLC,"1873 S. Bellaire Street, Suite 900","1873 S. Bellaire Street, Suite 900",Denver,CO,80202,United States,5,Assigned
+601,Union Central Life Insurance Company,"1876 Waycross Rd,","1876 Waycross Rd,",Cincinnati,OH,45240,United States,3,Assigned
+602,Thomas T Kraft and Susan K Demel,18796 CR 8,18796 CR 8,Brighton,CO,80603,United States,7,Assigned
+603,Leo W Green and Janice M Green,18886 CR 8,18886 CR 8,Brighton,CO,80603,United States,7,Assigned
+604,Naviatas Infinitas LLC,"19 Old Town Square, Suite 238","19 Old Town Square, Suite 238",Fort Collins,CO,80524,United States,5,Assigned
+605,Margaret E Meenan,1900 S. Gaydon Ave.,1900 S. Gaydon Ave.,San Gabriel,CA,91776,United States,3,Assigned
+606,Cullen 66 Oil & Gas LLC,"1900 West Loop South, Suite 1150","1900 West Loop South, Suite 1150",Houston,TX,77027,United States,4,Assigned
+607,Lois E Knittle,1901 Westridge Dr.,1901 Westridge Dr.,Edmond,OK,73013,United States,4,Assigned
+608,Robert Lawrence Eaton,1904 26th Ave,1904 26th Ave,Greeley,CO,80634,United States,6,Assigned
+609,Landco Ltd Liability Co,1904 26th Avenue,1904 26th Avenue,Greeley,CO,80634,United States,2,Assigned
+610,Marjorie Joan Brown,1906 Connecticut Dr.,1906 Connecticut Dr.,Fort Collins,CO,80525,United States,4,Assigned
+611,LBC Investments LLC,1907 1 Avenue,1907 1 Avenue,Greeely,CO,80631,United States,1,Assigned
+612,Janell Dawn Foose,1910 80th Ave.,1910 80th Ave.,Greeley,CO,80634,United States,1,Assigned
+613,Ramon V Klein,1913 Wesbrook Circle,1913 Wesbrook Circle,Kansas,KS,67502,United States,3,Assigned
+614,Estate of Marlene M Mckinnon,1915 SE 24th Ave,1915 SE 24th Ave,Portland,OR,97214,United States,1,Assigned
+615,DGDG LLC,1918 Kennedy Ave,1918 Kennedy Ave,Loveland,CO,80538,United States,3,Assigned
+616,Linda Chapman,1919 20th Street Rd.,1919 20th Street Rd.,Greeley,CO,80631,United States,7,Assigned
+617,Estate of Gladys Yohe,1921 Curtis Street,1921 Curtis Street,Downers Grove,IL,60515,United States,2,Assigned
+618,Jeannene M Page,1931 14th St.,1931 14th St.,Greeley,CO,80631,United States,7,Assigned
+619,Harold Daniels and Madeline P Daniels,"1931 Hillrose Dr.,","1931 Hillrose Dr.,",Loveland,CO,80538,United States,2,Assigned
+620,Harold L Daniels and Madeline P Daniels,1931 Hillrose Drive,1931 Hillrose Drive,Loveland,CO,80538,United States,5,Assigned
+621,Shable Land Co LLC,19320 CR 44,19320 CR 44,La Salle,CO,80645,United States,3,Assigned
+622,Delbert W Shable dec'd,19320 Weld County Road 44,19320 Weld County Road 44,LaSalle,CO,80645,United States,1,Assigned
+623,Henry Beierle Jr and Melita Beierle,1943 County Road 37,1943 County Road 37,Brighton,CO,80603,United States,7,Assigned
+624,Delbert Hooge,1944 Farm Road 123,1944 Farm Road 123,Springfield,MO,65807,United States,7,Assigned
+625,Donald O Magnuson and Jeanette R Magnuson,19495 County Road 72,19495 County Road 72,Eaton,CO,80615,United States,1,Assigned
+626,Regina Dyon Kirkpatrick and Dusten Yuma Kirkpatrick,19495 WCR 72,19495 WCR 72,Eaton,CO,80615,United States,4,Assigned
+627,Kimberly I Sell and Gary D Sell,19495 Weld County Road 72,19495 Weld County Road 72,Eaton,CO,80615,United States,3,Assigned
+628,Barbara Bourgeois McGee,1950 Donna Ave.,1950 Donna Ave.,Los Osos,CA,93402,United States,2,Assigned
+629,"Susan Gettman, Judith Vannest, Dianne Johannes and Dennis Maxey",1950 HWY 34 East,1950 HWY 34 East,Greeley,CO,80631,United States,5,Assigned
+630,Regina Kirkpatrick,19507 WCR 72,19507 WCR 72,Eaton,CO,80615,United States,2,Assigned
+631,Dorothy Arnold,1951 E. Hwy,1951 E. Hwy,Greeley,CO,80631,United States,3,Assigned
+632,Darrell Timothy Hettinger,19515 Weld County Road 86,19515 Weld County Road 86,Ault,CO,80610,United States,5,Assigned
+633,LBGems LLC,1955 Mooringline Dr.,1955 Mooringline Dr.,Vero Beach,FL,32963,United States,6,Assigned
+634,Susan B Sheridan,1955 Mooringline Drive,1955 Mooringline Drive,Vero Beach,FL,32963,United States,1,Assigned
+635,Dorothy L Wiedeman,1956 45th Ave.,1956 45th Ave.,Greeley,CO,80634,United States,2,Assigned
+636,James George Alles,1959 26th Ave. Ct.,1959 26th Ave. Ct.,Greeley,CO,80631,United States,5,Assigned
+637,Steven Paul Foos,19671 CR 57,19671 CR 57,Kersey,CO,80644,United States,1,Assigned
+638,Susan K Nelson,19709 CR 72,19709 CR 72,Eaton,CO,80615,United States,4,Assigned
+639,Shirley Robb,1979 44th Ave. Court,1979 44th Ave. Court,Greeley,CO,80634,United States,3,Assigned
+640,Eugene Woodrow and Shirley M Robb,1979 44th Avenue Court,1979 44th Avenue Court,Greeley,CO,80634,United States,6,Assigned
+641,Daniel M Stoos and Kathleen F Stoos,19792 CR 74,19792 CR 74,Eaton,CO,80615,United States,4,Assigned
+642,Kelly Langdon,19805 County Road 37,19805 County Road 37,La Salle,CO,80645,United States,2,Assigned
+643,Winston H Dines,1985 S. Scenic Dr.,1985 S. Scenic Dr.,Salt Lake City,UT,84108,United States,1,Assigned
+644,Jane L Kalina and Kurtis D Kalina,1989 58th St.,1989 58th St.,Vinton,IA,52349,United States,6,Assigned
+645,Kimberly A Cowern,19896 CR 74,19896 CR 74,Eaton,CO,80615,United States,7,Assigned
+646,Maurilio Navarro,19920 CR 52,19920 CR 52,LaSalle,CO,80645,United States,7,Assigned
+647,Dinnel Family Limited Liability Partnership,19970 WCR 57,19970 WCR 57,Kersey,CO,80644,United States,2,Assigned
+648,HS Resources Inc,"1999 Broadway, Suite 3600","1999 Broadway, Suite 3600",Denver,CO,80202,United States,3,Assigned
+649,Thomas P Dykstra,20 Dos Rios,20 Dos Rios,Greeley,CO,80634,United States,7,Assigned
+650,Garry Albright and Lori Albright,20 Dos Rios Street,20 Dos Rios Street,Greeley,CO,80634,United States,4,Assigned
+651,Randal L Nicholsona and Brenda L Nicholson,200 Immigrant Trail,200 Immigrant Trail,Severance,CO,80550,United States,3,Assigned
+652,Robert James Terranova Jr and Cammy K Terranova,2000 Vineyard Drive,2000 Vineyard Drive,Windsor,CO,80550,United States,5,Assigned
+653,Clifford W Clift and Sally Clift Jr,2001 Fern Avenue,2001 Fern Avenue,Greeley,CO,80631,United States,5,Assigned
+654,Wendy Baker Trust,"2001 Wilshire Blvd., Ste 505","2001 Wilshire Blvd., Ste 505",Santa Monica,CA,90403,United States,5,Assigned
+655,Mildred L Kielian,2002 E. 20th St.,2002 E. 20th St.,Greeley,CO,80631,United States,4,Assigned
+656,Robert R Riggs,2002 Rock Fish Road,2002 Rock Fish Road,Moncks Corner,SC,29461,United States,1,Assigned
+657,Alvaro Marquez and Shirley Marquez,2003 69th Avenue,2003 69th Avenue,Greeley,CO,80634,United States,6,Assigned
+658,Edwin S Davis,2003 Ave P.,2003 Ave P.,Huntsville,TX,77340,United States,1,Assigned
+659,Jody Stevens,2003 S. E. Juniper Ct.,2003 S. E. Juniper Ct.,Port Orchards,WA,98366,United States,6,Assigned
+660,Todd Lowth,2006 Birchmont Dr. NE,2006 Birchmont Dr. NE,Bemidji,MN,56601,United States,1,Assigned
+661,Marian Forbes,20075 County Road Q,20075 County Road Q,Fort Morgan,CO,80701,United States,6,Assigned
+662,Bernice J Rutz,2009 61 Ave.,2009 61 Ave.,Greeley,CO,80634,United States,7,Assigned
+663,Lawrence Christopher Eaton,201 Circle Dr,201 Circle Dr,Bozeman,MT,59715,United States,3,Assigned
+664,Terry W Ferris and Gwendolyn K Ferris,201 N. 7th St.,201 N. 7th St.,Windsor,CO,80550,United States,5,Assigned
+665,Robert Dale Austin and Jean Austin,201 South 5th Street,201 South 5th Street,La Salle,CO,80645,United States,1,Assigned
+666,DANIEL B WATSON,2011 6th Avenue,2011 6th Avenue,Greeley,CO,80631,United States,6,Assigned
+667,The Lila J Stewart Trust,2011 Ridgeview Dr.,2011 Ridgeview Dr.,Longmont,CO,80504,United States,4,Assigned
+668,Carl A Jepsen II and John C Jepsen,20121 Weld County Road 42,20121 Weld County Road 42,LaSalle,CO,80645,United States,7,Assigned
+669,Estate of Juanita Sally Gandy,20140 Blaine Road,20140 Blaine Road,Beaver,OR,97108,United States,4,Assigned
+670,Lundvall LLC,2015 Clubhouse Drive,2015 Clubhouse Drive,Greeley,CO,80634,United States,7,Assigned
+671,James VG Wilson Jr,2015 Zircon Lane,2015 Zircon Lane,Eagan,MN,55122,United States,7,Assigned
+672,Charles B McPherson,2018 Essex Lane,2018 Essex Lane,Colorado Springs,CO,80909,United States,4,Assigned
+673,D Craig Joseph and Sandra K Joseph,202 Immigrant Trail,202 Immigrant Trail,Severance,CO,80550,United States,6,Assigned
+674,Estate of Joyce Arlene Wykert Weber,202 Jackie Ann Street,202 Jackie Ann Street,Ault,CO,80610,United States,6,Assigned
+675,Webster Hogeland,202 North Bridge Street,202 North Bridge Street,Bedford,VA,24523,United States,1,Assigned
+676,Steven Bohlender,2020 65th Ave.,2020 65th Ave.,Greeley,CO,80634,United States,2,Assigned
+677,Joseph R Abernathy and Bonnie Abernathy,20201 Leola Way,20201 Leola Way,Eaton,CO,80615,United States,3,Assigned
+678,Darrel R Vanfossen and Betty J Vanfossen,2022 N. County 23,2022 N. County 23,Berthoud,CO,80513,United States,2,Assigned
+679,Estate of C Dwain Yetter,20226 County Road 80,20226 County Road 80,Ault,CO,80610,United States,3,Assigned
+680,David T Yetter and Terri I Yetter,20226 Weld County Road 80,20226 Weld County Road 80,Ault,CO,80610,United States,3,Assigned
+681,Jack F Mondt,20259 San Gabriel Valley Drive,20259 San Gabriel Valley Drive,Walnut,CA,91789,United States,7,Assigned
+682,Watson Family LLLP,20295 CR 66,20295 CR 66,Greeley,CO,80631,United States,3,Assigned
+683,Michael Dean Geesen and Heidi Geesen,20327 WCR 57,20327 WCR 57,Kersey,CO,80644,United States,4,Assigned
+684,Victoria Daniel Baldwin,2038 27th Ave. Court #1,2038 27th Ave. Court #1,Greeley,CO,80631,United States,6,Assigned
+685,Verna Jane Eubank,204 52nd Avenue,204 52nd Avenue,Greeley,CO,80634,United States,6,Assigned
+686,Keith Dwayne Hickox and Debra Ann Hickox,204 Immigrant Trail,204 Immigrant Trail,Severance,CO,80550,United States,4,Assigned
+687,HHR Family Farms LLC,20413 Road 6,20413 Road 6,Wiggins,CO,80654,United States,6,Assigned
+688,Karen L Martin,20416 Brookdale Lane,20416 Brookdale Lane,Parker,CO,80138,United States,2,Assigned
+689,Geraldine A Gustafson,2048 Vinyard Dr.,2048 Vinyard Dr.,Windsor,CO,80550,United States,2,Assigned
+690,David Palafox Meza,20481 County Road 72,20481 County Road 72,Eaton,CO,80615,United States,4,Assigned
+691,Lubia Sandoval,20481 WCR 72,20481 WCR 72,Eaton,CO,80615,United States,7,Assigned
+692,Lisa Nelson Adickes,205 W. Fair Oaks Place,205 W. Fair Oaks Place,San Antonio,TX,78209,United States,2,Assigned
+693,Albert Bernhardt,20523 Highway 39,20523 Highway 39,Wiggins,CO,80564,United States,4,Assigned
+694,Clinton Eugene Fiscus,20542 County Road 76,20542 County Road 76,Eaton,CO,80615,United States,6,Assigned
+695,Yggdrasil Minerals LLC,2055 Summit Drive,2055 Summit Drive,Sheridan,WY,82801,United States,3,Assigned
+696,Brandon Ford and Brittany Ford,2057 WCR 72,2057 WCR 72,Eaton,CO,80615,United States,5,Assigned
+697,Robert T Kinney Jr and Marlene H Kinney,206 Immigrant Trail,206 Immigrant Trail,Severance,CO,80550,United States,5,Assigned
+698,Ann Morrell,206 Sebago Lake Rd.,206 Sebago Lake Rd.,Gorham,ME,4038,United States,4,Assigned
+699,Kelly D Hockaday and Brenda M Hockaday,2063 Weld County Road 34 1/2,2063 Weld County Road 34 1/2,Mead,CO,80542,United States,3,Assigned
+700,Duarte Farm Llc,20788 WCR 55,20788 WCR 55,Kersey,CO,80644,United States,6,Assigned
+701,Freida Dilka,208 1st St,208 1st St,Kersey,CO,80644,United States,6,Assigned
+702,Maida Ann Dantzler,208 Shasta Lane,208 Shasta Lane,Santee,SC,29142,United States,5,Assigned
+703,Lynda Colleen Kammerzell,2087 GULL WAY,2087 GULL WAY,CAMANO ISLAND,WA,98282,United States,1,Assigned
+704,Jessica Kline,209 SW Charlene Street,209 SW Charlene Street,Aloha,OR,97003,United States,5,Assigned
+705,John P Taylor,20910WCR 64,20910WCR 64,Greeley,CO,80631,United States,5,Assigned
+706,Timothy A Goodvin and Jamie I Goodvin,20943 CR 72,20943 CR 72,Eaton,CO,80615,United States,2,Assigned
+707,John Thomas Dues,21 Birch Drive,21 Birch Drive,Jackson,NJ,8527,United States,1,Assigned
+708,John Thomas Deus,21 Oakmont Court,21 Oakmont Court,Lincroft,NJ,7738,United States,3,Assigned
+709,Anthony Castillo,2102 60th Ave,2102 60th Ave,Greeley,CO,80634,United States,2,Assigned
+710,Lisa Jeanette Foos,2108 21st Ave. Ct.,2108 21st Ave. Ct.,Greeley,CO,80631,United States,3,Assigned
+711,Lola J Richardson,2108 E 24th St,2108 E 24th St,Greeley,CO,80631,United States,7,Assigned
+712,Rebecca L Pearson,2108 East Street,2108 East Street,Golden,CO,80401,United States,1,Assigned
+713,H & S Distributing Company,211 30th Street,211 30th Street,Greeley,CO,80631,United States,7,Assigned
+714,Nancy L Allera,211 WOLFE AVE,211 WOLFE AVE,COLORADO SPRINGS,CO,80905,United States,5,Assigned
+715,Marcia J Smith and Randy J Smith,2111 Wright Court,2111 Wright Court,Longmont,CO,80501,United States,6,Assigned
+716,Julian Rodriguez and Lisa Rodriguez,2114 14th Street Rd.,2114 14th Street Rd.,Greeley,CO,80631,United States,6,Assigned
+717,Herman Altergott,2117 44th Ave.,2117 44th Ave.,Greeley,CO,80634,United States,6,Assigned
+718,Rosemary T Eaton,2118 Carrhill Road,2118 Carrhill Road,Vienna,VA,22181,United States,6,Assigned
+719,Douglas C Uyemura and Dorothy Y Uyemura,2119 CHERRY AVE.,2119 CHERRY AVE.,Greeley,CO,80631,United States,3,Assigned
+720,William C Hargis,2120 35th Ave Ct.,2120 35th Ave Ct.,Greeley,CO,80634,United States,1,Assigned
+721,Michael D Hungenberg,2120 60th Ave,2120 60th Ave,Greeley,CO,80631,United States,5,Assigned
+722,Estate of John M Falzgraf,"2121 Wadsworth Blvd, Unit 101","2121 Wadsworth Blvd, Unit 101",Denver,CO,80214,United States,5,Assigned
+723,Kathy Kay Valencia,2125 19th Avenue,2125 19th Avenue,Greeley,CO,80631,United States,7,Assigned
+724,Grandchildren's Trust II,2131 62 Ave. Ct.,2131 62 Ave. Ct.,Greeley,CO,80634,United States,2,Assigned
+725,Nolan Land LLLP,21367 CR 64,21367 CR 64,Greeley,CO,80631,United States,7,Assigned
+726,William J Schneider,2137 21st Ave.,2137 21st Ave.,Greeley,CO,80631,United States,6,Assigned
+727,Donna J Hubbard,214 Ariana Ave,214 Ariana Ave,Auburn,FL,33823,United States,3,Assigned
+728,Dorothy A Dill,2141 Bluebell Ave.,2141 Bluebell Ave.,Greeley,CO,80631,United States,6,Assigned
+729,James E Vetting and Michele L Vetting,2143 45th Ave.,2143 45th Ave.,Greeley,CO,80634,United States,3,Assigned
+730,Michele I Vetting,2143 45th Avenue,2143 45th Avenue,Greeley,CO,80634,United States,6,Assigned
+731,Robert W and Tonya R Benich,2144 Hwy 34 East,2144 Hwy 34 East,Greeley,CO,80631,United States,2,Assigned
+732,Dennis C Ehn,215 Cypress St.,215 Cypress St.,Newton,MA,2459,United States,3,Assigned
+733,Susan Standley,215 E Lake Avenue,215 E Lake Avenue,Lewistown,MT,59457,United States,6,Assigned
+734,STA LLC,215 S Laurel Ave,215 S Laurel Ave,Broken Arrow,OK,74012,United States,6,Assigned
+735,Robert W Hubbard,2150 South County Road 129,2150 South County Road 129,Bennet,CO,80102,United States,3,Assigned
+736,J Christopher Dykes Revocable Trust,2150 W 29Th Ave Ste 500,2150 W 29Th Ave Ste 500,Denver,CO,80211,United States,4,Assigned
+737,Howard V Richardson,21509 WCR 55,21509 WCR 55,Kersey,CO,80644,United States,2,Assigned
+738,Corwin L Carlson and Katherine J Carlson,2151 Fern Ave.,2151 Fern Ave.,Greeley,CO,80631,United States,1,Assigned
+739,Crop Air Inc,21532 WCR 72/ PO Box 1175,21532 WCR 72/ PO Box 1175,Eaton,CO,80615,United States,4,Assigned
+740,Jack L Schreiber,2155 Glenfair Dr.,2155 Glenfair Dr.,Greeley,CO,80631,United States,7,Assigned
+741,Helen B Edmonds,2166 Somerset,2166 Somerset,San Leandro,CA,94578,United States,2,Assigned
+742,Francis Jack Reeman and Norma Lee Reeman,21678 WCR 92,21678 WCR 92,Pierce,CO,80650,United States,6,Assigned
+743,Janis L Burger,217 Penstemon Lane,217 Penstemon Lane,Sedona,AZ,86339,United States,4,Assigned
+744,Lineage Master RE LLC,21700 Barton Road,21700 Barton Road,Colton,CA,92324,United States,4,Assigned
+745,Edwin A Amen,219 North 25th Ave.,219 North 25th Ave.,Greeley,CO,80631,United States,7,Assigned
+746,University of Denver,"2190 E, Asbury Ave","2190 E, Asbury Ave",Denver,CO,80208,United States,6,Assigned
+747,Daniel Family LLC,2190 Union Drive,2190 Union Drive,Lakewood,CO,80215,United States,2,Assigned
+748,Berry Farms LLC,2195 Chantala Lane,2195 Chantala Lane,Pueblo,CO,81006,United States,3,Assigned
+749,Christine MK Rosch,22 Bassett Road,22 Bassett Road,Williamsville,NY,14221,United States,4,Assigned
+750,Melanie K Trautman,2200 37th St Lot 33,2200 37th St Lot 33,Evans,CO,80620,United States,4,Assigned
+751,Roberta Lynn and Raymond Lynn,2200 37th Street #91,2200 37th Street #91,Evans,CO,80620,United States,3,Assigned
+752,Alma V Thomas,"2200 E. 19th St.,","2200 E. 19th St.,",Cheyenne,WY,82001,United States,5,Assigned
+753,William Held Jr and Helen Irene Held,"2203 12th St., Rd","2203 12th St., Rd",Greeley,CO,80631,United States,5,Assigned
+754,Loyd Kenneth Carlson and Betty M Carlson,2204 Greenmont Ct,2204 Greenmont Ct,Fort Collins,CO,80524,United States,6,Assigned
+755,720 University LLC,2208 Glade Road,2208 Glade Road,Loveland,CO,80538,United States,4,Assigned
+756,Johnson Holdings LLC,221 2nd Ave. NE,221 2nd Ave. NE,Kulm,ND,58456,United States,7,Assigned
+757,Joseph R Zimmer and Lori L Zimmer,22114 WCR 74,22114 WCR 74,Eaton,CO,80615,United States,5,Assigned
+758,Irvine Inc,2213 27th Ave.,2213 27th Ave.,Greeley,CO,80634,United States,2,Assigned
+759,Linda Lea Wolfe,22168 Rd. 61,22168 Rd. 61,Kersey,CO,80644,United States,3,Assigned
+760,Elizabeth Louise Spomer,2219 Sunset Boulevard,2219 Sunset Boulevard,Houston,TX,77005,United States,7,Assigned
+761,Marion Suzanne Finni,222 53rd Avenue,222 53rd Avenue,Greeley,CO,80634,United States,2,Assigned
+762,Phillip D Olbert and Karen K Olbert,222 Tioga Trail,222 Tioga Trail,Parker,CO,80138,United States,6,Assigned
+763,R M Hiner Construction Company Inc,2220 O St.,2220 O St.,Greeley,CO,80631,United States,2,Assigned
+764,St Mary's Catholic Education Foundation Greeley,2222 23rd Ave.,2222 23rd Ave.,Greeley,CO,80634,United States,1,Assigned
+765,Joel Eugene Ritchey,22227 CR 30,22227 CR 30,Hudson,CO,80642,United States,2,Assigned
+766,Marlene J Mcknight,2228 12 St.,2228 12 St.,Greeley,CO,80631,United States,6,Assigned
+767,Karen L Markus Trust,2229 12th Street Road,2229 12th Street Road,Greeley,CO,80631,United States,7,Assigned
+768,Town of Eaton,223 1st Street,223 1st Street,Eaton,CO,80615,United States,2,Assigned
+769,Trust under Jack W Knight Trust Agreement,223 Bailey Pointe Drive,223 Bailey Pointe Drive,Belhaven,NC,27810,United States,1,Assigned
+770,Diane Schissler,223 S. 16th Ave.,223 S. 16th Ave.,Brighton,CO,80601,United States,7,Assigned
+771,Salvatore A Orsini,224 HERON PT # 224,224 HERON PT # 224,CHESTERTOWN,MD,21620,United States,2,Assigned
+772,Thomas P Killham,2242 Myrtle Drive,2242 Myrtle Drive,Billings,MT,59102,United States,7,Assigned
+773,Ben J Ells Living Trust,2247 CR 39,2247 CR 39,Brighton,CO,80601,United States,4,Assigned
+774,Carol Quiat Leight Living Trust,225 S. Dexter Street,225 S. Dexter Street,Denver,CO,80246,United States,5,Assigned
+775,Blackriver LLC,2251 West 26th Ave,2251 West 26th Ave,Denver,CO,80211,United States,2,Assigned
+776,Linda M Sly,2258 Cedar Lake Drive,2258 Cedar Lake Drive,Loganville,GA,30052,United States,2,Assigned
+777,Michael L Mancini,226 Summit Circle,226 Summit Circle,Layfayette,CO,80026,United States,6,Assigned
+778,Jennifer Edwards,2260 Pioneer Dr,2260 Pioneer Dr,Reno,NV,89509,United States,7,Assigned
+779,Gary K Howell,22620 Highway 36,22620 Highway 36,Brookfield,MO,64628,United States,6,Assigned
+780,Alexander B Platt,22670 CR 30,22670 CR 30,Hudson,CO,80642,United States,6,Assigned
+781,Eric D Peterson,2270 Iroquois Dr.,2270 Iroquois Dr.,Fort Collins,CO,80525,United States,4,Assigned
+782,Melvin Galvin,22718 E. Alamo Lane,22718 E. Alamo Lane,Aurora,CO,80015,United States,3,Assigned
+783,Millage Brothers Inc,22744 WCR 59,22744 WCR 59,Kersey,CO,80644,United States,2,Assigned
+784,Mary E Smith,2277 J. Rd,2277 J. Rd,Grand Junction,CO,81505,United States,5,Assigned
+785,Wade E Castor,22791 Highway 39,22791 Highway 39,Weldona,CO,80653,United States,7,Assigned
+786,Doyle McCarthy,"229 East Union Ave 
+LaSalle, CO 80645","229 East Union Ave 
+LaSalle, CO 80645",LaSalle,CO,80645,United States,6,Assigned
+787,The Bijou Irrigation District,229 Prospect Street,229 Prospect Street,Fort Morgan,CO,80701,United States,1,Assigned
+788,Saul M Madrid and Glenna M Madrid,22911 WCR 72,22911 WCR 72,Eaton,CO,80615,United States,5,Assigned
+789,Larry E Kientz,"22916 Forest Rd.,","22916 Forest Rd.,",Rapid City,SD,57702,United States,1,Assigned
+790,Elizabeth A Rapp,22920 Plume Ct.,22920 Plume Ct.,Cedar Hill,TX,75104,United States,4,Assigned
+791,Amy Rittenhouse,22939 County Road 59,22939 County Road 59,Kersey,CO,80644,United States,7,Assigned
+792,Estate of William Keith Robb deceased,22940 Sandpiper Ct,22940 Sandpiper Ct,Quail Valley,CA,92587,United States,3,Assigned
+793,Alva L Shable and Donna J Shable,22961 WCR 27.5,22961 WCR 27.5,Milliken,CO,80543,United States,5,Assigned
+794,Tamara Pollart,2300 Cherry Avenue,2300 Cherry Avenue,Greeley,CO,80631,United States,7,Assigned
+795,Edwin H Gow,2301 CHERRY AVE.,2301 CHERRY AVE.,Greeley,CO,80631,United States,4,Assigned
+796,Joelle Raichle,"2301 E. Fremont Ave., Apt U-4","2301 E. Fremont Ave., Apt U-4",Littleton,CO,80122,United States,4,Assigned
+797,Betty Jean McCarthy,23010 Rd 37,23010 Rd 37,LaSalle,CO,80645,United States,6,Assigned
+798,DS & D Inc,23016 WCR 74,23016 WCR 74,Eaton,CO,80615,United States,3,Assigned
+799,Cynthia Winn Hagan,2303 Lansdowne Pl,2303 Lansdowne Pl,Highlands Ranch,CO,80126,United States,7,Assigned
+800,Bayshore Minerals LLC,2305 W. Berry Ave.,2305 W. Berry Ave.,Littleon,CO,80120,United States,5,Assigned
+801,Deck Cameron Reichert,23056 County Road 34.5,23056 County Road 34.5,LaSalle,CO,80645,United States,4,Assigned
+802,Jamie Lynn Stubbs,2308 Meraux Lane,2308 Meraux Lane,Violet,LA,70092,United States,1,Assigned
+803,Thomas J Buckley,2310 Royal Oaks Dr.,2310 Royal Oaks Dr.,Mansfield,TX,76063,United States,3,Assigned
+804,Clearview Greeley LP,"2311 Cedar Springs Road, Suite 100","2311 Cedar Springs Road, Suite 100",Dallas,TX,75201,United States,5,Assigned
+805,Union Colony Investors LLC,2313 W. 17th St.,2313 W. 17th St.,Greeley,CO,80634,United States,3,Assigned
+806,Telep Family Limited Partnership LLLP,2315 54th Ave.,2315 54th Ave.,Greeley,CO,80634,United States,4,Assigned
+807,Robert M Wilson,2316 Clark Road,2316 Clark Road,Ft. Lewis,WA,98433,United States,3,Assigned
+808,William Borra,23176 Highway 257,23176 Highway 257,Milliken,CO,80543,United States,7,Assigned
+809,Clair B Orr Trust,23188 WCR,23188 WCR,Kersey,CO,80644,United States,6,Assigned
+810,Robert E Shimek,2319 NW Dorion Way,2319 NW Dorion Way,Bend,OR,97701,United States,3,Assigned
+811,Warren H Luhman,232 Fox Hill,232 Fox Hill,Spring Branch,TX,78070,United States,6,Assigned
+812,Ronald D Olson,"2320 Dell Range Lbvd., Ste. 100","2320 Dell Range Lbvd., Ste. 100",Cheyenne,WY,82009,United States,2,Assigned
+813,LRR Investments LLC,2323 8th Avenue,2323 8th Avenue,Greeley,CO,80631,United States,2,Assigned
+814,RP Lonetree LLC,23249 Highway #392,23249 Highway #392,Greeley,CO,80631,United States,6,Assigned
+815,Brandi Kozisek,23268 CR 74,23268 CR 74,Eaton,CO,80615,United States,1,Assigned
+816,William D and Elizabeth R Wilkinson,23279 County Road 72,23279 County Road 72,Eaton,CO,80615,United States,5,Assigned
+817,Lauretta E Raisley,233 42nd Ave.,233 42nd Ave.,Greeley,CO,80634,United States,6,Assigned
+818,Jim Mamot,233 Friend Road St.,233 Friend Road St.,Libory,NE,68872,United States,3,Assigned
+819,Scott Smith and Lonna Smith,23390 WCR 74,23390 WCR 74,Eaton,CO,80615,United States,6,Assigned
+820,David N Herring and Kirstalee D Herring,23398 CR 74,23398 CR 74,Eaton,CO,80615,United States,1,Assigned
+821,Stephen Roscoe Johnson Revocable Trust,234 Sunbeam Ct,234 Sunbeam Ct,Erie,CO,80516,United States,3,Assigned
+822,Helen Gladys Kelly Carroll,2345 Sixteenth Street,2345 Sixteenth Street,Greeley,CO,80631,United States,3,Assigned
+823,20/20 Exploration LLC,235 S High St,235 S High St,Denver,CO,80209,United States,3,Assigned
+824,Michael Svoboda,235 Walnut Drive,235 Walnut Drive,Broadway,VA,22815,United States,7,Assigned
+825,The Mcpherson Family Trust,"2350 Adobe Road, Suite 194","2350 Adobe Road, Suite 194",Bullhead City,AZ,86442,United States,5,Assigned
+826,Richard W Mann,23510 Highway 257,23510 Highway 257,Milliken,CO,80543,United States,1,Assigned
+827,Brenda Kay Haffner,23510 WCR 6,23510 WCR 6,Hudson,CO,80642,United States,7,Assigned
+828,Scott Adams,23511 State Highway 15,23511 State Highway 15,Fargo,OK,73840,United States,4,Assigned
+829,Paul LeRoy Wagner,23566 State Hwy 257,23566 State Hwy 257,Milliken,CO,80543,United States,3,Assigned
+830,John D Ziel and Hilde R Ziel,2370 W. 119th St.,2370 W. 119th St.,Westminster,CO,80234,United States,6,Assigned
+831,David Lee Bernhardt Consolidated Trust,23809 Weld County Road 25,23809 Weld County Road 25,Milliken,CO,80543,United States,2,Assigned
+832,Mark D and Michelle R Smith,23851 County Road 61,23851 County Road 61,Elbert,CO,80106,United States,2,Assigned
+833,Patricia A Rapp,239 Jones Road,239 Jones Road,Mathis,TX,78368,United States,7,Assigned
+834,Gerry Kaveny,2394 S. Yank Circle,2394 S. Yank Circle,Lakewood,CO,80228,United States,7,Assigned
+835,Peggy Henry,2400 COUNTY ROAD 2,2400 COUNTY ROAD 2,JOES,CO,80822,United States,5,Assigned
+836,Tripointe Business Center LLC,"2400 Industrial Lane, Suite 2100","2400 Industrial Lane, Suite 2100",Broomfield,CO,80020,United States,3,Assigned
+837,David D Keiss and Laura D Keiss,2400 W. 24th St.,2400 W. 24th St.,Greeley,CO,80634,United States,2,Assigned
+838,Patricia J Mass,2401 W. Peakview Court,2401 W. Peakview Court,Littleton,CO,80120,United States,2,Assigned
+839,Deena M Haas,2402 N. Townley,2402 N. Townley,Santa Ana,CA,92706,United States,3,Assigned
+840,Mary Lou Foutty,2403 Harrison Ave.,2403 Harrison Ave.,Parkersburg,WV,26101,United States,2,Assigned
+841,Mary Ann Feuerstein,2409 8th St.,2409 8th St.,Greeley,CO,80631,United States,5,Assigned
+842,Helen Kelly Steward,241 Lone Eagles Lane,241 Lone Eagles Lane,Sequim,WA,98382,United States,5,Assigned
+843,Brian Charles Leppard Jr,2410 County Road 3303,2410 County Road 3303,Greenville,TX,75402,United States,2,Assigned
+844,Todd Amen and Rhonda Amen,24138 WCR 38,24138 WCR 38,LaSalle,CO,80645,United States,5,Assigned
+845,Grant Laudenslager and Dixie M Lewis,24149 WCR 70,24149 WCR 70,Eaton,CO,80615,United States,6,Assigned
+846,Charles E Halstead III,242 S. Washington Blvd #220,242 S. Washington Blvd #220,Sarasota,FL,34236,United States,2,Assigned
+847,Lynn M Hurt and Maxine K Hurt,2420 10th Avenue Ct.,2420 10th Avenue Ct.,Greeley,CO,80631,United States,1,Assigned
+848,Bradley A Cockroft,2420 27th Avenue Place,2420 27th Avenue Place,Greeley,CO,80634,United States,3,Assigned
+849,Benjamin A Eaton,24206 Currant Dr,24206 Currant Dr,Golden,CO,80401,United States,1,Assigned
+850,Shirley Williamson,2425 Canterbury Ln,2425 Canterbury Ln,Sidney,NE,69162,United States,7,Assigned
+851,Janet K Schmidt,24250 Co Rd 58,24250 Co Rd 58,Greeley,CO,80631,United States,5,Assigned
+852,Mary Ann Barnes,2429 Santa Fe Drive Unit B,2429 Santa Fe Drive Unit B,Longmont,CO,80504,United States,1,Assigned
+853,Robert P Dykes Revocable Trust,243 42Nd Avenue,243 42Nd Avenue,Greeley,CO,80634,United States,4,Assigned
+854,James D Klein,24330 Highway 34,24330 Highway 34,Greeley,CO,80631,United States,2,Assigned
+855,Phillip J Pfannebecker and Sarah S Pfannebecker,24331 WCR 32,24331 WCR 32,LaSalle,CO,80645,United States,4,Assigned
+856,Melvin H Horst and Patricia D Horst,24350 Weld County Road 38,24350 Weld County Road 38,LaSalle,CO,80645,United States,2,Assigned
+857,David Clark Littler,"2446 S. St. Andrews Place
+Apt. #317","2446 S. St. Andrews Place
+Apt. #317",Los Angeles,CA,90018,United States,1,Assigned
+858,Estate of John Hoff Jr,24472 WCR 38,24472 WCR 38,LaSalle,CO,80645,United States,3,Assigned
+859,Justin K Jackson,24495 CR 18,24495 CR 18,Keenesburg,CO,80643,United States,2,Assigned
+860,Johnnie Ray White and Kathryn Lynn White,24495 CR 54,24495 CR 54,Greeley,CO,80631,United States,6,Assigned
+861,Aluma Energy LLC,"245 East 54th Street
+Apartment 5m","245 East 54th Street
+Apartment 5m",New York,NY,10022,United States,7,Assigned
+862,First National Bank,2452 Highway 6 & 50,2452 Highway 6 & 50,Grand Junction,CO,81505,United States,3,Assigned
+863,Kelly J Quick,24529 Highway 392,24529 Highway 392,Greeley,CO,80631,United States,6,Assigned
+864,Diane Leinweber,2455 Cherry Ave.,2455 Cherry Ave.,Greeley,CO,80631,United States,6,Assigned
+865,Hayden R Trimble,24637 Highway 392,24637 Highway 392,Greeley,CO,80631,United States,7,Assigned
+866,Robert L Carlson & Ruby M Carlson,24643 WCR 70,24643 WCR 70,Eaton,CO,80615,United States,5,Assigned
+867,Gary L Schneider,24650 Hwy 257,24650 Hwy 257,Milliken,CO,80543,United States,4,Assigned
+868,Douglas W Schneider,24660 HWY 257,24660 HWY 257,Milliken,CO,80543,United States,4,Assigned
+869,Khan USAE LLC,2467 W. 29th Street,2467 W. 29th Street,Greeley,CO,80631,United States,3,Assigned
+870,William Schott and Agness M Schott,24688 WCR 53,24688 WCR 53,Kersey,CO,80644,United States,7,Assigned
+871,John Lee Alles and Lorraine Alles,24708 Weld County Rd. 41,24708 Weld County Rd. 41,La Salle,CO,80645,United States,1,Assigned
+872,Florene Craggs Lowell Ferguson and Gwen McWhirt,248 Ley Drive,248 Ley Drive,La Salle,CO,80645,United States,7,Assigned
+873,Dillard Family LLC,24806 Pleasant Hill Ave. PO Box 333,24806 Pleasant Hill Ave. PO Box 333,Galeton,CO,80622,United States,3,Assigned
+874,Steven T Gilbert and Shannon M Gilbert,24948 County Road 24 3/4,24948 County Road 24 3/4,Hudson,CO,80642,United States,2,Assigned
+875,Marilyn JoAnn Schneider,24987 County Road 25,24987 County Road 25,Milliken,CO,80543,United States,7,Assigned
+876,Ramon Flores And Claudia Flores,250 E. 19th Street,250 E. 19th Street,Greeley,CO,80631,United States,2,Assigned
+877,Boulder Scientific Company,250 Pearl Street P.O. Box 150,250 Pearl Street P.O. Box 150,Boulder,CO,80631,United States,4,Assigned
+878,Brannan Sand and Gravel Company LLC,2500 E. Brannan Way,2500 E. Brannan Way,Denver,CO,80229,United States,1,Assigned
+879,Albert L Schott and Mary E Schott,25052 Road 53,25052 Road 53,Kersey,CO,80644,United States,7,Assigned
+880,Blanchard Corporation Inc,2506 Harvard St.,2506 Harvard St.,Fort Collins,CO,80525,United States,4,Assigned
+881,Lyle Johnson,2507 N. Lema Drive,2507 N. Lema Drive,Mesa,AZ,85215,United States,5,Assigned
+882,David M Boettcher and Rhonda K Boettcher,2507 Weld County Road # 18,2507 Weld County Road # 18,Longmont,CO,8504,United States,5,Assigned
+883,Neal J Newby,2511 WCR 26,2511 WCR 26,Longmont,CO,80504,United States,3,Assigned
+884,Five SMCO,2514 West Storey,2514 West Storey,Midland,TX,79701,United States,3,Assigned
+885,REED CAWTHRA BURNS,2520 52nd Avenue,2520 52nd Avenue,Greeley,CO,80634,United States,7,Assigned
+886,Burman Ranch LLC,2520 Pope Lane,2520 Pope Lane,Laramie,WY,82070,United States,1,Assigned
+887,Cherylanne Koury,2522 W. Dry Creek Court,2522 W. Dry Creek Court,Littleton,CO,80120,United States,6,Assigned
+888,Edward H Willits,"2525 Ocean Blvd., #B6","2525 Ocean Blvd., #B6",Corona Del Mar,CA,92625,United States,7,Assigned
+889,John H Woodworth,2525 Willamette Rd.,2525 Willamette Rd.,Tallahasse,FL,32303,United States,6,Assigned
+890,Margaret J Randow,2526 Farragut Cir,2526 Farragut Cir,Colorado Springs,CO,80907,United States,1,Assigned
+891,Kathleen Kelly Lasnetske,2530 Perry Ave,2530 Perry Ave,Bremerton,WA,98310,United States,7,Assigned
+892,Dennis L Francen,25343 WCR 70,25343 WCR 70,Eaton,CO,80615,United States,4,Assigned
+893,Gordon Lyle Potter and Elizabeth Ann Potter,2536 14th Avenue Court,2536 14th Avenue Court,Greeley,CO,80631,United States,2,Assigned
+894,Nancy Rogers Stiles,2551 W 26th Ave.,2551 W 26th Ave.,Denver,CO,80211,United States,3,Assigned
+895,Family Trust Under Will of Frank A Kemp,2552 East Alameda Avenue #81,2552 East Alameda Avenue #81,Denver,CO,80209,United States,3,Assigned
+896,Frontier Academy Facilities Corporation,2560 West 29th Street,2560 West 29th Street,Greeley,CO,80631,United States,7,Assigned
+897,CHESTER A SHUMAN,25607 WCR 1/2,25607 WCR 1/2,Milliken,CO,80543,United States,2,Assigned
+898,John B Willard and Dana E Willard,2567 CR 29,2567 CR 29,Fort Lupton,CO,80621,United States,1,Assigned
+899,John's Meats INC,2567 Weld County Road 29,2567 Weld County Road 29,Fort Lupton,CO,80621,United States,1,Assigned
+900,Don E Stonebrink and Terry L Stonebrink,25790 WCR 17 1/2,25790 WCR 17 1/2,Milliken,CO,80543,United States,2,Assigned
+901,Twenty-Six 08 Club of Greeley,25847 Cr 43,25847 Cr 43,Greeley,CO,80631,United States,5,Assigned
+902,Lois J Sturgeon Trust,2595 Hawthron Ave.,2595 Hawthron Ave.,Boulder,CO,80304,United States,4,Assigned
+903,Arlo L Richardson,26 Alles Drive,26 Alles Drive,Greeley,CO,80631,United States,6,Assigned
+904,Agfinity Inc,260 Factory Road,260 Factory Road,Eaton,CO,80615,United States,3,Assigned
+905,Currie Partners Ltd,2600 Inwood Ct.,2600 Inwood Ct.,Midland,TX,79705,United States,7,Assigned
+906,Poudre Heights Master Assoc Inc,"2601 S. Lemay Ave., STE 7-424","2601 S. Lemay Ave., STE 7-424",Fort Collins,CO,80525,United States,6,Assigned
+907,BLG Resources LLC,2602 McKinney Ave Ste 200,2602 McKinney Ave Ste 200,Dallas,TX,75204,United States,1,Assigned
+908,Rodney N and Lori L Clark,2605 1st Avenue,2605 1st Avenue,Greeley,CO,80631,United States,2,Assigned
+909,Charley D Graham and Penny Priscillia Graham,"2609 52nd Ave. Ct.,","2609 52nd Ave. Ct.,",Greeley,CO,80634,United States,6,Assigned
+910,Alfredo Ochoa and Esther Ochoa,2611 Apple Avenue,2611 Apple Avenue,Greeley,CO,80631,United States,2,Assigned
+911,Ida Darlene Spitler,2612 55th Avenue,2612 55th Avenue,Greeley,CO,80634,United States,4,Assigned
+912,Tina M Maxwell Mary E Crawford and Gary D Crawford,2614 Montego Bay,2614 Montego Bay,Evans,CO,80620,United States,1,Assigned
+913,Charles Lee and Agnes Lorene Achziger,26150 WCR 60,26150 WCR 60,Greeley,CO,80632,United States,6,Assigned
+914,Rex Shang And Megan Yi Hsin Shang,2621 Red Fox Ct.,2621 Red Fox Ct.,Fort Collins,CO,80526,United States,2,Assigned
+915,Dorothy H Stewart,2623 W. Reservoir Rd.,2623 W. Reservoir Rd.,Greeley,CO,80634,United States,5,Assigned
+916,Leonard Mizuno and Alice Y Mizuno,2624 W. 15th St.,2624 W. 15th St.,Greeley,CO,80634,United States,2,Assigned
+917,JD Ford,2624 WCR 17,2624 WCR 17,Brighton,CO,80601,United States,1,Assigned
+918,James W Cornforth,2626 8th Avenue,2626 8th Avenue,Greeley,CO,80631,United States,4,Assigned
+919,John Wardlaw,26260 CR 60.5,26260 CR 60.5,Greeley,CO,80631,United States,1,Assigned
+920,Cassandra Groves,2628 49th Ave.,2628 49th Ave.,Greeley,CO,80634,United States,5,Assigned
+921,Charlene Woods,2629 E. Cameron Ave,2629 E. Cameron Ave,West Covina,CA,91791,United States,5,Assigned
+922,Bryce A Miller,2629 Mcgregor Blvd,2629 Mcgregor Blvd,Fernandina Beach,FL,32304,United States,7,Assigned
+923,Dennis L Kendrick and Nina M Kendrick,2630 9th Avenue,2630 9th Avenue,Greeley,CO,80631,United States,4,Assigned
+924,Donald L Gesick,2631 64th Ave.,2631 64th Ave.,Greeley,CO,80634,United States,3,Assigned
+925,Rodger and Beth Short,26333 WCR 60.5,26333 WCR 60.5,Greeley,CO,80631,United States,1,Assigned
+926,Corey and Tina Schwartz,26336 CR 60.5,26336 CR 60.5,Greeley,CO,80631,United States,2,Assigned
+927,Gary L Casseday,2640 Mountain Lane,2640 Mountain Lane,Greeley,CO,80364,United States,5,Assigned
+928,Kendall Kerns,2642 S. Meade St.,2642 S. Meade St.,Denver,CO,80219,United States,6,Assigned
+929,Irene G Bond,26421 CR 388,26421 CR 388,Kersey,CO,80644,United States,5,Assigned
+930,Tracy R Wardell and Kareen L Wardell,2647 CR 39,2647 CR 39,Brighton,CO,80601,United States,7,Assigned
+931,Bobetta Meglamre,2648 Pheasant Drive,2648 Pheasant Drive,Longmont,CO,80503,United States,4,Assigned
+932,High Plains Library District,2650 W. 29th Street,2650 W. 29th Street,Greeley,CO,80631,United States,1,Assigned
+933,Yeoman Freehold Llc,26544 Weld County Road 42,26544 Weld County Road 42,Kersey,CO,80644,United States,1,Assigned
+934,Patrick Lee and Kay Louise Williams,26587 WCR 388,26587 WCR 388,Kersey,CO,80644,United States,4,Assigned
+935,Reginia Lynn Johnson Alter,26655 County Road 46,26655 County Road 46,Kersey,CO,80644,United States,6,Assigned
+936,Mark D Hagan,2677 Blue Ridge Lane,2677 Blue Ridge Lane,Traverse City,MI,49684,United States,7,Assigned
+937,Beth E Killgore,26825 CR 45 1/2,26825 CR 45 1/2,Greeley,CO,80631,United States,7,Assigned
+938,Rodeo Mineral Partners II LLC,2683 W. Long Pl,2683 W. Long Pl,Littleton,CO,80120,United States,5,Assigned
+939,Terry Ray McClure and Bonnie Sue McClure,26849 County Road 388,26849 County Road 388,Kersey,CO,80644,United States,6,Assigned
+940,Donald A Wiedeman,26886 Weld County Road #17,26886 Weld County Road #17,Greeley,CO,80534,United States,2,Assigned
+941,Rick L & Teresa K Sponaugle,26899 County Road 62 1/2,26899 County Road 62 1/2,Greeley,CO,80631,United States,1,Assigned
+942,Arrowhead Resources LLC,269 Garfield Street,269 Garfield Street,Walden,CO,80480,United States,3,Assigned
+943,Raymond Rosales,26900 East Colfax #20,26900 East Colfax #20,Aurora,CO,80018,United States,6,Assigned
+944,Paul Flot (Dec'd) and Juanita J Flot,26907 CR 45 1/2,26907 CR 45 1/2,Greeley,CO,80631,United States,6,Assigned
+945,Anderson Living Trust,2691 54th Ave.,2691 54th Ave.,Greeley,CO,80634,United States,2,Assigned
+946,Kenton C Amen,26966 Logan County Road 63,26966 Logan County Road 63,Iliff,CO,80736,United States,1,Assigned
+947,Susan Elaine Croissant,27 Alles Drive,27 Alles Drive,Greeley,CO,80631,United States,4,Assigned
+948,Errol F Valyear,27 Gursslin Ln.,27 Gursslin Ln.,Hilton,NY,14468,United States,1,Assigned
+949,Temple Hoyne Buell Foundation,2700 27th East Hampden Avenue,2700 27th East Hampden Avenue,Englewood,CO,80110,United States,1,Assigned
+950,Carlos Vargas,2700 6th Avenue Lane,2700 6th Avenue Lane,Garden City,CO,80631,United States,4,Assigned
+951,Dopi LLC,2701 S. 8th Avenue,2701 S. 8th Avenue,Garden City,CO,80631,United States,7,Assigned
+952,M&C Trust,27020 WCR 48,27020 WCR 48,Kersey,CO,80644,United States,2,Assigned
+953,GC4L Inc,2704 South 8th Avenue,2704 South 8th Avenue,Garden City,CO,80631,United States,1,Assigned
+954,Theodore Samuel Parsons,2706 7th Avenue,2706 7th Avenue,Garden City,CO,80631,United States,7,Assigned
+955,Gabriel L Saenz,2707 6th Avenue Lane,2707 6th Avenue Lane,Garden City,CO,80631,United States,6,Assigned
+956,Jerry Griego and Jennie Martinez,2708 7th Ave.,2708 7th Ave.,Greeley,CO,80631,United States,6,Assigned
+957,"Charles H Iseminger, Donald F Iseminger and Linda L Iseminger",2708 9th Ave.,2708 9th Ave.,Garden City,CO,80631,United States,2,Assigned
+958,Rodney L Marshall and Mindy M Marshall,"27088 Weld County Road 388, P.O. Box 45","27088 Weld County Road 388, P.O. Box 45",Kersey,CO,80644,United States,5,Assigned
+959,Kenneth M Brandrup,2710 9th Ave.,2710 9th Ave.,Greeley,CO,80631,United States,3,Assigned
+960,German Batrez,2711 6th Avenue Lane,2711 6th Avenue Lane,Garden City,CO,80631,United States,1,Assigned
+961,Terry Trueblood,2712 9th Ave.,2712 9th Ave.,Garden City,CO,80640,United States,2,Assigned
+962,Eduvejan E Vialpando and Margaret Vialpando,2714 9th Avenue,2714 9th Avenue,Garden City,CO,80631,United States,1,Assigned
+963,Lenita J Wheelis,2715 Northridge Dr.,2715 Northridge Dr.,Colorado Springs,CO,80918,United States,5,Assigned
+964,Dolores Martinez,2716 9th Ave.,2716 9th Ave.,Greeley,CO,80631,United States,4,Assigned
+965,NWY LLC,2723 9th Avenue,2723 9th Avenue,Greeley,CO,80631,United States,2,Assigned
+966,Mary Helen Shaklee Revocable Living Trust,27249 COUNTY ROAD 49 1/2,27249 COUNTY ROAD 49 1/2,GREELEY,CO,80631,United States,5,Assigned
+967,Jamilie Lisa Fynboh,2726 S. Osceola Way,2726 S. Osceola Way,Denver,CO,80236,United States,6,Assigned
+968,Eldon and Martha Bower Family Revocable Trust,2730 Montgomery Way,2730 Montgomery Way,Sacramento,CA,95818,United States,4,Assigned
+969,Manuel M Balderas Jr and Anita Balderas,2732 WCR 27,2732 WCR 27,Fort Lupton,CO,80621,United States,3,Assigned
+970,Troy A and Roxanne J Albrighton,27323 CR 70,27323 CR 70,Gill,CO,80624,United States,4,Assigned
+971,Some Regrets LLC,27355 Grouse Ct,27355 Grouse Ct,Steamboat Springs,CO,80487,United States,1,Assigned
+972,Richard D Simmons,2738 Greggin Dr.,2738 Greggin Dr.,Roanoke,VA,24012,United States,3,Assigned
+973,Patricia A Snider and Randall L Snider,2739 CR 29,2739 CR 29,Fort Lupton,CO,80621,United States,3,Assigned
+974,Stow L Witwer Jr and Margaret R Witwer,27397 County Road 58 1/2,27397 County Road 58 1/2,Greeley,CO,80631,United States,6,Assigned
+975,Terry Greenwood,2740 6th Avenue,2740 6th Avenue,Greeley,CO,80631,United States,5,Assigned
+976,Judith R Clinch,2741 N. 81St,2741 N. 81St,Lincoln,NE,68507,United States,1,Assigned
+977,Clarence J Krieger,2743 6th Ave. Ln.,2743 6th Ave. Ln.,Greeley,CO,80631,United States,4,Assigned
+978,David Droegemueller,27451 County Road 388,27451 County Road 388,Kersey,CO,80644,United States,6,Assigned
+979,Jay L Sitzman,27490 County Road 50,27490 County Road 50,Kersey,CO,80644,United States,7,Assigned
+980,Terry and Roberta Vider,27496 Spruce Lane,27496 Spruce Lane,Evergreen,CO,80439,United States,5,Assigned
+981,Penny Eaton Hancock,2750 Kootenai Street,2750 Kootenai Street,Pocatello,ID,83201,United States,5,Assigned
+982,Everett D Kissler,27501 CR 48,27501 CR 48,Kersey,CO,80644,United States,5,Assigned
+983,Walter D Amen,27501 Road 65 Route #1,27501 Road 65 Route #1,Iliff,CO,80736,United States,7,Assigned
+984,Raymond E Carpio and Debra M Carpio,27503 Weld County Road 55,27503 Weld County Road 55,Kersey,CO,80644,United States,2,Assigned
+985,Jeffrey F Adams,27528 CR 72,27528 CR 72,Gill,CO,80624,United States,7,Assigned
+986,Robert A Fritzler and Shirley F Fritzler,"27552 CR 16, PO BOX 343","27552 CR 16, PO BOX 343",Keenesburg,CO,80643,United States,5,Assigned
+987,Arthur R Peterson and Judith T Peterson Trust,27602 County Road 388,27602 County Road 388,Kersey,CO,80644,United States,5,Assigned
+988,William E Phelps,2764 Riverben Lane,2764 Riverben Lane,Stevensville,MT,59870,United States,4,Assigned
+989,Scott R Cockroft,27712 County 62,27712 County 62,Greeley,CO,80631,United States,6,Assigned
+990,Joseph D Moralez III and Lori D Moralez,27758 WCR 60.5,27758 WCR 60.5,Greeley,CO,80631,United States,1,Assigned
+991,Phillip J Adams and Diana L Adams,2780 8th Ave.,2780 8th Ave.,Greeley,CO,80631,United States,5,Assigned
+992,Patricia J Conlon,2781 AA Street,2781 AA Street,Greeley,CO,80631,United States,4,Assigned
+993,Myron A and Elizabeth M Phinney,27827 WCR 70,27827 WCR 70,Gill,CO,80624,United States,5,Assigned
+994,D Anthony Vrooman and Nancy Davis Vrooman,27871 WCR 42,27871 WCR 42,Kersey,CO,80644,United States,1,Assigned
+995,Jeffrey Vincent Brnak,27901 WCR 10,27901 WCR 10,Keenesburg,CO,80643,United States,2,Assigned
+996,Kevin Pagel and Brandy Pagel,27904 WCR 60.5,27904 WCR 60.5,Greeley,CO,80631,United States,7,Assigned
+997,Loren R Cockroft,27906 Weld County Road 388,27906 Weld County Road 388,Kersey,CO,80644,United States,7,Assigned
+998,Leon Toelle and Patricia Toelle,27990 WCR 60.5,27990 WCR 60.5,Greeley,CO,80631,United States,5,Assigned
+999,Thomas M Rock,280 Garfield St.,280 Garfield St.,Denver,CO,80206,United States,7,Assigned
+1000,Albert J Dinner,2800 S. University Blvd. #132,2800 S. University Blvd. #132,Denver,CO,80210,United States,5,Assigned
