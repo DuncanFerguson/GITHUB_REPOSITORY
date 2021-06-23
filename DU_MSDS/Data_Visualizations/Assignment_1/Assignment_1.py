@@ -88,3 +88,21 @@ print(cosine_angle)
 # Construct a dictionary from all of the above.
 
 #Testing
+
+
+# • Assignment 1, Part 3: Write a program in Python to create and print out the first
+# 12 Fibonacci numbers. Then iterate over the last five numbers to build another
+# list with the ratio of each number to its predecessor. What do you observe about
+# this latter list?
+
+def fibonacci(n):
+    if n < 0:
+        print("Number needs to be greater than zero")
+    elif n == 0:
+        return 0
+    elif n == 1 or n == 2:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+print(fibonacci(12))
