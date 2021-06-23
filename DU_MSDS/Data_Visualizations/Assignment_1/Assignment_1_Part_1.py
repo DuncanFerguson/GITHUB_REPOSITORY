@@ -12,7 +12,6 @@ then add a column with the atomic weights rounded to the nearest integer.
 """
 import pandas as pd
 
-# Part 1
 # Construct a CSV file with the first eight elements of the periodic table.
 
 # Include columns for name, symbol, and atomic number.

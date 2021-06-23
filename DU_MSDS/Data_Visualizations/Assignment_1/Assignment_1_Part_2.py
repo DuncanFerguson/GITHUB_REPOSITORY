@@ -4,8 +4,6 @@
 # Assignment: Assignment 1
 # Date 6/24/2021
 
-# Part 2
-
 """
 Assignment 1, Part 2: Make a list of strings for nine Greek letters, for example
 ‘alpha’. Make that list such that the strings are not in alphabetic order. Make two
