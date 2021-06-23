@@ -18,6 +18,7 @@ on the Greek letters, drop two columns of your choice, drop one of the rows, and
 print that out.
 """
 
+import pandas as pd
 import random
 import numpy as np
 
@@ -44,3 +45,16 @@ angle = np.random.uniform(low=0, high=2*np.math.pi, size=n)
 # Make another array holding the cosine of that ‘angle’ array.
 cosine_angle = np.cos(angle)
 
+# Construct a dictionary from all of the above.
+greek_dict = dict(zip(nine_greek_letters, zip(*[array_1, array_2, angle, cosine_angle])))
+
+# Form a DataFrame from that dictionary, and print it out.
+df = pd.DataFrame.from_dict(greek_dict, orient='index',
+                            columns=["Array_1", "Array_2", "Angle", "Cosine_Angle"])
+print(df)
+
+# Sort the DataFrame ascending on the Greek letters,
+# drop two columns of your choice, drop one of the rows, and print that out.
+df_sorted = df.sort_index()
+df_sorted = df_sorted.drop(columns=["Array_1", "Array_2"], index="Zeta")
+print(df_sorted)
