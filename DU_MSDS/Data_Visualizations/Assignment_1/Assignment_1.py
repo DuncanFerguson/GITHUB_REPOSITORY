@@ -11,7 +11,7 @@
 periodic table. Include columns for name, symbol, and atomic number. Read that
 into a pandas DataFrame. Inside the program, add a ninth and 10th element, and
 then add a column with the atomic weights rounded to the nearest integer.
-#DONE
+
 
 • Assignment 1, Part 2: Make a list of strings for nine Greek letters, for example
 ‘alpha’. Make that list such that the strings are not in alphabetic order. Make two
