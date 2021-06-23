@@ -21,25 +21,26 @@ print that out.
 import random
 import numpy as np
 
-# String of nine greek letters
+# List of strings for nine Greek letters
 nine_greek_letters = ['Alpha', 'Beta', 'Gamma',
                       'Delta', 'Epsilon', 'Zeta',
                       'Eta', 'Theta', 'Iota']
 
-# Shuffling greek letters list
+# Shuffling greek letters list so that they are not in alphabetic order
 random.shuffle(nine_greek_letters)
 
-# 9-element numpy array of random floating point numbers with an estimated mean of 10 and standard deviation of 1.5
-mean = 10
-std = 1.5
-nine_element_array = np.random.normal(loc=mean, scale=std, size=9)
-print(nine_element_array)
-print("Mean of Array", np.mean(nine_element_array))
+# Make two 9-element numpy arrays of random floating-point numbers
+# with an estimated mean of 10 and a standard deviation of 1.5.
+mu = 10
+sigma = 1.5
+n = 9
+
+array_1 = np.random.default_rng().normal(mu, sigma, n)
+array_2 = np.random.default_rng().normal(mu, sigma, n)
 
 # Array of nine elements ranging from zero to two times pi. Name it ‘angle’.
-angle = np.random.uniform(low=0, high=2*np.math.pi, size=9)
-print(angle)
+angle = np.random.uniform(low=0, high=2*np.math.pi, size=n)
 
 # Make another array holding the cosine of that ‘angle’ array.
 cosine_angle = np.cos(angle)
-print(cosine_angle)
+
