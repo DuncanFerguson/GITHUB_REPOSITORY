@@ -34,9 +34,9 @@ df = df.append({'Name': 'Fluorine', 'Symbol': 'F', 'Atomic_Number': 9}, ignore_i
 df = df.append({'Name': 'Neon', 'Symbol': 'Ne', 'Atomic_Number': 10}, ignore_index=True)
 
 # Adding in Column with Atomic Weights
-df['Atomic Weights'] = [1.008, 4.002602, 6.941, 9.012182, 10.8, 12.011, 14.007, 15.999, 18.998403, 20.1797]
+df['Atomic_Weights'] = [1.008, 4.002602, 6.941, 9.012182, 10.8, 12.011, 14.007, 15.999, 18.998403, 20.1797]
 
 # Rounding Weights to nearest Integer
-df['Atomic Weights'] = df['Atomic Weights'].round(decimals=0).astype(int)
+df['Atomic_Weights'] = df['Atomic_Weights'].round(decimals=0).astype(int)
 
 print(df.to_string(index=False))
