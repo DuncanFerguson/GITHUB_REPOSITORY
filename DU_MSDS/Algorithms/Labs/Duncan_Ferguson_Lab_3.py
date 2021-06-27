@@ -1,10 +1,12 @@
 # Student: Duncan Ferguson
 # Student Id: 871641260
 # Class: Comp 4581
-# Assignment: Lab 2
-# Date 6/22/2021
+# Assignment: Lab 3
+# Date 6/28/2021
 
 import random
+from time import time
+import pandas as pd
 
 def isPrime(p):
     """This function takes a number, p, and returns true if it is prime and false otherwise"""
@@ -35,13 +37,34 @@ def factor(pq):
                 return p,q
 
 
+def time_n_loop():
+    """ This records the amount of time it takes to break bits"""
+    bit_list = []
+    time_list = []
+    for i in range(20):
+        bit_list.append(i)
+        pq = int(nBitPrime(i)*nBitPrime(i))
+        t1 = time()
+        factor(pq)
+        t2 = time()
+        time_list.append((t2-t1))
+    print(bit_list)
+    print(time_list)
 
-bit = 8
-p = nBitPrime(bit)
-q = nBitPrime(bit)
-print("P", p)
-print("Q", q)
-pq = int(p*q)
-print("PQ", pq)
-keys = factor(pq)
-print("P", keys[0],"Q",keys[1])
+time_n_loop()
+
+
+# bit = 15
+# p = nBitPrime(bit)
+# q = nBitPrime(bit)
+# print("P", p)
+# print("Q", q)
+# pq = int(p*q)
+# print("PQ", pq)
+#
+# t1 = time()
+# keys = factor(pq)
+# t2 = time()
+#
+# print("P", keys[0],"Q",keys[1])
+# print(t2-t1)
