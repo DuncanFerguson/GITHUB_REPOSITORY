@@ -26,12 +26,15 @@ def nBitPrime(n):
 
 
 def factor(pq):
-    """ Factoring out Pq"""
-    for i in range(2,pq,1):
-        if (pq % i) == 0 and isPrime(i) and isPrime(int(pq/i)):
-            p = i
-            q = pq/p
-            return(p,q)
+    """Finding the Factors of PG"""
+    for i in range(2, pq, 1):
+        if isPrime(int(pq/i)) and (pq % i) == 0:
+            q = int(pq /i)
+            p = int(i)
+            if isPrime(q) and isPrime(p) and p * q == pq:
+                print(q,p)
+
+
 
 bit = 8
 p = nBitPrime(bit)
@@ -41,10 +44,10 @@ print("Q", q)
 
 
 # pq = nBitPrime(bit) * nBitPrime(bit)
-pq = p*q
+pq = int(p*q)
 print("pq",pq)
 keys = factor(pq)
-print("P", keys[0], "Q", keys[1])
+# print("P", keys[0], "Q", keys[1])
 
 
 
