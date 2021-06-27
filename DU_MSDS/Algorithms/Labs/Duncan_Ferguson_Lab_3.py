@@ -19,10 +19,15 @@ def isPrime(p):
 
 def nBitPrime(n):
     """This is the second Function"""
-    num = random.random()*2**n
-    if num >= 2:
-        print(num)
-    return
+    num = int(2**n * random.random())  # Random Number n bits long
+    if isPrime(num) == True:
+        print("Prime", num)
+    else:
+        nBitPrime(n)
+    #
+    # if num >= 2:
+    #     print(num)
+    # return
 
 
 
