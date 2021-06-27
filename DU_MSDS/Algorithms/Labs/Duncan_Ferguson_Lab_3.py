@@ -18,30 +18,26 @@ def isPrime(p):
         return False
 
 def nBitPrime(n):
-    """This is the second Function"""
+    """Creating a Random Prime Number n-bits long"""
     num = int(2**n * random.random())  # Random Number n bits long
-    if isPrime(num) == True:
-        print("Prime", num)
+    if num >= 2:
+        if isPrime(num):
+            return int(num)
+        else:
+            nBitPrime(n)
     else:
         nBitPrime(n)
-    #
-    # if num >= 2:
-    #     print(num)
-    # return
-
-
-
 
 def factor(pq):
-    """Som other Function"""
-    return
+    """ Factoring out Pq"""
+    for i in range(2,pq,1):
+        if (p % i) == 0:
+            print("Prime!")
 
-    # if p == #TODO prime:
-    #     return True
-    # else:
-    #     return False
+pq = nBitPrime(20) * nBitPrime(20)
+print(pq)
 
-print(isPrime(11))
-nBitPrime(8)
 
-# Polynomial Curve fit
+
+#
+# pq = nBitPrime(20) * nBitPrime(20)
