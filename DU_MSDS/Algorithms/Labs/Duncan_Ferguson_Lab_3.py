@@ -8,7 +8,8 @@ import random
 from time import time
 import pandas as pd
 import matplotlib.pyplot as plt
-# from scipy.optimize import curve_fit
+from scipy.optimize import curve_fit
+import numpy as np
 
 
 def isPrime(p):
@@ -56,16 +57,27 @@ def timeit(n):
         time_list.append((t2-t1)*1000)
     time_panda = pd.DataFrame(zip(bit_list, time_list), columns= ["Bits", "Time_2_Factor"])
     print(time_panda.to_string(index=False))
-    time_panda.to_csv("Time_Panda.csv")
+    time_panda.to_csv("Time_Panda.csv", index=False)
 
 
-bits = 25
-timeit(bits)
+def graphit():
+    """This Function graphs the factor times"""
+    sample = pd.read_csv("Time_Panda.csv")
+    x = sample['Bits']
+    y = sample['Time_2_Factor']
+    plt.scatter(x, y)
+    plt.title("Bits Versus Time to Factor")
+    plt.xlabel("Bits")
+    plt.ylabel("Time_2_Factor")
+    plt.show()
+
+
+# bits = 30
+# time = timeit(bits)
+graphit()
 
 
 
-# predictions = pd.DataFrame(zip(bit_list, time_list), columns=["Bits", "Time to Factor"])
-# print(predictions)
 # plt.plot(predictions['Bits'], predictions['Time to Factor'], 'b-', label='data')
 # plt.xlabel("Time to Factor")
 # plt.ylabel("Number of Bits")
