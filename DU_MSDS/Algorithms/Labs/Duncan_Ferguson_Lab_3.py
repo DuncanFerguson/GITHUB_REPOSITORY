@@ -47,31 +47,23 @@ def factor(pq):
 def timeit(n):
     """This Function Creates P and Q and returns pq"""
     bit_list = [i for i in range(2, n+1)]
+    time_list = []
     for i in bit_list:
         pq = int(nBitPrime(i)*nBitPrime(i))
-        print(factor(pq),pq)
+        t1 = time()
+        factor(pq)
+        t2 = time()
+        time_list.append((t2-t1)*1000)
+    time_panda = pd.DataFrame(zip(bit_list, time_list), columns= ["Bits", "Time_2_Factor"])
+    print(time_panda.to_string(index=False))
+    time_panda.to_csv("Time_Panda.csv")
 
 
-
-
-
-
-bits = 8
+bits = 25
 timeit(bits)
 
 
-#
-# bit_list = []
-# time_list = []
-# for i in range(7, 20, 1):
-#     print(i)
-#     bit_list.append(i)
-#     p, q = nBitPrime(i), nBitPrime(i)
-#     pq = int(p*q)
-#     t1 = time()
-#     factor(pq)
-#     t2 = time()
-#     time_list.append((t2-t1)*1000)
+
 # predictions = pd.DataFrame(zip(bit_list, time_list), columns=["Bits", "Time to Factor"])
 # print(predictions)
 # plt.plot(predictions['Bits'], predictions['Time to Factor'], 'b-', label='data')
