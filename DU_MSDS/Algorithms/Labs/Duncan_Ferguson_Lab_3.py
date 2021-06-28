@@ -7,9 +7,6 @@
 import random
 from time import time
 import pandas as pd
-import matplotlib.pyplot as plt
-from scipy.optimize import curve_fit
-import numpy as np
 
 
 def isPrime(p):
@@ -36,8 +33,8 @@ def nBitPrime(n):
 
 def factor(pq):
     """This Function finds the prime factors of pq"""
-    p, q = 0, 0
-    for i in range(2, pq, 1):
+    p, q = 0, 0  # Creating holding values to get replaced
+    for i in range(2, pq, 1):  # Starting at 2 because 1 is not a prime number
         if pq % i == 0:
             p = i
             break
@@ -46,7 +43,7 @@ def factor(pq):
 
 
 def timeit(n):
-    """This Function Creates P and Q and returns pq"""
+    """This Function looks at the amount of time it takes to factor"""
     bit_list = [i for i in range(2, n+1)]
     time_list = []
     for i in bit_list:
@@ -55,31 +52,13 @@ def timeit(n):
         factor(pq)
         t2 = time()
         time_list.append((t2-t1)*1000)
-    time_panda = pd.DataFrame(zip(bit_list, time_list), columns= ["Bits", "Time_2_Factor"])
-    print(time_panda.to_string(index=False))
+    time_panda = pd.DataFrame(zip(bit_list, time_list), columns=["Bits", "Time_2_Factor"])
+    # print(time_panda.to_string(index=False))
     time_panda.to_csv("Time_Panda.csv", index=False)
 
+bits = 30
+time = timeit(bits)
 
-def graphit():
-    """This Function graphs the factor times"""
-    sample = pd.read_csv("Time_Panda.csv")
-    x = sample['Bits']
-    y = sample['Time_2_Factor']
-    plt.scatter(x, y)
-    plt.title("Bits Versus Time to Factor")
-    plt.xlabel("Bits")
-    plt.ylabel("Time_2_Factor")
-    plt.show()
-
-
-# bits = 30
-# time = timeit(bits)
-graphit()
-
-
-
-# plt.plot(predictions['Bits'], predictions['Time to Factor'], 'b-', label='data')
-# plt.xlabel("Time to Factor")
-# plt.ylabel("Number of Bits")
-# plt.show()
-# predictions.to_csv("Predictions.csv")
+# Excel Curve Fitter Equation y=9E-05e^0.6512x
+# Time that it would take to crack 1024 bit key
+# 3.5835E+285 in milliseconds or 1.1356E+275 Years
