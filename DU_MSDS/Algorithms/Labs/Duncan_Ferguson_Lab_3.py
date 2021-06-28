@@ -6,7 +6,7 @@
 
 import random
 from time import time
-import pandas as pd
+# import pandas as pd
 
 def isPrime(p):
     """This function takes a number, p, and returns true if it is prime and false otherwise"""
@@ -41,9 +41,10 @@ def time_n_loop():
     """ This records the amount of time it takes to break bits"""
     bit_list = []
     time_list = []
-    for i in range(20):
+    for i in range(2):
         bit_list.append(i)
-        pq = int(nBitPrime(i)*nBitPrime(i))
+        p, q = nBitPrime(i), nBitPrime(i)
+        pq = int(p*q)
         t1 = time()
         factor(pq)
         t2 = time()
