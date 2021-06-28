@@ -7,6 +7,8 @@
 import random
 from time import time
 import pandas as pd
+import matplotlib.pyplot as plt
+# from scipy.optimize import curve_fit
 
 def isPrime(p):
     """This function takes a number, p, and returns true if it is prime and false otherwise"""
@@ -39,7 +41,7 @@ def factor(pq):
 
 bit_list = []
 time_list = []
-for i in range(7, 18, 1):
+for i in range(7, 20, 1):
     print(i)
     bit_list.append(i)
     p, q = nBitPrime(i), nBitPrime(i)
@@ -50,4 +52,10 @@ for i in range(7, 18, 1):
     time_list.append((t2-t1)*1000)
 predictions = pd.DataFrame(zip(bit_list, time_list), columns=["Bits", "Time to Factor"])
 print(predictions)
+plt.plot(predictions['Bits'], predictions['Time to Factor'], 'b-', label='data')
+plt.xlabel("Time to Factor")
+plt.ylabel("Number of Bits")
+plt.show()
 predictions.to_csv("Predictions.csv")
+
+
