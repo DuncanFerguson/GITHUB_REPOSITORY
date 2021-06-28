@@ -33,14 +33,33 @@ def nBitPrime(n):
         return nBitPrime(n)
 
 
-# def factor(pq):
-#     """This function finds the prime factorization of pq"""
-#     for i in range(2, pq, 1):
-#         if isPrime(int(pq/i)) and (pq % i) == 0:
-#             q, p = int(pq / i), int(i)
-#             if isPrime(q) and isPrime(p) and p * q == pq:
-#                 return p, q
-#
+def factor(pq):
+    """This Function finds the prime factors of pq"""
+    p, q = 0, 0
+    for i in range(2, pq, 1):
+        if pq % i == 0:
+            p = i
+            break
+    q = int(pq/p)
+    return p, q
+
+
+def timeit(n):
+    """This Function Creates P and Q and returns pq"""
+    bit_list = [i for i in range(2, n+1)]
+    for i in bit_list:
+        pq = int(nBitPrime(i)*nBitPrime(i))
+        print(factor(pq),pq)
+
+
+
+
+
+
+bits = 8
+timeit(bits)
+
+
 #
 # bit_list = []
 # time_list = []
@@ -60,5 +79,3 @@ def nBitPrime(n):
 # plt.ylabel("Number of Bits")
 # plt.show()
 # predictions.to_csv("Predictions.csv")
-
-
