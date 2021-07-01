@@ -17,7 +17,8 @@ P_Symbol = ["H", "He", "Li", "Be", "B", "C"]  # Symbols
 AtomicNumber = [i for i in range(1, len(P_Name)+1)]  # Adding in element number
 
 first_six = pd.DataFrame(list(zip(P_Name, P_Symbol, AtomicNumber)), columns=["Name", "Symbol", "Atomic_Number"])
-first_six['Atomic_Weights'] = [1.008, 4.002602, 6.941, 9.012182, 10.8, 12.011].round(decimals=0).astype(int)
+first_six['Atomic_Weights'] = [1.008, 4.002602, 6.941, 9.012182, 10.8, 12.011]
+first_six['Atomic_Weights'].round(decimals=0).astype(int)
 
 print(first_six)
 
