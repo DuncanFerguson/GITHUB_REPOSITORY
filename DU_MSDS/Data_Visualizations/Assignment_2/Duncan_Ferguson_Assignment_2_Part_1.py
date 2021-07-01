@@ -9,3 +9,13 @@ periodic table, each rounded to the nearest integer. Provide two pie charts as f
 each slice annotated with a percentage of the whole and (2) each slice annotated with its
 atomic weight. Explode a different element with each chart.
 """
+
+import pandas as pd
+
+P_Name = ["Hydrogen", "Helium", "Lithium", "Beryllium", "Boron", "Carbon"]  # Adding Element Name
+P_Symbol = ["H", "He", "Li", "Be", "B", "C"]  # Symbols
+AtomicNumber = [i for i in range(1, len(P_Name)+1)]  # Adding in element number
+
+first_six = pd.DataFrame(list(zip(P_Name, P_Symbol, AtomicNumber)), columns=["Name", "Symbol", "Atomic_Number"])
+print(first_six)
+
