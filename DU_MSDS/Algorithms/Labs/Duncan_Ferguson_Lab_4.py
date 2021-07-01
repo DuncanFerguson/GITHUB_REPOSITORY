@@ -12,7 +12,7 @@
 
 import sys
 
-def brute(points):
+def cPairDist(points):
     """Brute Force for finding the min distance between an array of points in a list that has a been presorted"""
     min = sys.maxsize
     for i in range(len(points)-1):
@@ -31,26 +31,28 @@ def recCPairDist(points):
     right = points[n//2:]
     mid = [left[-1:][0], right[:1][0]]
     mid.sort()
-    print("Left: ", left, "\n",
-          "Right: ", right, "\n",
-          "Mid: ", mid)
-    left_min = brute(left)
-    right_min = brute(right)
-    mid_min = brute(mid)
+    print("Left: ", left, "Right: ", right, "Mid: ", mid)
+    left_min = cPairDist(left)
+    right_min = cPairDist(right)
+    mid_min = cPairDist(mid)
+
+    # TODO There is something that is going wrong right here that needs some figuring out
     combo = [left_min, right_min, mid_min]
     combo.sort()
-    min = brute(combo)
+    min = cPairDist(combo)
     return min
 
 
 def main():
     """Main Function to run the code"""
     A = [7, 4, 12, 14, 2, 10, 16, 6]
-    # A = [1, 4, 9, 15]
-    # B = [7, 4, 12, 14, 2, 10, 16, 5]
-    # C = [14, 8, 2, 6, 3, 10, 12]
-    A.sort()
-    print(recCPairDist(A))
+    B = [7, 4, 12, 14, 2, 10, 16, 5]
+    C = [14, 8, 2, 6, 3, 10, 12]
+    rippin_vars = [A, B, C]
+
+    for i in rippin_vars:
+        i.sort()
+        print(recCPairDist(i))
 
 
 if __name__ == '__main__':
