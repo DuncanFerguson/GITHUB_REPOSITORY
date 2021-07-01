@@ -8,3 +8,4 @@
 stock of your choice over the trading days of one month, and plot the prices and volumes
 on a canvas in two separate panels, one above the other, with the dates aligned.
 """
+
