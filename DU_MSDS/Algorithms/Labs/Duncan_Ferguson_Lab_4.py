@@ -31,12 +31,12 @@ def recCPairDist(points):
     print("Left", left)
     right = points[n//2:]
     print("Right", right)
-    mid = right[0]
+    mid = [left[-1], right[0]]
     print("Mid", mid)
 
     recCPairDist(left)
     recCPairDist(right)
-
+    recCPairDist(mid)
 
 
 def main():
