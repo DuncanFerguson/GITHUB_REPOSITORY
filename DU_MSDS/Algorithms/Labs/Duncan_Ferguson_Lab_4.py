@@ -5,11 +5,11 @@
 # Date 7/6/2021
 
 import sys
-global min_distance
 
 def cPairDist(points):
     """This Finds the minimum Distance between a list of points using brute force"""
     min_distance = sys.maxsize
+    print("cPairDist", points)
     for i in range(len(points)-1):
         temp = int(abs(points[i+1]-points[i]))
         if temp < min_distance:
@@ -22,17 +22,21 @@ def recCPairDist(points):
     Returns the min distance it finds."""
     n = len(points)
 
-    # Base Case
     if n <= 3:
-        temp = cPairDist(points)
+        min = cPairDist(points)
+        print(min)
+        return min
 
-    # Divide
     left = points[:n//2]
-    right = points[n//2:]
     print("Left", left)
+    right = points[n//2:]
     print("Right", right)
+    mid = right[0]
+    print("Mid", mid)
+
     recCPairDist(left)
     recCPairDist(right)
+
 
 
 def main():
