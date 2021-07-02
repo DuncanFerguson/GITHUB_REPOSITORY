@@ -11,13 +11,13 @@ lowest_min = sys.maxsize
 
 def cPairDist(points):
     """This Finds the minimum Distance between a list of points using brute force"""
-    min_distance = sys.maxsize
+    global lowest_min
     print("cPairDist", points)
     for i in range(len(points)-1):
         temp = int(abs(points[i+1]-points[i]))
-        if temp < min_distance:
-            min_distance = temp
-    return min_distance
+        if temp < lowest_min:
+            lowest_min = temp
+    return lowest_min
 
 
 def recCPairDist(points):
@@ -26,9 +26,8 @@ def recCPairDist(points):
     global lowest_min
     n = len(points)
     if n <= 3:
-        min = cPairDist(points)
-        print(min)
-        return min
+        cPairDist(points)
+        return lowest_min
 
     left = points[:n//2]
     print("Left", left)
@@ -40,7 +39,8 @@ def recCPairDist(points):
     recCPairDist(left)
     recCPairDist(right)
     recCPairDist(mid)
-
+    print("Lowest Current Min", lowest_min)
+    return lowest_min
 
 def main():
     """Main Function to run the code"""
@@ -48,7 +48,7 @@ def main():
     B = [7, 4, 12, 14, 2, 10, 16, 5]
     C = [14, 8, 2, 6, 3, 10, 12]
     A.sort()
-    recCPairDist(A)
+    print(recCPairDist(A))
 
 
 if __name__ == '__main__':
