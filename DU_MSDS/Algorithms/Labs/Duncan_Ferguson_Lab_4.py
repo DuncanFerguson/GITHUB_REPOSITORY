@@ -29,7 +29,7 @@ def recCPairDist(points):
     n = len(points)
     if n <= 3:
         lowest_min = cPairDist(points)
-        return lowest_min
+        return
 
     left = points[:n//2]
     # print("Left", left)
@@ -54,21 +54,19 @@ def main():
     B.sort()
     C.sort()
 
-    Test_it2 = random.sample(range(100000000000), 1000000)
-    Test_it2.sort()
-
     # print(recCPairDist(A))
     # print(recCPairDist(B))
     # print(recCPairDist(C))
     t1 = time()
-    print(recCPairDist(Test_it))
+    print("DAC", recCPairDist(Test_it))
     t2 = time()
     print((t2-t1)*1000)
 
     t3 = time()
-    print(cPairDist(Test_it2))
+    print("Brute", cPairDist(Test_it))
     t4 = time()
     print((t4-t3)*1000)
+
 
 if __name__ == '__main__':
     main()
