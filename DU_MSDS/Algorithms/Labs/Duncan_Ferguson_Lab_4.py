@@ -5,6 +5,7 @@
 # Date 7/6/2021
 
 import sys
+import random
 global lowest_min
 lowest_min = sys.maxsize
 
@@ -30,11 +31,11 @@ def recCPairDist(points):
         return lowest_min
 
     left = points[:n//2]
-    # print("Left", left)
+    print("Left", left)
     right = points[n//2:]
-    # print("Right", right)
+    print("Right", right)
     mid = [left[-1], right[0]]
-    # print("Mid", mid)
+    print("Mid", mid)
 
     recCPairDist(left)
     recCPairDist(right)
@@ -46,14 +47,16 @@ def main():
     A = [7, 4, 12, 14, 2, 10, 16, 6]
     B = [7, 18, 12, 84, 2, 10, 16, 5]
     C = [14, 8, 2, 6, 3, 10, 12]
+    Test_it = random.sample(range(10000), 100)
+    Test_it.sort()
     A.sort()
     B.sort()
     C.sort()
 
     # print(recCPairDist(A))
-    print(recCPairDist(B))
+    # print(recCPairDist(B))
     # print(recCPairDist(C))
-
+    print(recCPairDist(Test_it))
 
 if __name__ == '__main__':
     main()
