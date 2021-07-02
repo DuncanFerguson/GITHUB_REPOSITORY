@@ -5,6 +5,9 @@
 # Date 7/6/2021
 
 import sys
+global lowest_min
+lowest_min = sys.maxsize
+
 
 def cPairDist(points):
     """This Finds the minimum Distance between a list of points using brute force"""
@@ -20,8 +23,8 @@ def cPairDist(points):
 def recCPairDist(points):
     """This function takes in a sorted list of points and performs the divide/ conquer combine steps
     Returns the min distance it finds."""
+    global lowest_min
     n = len(points)
-
     if n <= 3:
         min = cPairDist(points)
         print(min)
