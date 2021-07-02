@@ -47,8 +47,8 @@ def main():
     A = [7, 4, 12, 14, 2, 10, 16, 6]
     B = [7, 4, 12, 14, 2, 10, 16, 5]
     C = [14, 8, 2, 6, 3, 10, 12]
-    A.sort()
-    print(recCPairDist(A))
+    C.sort()
+    print(recCPairDist(C))
 
 
 if __name__ == '__main__':
