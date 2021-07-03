@@ -10,8 +10,11 @@ class MyStack(object):
         self.state = []
 
     def __str__(self):
+        """Printing out the state as a string"""
         string_stack = ""
-        return (string_stack.join(self.state))
+        for i in range(len(self.state)):
+            string_stack += " " + str(self.state[i])
+        return string_stack.lstrip()
 
     def push(self, elem):
         """Adding an element to the top of the stack"""
@@ -46,12 +49,13 @@ def test_stack():
     s.push(5)
     s.push(8)
     print(s.pop())
-    s.push(3)
-    print(s.empty())
-    print(s.top())
-    print(s.pop())
-    print(s.pop())
-    print(s.pop())  # should generate an error
+    print(s)
+    # s.push(3)
+    # print(s.empty())
+    # print(s.top())
+    # print(s.pop())
+    # print(s.pop())
+    # print(s.pop())  # should generate an error
 
 # def test_queue():
 #     """This is for testing the queue"""
