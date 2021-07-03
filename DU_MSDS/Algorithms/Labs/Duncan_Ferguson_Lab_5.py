@@ -27,7 +27,9 @@ class MyStack(object):
     def pop(self):
         """Removes the top of a nonempty stack"""
         if not self.empty():
-            self.state.pop()
+            return self.state.pop()
+        else:
+            raise ValueError("Requested top of an empty stack")
 
     def top(self):
         """Returns the top of a nonempty stack"""
@@ -49,13 +51,12 @@ def test_stack():
     s.push(5)
     s.push(8)
     print(s.pop())
-    print(s)
-    # s.push(3)
-    # print(s.empty())
-    # print(s.top())
-    # print(s.pop())
-    # print(s.pop())
-    # print(s.pop())  # should generate an error
+    s.push(3)
+    print(s.empty())
+    print(s.top())
+    print(s.pop())
+    print(s.pop())
+    print(s.pop())  # should generate an error
 
 # def test_queue():
 #     """This is for testing the queue"""
