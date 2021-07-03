@@ -57,10 +57,10 @@ class MyQueue(object):
 
     def dequeue(self):
         """Removing an element from the queue"""
-
+        self.state.dequeue()
 
     def empty(self):
-        """True iff queue is empty"""
+        """True if queue is empty"""
         return len(self.state) == 0
 
 
