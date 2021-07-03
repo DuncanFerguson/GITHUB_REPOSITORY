@@ -5,16 +5,11 @@
 # Date 7/6/2021
 
 import sys
-import random
-from time import time
 global lowest_min
-lowest_min = sys.maxsize
-
 
 def cPairDist(points):
     """This Finds the minimum Distance between a list of points using brute force"""
     global lowest_min
-    # print("cPairDist", points)
     for i in range(len(points)-1):
         temp = int(abs(points[i+1]-points[i]))
         if temp < lowest_min:
@@ -31,12 +26,13 @@ def recCPairDist(points):
         lowest_min = cPairDist(points)
         return
 
+    print("Current Min:", lowest_min)
     left = points[:n//2]
-    # print("Left", left)
+    print("Left", left)
     right = points[n//2:]
-    # print("Right", right)
+    print("Right", right)
     mid = [left[-1], right[0]]
-    # print("Mid", mid)
+    print("Mid", mid)
 
     recCPairDist(left)
     recCPairDist(right)
@@ -45,27 +41,24 @@ def recCPairDist(points):
 
 def main():
     """Main Function to run the code"""
+    global lowest_min
     A = [7, 4, 12, 14, 2, 10, 16, 6]
     B = [7, 18, 12, 84, 2, 10, 16, 5]
-    C = [14, 8, 2, 6, 3, 10, 12]
-    Test_it = random.sample(range(100000000000), 1000000)
-    Test_it.sort()
+    C = [14, 8, 2000, 6, 3, 10, 12]
+
     A.sort()
     B.sort()
     C.sort()
 
-    # print(recCPairDist(A))
-    # print(recCPairDist(B))
-    # print(recCPairDist(C))
-    t1 = time()
-    print("DAC", recCPairDist(Test_it))
-    t2 = time()
-    print((t2-t1)*1000)
+    lowest_min = sys.maxsize
+    print(recCPairDist(A))
 
-    t3 = time()
-    print("Brute", cPairDist(Test_it))
-    t4 = time()
-    print((t4-t3)*1000)
+    lowest_min = sys.maxsize
+    print(recCPairDist(B))
+
+    lowest_min = sys.maxsize
+    print(recCPairDist(C))
+
 
 
 if __name__ == '__main__':
