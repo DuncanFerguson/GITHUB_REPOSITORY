@@ -51,25 +51,24 @@ class MyQueue(object):
             string_queue += " " + str(self.state[i])
         return string_queue.lstrip()
 
-    def endqueue(self, elem):
+    def enqueue(self, elem):
         """Adding an element to the queue"""
-        self.state.append(elem)
+        self.state.insert(0, elem)
 
     def dequeue(self):
         """Removing an element from the queue"""
-        self.state.dequeue()
+        return self.state.pop()
 
     def empty(self):
         """True if queue is empty"""
         return len(self.state) == 0
 
-
-    def top(self):
-        """Returns the top of a nonempty queue"""
+    def front(self):
+        """Returns the front of the queue"""
         if self.empty():
-            raise ValueError("Requested top of an empty queue")
+            raise ValueError("Requested queue is empty")
         else:
-            return self.state[-1]
+            return self.state[0]
 
 
 def test_stack():
@@ -90,14 +89,16 @@ def test_queue():
     """This is for testing the queue"""
     q = MyQueue(int)
     print(q.empty())
-    # q.enqueue(5)
-    # q.enqueue(8)
-    # print(q.dequeue())
-    # q.enqueue(3)
-    # print(q.empty())
-    # print(q.front())
-    # print(q.dequeue())
-    # print(q.dequeue())
+    q.enqueue(5)
+    q.enqueue(8)
+    print(q)
+    print(q.dequeue())
+    q.enqueue(3)
+    print(q.empty())
+    print(q.front())
+    print("This is the q", q)
+    print(q.dequeue())
+    print(q.dequeue())
     # print(q.dequeue())  # should generate an error
 
 def main():
