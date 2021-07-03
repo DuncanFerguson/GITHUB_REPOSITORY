@@ -21,6 +21,8 @@ def recCPairDist(points):
     """This function takes in a sorted list of points and performs the divide/ conquer combine steps
     Returns the min distance it finds."""
     n = len(points)
+
+    # Base Case for finding lowest distance between points
     if n <= 3:
         return cPairDist(points)
 
