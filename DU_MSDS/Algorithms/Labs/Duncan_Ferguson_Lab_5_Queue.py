@@ -17,10 +17,6 @@ class MyQueue(object):
     def __str__(self):
         """Printing out the state as a string"""
         return str(self.state)
-        # string_queue = ""
-        # for i in range(len(self.state)):
-        #     string_queue += " " + str(self.state[i])
-        # return string_queue.lstrip()
 
     def enqueue(self, elem):
         """Adding an element to the queue"""
@@ -41,6 +37,7 @@ class MyQueue(object):
         else:
             return self.state[0]
 
+
 def test_queue():
     """This is for testing the queue"""
     q = MyQueue(int)
@@ -56,3 +53,11 @@ def test_queue():
     print(q.dequeue())
     print(q.dequeue())
     # print(q.dequeue())  # should generate an error
+
+
+def main():
+    test_queue()
+
+
+if __name__ == '__main__':
+    main()

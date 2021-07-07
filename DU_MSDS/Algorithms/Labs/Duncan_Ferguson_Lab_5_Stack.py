@@ -12,10 +12,6 @@ class MyStack(object):
     def __str__(self):
         """Printing out the state as a string"""
         return str(self.state)
-        # string_stack = ""
-        # for i in range(len(self.state)):
-        #     string_stack += " " + str(self.state[i])
-        # return string_stack.lstrip()
 
     def push(self, elem):
         """Adding an element to the top of the stack"""
@@ -39,6 +35,7 @@ class MyStack(object):
         else:
             return self.state[-1]
 
+
 def test_stack():
     """This function is testing the stack"""
     s = MyStack(int)
@@ -53,8 +50,10 @@ def test_stack():
     print(s.pop())
     print(s.pop())  # should generate an error
 
+
 def main():
     test_stack()
+
 
 if __name__ == '__main__':
     main()
