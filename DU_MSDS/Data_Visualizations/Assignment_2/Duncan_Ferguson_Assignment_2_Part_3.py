@@ -15,7 +15,8 @@ chart of the same.
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from datetime import datetime, date, time, timedelta
+from matplotlib.dates import drange
+# from datetime import datetime, date, time, timedelta
 import random
 
 #  List of eight strings that represent days evenly spread out
@@ -37,5 +38,21 @@ df = df.set_index('date')
 
 # Make two charts 1) a line plot of the values vs. dates and (2) a bar
 # chart of the same.
-plt.hist(df.)
-plt.show()
+# fig, ax = plt.subplots(1, 2, figsize=(14, 8), num=94)
+
+print(df['date'])
+
+# ax[0]= plt.gca()
+# ax[0].plot(df["values"], color='r')
+# ax[0].set_title("Values vs Dates")
+# ax[0].set_ylabel('Values')
+# ax[0].set_xlabel('Dates')
+
+# date1 = datetime
+# ax[1].bar(range(len(df)), df['values'])
+# ax[1].set_title("values vs dates")
+# ax[1].set_ylabel("Values")
+# ax[1].set_xlabel("dates")
+# plt.tight_layout()
+# plt.show()
+
