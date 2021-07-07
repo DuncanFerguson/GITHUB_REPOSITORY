@@ -36,8 +36,7 @@ df['date'] = pd.to_datetime(df['date'])
 # Setting Date as the index
 df = df.set_index('date')
 
-# Make two charts 1) a line plot of the values vs. dates and (2) a bar
-# chart of the same.
+# Make two charts 1) a line plot of the values vs. dates and (2) a bar chart of the same.
 fig, ax = plt.subplots(nrows=2, ncols=1, sharey='col', sharex='row', figsize=(14, 8), num=94)
 
 # Making the first plot

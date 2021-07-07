@@ -25,19 +25,22 @@ first_six['Atomic_Weights'] = first_six['Atomic_Weights'].round(decimals=0).asty
 # Turning Panda Into Lists
 labels = first_six["Name"].tolist()
 sizes = first_six['Atomic_Weights'].tolist()
+
+# Setting Explodes
 explode1 = (0, 0, 0, 0, 0, .05)
 explode2 = (0, 0, 0, 0, .05, 0)
 
-# Creating the first pie chart
+# Setting Up two Charts
 fig, ax = plt.subplots(1, 2, figsize=(14, 6), num=59)
-ax[0].pie(sizes, labels=labels,explode=explode1,autopct='%1.1f%%')
+
+# Creating the first pie chart Atomic Weight By Percent
+ax[0].pie(sizes, labels=labels, explode=explode1, autopct='%1.0f%%')
 ax[0].set_title("First Size Elements\nBy Atomic Weight Percent")
 ax[0].axis('equal')
 
 # Creating the second pie chart
-ax[1].pie(sizes,labels=labels,explode=explode2,autopct=lambda p: '{:0f}'.format(p*sum(sizes)/100.0))
+ax[1].pie(sizes, labels=labels, explode=explode2, autopct=lambda p: '{:.0f}'.format(int(p*sum(sizes)/100)))
 ax[1].set_title("First Size Elements\nAnnotated Atomic Weight")
 ax[1].axis("equal")
 
 plt.show()
-
