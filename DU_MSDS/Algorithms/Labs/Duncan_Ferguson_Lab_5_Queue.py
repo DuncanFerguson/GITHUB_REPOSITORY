@@ -6,6 +6,9 @@
 
 from collections import deque
 
+# TODO check out geeks  for geeks deque website
+# https://www.geeksforgeeks.org/deque-in-python/
+
 class MyQueue(object):
     def __init__(self, type):
         self.elemType = type
