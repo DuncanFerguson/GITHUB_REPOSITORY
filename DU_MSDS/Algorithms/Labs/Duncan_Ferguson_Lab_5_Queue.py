@@ -4,6 +4,7 @@
 # Assignment: Lab 5
 # Date 7/13/2021
 
+from collections import deque
 
 class MyQueue(object):
     def __init__(self, type):
