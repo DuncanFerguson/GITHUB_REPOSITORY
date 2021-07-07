@@ -15,9 +15,7 @@ chart of the same.
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from matplotlib.dates import drange
-# from datetime import datetime, date, time, timedelta
-import random
+import matplotlib.dates as mdates
 
 #  List of eight strings that represent days evenly spread out
 dlist = ['01/01/2021', '02/01/2021', '03/01/2021', '04/01/2021',
@@ -38,21 +36,20 @@ df = df.set_index('date')
 
 # Make two charts 1) a line plot of the values vs. dates and (2) a bar
 # chart of the same.
-# fig, ax = plt.subplots(1, 2, figsize=(14, 8), num=94)
+fig, ax = plt.subplots(nrows=2, ncols=1, figsize=(14, 8), num=94)
 
-print(df['date'])
+# Making the first plot
+ax[0].plot(df['values'], color='r')
+ax[0].tick_params(rotation=45)
+ax[0].set_title("Plot of Values versus Date")
+ax[0].set_ylabel("Values")
 
-# ax[0]= plt.gca()
-# ax[0].plot(df["values"], color='r')
-# ax[0].set_title("Values vs Dates")
-# ax[0].set_ylabel('Values')
-# ax[0].set_xlabel('Dates')
+# Making Histogram Plot
+ax[1].bar(df.index, df['values'], width=10)
+ax[1].set_title("Bar Chart of Values v Time")
+ax[1].set_xlabel('Dates')
+ax[1].tick_params(rotation=45)
 
-# date1 = datetime
-# ax[1].bar(range(len(df)), df['values'])
-# ax[1].set_title("values vs dates")
-# ax[1].set_ylabel("Values")
-# ax[1].set_xlabel("dates")
-# plt.tight_layout()
-# plt.show()
+plt.tight_layout()
+plt.show()
 
