@@ -34,7 +34,7 @@ ax[0].set_ylabel("'$' Closing Price")
 ax[1].plot(df['Volume'], color='b')
 ax[1].set_title("'DRIP' Volumes January 2021")
 
-# Formating the Dates
+# Formatting the Dates
 ax[1].xaxis.set_major_locator(mdates.MonthLocator())
 ax[1].xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
 ax[1].xaxis.set_minor_locator(mdates.DayLocator())
