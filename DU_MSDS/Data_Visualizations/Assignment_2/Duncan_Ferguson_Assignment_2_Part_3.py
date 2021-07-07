@@ -26,14 +26,16 @@ dlist = ['01/01/2021', '02/01/2021', '03/01/2021', '04/01/2021',
 ulist = np.random.uniform(low=100, high=200, size=(8,))
 
 # Turning dlist and ulist into Dataframe
-dframe = {'date': dlist, 'units': ulist}
-dframe = pd.DataFrame(dframe)
+d = {'date': dlist, 'values': ulist}
+df = pd.DataFrame(d)
 
 # Converting datestring into datetime object
-dframe['date'] = pd.to_datetime(dframe['date'])
+df['date'] = pd.to_datetime(df['date'])
 
 # Setting Date as the index
-dframe = dframe.set_index('date')
+df = df.set_index('date')
 
-print(dframe)
-
+# Make two charts 1) a line plot of the values vs. dates and (2) a bar
+# chart of the same.
+plt.hist(df.)
+plt.show()
