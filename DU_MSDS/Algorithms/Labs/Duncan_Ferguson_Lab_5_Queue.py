@@ -4,14 +4,13 @@
 # Assignment: Lab 5
 # Date 7/13/2021
 
-from collections import deque
-
-# TODO check out geeks  for geeks deque website
-# https://www.geeksforgeeks.org/deque-in-python/
+# TODO make sure to write errors for anything that is not an int
 
 class MyQueue(object):
-    def __init__(self, type):
-        self.elemType = type
+    """Creating Queue Class. Enqueue enters an integer to the end of the queue. Dequeue removes the last item from the
+    queue. Front wills show the front of the queue. Which just so happens to be the last item on the list."""
+    def __init__(self, type_var):
+        self.elemType = type_var
         self.state = []
 
     def __str__(self):
@@ -24,38 +23,41 @@ class MyQueue(object):
 
     def dequeue(self):
         """Removing an element from the queue"""
-        return self.state.pop()
-
-    def empty(self):
-        """True if queue is empty"""
-        return len(self.state) == 0
-
-    def front(self):
-        """Returns the front of the queue"""
         if self.empty():
             raise ValueError("Requested queue is empty")
         else:
-            return self.state[0]
+            return self.state.pop()
+
+    def empty(self):
+        """True if queue is empty. False if not empty"""
+        return len(self.state) == 0
+
+    def front(self):
+        """Returns the front of the queue. Which just so happens to be the last item on the list"""
+        if self.empty():
+            raise ValueError("Requested queue is empty")
+        else:
+            return self.state[-1]
 
 
 def test_queue():
     """This is for testing the queue"""
     q = MyQueue(int)
-    print(q.empty())
-    q.enqueue(5)
-    q.enqueue(8)
-    print(q)
-    print(q.dequeue())
-    q.enqueue(3)
-    print(q.empty())
-    print(q.front())
-    print("This is the q", q)
-    print(q.dequeue())
-    print(q.dequeue())
+    print(q.elemType)
+    # print(q.empty())
+    # q.enqueue(5)
+    # q.enqueue(8)
+    # print(q.dequeue())
+    # q.enqueue(3)
+    # print(q.empty())
+    # print(q.front())
+    # print(q.dequeue())
+    # print(q.dequeue())
     # print(q.dequeue())  # should generate an error
 
 
 def main():
+    """Standard Main pointing to test queue"""
     test_queue()
 
 

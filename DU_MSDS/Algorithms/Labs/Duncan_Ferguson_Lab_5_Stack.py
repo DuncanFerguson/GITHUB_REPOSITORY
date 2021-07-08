@@ -4,6 +4,8 @@
 # Assignment: Lab 5
 # Date 7/13/2021
 
+# TODO make sure to write errors for anything that is not an int
+
 class MyStack(object):
     def __init__(self, type):
         self.elemType = type
