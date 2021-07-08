@@ -50,7 +50,7 @@ def test_stack():
     print(s.top())
     print(s.pop())
     print(s.pop())
-    print(s.pop())  # should generate an error
+    # print(s.pop())  # should generate an error
 
 
 def main():
