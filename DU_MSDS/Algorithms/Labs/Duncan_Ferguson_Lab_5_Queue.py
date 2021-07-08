@@ -4,7 +4,7 @@
 # Assignment: Lab 5
 # Date 7/13/2021
 
-# TODO make sure to write errors for anything that is not an int
+# Make sure to write errors for anything that is not an int
 
 class MyQueue(object):
     """Creating Queue Class. Enqueue enters an integer to the end of the queue. Dequeue removes the last item from the
