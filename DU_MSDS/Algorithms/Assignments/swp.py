@@ -86,24 +86,41 @@ def loadGraph(edgeFilename):
             graph['edges'].append(rows[row])
 
     # Alternative Way of Creating the dictionary
-    graph2 = dict()
+    # graph2 = dict()
+    # for row in range(len(rows)):
+    #     if rows[row][0] not in graph2.keys():
+    #         graph2[rows[row][0]] = [rows[row][1]]
+    #     elif rows[row][0] in graph2.keys():
+    #         graph2[rows[row][0]].append(rows[row][1])
+    #     elif rows[rows[row][1]] not in graph2.keys():
+    #         graph2[rows[row][1]] = [rows[row][0]]
+    #     elif rows[rows[row][1]] in graph2.keys():
+    #         graph2[rows[row][1]].append(rows[row][0])
+    #     else:
+    #         print("\n \n \n \n \n BREAK \n \n \n \n \n")
+
+    graph3 = dict()
     for row in range(len(rows)):
-        if rows[row][0] not in graph2.keys():
-            graph2[rows[row][0]] = [rows[row][1]]
-        elif rows[row][0] in graph2.keys():
-            graph2[rows[row][0]].append(rows[row][1])
-        elif rows[rows[row][1]] not in graph2.keys():
-            graph2[rows[row][1]] = [rows[row][0]]
-        elif rows[rows[row][1]] in graph2.keys():
-            graph2[rows[row][1]].append(rows[row][0])
+        if rows[row][0] not in graph3.keys():
+            graph3[rows[row][0]] = [rows[row][1]]
+        elif rows[row][0] in graph3.keys():
+            graph3[rows[row][0]].append(rows[row][1])
+
+    for row in range(len(rows)):
+        if rows[row][1] not in graph3.keys():
+            graph3[rows[row][1]] = [rows[row][0]]
+        elif rows[row][1] in graph3.keys():
+            graph3[rows[row][1]].append(rows[row][0])
         else:
             print("\n \n \n \n \n BREAK \n \n \n \n \n")
 
-    for key in graph2:
-        print("New Key")
-        print(key, len(graph2[key]))
-        print("End Key")
-    print(graph2[1])
+
+
+    # for key in graph2:
+    #     print("New Key")
+    #     print(key, len(graph2[key]))
+    #     print("End Key")
+    print(graph3[2])
     # print(len(graph['nodes']))
     # for key in graph2:
     #     print(graph2[key])
