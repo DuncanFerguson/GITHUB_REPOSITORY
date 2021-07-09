@@ -12,6 +12,8 @@ https://www.youtube.com/watch?v=CVq7puhdlFA
 https://www.educative.io/edpresso/how-to-implement-a-graph-in-python
 https://www.geeksforgeeks.org/graph-and-its-representations/
 https://stackoverflow.com/questions/55043492/adjacency-list-to-matrix-pandas
+https://www.educative.io/edpresso/how-to-implement-a-graph-in-python
+https://www.programiz.com/dsa/graph-adjacency-list
 """
 
 class Graph:
@@ -82,7 +84,30 @@ def loadGraph(edgeFilename):
             graph['edges'].append(rows[row])
         else:
             graph['edges'].append(rows[row])
-    print(len(graph['nodes']))
+
+    # Alternative Way of Creating the dictionary
+    graph2 = dict()
+    for row in range(len(rows)):
+        if rows[row][0] not in graph2.keys():
+            graph2[rows[row][0]] = [rows[row][1]]
+        elif rows[row][0] in graph2.keys():
+            graph2[rows[row][0]].append(rows[row][1])
+        elif rows[rows[row][1]] not in graph2.keys():
+            graph2[rows[row][1]] = [rows[row][0]]
+        elif rows[rows[row][1]] in graph2.keys():
+            graph2[rows[row][1]].append(rows[row][0])
+        else:
+            print("\n \n \n \n \n BREAK \n \n \n \n \n")
+
+    for key in graph2:
+        print("New Key")
+        print(key, len(graph2[key]))
+        print("End Key")
+    print(graph2[1])
+    # print(len(graph['nodes']))
+    # for key in graph2:
+    #     print(graph2[key])
+
 
     # TODO Clean up this dictionary to have nodes and the adjecy
     return graph
