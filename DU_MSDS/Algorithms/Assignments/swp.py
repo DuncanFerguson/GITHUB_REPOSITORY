@@ -54,10 +54,11 @@ def loadGraph(edgeFilename):
 def BFS(G, s):
     """ 4). Runs a breadth-first search (BFS) algorithm outlined in the Slides.
     It should run a BFS starting with source vertex s element of V.
-     You should use your queue class implementation in the implementation of this function.
-     Should return a list that contains the distance from s to every other vertex v in the graph.
+    You should use your queue class implementation in the implementation of this function.
+    Should return a list that contains the distance from s to every other vertex v in the graph.
     That is the distant Vertex 5 would be stored in slot 5 of the list.
     The graph will be passed using the adjacency list representation from step 2"""
+    #  https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
     return
 
 

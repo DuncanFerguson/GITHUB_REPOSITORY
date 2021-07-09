@@ -37,6 +37,8 @@ def DPcoins(coins, amount):
         print(table)
         return table
 
+# TODO watch the youtube vid
+# https://www.youtube.com/watch?v=CVq7puhdlFA
 # def change_making(coins, change):
 #     matrix = DPcoins(coins, change)
 #     for c in range(1, len(coins) + 1):
