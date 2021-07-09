@@ -48,12 +48,12 @@ class Deck:
         random.shuffle(self.cards)
 
     def show_deck(self):
-        """This function shows the cards that are in the self.cards list. Primarily used for testing reasons"""
+        """This function shows the cards that are in the self.cards list. Primarily used for testing.txt reasons"""
         for card in self.cards:
             card.show()
 
     def deck_count(self):
-        """This function counts the amount of cards that are in the deck. It is used primarily for testing reasons"""
+        """This function counts the amount of cards that are in the deck. It is used primarily for testing.txt reasons"""
         print(len(self.cards))
 
     def dealcard(self):

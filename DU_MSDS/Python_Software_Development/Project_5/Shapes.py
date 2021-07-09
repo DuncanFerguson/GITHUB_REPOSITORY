@@ -152,7 +152,7 @@ def shapes():
 
 
 def main():
-    """The Real main function for starting the code is user_inputs. The start game function is meant for testing."""
+    """The Real main function for starting the code is user_inputs. The start game function is meant for testing.txt."""
     shapes()
 
 

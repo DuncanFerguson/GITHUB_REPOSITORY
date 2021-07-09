@@ -63,7 +63,7 @@ def DPcoins(coins, amount):
     # return -1 # return optimal number of coins
 
 def main():
-    """Main Program To run the testing code?"""
+    """Main Program To run the testing.txt code?"""
     C = [1, 5, 10, 12, 25] # coin denominations (must include a penny)
     A = int(input('Enter desired amount of change: '))
     assert A>=0

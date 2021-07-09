@@ -41,7 +41,7 @@ class MyQueue(object):
 
 
 def test_queue():
-    """This is for testing the queue"""
+    """This is for testing.txt the queue"""
     q = MyQueue(int)
     print(q.elemType)
     # print(q.empty())

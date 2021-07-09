@@ -116,7 +116,7 @@ class TestCount(unittest.TestCase):
 
 
     def test_dict_2_csv_format(self):
-        """This is testing the transition of a dictionary into a csv format"""
+        """This is testing.txt the transition of a dictionary into a csv format"""
         csv_test_string = "'a',0\n'b',2\n"
         test_d = {"a":0, "b":2}
         result = count.dict_2_csv_format(test_d)

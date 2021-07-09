@@ -72,7 +72,7 @@ class MyQueue(object):
 
 
 def test_stack():
-    """This function is testing the stack"""
+    """This function is testing.txt the stack"""
     s = MyStack(int)
     print(s.empty())
     s.push(5)
@@ -86,7 +86,7 @@ def test_stack():
     # print(s.pop())  # should generate an error
 
 def test_queue():
-    """This is for testing the queue"""
+    """This is for testing.txt the queue"""
     q = MyQueue(int)
     print(q.empty())
     q.enqueue(5)

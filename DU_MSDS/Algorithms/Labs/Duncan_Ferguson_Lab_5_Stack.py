@@ -39,7 +39,7 @@ class MyStack(object):
 
 
 def test_stack():
-    """This function is testing the stack"""
+    """This function is testing.txt the stack"""
     s = MyStack(int)
     print(s.empty())
     s.push(5)

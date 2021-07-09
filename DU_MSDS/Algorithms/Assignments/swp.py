@@ -6,6 +6,24 @@
 
 import pandas as pd
 
+"""Helpful Links
+https://ide.geeksforgeeks.org/9je5j6jJ13
+https://www.youtube.com/watch?v=CVq7puhdlFA
+https://www.educative.io/edpresso/how-to-implement-a-graph-in-python
+https://www.geeksforgeeks.org/graph-and-its-representations/
+https://stackoverflow.com/questions/55043492/adjacency-list-to-matrix-pandas
+"""
+
+class Graph:
+    def __init__(self, num_vertex):
+        self.adjMatrix = [[-1]*num_vertex for x in range(num_vertex)]
+        self.num_vertex = num_vertex
+        self.vertices = {}
+        self.verticeslist = [0]*num_vertex
+
+    def __str__(self):
+        return str(self.adjMatrix)
+
 
 class MyQueue(object):
     """ 3). Creating Queue Class. Enqueue enters an integer to the end of the queue.
@@ -48,7 +66,26 @@ def loadGraph(edgeFilename):
      A list of vertex Ids is not explicitly given but instead can be inferred from the edge data"""
     # https: // www.geeksforgeeks.org / graph - and -its - representations /
     df = pd.read_csv(edgeFilename, sep=" ", header=None)  # Importing the txt file into a dataframe
-    print(df)
+    rows = df.values.tolist()  # Turning Dataframe into list of lists
+    # graph = {'nodes': list(), 'edges': list()}
+    graph = dict()  # Creating Blank Dictionary
+    graph['nodes'] = list()  # Adding a collection of nodes
+    graph['edges'] = list()  # Adding a collection of the edges
+
+    # Creating Graph Dictionary with the nodes and the
+    for row in range(len(rows)):
+        if rows[row][0] not in graph.keys():
+            graph['nodes'].append(rows[row][0])
+            graph['edges'].append(rows[row])
+        elif rows[row][1] not in graph.keys():
+            graph['nodes'].append(rows[row][1])
+            graph['edges'].append(rows[row])
+        else:
+            graph['edges'].append(rows[row])
+    print(len(graph['nodes']))
+
+    # TODO Clean up this dictionary to have nodes and the adjecy
+    return graph
 
 
 def BFS(G, s):
@@ -59,6 +96,9 @@ def BFS(G, s):
     That is the distant Vertex 5 would be stored in slot 5 of the list.
     The graph will be passed using the adjacency list representation from step 2"""
     #  https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
+
+
+
     return
 
 
@@ -73,6 +113,7 @@ def distanceDistribution(G):
 def test():
     """Testing code that prints out the final distribution dictionary"""
     loadGraph('edges.txt')
+    # loadGraph('testing.txt')
 
 
 def main():

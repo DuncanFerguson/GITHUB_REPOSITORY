@@ -173,7 +173,7 @@ def dice_rolling(type_o_die, num_dice, starting_amount):
         starting_amount += wager
         print("You win ${} dollars and now have ${} Total\n".format(wager, starting_amount))
     else:
-        print("No Logic hitting")  # Mostly meant for testing purposes
+        print("No Logic hitting")  # Mostly meant for testing.txt purposes
 
     #You will then choose to bet again or to cash out
     #The game will continue until you cash out or are bankrupt
@@ -211,12 +211,12 @@ def user_inputs():
 
 def test_game():
     """Testing Reason to get rid of user inputs. Mocks user_inputs def. All class logic can be tested here.
-    Not all all the logic is used for the game, so this is a good testing space"""
+    Not all all the logic is used for the game, so this is a good testing.txt space"""
     dice_rolling(6, 2, 100)
 
 
 def main():
-    """The Real main function for starting the code is user_inputs. The start game function is meant for testing."""
+    """The Real main function for starting the code is user_inputs. The start game function is meant for testing.txt."""
     # test_game()  # For Fast Testing
     user_inputs()  # For User input
 
