@@ -112,7 +112,7 @@ def loadGraph(edgeFilename):
         elif rows[row][1] in graph3.keys():
             graph3[rows[row][1]].append(rows[row][0])
         else:
-            print("\n \n \n \n \n BREAK \n \n \n \n \n")
+            print("\n \n \n \n \n BREAK \n \n \n \n \n")  # Should never get to here
 
 
 
@@ -120,7 +120,7 @@ def loadGraph(edgeFilename):
     #     print("New Key")
     #     print(key, len(graph2[key]))
     #     print("End Key")
-    print(graph3[1])
+    print(sum(graph3[1]))
     # print(len(graph['nodes']))
     # for key in graph2:
     #     print(graph2[key])
