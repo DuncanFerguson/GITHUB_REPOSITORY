@@ -120,7 +120,7 @@ def loadGraph(edgeFilename):
     #     print("New Key")
     #     print(key, len(graph2[key]))
     #     print("End Key")
-    print(graph3[2])
+    print(graph3[1])
     # print(len(graph['nodes']))
     # for key in graph2:
     #     print(graph2[key])
