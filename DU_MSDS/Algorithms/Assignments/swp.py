@@ -16,6 +16,7 @@ https://www.educative.io/edpresso/how-to-implement-a-graph-in-python
 https://www.programiz.com/dsa/graph-adjacency-list
 """
 
+# TODO not sure if the graph class is needed as it can be incorporated into the loadgraph function
 class Graph:
     def __init__(self, num_vertex):
         self.adjMatrix = [[-1]*num_vertex for x in range(num_vertex)]
@@ -99,6 +100,7 @@ def loadGraph(edgeFilename):
     #     else:
     #         print("\n \n \n \n \n BREAK \n \n \n \n \n")
 
+    # Produces a dictionary with the node and the adjacency of the lists next to it
     graph3 = dict()
     for row in range(len(rows)):
         if rows[row][0] not in graph3.keys():
