@@ -109,8 +109,9 @@ def BFS(G, s):
     for i in vertex_list:
         q.enqueue(vertex_list[i])
 
-    while q.empty != True:
+    while q.empty() != True:
         print(q.dequeue())
+
 
     return
 
