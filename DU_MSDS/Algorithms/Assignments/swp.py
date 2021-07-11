@@ -100,7 +100,17 @@ def BFS(G, s):
     #  https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
     print(G)
     vertex_list = [*G]  # creating a list of vertex's
-    print(vertex_list)
+    tf_list = [False] * len(vertex_list)  # Creating a list to see if I have run through the index
+
+    print("TF List", tf_list)
+    print("vertex list", vertex_list)
+    q = MyQueue(int)
+    # print(q)
+    for i in vertex_list:
+        q.enqueue(vertex_list[i])
+
+    while q.empty != True:
+        print(q.dequeue())
 
     return
 
