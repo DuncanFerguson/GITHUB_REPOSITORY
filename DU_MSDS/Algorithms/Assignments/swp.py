@@ -17,6 +17,7 @@ https://www.programiz.com/dsa/graph-adjacency-list
 https://www.youtube.com/watch?v=-uR7BSfNJko
 https://www.youtube.com/watch?v=m2Elp9ubY3w
 https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
+https://www.geeksforgeeks.org/graph-and-its-representations/
 """
 
 import sys
@@ -62,41 +63,9 @@ def loadGraph(edgeFilename):
     """ 2). This function reads in the file of edge data.
      This function should return an adjacency list representation of the corresponding undirected graph
      A list of vertex Ids is not explicitly given but instead can be inferred from the edge data"""
-    # https: // www.geeksforgeeks.org / graph - and -its - representations /
     df = pd.read_csv(edgeFilename, sep=" ", header=None)  # Importing the txt file into a dataframe
     rows = df.values.tolist()  # Turning Dataframe into list of lists
-    # graph = {'nodes': list(), 'edges': list()}
-    # graph = dict()  # Creating Blank Dictionary
-    # graph['nodes'] = list()  # Adding a collection of nodes
-    # graph['edges'] = list()  # Adding a collection of the edges
 
-    # # Creating Graph Dictionary with the nodes and the
-    # for row in range(len(rows)):
-    #     if rows[row][0] not in graph.keys():
-    #         graph['nodes'].append(rows[row][0])
-    #         graph['edges'].append(rows[row])
-    #     elif rows[row][1] not in graph.keys():
-    #         graph['nodes'].append(rows[row][1])
-    #         graph['edges'].append(rows[row])
-    #     else:
-    #         graph['edges'].append(rows[row])
-    # print(graph['nodes'])
-
-    # Alternative Way of Creating the dictionary
-    # graph2 = dict()
-    # for row in range(len(rows)):
-    #     if rows[row][0] not in graph2.keys():
-    #         graph2[rows[row][0]] = [rows[row][1]]
-    #     elif rows[row][0] in graph2.keys():
-    #         graph2[rows[row][0]].append(rows[row][1])
-    #     elif rows[rows[row][1]] not in graph2.keys():
-    #         graph2[rows[row][1]] = [rows[row][0]]
-    #     elif rows[rows[row][1]] in graph2.keys():
-    #         graph2[rows[row][1]].append(rows[row][0])
-    #     else:
-    #         print("\n \n \n \n \n BREAK \n \n \n \n \n")
-
-    # print(graph2)
     # Produces a dictionary with the node and the adjacency of the lists next to it
     graph3 = dict()
     for row in range(len(rows)):
@@ -113,6 +82,7 @@ def loadGraph(edgeFilename):
         else:
             print("\n \n \n \n \n BREAK \n \n \n \n \n")  # Should never get to here
 
+    # Sorting the Graph Dictionary
     sorted_dict = dict()
     for i in sorted(graph3.keys()):
         sorted_dict[i] = sorted(graph3[i])
@@ -128,6 +98,10 @@ def BFS(G, s):
     That is the distant Vertex 5 would be stored in slot 5 of the list.
     The graph will be passed using the adjacency list representation from step 2"""
     #  https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
+    print(G)
+    vertex_list = [*G]  # creating a list of vertex's
+    print(vertex_list)
+
     return
 
 
@@ -146,8 +120,10 @@ def test():
     """Testing code that prints out the final distribution dictionary"""
     # loadGraph('edges.txt')
     graphit = loadGraph('edgesshort.txt')
-    for key in graphit:
-        print(key)
+    BFS(graphit, 1)
+
+    # for key in graphit:
+    #     print(key)
 
     # print(g)
     #
