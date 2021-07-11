@@ -14,19 +14,14 @@ https://www.geeksforgeeks.org/graph-and-its-representations/
 https://stackoverflow.com/questions/55043492/adjacency-list-to-matrix-pandas
 https://www.educative.io/edpresso/how-to-implement-a-graph-in-python
 https://www.programiz.com/dsa/graph-adjacency-list
+https://www.youtube.com/watch?v=-uR7BSfNJko
+https://www.youtube.com/watch?v=m2Elp9ubY3w
+https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
 """
 
+import sys
+
 # TODO not sure if the graph class is needed as it can be incorporated into the loadgraph function
-class Graph:
-    def __init__(self, num_vertex):
-        self.adjMatrix = [[-1]*num_vertex for x in range(num_vertex)]
-        self.num_vertex = num_vertex
-        self.vertices = {}
-        self.verticeslist = [0]*num_vertex
-
-    def __str__(self):
-        return str(self.adjMatrix)
-
 
 class MyQueue(object):
     """ 3). Creating Queue Class. Enqueue enters an integer to the end of the queue.
@@ -71,20 +66,21 @@ def loadGraph(edgeFilename):
     df = pd.read_csv(edgeFilename, sep=" ", header=None)  # Importing the txt file into a dataframe
     rows = df.values.tolist()  # Turning Dataframe into list of lists
     # graph = {'nodes': list(), 'edges': list()}
-    graph = dict()  # Creating Blank Dictionary
-    graph['nodes'] = list()  # Adding a collection of nodes
-    graph['edges'] = list()  # Adding a collection of the edges
+    # graph = dict()  # Creating Blank Dictionary
+    # graph['nodes'] = list()  # Adding a collection of nodes
+    # graph['edges'] = list()  # Adding a collection of the edges
 
-    # Creating Graph Dictionary with the nodes and the
-    for row in range(len(rows)):
-        if rows[row][0] not in graph.keys():
-            graph['nodes'].append(rows[row][0])
-            graph['edges'].append(rows[row])
-        elif rows[row][1] not in graph.keys():
-            graph['nodes'].append(rows[row][1])
-            graph['edges'].append(rows[row])
-        else:
-            graph['edges'].append(rows[row])
+    # # Creating Graph Dictionary with the nodes and the
+    # for row in range(len(rows)):
+    #     if rows[row][0] not in graph.keys():
+    #         graph['nodes'].append(rows[row][0])
+    #         graph['edges'].append(rows[row])
+    #     elif rows[row][1] not in graph.keys():
+    #         graph['nodes'].append(rows[row][1])
+    #         graph['edges'].append(rows[row])
+    #     else:
+    #         graph['edges'].append(rows[row])
+    # print(graph['nodes'])
 
     # Alternative Way of Creating the dictionary
     # graph2 = dict()
@@ -100,6 +96,7 @@ def loadGraph(edgeFilename):
     #     else:
     #         print("\n \n \n \n \n BREAK \n \n \n \n \n")
 
+    # print(graph2)
     # Produces a dictionary with the node and the adjacency of the lists next to it
     graph3 = dict()
     for row in range(len(rows)):
@@ -116,20 +113,11 @@ def loadGraph(edgeFilename):
         else:
             print("\n \n \n \n \n BREAK \n \n \n \n \n")  # Should never get to here
 
+    sorted_dict = dict()
+    for i in sorted(graph3.keys()):
+        sorted_dict[i] = sorted(graph3[i])
 
-
-    # for key in graph2:
-    #     print("New Key")
-    #     print(key, len(graph2[key]))
-    #     print("End Key")
-    print(sum(graph3[1]))
-    # print(len(graph['nodes']))
-    # for key in graph2:
-    #     print(graph2[key])
-
-
-    # TODO Clean up this dictionary to have nodes and the adjecy
-    return graph
+    return sorted_dict
 
 
 def BFS(G, s):
@@ -140,9 +128,6 @@ def BFS(G, s):
     That is the distant Vertex 5 would be stored in slot 5 of the list.
     The graph will be passed using the adjacency list representation from step 2"""
     #  https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
-
-
-
     return
 
 
@@ -150,13 +135,26 @@ def distanceDistribution(G):
     """ 5). Computes the distribution of all distances in G.
      The function returns a dictionary that maps positive distances to frequency of occurances.
      Specifically, the frequencies should be stored in percentage form.
-     That is, 23.6% of all distances are three apart. Note that this might take a few minutes to run.
+     That is, 24.4% of all distances are three apart. Note that this might take a few minutes to run.
      So you might want to print out values every once in a while to show progress"""
+    q = list()
     return
+
+
 
 def test():
     """Testing code that prints out the final distribution dictionary"""
-    loadGraph('edges.txt')
+    # loadGraph('edges.txt')
+    graphit = loadGraph('edgesshort.txt')
+    for key in graphit:
+        print(key)
+
+    # print(g)
+    #
+    # BFS(graphit, )
+    # for key in graphit:
+    #     print(key)
+
     # loadGraph('testing.txt')
 
 
