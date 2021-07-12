@@ -122,12 +122,11 @@ def BFS(G, s):
     while not q.empty():
         # In MyQueue I have written in a q.visited. That Way I know if I have looked at that value
         if q.front() not in q.visited:  # Only do this for nodes that have not been visited
-            num = q.dequeue()
-            distance = dq.dequeue()
-            nbrlist[num] = distance
+            num = q.dequeue()  # Taking the front of the queue
+            nbrlist[num] = dq.dequeue()  # Pulling Distance
             for x in G[num]:
-                q.enqueue(x)
-                dq.enqueue(distance+1)
+                q.enqueue(x)  # Adding to the queue
+                dq.enqueue(nbrlist[num]+1)  # Adding distance +1
         else:
             q.dequeue()  # Visited before, throw out
             dq.dequeue()  # Doesn't Matter, throw out
@@ -141,16 +140,38 @@ def distanceDistribution(G):
      Specifically, the frequencies should be stored in percentage form.
      That is, 24.4% of all distances are three apart. Note that this might take a few minutes to run.
      So you might want to print out values every once in a while to show progress"""
-    q = list()
-    return
+    shortest_path = dict()
+    average_neighbor_degree = dict()
 
+    for x in range(len(G)):
+        shortest_path[x] = BFS(G, x)
+
+    print(shortest_path)
+
+    for key in shortest_path.keys():
+        print(key)
+
+
+    # # This returns the list for each of the nodes
+    # for x in range(len(G)):
+    #     distance_dict[x] = 0
+    #
+    # for node in range(len(G)):
+    #     for nbr in BFS(G, node):
+    #         distance_dict[nbr] += 1
+    #
+    # print(distance_dict)
 
 
 def test():
     """Testing code that prints out the final distribution dictionary"""
     # loadGraph('edges.txt')
     graphit = loadGraph('edgesshort.txt')
-    print(BFS(graphit, 8))
+    distanceDistribution(graphit)
+
+
+
+
 
 
 
