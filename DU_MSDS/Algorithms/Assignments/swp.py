@@ -113,96 +113,29 @@ def BFS(G, s):
     tf_list = [False for x in G]  # Setting queue tf list
 
     print("Starting ", nbrlist)
+    print("True False List", tf_list)
 
     # Creating a queue
     q = MyQueue(int)
     q.enqueue(s)
+
+    dq = MyQueue(int)
     distance = 0
+    dq.enqueue(distance)
+
 
     while not q.empty():
-        num = q.dequeue()
-        nbrlist[num] = distance  # Adding the distance from the node
-        tf_list[num] = True  # Creating a check Loop
-        distance += 1  # Incrementing the distance list 1
-
-        for x in G[num]:
-            if tf_list[x] == False:
-                tf_list[x] = True
-                print("Adding to Queue", x)
+        num = q.dequeue()  # Taking the top of the queue
+        if tf_list[num] == False:
+            nbrlist[num] = dq.dequeue()  # Adding the distance from the node
+            tf_list[num] = True  # Creating a check Loop
+            distance += 1  # Incrementing the distance list 1
+            for x in G[num]:
                 q.enqueue(x)
+                dq.enqueue(distance)
 
-
-
-    # # Ripping through the queue
-    # distance = 0
-    # while not q.empty():  # While the q is not empty rip through
-    #     num = q.dequeue()
-    #     nbrlist[s][s] = 0
-    #     print(G[num])
-    #     for nbr in G[num]:  # Adding Neighbors to list
-    #         nbrlist[num][nbr] = 1
-    #         q.enqueue(nbr)
-
-        # for nbr in G[num]:
-        #     nbrlist[nbr] = 1
-        #     # q.enqueue(nbr)
-        # else:
-        #     pass
-
-
-    print(nbrlist)
-
-
-
-
-
-    # # TODO This is where the magic happens
-    # for n_list in nbrlist:
-    #     for num in range(len(n_list)):
-    #         if num == s:
-    #             n_list[s] = 0
-    #         for num in G[s]:
-    #             n_list[num] = 1
-
-
-    print("Ending List",nbrlist)
-
-
-
-
-    # # Other way of looking through the problem
-    # vertex_list = [*G]  # creating a list of vertex's
-    # tf_list = [False] * len(vertex_list)  # Creating a list to see if I have run through the index
-    #
-    # print("TF List", tf_list)
-    # print("vertex list", vertex_list)
-    # q = MyQueue(int)
-
-# # Startint the ripping of the queue:
-#     for i in G:
-#         for j in G[i]:
-#             if vertex_list[j] == False:
-#                 vertex_list[j] = True
-#                 q.enqueue(j)
-#                 while q.empty() != True:
-#                     # print(q)
-#                     next_level = q.dequeue()
-#                     # print(next_level)
-
-    # print(q)
-    # print(vertex_list)
-
-        # while q.empty() != True:
-        #     j = q.dequeue()
-        #     print(j)
-            # for k in G[j]:
-            #     print(k)
-            #     # print(i)
-
-        # while q.empty() != True:
-        #     nextnod = q.dequeue()
-
-    # return
+    print("Ending List", nbrlist)
+    print("Ending TF List", tf_list)
 
 
 def distanceDistribution(G):
