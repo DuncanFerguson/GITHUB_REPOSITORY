@@ -18,11 +18,10 @@ https://www.youtube.com/watch?v=-uR7BSfNJko
 https://www.youtube.com/watch?v=m2Elp9ubY3w
 https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
 https://www.geeksforgeeks.org/graph-and-its-representations/
+https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
 """
 
 import sys
-
-# TODO not sure if the graph class is needed as it can be incorporated into the loadgraph function
 
 class MyQueue(object):
     """ 3). Creating Queue Class. Enqueue enters an integer to the end of the queue.
@@ -30,8 +29,8 @@ class MyQueue(object):
       Front wills show the front of the queue. Which just so happens to be the last item on the list."""
     def __init__(self, type_var):
         self.elemType = type_var
-        self.state = []
-        self.visited = []
+        self.state = []  # This stores the queue
+        self.visited = []  # This stores all the values that have been in the queue
 
     def __str__(self):
         """Printing out the state as a string"""
@@ -46,8 +45,8 @@ class MyQueue(object):
         if self.empty():
             raise ValueError("Requested queue is empty")
         else:
-            dequeue_num = self.state.pop()
-            self.visited.append(dequeue_num)
+            dequeue_num = self.state.pop()  # Taking the front of the queue
+            self.visited.append(dequeue_num)  # Adding the value to the visited list
             return dequeue_num
 
     def empty(self):
@@ -106,29 +105,23 @@ def BFS(G, s):
     Should return a list that contains the distance from s to every other vertex v in the graph.
     That is the distant Vertex 5 would be stored in slot 5 of the list.
     The graph will be passed using the adjacency list representation from step 2"""
-    #  https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
 
-    # Creating the Neighbors Distance List
-    # nbrlist = [float(sys.maxsize) for x in G] for x in G]
-    print("Adj List", G)
-
+    # Creating the Neighbors Distance List filled in with infinity
     nbrlist = [float(sys.maxsize) for x in G]  # Setting Up Neighbor List
-    tf_list = [False for x in G]  # Setting queue tf list
 
-    print("Starting ", nbrlist)
-    # print("True False List", tf_list)
-
-    # Creating a queue
+    # Creating a queue for which nodes to look at
     q = MyQueue(int)
     q.enqueue(s)
 
-    # Creating a queue for distance
+    # Creating a queue store the distance away a node is
     dq = MyQueue(int)
     distance = 0
     dq.enqueue(distance)
 
+    # Going through the Q
     while not q.empty():
-        if q.front() not in q.visited:
+        # In MyQueue I have written in a q.visited. That Way I know if I have looked at that value
+        if q.front() not in q.visited:  # Only do this for nodes that have not been visited
             num = q.dequeue()
             distance = dq.dequeue()
             nbrlist[num] = distance
@@ -136,10 +129,10 @@ def BFS(G, s):
                 q.enqueue(x)
                 dq.enqueue(distance+1)
         else:
-            q.dequeue()
-            dq.dequeue()
+            q.dequeue()  # Visited before, throw out
+            dq.dequeue()  # Doesn't Matter, throw out
 
-     return nbrlist
+    return nbrlist
 
 
 def distanceDistribution(G):
@@ -157,19 +150,9 @@ def test():
     """Testing code that prints out the final distribution dictionary"""
     # loadGraph('edges.txt')
     graphit = loadGraph('edgesshort.txt')
-    BFS(graphit, 0)
+    print(BFS(graphit, 8))
 
 
-    # for key in graphit:
-    #     print(key)
-
-    # print(g)
-    #
-    # BFS(graphit, )
-    # for key in graphit:
-    #     print(key)
-
-    # loadGraph('testing.txt')
 
 
 def main():
