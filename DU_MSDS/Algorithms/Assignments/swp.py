@@ -106,16 +106,63 @@ def BFS(G, s):
     #  https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
 
     # Creating the Neighbors Distance List
-    nbrlist = [[float(sys.maxsize) for x in G] for x in G]
+    # nbrlist = [float(sys.maxsize) for x in G] for x in G]
+    print("Adj List", G)
 
-    s = 0
+    nbrlist = [float(sys.maxsize) for x in G]  # Setting Up Neighbor List
+    tf_list = [False for x in G]  # Setting queue tf list
+
     print("Starting ", nbrlist)
 
-    for n_list in nbrlist:
-        for num in range(len(n_list)):
-            if num == s:
-                n_list[s] = 0
-            elif
+    # Creating a queue
+    q = MyQueue(int)
+    q.enqueue(s)
+    distance = 0
+
+    while not q.empty():
+        num = q.dequeue()
+        nbrlist[num] = distance  # Adding the distance from the node
+        tf_list[num] = True  # Creating a check Loop
+        distance += 1  # Incrementing the distance list 1
+
+        for x in G[num]:
+            if tf_list[x] == False:
+                tf_list[x] = True
+                print("Adding to Queue", x)
+                q.enqueue(x)
+
+
+
+    # # Ripping through the queue
+    # distance = 0
+    # while not q.empty():  # While the q is not empty rip through
+    #     num = q.dequeue()
+    #     nbrlist[s][s] = 0
+    #     print(G[num])
+    #     for nbr in G[num]:  # Adding Neighbors to list
+    #         nbrlist[num][nbr] = 1
+    #         q.enqueue(nbr)
+
+        # for nbr in G[num]:
+        #     nbrlist[nbr] = 1
+        #     # q.enqueue(nbr)
+        # else:
+        #     pass
+
+
+    print(nbrlist)
+
+
+
+
+
+    # # TODO This is where the magic happens
+    # for n_list in nbrlist:
+    #     for num in range(len(n_list)):
+    #         if num == s:
+    #             n_list[s] = 0
+    #         for num in G[s]:
+    #             n_list[num] = 1
 
 
     print("Ending List",nbrlist)
