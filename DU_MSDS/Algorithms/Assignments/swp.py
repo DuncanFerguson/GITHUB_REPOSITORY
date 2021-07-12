@@ -119,20 +119,28 @@ def BFS(G, s):
     q = MyQueue(int)
     q.enqueue(s)
 
+    # Creating a queue for distance
     dq = MyQueue(int)
     distance = 0
     dq.enqueue(distance)
 
+    # Adding Starting Values to the queue
+    # nbrlist[s] = 0
+    # tf_list[s] = True
 
     while not q.empty():
         num = q.dequeue()  # Taking the top of the queue
         if tf_list[num] == False:
             nbrlist[num] = dq.dequeue()  # Adding the distance from the node
-            tf_list[num] = True  # Creating a check Loop
             distance += 1  # Incrementing the distance list 1
+            tf_list[num] = True
+        # Looping through neighbors list
             for x in G[num]:
-                q.enqueue(x)
-                dq.enqueue(distance)
+                if tf_list[x] == False:
+                    print("Adding", x)
+                    q.enqueue(x)
+                    dq.enqueue(distance)
+
 
     print("Ending List", nbrlist)
     print("Ending TF List", tf_list)
