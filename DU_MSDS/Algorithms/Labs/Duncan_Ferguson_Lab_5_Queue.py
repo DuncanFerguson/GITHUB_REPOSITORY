@@ -4,8 +4,6 @@
 # Assignment: Lab 5
 # Date 7/13/2021
 
-# Make sure to write errors for anything that is not an int
-
 class MyQueue(object):
     """Creating Queue Class. Enqueue enters an integer to the end of the queue. Dequeue removes the last item from the
     queue. Front wills show the front of the queue. Which just so happens to be the last item on the list."""
@@ -43,17 +41,16 @@ class MyQueue(object):
 def test_queue():
     """This is for testing.txt the queue"""
     q = MyQueue(int)
-    print(q.elemType)
-    # print(q.empty())
-    # q.enqueue(5)
-    # q.enqueue(8)
-    # print(q.dequeue())
-    # q.enqueue(3)
-    # print(q.empty())
-    # print(q.front())
-    # print(q.dequeue())
-    # print(q.dequeue())
-    # print(q.dequeue())  # should generate an error
+    print(q.empty())
+    q.enqueue(5)
+    q.enqueue(8)
+    print(q.dequeue())
+    q.enqueue(3)
+    print(q.empty())
+    print(q.front())
+    print(q.dequeue())
+    print(q.dequeue())
+    print(q.dequeue())  # should generate an error
 
 
 def main():
