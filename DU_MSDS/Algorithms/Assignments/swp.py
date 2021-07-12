@@ -31,6 +31,7 @@ class MyQueue(object):
     def __init__(self, type_var):
         self.elemType = type_var
         self.state = []
+        self.visited = []
 
     def __str__(self):
         """Printing out the state as a string"""
@@ -45,7 +46,9 @@ class MyQueue(object):
         if self.empty():
             raise ValueError("Requested queue is empty")
         else:
-            return self.state.pop()
+            dequeue_num = self.state.pop()
+            self.visited.append(dequeue_num)
+            return dequeue_num
 
     def empty(self):
         """True if queue is empty. False if not empty"""
@@ -113,7 +116,7 @@ def BFS(G, s):
     tf_list = [False for x in G]  # Setting queue tf list
 
     print("Starting ", nbrlist)
-    print("True False List", tf_list)
+    # print("True False List", tf_list)
 
     # Creating a queue
     q = MyQueue(int)
@@ -124,26 +127,19 @@ def BFS(G, s):
     distance = 0
     dq.enqueue(distance)
 
-    # Adding Starting Values to the queue
-    # nbrlist[s] = 0
-    # tf_list[s] = True
-
     while not q.empty():
-        num = q.dequeue()  # Taking the top of the queue
-        if tf_list[num] == False:
-            nbrlist[num] = dq.dequeue()  # Adding the distance from the node
-            distance += 1  # Incrementing the distance list 1
-            tf_list[num] = True
-        # Looping through neighbors list
+        if q.front() not in q.visited:
+            num = q.dequeue()
+            distance = dq.dequeue()
+            nbrlist[num] = distance
             for x in G[num]:
-                if tf_list[x] == False:
-                    print("Adding", x)
-                    q.enqueue(x)
-                    dq.enqueue(distance)
+                q.enqueue(x)
+                dq.enqueue(distance+1)
+        else:
+            q.dequeue()
+            dq.dequeue()
 
-
-    print("Ending List", nbrlist)
-    print("Ending TF List", tf_list)
+     return nbrlist
 
 
 def distanceDistribution(G):
