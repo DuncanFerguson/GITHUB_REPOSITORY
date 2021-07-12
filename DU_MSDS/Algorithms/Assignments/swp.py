@@ -22,6 +22,7 @@ https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
 """
 
 import sys
+import matplotlib.pyplot as plt
 
 class MyQueue(object):
     """ 3). Creating Queue Class. Enqueue enters an integer to the end of the queue.
@@ -140,40 +141,27 @@ def distanceDistribution(G):
      Specifically, the frequencies should be stored in percentage form.
      That is, 24.4% of all distances are three apart. Note that this might take a few minutes to run.
      So you might want to print out values every once in a while to show progress"""
-    shortest_path = dict()
-    average_neighbor_degree = dict()
 
+    distance_dict = dict()
+    # This returns the list for each of the nodes
     for x in range(len(G)):
-        shortest_path[x] = BFS(G, x)
+        distance_dict[x] = 0
 
-    print(shortest_path)
+    for node in range(len(G)):
+        for nbr in BFS(G, node):
+            if nbr == node:
+                continue
+            else:
+                distance_dict[nbr] += 1
 
-    for key in shortest_path.keys():
-        print(key)
-
-
-    # # This returns the list for each of the nodes
-    # for x in range(len(G)):
-    #     distance_dict[x] = 0
-    #
-    # for node in range(len(G)):
-    #     for nbr in BFS(G, node):
-    #         distance_dict[nbr] += 1
-    #
-    # print(distance_dict)
+    print(distance_dict)
 
 
 def test():
     """Testing code that prints out the final distribution dictionary"""
-    # loadGraph('edges.txt')
+    # graphit = loadGraph('edges.txt')
     graphit = loadGraph('edgesshort.txt')
     distanceDistribution(graphit)
-
-
-
-
-
-
 
 
 def main():
@@ -186,3 +174,10 @@ if __name__ == '__main__':
 
 """" 7). To what extent does this network satisfy the small world phenomenon? 
 Please put a comment section at the bottom of your code that answer this question"""
+
+# This makes sens in satisfying the small world phenomenon in that it looks at how far apart people are actually
+# From each other. In the example of Kevin Bacon, the saying is that there is 6 degrees of separation.
+# In this case we can see the percentage that people are x a mount of people away from each other.
+# Kevin bacon would have to have a 100% of total people knowing him adding up through his 6th degree.
+# Looking at the numbers here. People are actuall located X amount from each other.
+# TODO CLEAN UP THIS ANSWER
