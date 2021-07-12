@@ -93,10 +93,7 @@ def loadGraph(edgeFilename):
     for key in sorted_dict:
         adj_list.append(sorted_dict[key])
 
-    print(adj_list)
-
-
-    return sorted_dict
+    return adj_list
 
 
 def BFS(G, s):
@@ -107,24 +104,30 @@ def BFS(G, s):
     That is the distant Vertex 5 would be stored in slot 5 of the list.
     The graph will be passed using the adjacency list representation from step 2"""
     #  https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
-    print(G)
-    vertex_list = [*G]  # creating a list of vertex's
-    tf_list = [False] * len(vertex_list)  # Creating a list to see if I have run through the index
+    neighbor_list = "Work"
+    # neighbor_list = [*len(G)]  # Creating Distance
+    print(neighbor_list)
 
-    print("TF List", tf_list)
-    print("vertex list", vertex_list)
-    q = MyQueue(int)
 
-# Startint the ripping of the queue:
-    for i in G:
-        for j in G[i]:
-            if vertex_list[j] == False:
-                vertex_list[j] = True
-                q.enqueue(j)
-                while q.empty() != True:
-                    # print(q)
-                    next_level = q.dequeue()
-                    # print(next_level)
+
+    # # Other way of looking through the problem
+    # vertex_list = [*G]  # creating a list of vertex's
+    # tf_list = [False] * len(vertex_list)  # Creating a list to see if I have run through the index
+    #
+    # print("TF List", tf_list)
+    # print("vertex list", vertex_list)
+    # q = MyQueue(int)
+
+# # Startint the ripping of the queue:
+#     for i in G:
+#         for j in G[i]:
+#             if vertex_list[j] == False:
+#                 vertex_list[j] = True
+#                 q.enqueue(j)
+#                 while q.empty() != True:
+#                     # print(q)
+#                     next_level = q.dequeue()
+#                     # print(next_level)
 
     # print(q)
     # print(vertex_list)
@@ -142,7 +145,7 @@ def BFS(G, s):
         #
 
 
-    return
+    # return
 
 
 def distanceDistribution(G):
@@ -160,7 +163,8 @@ def test():
     """Testing code that prints out the final distribution dictionary"""
     # loadGraph('edges.txt')
     graphit = loadGraph('edgesshort.txt')
-    # BFS(graphit, 1)
+    BFS(graphit, 0)
+
 
     # for key in graphit:
     #     print(key)
