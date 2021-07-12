@@ -67,25 +67,34 @@ def loadGraph(edgeFilename):
     rows = df.values.tolist()  # Turning Dataframe into list of lists
 
     # Produces a dictionary with the node and the adjacency of the lists next to it
-    graph3 = dict()
+    # TODO Maybe look at putting this into a
+    graph = dict()
     for row in range(len(rows)):
-        if rows[row][0] not in graph3.keys():
-            graph3[rows[row][0]] = [rows[row][1]]
-        elif rows[row][0] in graph3.keys():
-            graph3[rows[row][0]].append(rows[row][1])
+        if rows[row][0] not in graph.keys():
+            graph[rows[row][0]] = [rows[row][1]]
+        elif rows[row][0] in graph.keys():
+            graph[rows[row][0]].append(rows[row][1])
 
     for row in range(len(rows)):
-        if rows[row][1] not in graph3.keys():
-            graph3[rows[row][1]] = [rows[row][0]]
-        elif rows[row][1] in graph3.keys():
-            graph3[rows[row][1]].append(rows[row][0])
+        if rows[row][1] not in graph.keys():
+            graph[rows[row][1]] = [rows[row][0]]
+        elif rows[row][1] in graph.keys():
+            graph[rows[row][1]].append(rows[row][0])
         else:
             print("\n \n \n \n \n BREAK \n \n \n \n \n")  # Should never get to here
 
     # Sorting the Graph Dictionary
     sorted_dict = dict()
-    for i in sorted(graph3.keys()):
-        sorted_dict[i] = sorted(graph3[i])
+    for i in sorted(graph.keys()):
+        sorted_dict[i] = sorted(graph[i])
+
+    # Convert to List of Lists
+    adj_list = []
+    for key in sorted_dict:
+        adj_list.append(sorted_dict[key])
+
+    print(adj_list)
+
 
     return sorted_dict
 
@@ -105,12 +114,32 @@ def BFS(G, s):
     print("TF List", tf_list)
     print("vertex list", vertex_list)
     q = MyQueue(int)
-    # print(q)
-    for i in vertex_list:
-        q.enqueue(vertex_list[i])
 
-    while q.empty() != True:
-        print(q.dequeue())
+# Startint the ripping of the queue:
+    for i in G:
+        for j in G[i]:
+            if vertex_list[j] == False:
+                vertex_list[j] = True
+                q.enqueue(j)
+                while q.empty() != True:
+                    # print(q)
+                    next_level = q.dequeue()
+                    # print(next_level)
+
+    # print(q)
+    # print(vertex_list)
+
+        # while q.empty() != True:
+        #     j = q.dequeue()
+        #     print(j)
+            # for k in G[j]:
+            #     print(k)
+            #     # print(i)
+
+        # while q.empty() != True:
+        #     nextnod = q.dequeue()
+        #
+        #
 
 
     return
@@ -131,7 +160,7 @@ def test():
     """Testing code that prints out the final distribution dictionary"""
     # loadGraph('edges.txt')
     graphit = loadGraph('edgesshort.txt')
-    BFS(graphit, 1)
+    # BFS(graphit, 1)
 
     # for key in graphit:
     #     print(key)
