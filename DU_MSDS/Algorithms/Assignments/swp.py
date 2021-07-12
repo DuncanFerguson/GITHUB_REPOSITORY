@@ -5,22 +5,6 @@
 # Date 7/19/2021
 
 import pandas as pd
-
-"""Helpful Links
-https://ide.geeksforgeeks.org/9je5j6jJ13
-https://www.youtube.com/watch?v=CVq7puhdlFA
-https://www.educative.io/edpresso/how-to-implement-a-graph-in-python
-https://www.geeksforgeeks.org/graph-and-its-representations/
-https://stackoverflow.com/questions/55043492/adjacency-list-to-matrix-pandas
-https://www.educative.io/edpresso/how-to-implement-a-graph-in-python
-https://www.programiz.com/dsa/graph-adjacency-list
-https://www.youtube.com/watch?v=-uR7BSfNJko
-https://www.youtube.com/watch?v=m2Elp9ubY3w
-https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
-https://www.geeksforgeeks.org/graph-and-its-representations/
-https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
-"""
-
 import sys
 import matplotlib.pyplot as plt
 
