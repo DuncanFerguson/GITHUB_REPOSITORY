@@ -79,7 +79,7 @@ def loadGraph(edgeFilename):
     adj_list = []
     for key in sorted_dict:
         adj_list.append(sorted_dict[key])
-
+    print(adj_list)
     return adj_list
 
 
@@ -126,18 +126,19 @@ def distanceDistribution(G):
      That is, 24.4% of all distances are three apart. Note that this might take a few minutes to run.
      So you might want to print out values every once in a while to show progress"""
 
+    # Looping BFS to get neighbors list
     BFS_matrix = []
     for i in range(len(G)):
         BFS_matrix.append(BFS(G, i))
     print(BFS_matrix)  # This is the matrix of answers for the distance to another node
 
+    # Putting all the neighbors list into a dictionary
     dist_dict = dict()
     for row in enumerate(BFS_matrix):
-        # TODO definitely look into this matrix
-        dist_dict[row[0]] = sum(row[1])/len(row[1])
-    print(dist_dict)
-    plt.bar(dist_dict.keys(), dist_dict.values(), color='r')
-    plt.show()
+        dist_dict[row[0]] = row[1]
+
+    print(dist_dict)  # Dictionary of all the neighbours out
+
 
 
 def test():

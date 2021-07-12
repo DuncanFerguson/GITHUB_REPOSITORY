@@ -2,19 +2,33 @@ import networkx as nx
 import numpy as np
 import matplotlib.pyplot as plt
 
-A = np.array([[0,1,1,1,0,0],[1,0,1,0,1,0],[1,1,0,1,1,1],[1,0,1,0,0,1],[0,1,1,0,0,1],[0,0,1,1,1,0]])
-print("adjacency matrix:\n",A)
+A= [[0,1,1,1,0,0,0,0,0,0,0],
+[1,0,1,0,1,0,0,0,0,0,0],
+[1,1,0,1,1,1,0,0,0,0,1],
+[1,0,1,0,0,1,0,0,0,0,0],
+[0,1,1,0,0,1,0,0,0,0,0],
+[0,0,1,1,1,0,1,0,0,0,0],
+[0,0,0,0,0,1,0,1,0,0,0],
+[0,0,0,0,0,0,1,0,1,0,0],
+[0,0,0,0,0,0,0,1,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,1],
+[0,0,1,0,0,0,0,0,0,1,0]]
+
+
+
+print("adjacency matrix:\n", A)
 G = nx.from_numpy_matrix(np.array(A))
 print("edges: ",G.edges)
 print("nodes: ",G.nodes)
 print("Shortest path length: ", dict(nx.shortest_path_length(G)))  # shortest path length from each node to every other node
-print("number of connections: ",G.degree())  # number of neighbors for each node
+print("number of connections: ", G.degree())  # number of neighbors for each node
 print("average neighbor degree: ",nx.average_neighbor_degree(G))  # average number of neighbors that each neighbor of node has
 nx.draw(G, with_labels=True)
 plt.show()
 
 # plot out distribution of number of connections
-numcon = G.degree()adjacency matrix python coins
+numcon = G.degree()
+
 distro = {}
 for l in numcon:
     d = l[1]
@@ -47,7 +61,7 @@ plt.show()
 import pandas as pd
 
 print("reading edges file\n")
-df = pd.read_csv("../lecture3/edges.txt", sep=' ', header=None, names=['source','target'])
+df = pd.read_csv("edgesshort.txt", sep=' ', header=None, names=['source','target'])
 G2 = nx.from_pandas_edgelist(df)
 print("G2 Call out", G2, type(G2))
 
