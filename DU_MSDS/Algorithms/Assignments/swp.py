@@ -104,9 +104,22 @@ def BFS(G, s):
     That is the distant Vertex 5 would be stored in slot 5 of the list.
     The graph will be passed using the adjacency list representation from step 2"""
     #  https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
-    neighbor_list = "Work"
-    # neighbor_list = [*len(G)]  # Creating Distance
-    print(neighbor_list)
+
+    # Creating the Neighbors Distance List
+    nbrlist = [[float(sys.maxsize) for x in G] for x in G]
+
+    s = 0
+    print("Starting ", nbrlist)
+
+    for n_list in nbrlist:
+        for num in range(len(n_list)):
+            if num == s:
+                n_list[s] = 0
+            elif
+
+
+    print("Ending List",nbrlist)
+
 
 
 
@@ -141,9 +154,6 @@ def BFS(G, s):
 
         # while q.empty() != True:
         #     nextnod = q.dequeue()
-        #
-        #
-
 
     # return
 
