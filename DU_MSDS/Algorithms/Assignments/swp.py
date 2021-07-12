@@ -54,7 +54,7 @@ def loadGraph(edgeFilename):
     rows = df.values.tolist()  # Turning Dataframe into list of lists
 
     # Produces a dictionary with the node and the adjacency of the lists next to it
-    # TODO Maybe look at putting this into a
+    # TODO Maybe look at making this a bit quicker
     graph = dict()
     for row in range(len(rows)):
         if rows[row][0] not in graph.keys():
@@ -126,19 +126,18 @@ def distanceDistribution(G):
      That is, 24.4% of all distances are three apart. Note that this might take a few minutes to run.
      So you might want to print out values every once in a while to show progress"""
 
-    distance_dict = dict()
-    # This returns the list for each of the nodes
-    for x in range(len(G)):
-        distance_dict[x] = 0
+    BFS_matrix = []
+    for i in range(len(G)):
+        BFS_matrix.append(BFS(G, i))
+    print(BFS_matrix)  # This is the matrix of answers for the distance to another node
 
-    for node in range(len(G)):
-        for nbr in BFS(G, node):
-            if nbr == node:
-                continue
-            else:
-                distance_dict[nbr] += 1
-
-    print(distance_dict)
+    dist_dict = dict()
+    for row in enumerate(BFS_matrix):
+        # TODO definitely look into this matrix
+        dist_dict[row[0]] = sum(row[1])/len(row[1])
+    print(dist_dict)
+    plt.bar(dist_dict.keys(), dist_dict.values(), color='r')
+    plt.show()
 
 
 def test():
