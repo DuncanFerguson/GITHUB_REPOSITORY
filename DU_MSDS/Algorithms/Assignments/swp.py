@@ -42,7 +42,7 @@ class MyQueue(object):
         if self.empty():
             raise ValueError("Requested queue is empty")
         else:
-            return self.state[-1][0]
+            return self.state[-1]
 
 
 def loadGraph(edgeFilename):
