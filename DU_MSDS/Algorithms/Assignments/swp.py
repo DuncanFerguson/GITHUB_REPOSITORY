@@ -141,8 +141,9 @@ def distanceDistribution(G):
 
 def test():
     """Testing code that prints out the final distribution dictionary"""
-    # graphit = loadGraph('edges.txt')
-    graphit = loadGraph('edgesshort.txt')
+    graphit = loadGraph('edges.txt')
+    # graphit = loadGraph('edgesshort.txt')
+    print(len(graphit))
     distanceDistribution(graphit)
 
 
