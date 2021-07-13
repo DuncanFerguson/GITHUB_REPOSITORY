@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 from time import time
 import numpy as np
 
+
 class MyQueue(object):
     """ 3). Creating Queue Class. Enqueue enters an integer to the end of the queue.
      Dequeue removes the last item from the queue.
@@ -113,8 +114,6 @@ def distanceDistribution(G):
      Specifically, the frequencies should be stored in percentage form.
      That is, 24.4% of all distances are three apart. Note that this might take a few minutes to run.
      So you might want to print out values every once in a while to show progress"""
-    # search_BFS_zero = sum(BFS(G, 3))
-    # print(search_BFS_zero)
 
     dmatrix = []
     total_time = 0
@@ -127,11 +126,12 @@ def distanceDistribution(G):
         total_time += running_time
         # print(row[0], " Line Run: ", running_time, "Total Run: ", total_time)
     print(total_time)
-    df = pd.DataFrame(dmatrix)
+    # df = pd.DataFrame(dmatrix)
     # loadlist = df.to_csv("Loadlist.csv", header=False, index=False)  # This was a lot faster to use for the graphs etc
 
     # TODO write out the logic, and double check
-    matrix = df.to_numpy()
+    # matrix = df.to_numpy()
+    matrix = np.array(dmatrix)
     unique, counts = np.unique(matrix, return_counts=True)
     unique_count_dict = dict(zip(unique, counts))
 
