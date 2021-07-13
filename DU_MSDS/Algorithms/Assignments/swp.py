@@ -5,10 +5,9 @@
 # Date 7/19/2021
 
 import pandas as pd
-import sys
 import matplotlib.pyplot as plt
 from time import time
-from _collections import deque
+import numpy as np
 
 class MyQueue(object):
     """ 3). Creating Queue Class. Enqueue enters an integer to the end of the queue.
@@ -93,6 +92,7 @@ def BFS(G, s):
     q = MyQueue(int)  # Initializing the q
     q.enqueue(s)  # Setting the start value for the queue
     distances = {s: 0}  # adding the first value to the distance dict
+    # TODO write out the logic more
     while not q.empty():  # While the queue is not empty
         vertex = q.dequeue()
         for neighbour in G[vertex]:
@@ -100,14 +100,9 @@ def BFS(G, s):
                 q.enqueue(neighbour)
                 distances[neighbour] = distances[vertex] + 1  # adding a new distance
 
-    # TODO figure out what we want to actually return with this lsit
-    # print(sorted(distances.items()))
-    # print(sum(distances.values())/len(distances.values()))
-
     # Making it come out like a list
     d_list = []
     for key, value in sorted(distances.items()):
-        # print(key, ":", value)
         d_list.append(value)
     return d_list
 
@@ -118,22 +113,38 @@ def distanceDistribution(G):
      Specifically, the frequencies should be stored in percentage form.
      That is, 24.4% of all distances are three apart. Note that this might take a few minutes to run.
      So you might want to print out values every once in a while to show progress"""
-    # search_BFS_zero = BFS(G, 0)
+    # search_BFS_zero = sum(BFS(G, 3))
+    # print(search_BFS_zero)
 
     dmatrix = []
+    total_time = 0
+
     for row in enumerate(G):
         t1 = time()
         dmatrix.append(BFS(G, row[0]))
         t2 = time()
-        print("Time on Run", t2-t1)
+        running_time = t2-t1
+        total_time += running_time
+        # print(row[0], " Line Run: ", running_time, "Total Run: ", total_time)
+    print(total_time)
     df = pd.DataFrame(dmatrix)
-    print(df)
-    # print(len(search_BFS_zero), search_BFS_zero)
+    # loadlist = df.to_csv("Loadlist.csv", header=False, index=False)  # This was a lot faster to use for the graphs etc
+
+    # TODO write out the logic, and double check
+    matrix = df.to_numpy()
+    unique, counts = np.unique(matrix, return_counts=True)
+    unique_count_dict = dict(zip(unique, counts))
+
+    s = sum(unique_count_dict.values())
+    for k, v in unique_count_dict.items():
+        unique_count_dict[k] = v * 100.0 / s
+    print(unique_count_dict)
+
 
 def test():
     """Testing code that prints out the final distribution dictionary"""
-    # graphit = loadGraph('edges.txt')
-    graphit = loadGraph('edgesshort.txt')
+    graphit = loadGraph('edges.txt')
+    # graphit = loadGraph('edgesshort.txt')
     distanceDistribution(graphit)
 
 
