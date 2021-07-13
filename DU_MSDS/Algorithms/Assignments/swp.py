@@ -120,11 +120,14 @@ def distanceDistribution(G):
      So you might want to print out values every once in a while to show progress"""
     # search_BFS_zero = BFS(G, 0)
 
+    dmatrix = []
     for row in enumerate(G):
         t1 = time()
-        print(BFS(G, row[0]))
+        dmatrix.append(BFS(G, row[0]))
         t2 = time()
         print("Time on Run", t2-t1)
+    df = pd.DataFrame(dmatrix)
+    print(df)
     # print(len(search_BFS_zero), search_BFS_zero)
 
 def test():
