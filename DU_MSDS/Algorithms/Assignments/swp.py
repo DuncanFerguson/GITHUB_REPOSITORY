@@ -127,11 +127,15 @@ def distanceDistribution(G):
      So you might want to print out values every once in a while to show progress"""
 
     # Looping BFS to get neighbors list
-    BFS_matrix = []
+    BFS_Matrix = list()
     for i in range(len(G)):
-        BFS_matrix.append(BFS(G, i))
-    print(BFS_matrix)  # This is the matrix of answers for the distance to another node
+        print("Sending For Search", i)
+        BFS_Matrix.append(BFS(G, i))
 
+    df = pd.DataFrame(BFS_Matrix)
+    print(df)
+
+    # print(df[3].sum())
 
 
 
