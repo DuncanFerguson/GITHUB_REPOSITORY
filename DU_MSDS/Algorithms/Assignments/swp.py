@@ -79,7 +79,7 @@ def loadGraph(edgeFilename):
     adj_list = []
     for key in sorted_dict:
         adj_list.append(sorted_dict[key])
-    print(adj_list)
+
     return adj_list
 
 
@@ -133,11 +133,34 @@ def distanceDistribution(G):
     print(BFS_matrix)  # This is the matrix of answers for the distance to another node
 
     # Putting all the neighbors list into a dictionary
-    dist_dict = dict()
+    shortest_path = dict()
     for row in enumerate(BFS_matrix):
-        dist_dict[row[0]] = row[1]
+        shortest_path[row[0]] = {k: v for v, k in enumerate(row[1])}
 
-    print(dist_dict)  # Dictionary of all the neighbours out
+    print("Shortest Path", shortest_path)  # Dictionary of all the neighbours out
+
+    # TODO Figure out how to get this into the frequencies percentage form
+    percent_dict = dict()
+    for v in shortest_path:
+        # print(v, shortest_path[v])
+        for num in shortest_path[v]:
+            # print(num, shortest_path[v][num])
+            if num not in percent_dict.keys():
+                percent_dict[num] = shortest_path[v][num]
+            else:
+                percent_dict[num] += shortest_path[v][num]
+
+    print("Percent Dict", percent_dict)
+    total = sum(percent_dict.values())
+    print(total)
+    for key in percent_dict:
+        percent_dict[key] = (percent_dict[key]/total)*100.0
+
+    print("Percent Dictionary", percent_dict)
+
+
+
+
 
 
 
