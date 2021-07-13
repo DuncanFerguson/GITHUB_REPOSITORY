@@ -7,6 +7,8 @@
 import pandas as pd
 import sys
 import matplotlib.pyplot as plt
+from time import time
+from _collections import deque
 
 class MyQueue(object):
     """ 3). Creating Queue Class. Enqueue enters an integer to the end of the queue.
@@ -15,7 +17,6 @@ class MyQueue(object):
     def __init__(self, type_var):
         self.elemType = type_var
         self.state = []  # This stores the queue
-        self.visited = []  # This stores all the values that have been in the queue
 
     def __str__(self):
         """Printing out the state as a string"""
@@ -30,9 +31,7 @@ class MyQueue(object):
         if self.empty():
             raise ValueError("Requested queue is empty")
         else:
-            dequeue_num = self.state.pop()  # Taking the front of the queue
-            self.visited.append(dequeue_num)  # Adding the value to the visited list
-            return dequeue_num
+            return self.state.pop()
 
     def empty(self):
         """True if queue is empty. False if not empty"""
@@ -43,7 +42,7 @@ class MyQueue(object):
         if self.empty():
             raise ValueError("Requested queue is empty")
         else:
-            return self.state[-1]
+            return self.state[-1][0]
 
 
 def loadGraph(edgeFilename):
@@ -83,6 +82,53 @@ def loadGraph(edgeFilename):
     return adj_list
 
 
+# def BFS(G, s):
+#     """ 4). Runs a breadth-first search (BFS) algorithm outlined in the Slides.
+#     It should run a BFS starting with source vertex s element of V.
+#     You should use your queue class implementation in the implementation of this function.
+#     Should return a list that contains the distance from s to every other vertex v in the graph.
+#     That is the distant Vertex 5 would be stored in slot 5 of the list.
+#     The graph will be passed using the adjacency list representation from step 2"""
+#
+#     # Creating the Neighbors Distance List filled in with infinity
+#     nbrlist = [float(sys.maxsize) for x in G]  # Setting Up Neighbor List
+#
+#     # Creating a queue for which nodes to look at
+#     q = MyQueue(int)
+#     q.enqueue(s, 0)
+#     visited = []
+#
+#     # Going through the Q
+#     while not q.empty():
+#         # In MyQueue I have written in a q.visited. That Way I know if I have looked at that value
+#         if q.front() not in visited:  # Only do this for nodes that have not been visited
+#             num = q.dequeue()  # Taking the front of the queue
+#             nbrlist[num[0]] = num[1]  # Pulling Distance
+#             visited.append(num[0])
+#             for x in G[num[0]]:
+#                 if x not in q.visited:
+#                     q.enqueue(x, num[1]+1)  # Adding to the queue
+#         else:
+#             q.dequeue()  # Visited before, throw out
+#     # print(nbrlist)
+#     return nbrlist
+
+# def BFS(G, start):
+#     """BFS which will collect levels/distances of each neighbour of start vertex and so on."""
+#     queue = deque([start])
+#     distances = {start: 0}
+#     while queue:
+#         vertex = queue.popleft()
+#         for neighbour in G[vertex]:
+#             if neighbour not in distances:
+#                 queue.append(neighbour)
+#                 distances[neighbour] = distances[vertex] + 1
+#     print(sorted(distances.items()))
+#     print(distances)
+#
+#
+#     return distances
+
 def BFS(G, s):
     """ 4). Runs a breadth-first search (BFS) algorithm outlined in the Slides.
     It should run a BFS starting with source vertex s element of V.
@@ -91,32 +137,18 @@ def BFS(G, s):
     That is the distant Vertex 5 would be stored in slot 5 of the list.
     The graph will be passed using the adjacency list representation from step 2"""
 
-    # Creating the Neighbors Distance List filled in with infinity
-    nbrlist = [float(sys.maxsize) for x in G]  # Setting Up Neighbor List
-
-    # Creating a queue for which nodes to look at
-    q = MyQueue(int)
-    q.enqueue(s)
-
-    # Creating a queue store the distance away a node is
-    dq = MyQueue(int)
-    distance = 0
-    dq.enqueue(distance)
-
-    # Going through the Q
-    while not q.empty():
-        # In MyQueue I have written in a q.visited. That Way I know if I have looked at that value
-        if q.front() not in q.visited:  # Only do this for nodes that have not been visited
-            num = q.dequeue()  # Taking the front of the queue
-            nbrlist[num] = dq.dequeue()  # Pulling Distance
-            for x in G[num]:
-                q.enqueue(x)  # Adding to the queue
-                dq.enqueue(nbrlist[num]+1)  # Adding distance +1
-        else:
-            q.dequeue()  # Visited before, throw out
-            dq.dequeue()  # Doesn't Matter, throw out
-
-    return nbrlist
+    q = MyQueue(int)  # Initializing the q
+    q.enqueue(s)  # Setting the start value for the queue
+    distances = {s: 0}  # adding the first value to the distance dict
+    while not q.empty():  # While the queue is not empty
+        vertex = q.dequeue()
+        for neighbour in G[vertex]:
+            if neighbour not in distances:
+                q.enqueue(neighbour)
+                distances[neighbour] = distances[vertex] + 1
+    print(sorted(distances.items()))
+    print(sum(distances.values()))
+    return distances
 
 
 def distanceDistribution(G):
@@ -125,25 +157,18 @@ def distanceDistribution(G):
      Specifically, the frequencies should be stored in percentage form.
      That is, 24.4% of all distances are three apart. Note that this might take a few minutes to run.
      So you might want to print out values every once in a while to show progress"""
-
-    # Looping BFS to get neighbors list
-    BFS_Matrix = list()
-    for i in range(len(G)):
-        print("Sending For Search", i)
-        BFS_Matrix.append(BFS(G, i))
-
-    df = pd.DataFrame(BFS_Matrix)
-    print(df)
-
-    # print(df[3].sum())
-
-
+    search_BFS_zero = BFS(G, 0)
+    # for row in enumerate(G):
+    #     t1 = time()
+    #     print(BFS(G, row[0]))
+    #     t2 = time()
+    #     print("Time on Run", t2-t1)
+    # print(len(search_BFS_zero), search_BFS_zero)
 
 def test():
     """Testing code that prints out the final distribution dictionary"""
-    graphit = loadGraph('edges.txt')
-    # graphit = loadGraph('edgesshort.txt')
-    print(len(graphit))
+    # graphit = loadGraph('edges.txt')
+    graphit = loadGraph('edgesshort.txt')
     distanceDistribution(graphit)
 
 
