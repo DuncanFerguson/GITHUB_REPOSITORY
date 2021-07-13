@@ -5,8 +5,8 @@
 # Date 7/19/2021
 
 import pandas as pd
-import matplotlib.pyplot as plt
-from time import time
+# import matplotlib.pyplot as plt
+# from time import time
 import numpy as np
 
 
@@ -116,29 +116,31 @@ def distanceDistribution(G):
      So you might want to print out values every once in a while to show progress"""
 
     dmatrix = []
-    total_time = 0
+    # total_time = 0
 
     for row in enumerate(G):
-        t1 = time()
+        # t1 = time()
         dmatrix.append(BFS(G, row[0]))
-        t2 = time()
-        running_time = t2-t1
-        total_time += running_time
+        # t2 = time()
+        # running_time = t2-t1
+        # total_time += running_time
         # print(row[0], " Line Run: ", running_time, "Total Run: ", total_time)
-    print(total_time)
+    # print(total_time)
     # df = pd.DataFrame(dmatrix)
     # loadlist = df.to_csv("Loadlist.csv", header=False, index=False)  # This was a lot faster to use for the graphs etc
 
     # TODO write out the logic, and double check
     # matrix = df.to_numpy()
     matrix = np.array(dmatrix)
-    unique, counts = np.unique(matrix, return_counts=True)
-    unique_count_dict = dict(zip(unique, counts))
 
-    s = sum(unique_count_dict.values())
-    for k, v in unique_count_dict.items():
-        unique_count_dict[k] = v * 100.0 / s
-    print(unique_count_dict)
+    # Putting all the unique values into a dictionary and returning their counts
+    unique, counts = np.unique(matrix, return_counts=True)
+    frequency_dict = dict(zip(unique, counts))
+
+    s = sum(frequency_dict.values())
+    for k, v in frequency_dict.items():
+        frequency_dict[k] = v * 100.0 / s
+    print(frequency_dict)
 
 
 def test():
