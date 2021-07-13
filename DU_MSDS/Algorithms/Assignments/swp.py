@@ -132,35 +132,6 @@ def distanceDistribution(G):
         BFS_matrix.append(BFS(G, i))
     print(BFS_matrix)  # This is the matrix of answers for the distance to another node
 
-    # Putting all the neighbors list into a dictionary
-    shortest_path = dict()
-    for row in enumerate(BFS_matrix):
-        shortest_path[row[0]] = {k: v for v, k in enumerate(row[1])}
-
-    print("Shortest Path", shortest_path)  # Dictionary of all the neighbours out
-
-    # TODO Figure out how to get this into the frequencies percentage form
-    percent_dict = dict()
-    for v in shortest_path:
-        # print(v, shortest_path[v])
-        for num in shortest_path[v]:
-            # print(num, shortest_path[v][num])
-            if num not in percent_dict.keys():
-                percent_dict[num] = shortest_path[v][num]
-            else:
-                percent_dict[num] += shortest_path[v][num]
-
-    print("Percent Dict", percent_dict)
-    total = sum(percent_dict.values())
-    print(total)
-    for key in percent_dict:
-        percent_dict[key] = (percent_dict[key]/total)*100.0
-
-    print("Percent Dictionary", percent_dict)
-
-
-
-
 
 
 
