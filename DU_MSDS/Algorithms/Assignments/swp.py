@@ -82,53 +82,6 @@ def loadGraph(edgeFilename):
     return adj_list
 
 
-# def BFS(G, s):
-#     """ 4). Runs a breadth-first search (BFS) algorithm outlined in the Slides.
-#     It should run a BFS starting with source vertex s element of V.
-#     You should use your queue class implementation in the implementation of this function.
-#     Should return a list that contains the distance from s to every other vertex v in the graph.
-#     That is the distant Vertex 5 would be stored in slot 5 of the list.
-#     The graph will be passed using the adjacency list representation from step 2"""
-#
-#     # Creating the Neighbors Distance List filled in with infinity
-#     nbrlist = [float(sys.maxsize) for x in G]  # Setting Up Neighbor List
-#
-#     # Creating a queue for which nodes to look at
-#     q = MyQueue(int)
-#     q.enqueue(s, 0)
-#     visited = []
-#
-#     # Going through the Q
-#     while not q.empty():
-#         # In MyQueue I have written in a q.visited. That Way I know if I have looked at that value
-#         if q.front() not in visited:  # Only do this for nodes that have not been visited
-#             num = q.dequeue()  # Taking the front of the queue
-#             nbrlist[num[0]] = num[1]  # Pulling Distance
-#             visited.append(num[0])
-#             for x in G[num[0]]:
-#                 if x not in q.visited:
-#                     q.enqueue(x, num[1]+1)  # Adding to the queue
-#         else:
-#             q.dequeue()  # Visited before, throw out
-#     # print(nbrlist)
-#     return nbrlist
-
-# def BFS(G, start):
-#     """BFS which will collect levels/distances of each neighbour of start vertex and so on."""
-#     queue = deque([start])
-#     distances = {start: 0}
-#     while queue:
-#         vertex = queue.popleft()
-#         for neighbour in G[vertex]:
-#             if neighbour not in distances:
-#                 queue.append(neighbour)
-#                 distances[neighbour] = distances[vertex] + 1
-#     print(sorted(distances.items()))
-#     print(distances)
-#
-#
-#     return distances
-
 def BFS(G, s):
     """ 4). Runs a breadth-first search (BFS) algorithm outlined in the Slides.
     It should run a BFS starting with source vertex s element of V.
@@ -143,12 +96,20 @@ def BFS(G, s):
     while not q.empty():  # While the queue is not empty
         vertex = q.dequeue()
         for neighbour in G[vertex]:
-            if neighbour not in distances:
+            if neighbour not in distances.keys():
                 q.enqueue(neighbour)
-                distances[neighbour] = distances[vertex] + 1
-    print(sorted(distances.items()))
-    print(sum(distances.values()))
-    return distances
+                distances[neighbour] = distances[vertex] + 1  # adding a new distance
+
+    # TODO figure out what we want to actually return with this lsit
+    # print(sorted(distances.items()))
+    # print(sum(distances.values())/len(distances.values()))
+
+    # Making it come out like a list
+    d_list = []
+    for key, value in sorted(distances.items()):
+        # print(key, ":", value)
+        d_list.append(value)
+    return d_list
 
 
 def distanceDistribution(G):
@@ -157,12 +118,13 @@ def distanceDistribution(G):
      Specifically, the frequencies should be stored in percentage form.
      That is, 24.4% of all distances are three apart. Note that this might take a few minutes to run.
      So you might want to print out values every once in a while to show progress"""
-    search_BFS_zero = BFS(G, 0)
-    # for row in enumerate(G):
-    #     t1 = time()
-    #     print(BFS(G, row[0]))
-    #     t2 = time()
-    #     print("Time on Run", t2-t1)
+    # search_BFS_zero = BFS(G, 0)
+
+    for row in enumerate(G):
+        t1 = time()
+        print(BFS(G, row[0]))
+        t2 = time()
+        print("Time on Run", t2-t1)
     # print(len(search_BFS_zero), search_BFS_zero)
 
 def test():
