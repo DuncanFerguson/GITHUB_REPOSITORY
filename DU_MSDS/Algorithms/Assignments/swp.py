@@ -52,6 +52,7 @@ def loadGraph(edgeFilename):
     df = pd.read_csv(edgeFilename, sep=" ", header=None)  # Importing the txt file into a dataframe
     rows = df.values.tolist()  # Turning Dataframe into list of lists
 
+    print(rows)
     # Produces a dictionary with the node and the adjacency of the lists next to it
     # TODO Maybe look at making this a bit quicker
     graph = dict()
@@ -79,6 +80,7 @@ def loadGraph(edgeFilename):
     for key in sorted_dict:
         adj_list.append(sorted_dict[key])
 
+    print(adj_list)
     return adj_list
 
 
@@ -105,6 +107,8 @@ def BFS(G, s):
     d_list = []
     for key, value in sorted(distances.items()):
         d_list.append(value)
+
+    print(d_list)
     return d_list
 
 
@@ -145,8 +149,8 @@ def distanceDistribution(G):
 
 def test():
     """Testing code that prints out the final distribution dictionary"""
-    graphit = loadGraph('edges.txt')
-    # graphit = loadGraph('edgesshort.txt')
+    # graphit = loadGraph('edges.txt')
+    graphit = loadGraph('edgesshort.txt')
     distanceDistribution(graphit)
 
 
