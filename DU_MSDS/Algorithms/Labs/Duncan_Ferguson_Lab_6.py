@@ -54,7 +54,6 @@ class MyHashtable(object):
     def return_status(self):
         return str(self.status)
 
-# # weneededtomod(%)thehashcode(97)bythetablesize(10)inordertoalwaysproduceanindexthatisinthecorrectrangeforourtable.
 #
 #
 # def delete(self, elem): # Removes an element from the hashtable
