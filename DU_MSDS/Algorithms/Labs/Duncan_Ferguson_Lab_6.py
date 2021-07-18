@@ -2,7 +2,7 @@
 # Student Id: 871641260
 # Class: Comp 4581
 # Assignment: Lab 6
-# Date 7/ # TODO # /2021
+# Date 7/20/2021
 
 """"
 https://coderbook.com/@marcus/how-to-create-a-hash-table-from-scratch-in-python/
@@ -18,10 +18,10 @@ https://www.youtube.com/watch?v=54iv1si4YCM
 # ASCII value of the first char
 # The constructor takes in the size of the table
 class MyHashtable(object):
-    def __init__(self, size): # Creates an empty hashtable
+    def __init__(self, size):  # Creates an empty hashtable
         self.size = size
-        self.table = [[None] for i in range(self.size)]
-        self.status = [['empty'] for i in range(self.size)]  # Create the list (of size) of empty lists (chaining)
+        self.table = [[None] for _ in range(self.size)]
+        self.status = [['empty'] for _ in range(self.size)]  # Create the list (of size) of empty lists (chaining)
 
     def __str__(self):
         return str(self.table)
@@ -49,6 +49,8 @@ class MyHashtable(object):
 
     def delete_member(self, elem):
         """This function is meant for deleting """
+        # TODO make sure to update the status list to deleted
+        hash = ord(elem[0]) % self.size
         return
 
     def return_status(self):
@@ -63,13 +65,13 @@ class MyHashtable(object):
 def test_code():
     # Testing code
     s = MyHashtable(10)
-    print(s)
+    print(s, '\n', s.return_status())
     s.insert("amy") #97
     print(s, '\n', s.return_status())
-    s.insert("chase") #99
-    print(s,'\n', s.return_status())
-    s.insert("chris") #99
-    print(s, '\n', s.return_status())
+    # s.insert("chase") #99
+    # print(s,'\n', s.return_status())
+    # s.insert("chris") #99
+    # print(s, '\n', s.return_status())
     # print(s)
     # print(s.member("amy"))
     # print(s.member("chris"))
