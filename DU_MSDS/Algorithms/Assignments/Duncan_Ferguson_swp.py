@@ -6,15 +6,26 @@
 
 from collections import deque
 import pandas as pd
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+import seaborn as sns
 from time import time
 import numpy as np
 
 
+""" This file takes in a file labeled edges. This file is a list of edges. From there
+The test function calls load graph. This function loads the edges file and 
+return an adjacency list representation of the corresponding undirected 
+graph. This adjacency list is then used to run BFS(G,s) using a MyQueue, an returns a list
+that contains the distance from s to every other vertex in the graph. The function
+distanceDistribution(G) computes the distribution of all distances in G. All the code
+is run through the test code. The resulting distribution is then printed in dictionary form
+and also graphed. There is a final statement at the end explaining the extent to which this 
+satisfies the small world phenomenon"""
+
+
 class MyQueue(object):
     """ 3). Creating Queue Class. Enqueue enters an integer to the end of the queue.
-     Dequeue removes the last item from the queue.
-      Front wills show the front of the queue. Which just so happens to be the last item on the list."""
+    Dequeue removes the last item from the queue. Front wills show the front of the queue."""
     def __init__(self, type_var):
         self.elemType = type_var
         self.state = deque()  # This stores the queue
@@ -48,15 +59,14 @@ class MyQueue(object):
 
 
 def loadGraph(edgeFilename):
-    """ 2). This function reads in the file of edge data.
-     This function should return an adjacency list representation of the corresponding undirected graph
-     A list of vertex Ids is not explicitly given but instead can be inferred from the edge data"""
+    """ 2). This function reads in the file of edge data. Note that edgeFileName is a strong storing
+    the name of the edge data file.
+    This function returns an adjacency list representation of the corresponding undirected graph
+    A list of vertex Ids is not explicitly given but instead can be inferred from the edge data"""
     df = pd.read_csv(edgeFilename, sep=" ", header=None)  # Importing the txt file into a dataframe
     rows = df.values.tolist()  # Turning Dataframe into list of lists
 
-    # print(rows)
-    # Produces a dictionary with the node and the adjacency of the lists next to it
-    # TODO Maybe look at making this a bit quicker
+    # Produces a dictionary with the node as a key and any nodes adjacency to it stored in the value list
     graph = dict()
     for row in range(len(rows)):
         if rows[row][0] not in graph.keys():
@@ -79,12 +89,10 @@ def loadGraph(edgeFilename):
     for i in sorted(graph.keys()):
         sorted_dict[i] = sorted(graph[i])
 
-    # Convert to List of Lists
-    adj_list = []
-    for key in sorted_dict:
-        adj_list.append(sorted_dict[key])
+    # Convert to List of Lists to create an adjacency list
+    adj_list = [sorted_dict[key] for key in sorted_dict]
 
-    print(adj_list)
+    # print(adj_list)  # Uncomment to see the adjacency list
     return adj_list
 
 
@@ -96,21 +104,20 @@ def BFS(G, s):
     That is the distant Vertex 5 would be stored in slot 5 of the list.
     The graph will be passed using the adjacency list representation from step 2"""
 
+    # print("Searching ", s)  # Printing out which s is being searched. Uncomment to see the code run
     q = MyQueue(int)  # Initializing the q
     q.enqueue(s)  # Setting the start value for the queue
     distances = {s: 0}  # adding the first value to the distance dict
-    # TODO write out the logic more
+
     while not q.empty():  # While the queue is not empty
-        vertex = q.dequeue()
-        for neighbour in G[vertex]:
-            if neighbour not in distances.keys():
-                q.enqueue(neighbour)
-                distances[neighbour] = distances[vertex] + 1  # adding a new distance
+        vertex = q.dequeue()  # take the value from the front of the queue
+        for neighbour in G[vertex]:  # For each neighbor to the node
+            if neighbour not in distances.keys():  # Checking to see if a neighbour has already been added
+                q.enqueue(neighbour)  # Add to the queue
+                distances[neighbour] = distances[vertex] + 1  # adding a new distance plus 1
 
     # Making it come out like a list
-    d_list = []
-    for key, value in sorted(distances.items()):
-        d_list.append(value)
+    d_list = [value for key, value in sorted(distances.items())]
 
     # print(d_list)  # Prints out the Adjacency List
     return d_list
@@ -123,41 +130,57 @@ def distanceDistribution(G):
      That is, 24.4% of all distances are three apart. Note that this might take a few minutes to run.
      So you might want to print out values every once in a while to show progress"""
 
-    dmatrix = []
-    total_time = 0
+    # Using list comprehension to run through the each vertex in the Graph. Then using BFS(G,s)
+    # To return the adjacency list for that vertex
+    dmatrix = [BFS(G, row[0]) for row in enumerate(G)]
 
-    for row in enumerate(G):
-        t1 = time()
-        dmatrix.append(BFS(G, row[0]))
-        t2 = time()
-        running_time = t2-t1
-        total_time += running_time
-        print(row[0], " Line Run: ", running_time, "Total Run: ", total_time)
-    # print(total_time)
+    # # The two lines below load the dmatrix into a csv. Use when wanting to work on graph or percentage distribution
     # df = pd.DataFrame(dmatrix)
     # loadlist = df.to_csv("Loadlist.csv", header=False, index=False)  # This was a lot faster to use for the graphs etc
 
-    # TODO write out the logic, and double check
+    # Turning dmatrix into an array to easily find the unique numbers and their counts
     matrix = np.array(dmatrix)
 
     # Putting all the unique values into a dictionary and returning their counts
     unique, counts = np.unique(matrix, return_counts=True)
     frequency_dict = dict(zip(unique, counts))
 
-    # Iterating over the dictionary and turning values into
+    # Iterating over the dictionary and turning values into percentages
     s = sum(frequency_dict.values())
-    for k, v in frequency_dict.items():
-        frequency_dict[k] = v * 100.0 / s
-    print(frequency_dict)
+    for key, val in frequency_dict.items():
+        frequency_dict[key] = val * 100.0 / s
+
+    # print(frequency_dict)  # Uncomment to see the returned frequency dictionary
+    return frequency_dict
 
 
 def test():
-    """Testing code that prints out the final distribution dictionary"""
-    graphit = loadGraph('edges.txt')
-    # graphit = loadGraph('edgesshort.txt')
-    distanceDistribution(graphit)
-    # TODO Add in the graphics here
+    """Testing code that prints out the final distribution dictionary.
+    You can uncomment graphit for either edges or edgesshort. This test codes also
+    prints off the dictionary of the distrance distribution. There are two graphs that are included
+    one is a bar chart. The other is a Pie graph just to give it another look."""
+    graphit = loadGraph('edges.txt')  # Loading the file
+    # graphit = loadGraph('edgesshort.txt')  # Loading the file
+    distribution_dict = distanceDistribution(graphit)  # Sending off to gather the distribution dictionary
+    print(distribution_dict)  # Printing the distribution dictionary
 
+    # Turning Dictionary in Dataframe so that it's easier to map
+    df_dist = pd.DataFrame(list(distribution_dict.items()), columns=["Distance", "Distribution Percentage '%'"])
+
+    # Graphing with a barplot
+    sns.set(style='whitegrid')
+    sns.barplot(x="Distance", y="Distribution Percentage '%'",
+                data=df_dist).set_title("Distribution of shortest path length")
+    plt.show()
+
+    # Graphing with a pie graph to help answer question 7. Uncomment below to see
+    # labels, size = list(distribution_dict.keys()), list(distribution_dict.values())
+    # explode = [0]*len(labels)
+    # explode[6] = .05  # Exploding the 6th degree
+    # explode = tuple(explode)
+    # plt.pie(size, explode=explode, labels=labels, autopct='%.0f%%')
+    # plt.title("Distribution of shortest path length")
+    # plt.show()
 
 
 def main():
@@ -171,9 +194,16 @@ if __name__ == '__main__':
 """" 7). To what extent does this network satisfy the small world phenomenon? 
 Please put a comment section at the bottom of your code that answer this question"""
 
-# This makes sens in satisfying the small world phenomenon in that it looks at how far apart people are actually
-# From each other. In the example of Kevin Bacon, the saying is that there is 6 degrees of separation.
-# In this case we can see the percentage that people are x a mount of people away from each other.
-# Kevin bacon would have to have a 100% of total people knowing him adding up through his 6th degree.
-# Looking at the numbers here. People are actuall located X amount from each other.
-# TODO CLEAN UP THIS ANSWER
+# This network comes close to satisfying the small world phenomenon of exactly 6 degrees.
+# There is a very small amount of nodes that are more than 6 degrees of separation away from themselves
+# 7: 1.933757893222438, 8: 0.0957487963511985
+# Meaning that not all people are 6 degrees apart from eachother. But there is a really high percentage of people that
+# Are 6 or less degrees from each other.
+# By looking at the distribution most people are actually located about 4 degrees of separation from each other
+# 35.930685962889314 percentage of people are that many degrees away from eachother.
+# In the example of Kevin Bacon, the saying is that there is 6 degrees of separation between him and
+# Everyone else in hollywood makes some sense. Because it represents a smaller subset of people, like in edgeshort.
+# To dive further into this question it would be interesting to look at which nodes have the most connections
+# and determine if removing them changes the distribution. Essentially looking at the local clustering of nodes.
+# The BFS algorithm lets us find this distribution rather fast so that we can conduct this analysis
+
