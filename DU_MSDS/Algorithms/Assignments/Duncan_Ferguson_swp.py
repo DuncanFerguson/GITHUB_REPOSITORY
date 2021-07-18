@@ -4,10 +4,10 @@
 # Assignment: Assignment 1
 # Date 7/19/2021
 
+from collections import deque
 import pandas as pd
-import queue
 # import matplotlib.pyplot as plt
-# from time import time
+from time import time
 import numpy as np
 
 
@@ -17,7 +17,7 @@ class MyQueue(object):
       Front wills show the front of the queue. Which just so happens to be the last item on the list."""
     def __init__(self, type_var):
         self.elemType = type_var
-        self.state = []  # This stores the queue
+        self.state = deque()  # This stores the queue
 
     def __str__(self):
         """Printing out the state as a string"""
@@ -25,14 +25,15 @@ class MyQueue(object):
 
     def enqueue(self, elem):
         """Adding an element to the queue"""
-        self.state.insert(0, elem)
+        assert type(elem) == self.elemType
+        self.state.append(elem)
 
     def dequeue(self):
         """Removing an element from the queue"""
         if self.empty():
             raise ValueError("Requested queue is empty")
         else:
-            return self.state.pop()
+            return self.state.popleft()
 
     def empty(self):
         """True if queue is empty. False if not empty"""
@@ -43,7 +44,7 @@ class MyQueue(object):
         if self.empty():
             raise ValueError("Requested queue is empty")
         else:
-            return self.state[-1]
+            return self.state[0]
 
 
 def loadGraph(edgeFilename):
@@ -53,7 +54,7 @@ def loadGraph(edgeFilename):
     df = pd.read_csv(edgeFilename, sep=" ", header=None)  # Importing the txt file into a dataframe
     rows = df.values.tolist()  # Turning Dataframe into list of lists
 
-    print(rows)
+    # print(rows)
     # Produces a dictionary with the node and the adjacency of the lists next to it
     # TODO Maybe look at making this a bit quicker
     graph = dict()
@@ -62,6 +63,8 @@ def loadGraph(edgeFilename):
             graph[rows[row][0]] = [rows[row][1]]
         elif rows[row][0] in graph.keys():
             graph[rows[row][0]].append(rows[row][1])
+        else:
+            print("\n \n \n \n \n BREAK \n \n \n \n \n")  # Should never get to here
 
     for row in range(len(rows)):
         if rows[row][1] not in graph.keys():
@@ -109,7 +112,7 @@ def BFS(G, s):
     for key, value in sorted(distances.items()):
         d_list.append(value)
 
-    print(d_list)
+    # print(d_list)  # Prints out the Adjacency List
     return d_list
 
 
@@ -121,27 +124,27 @@ def distanceDistribution(G):
      So you might want to print out values every once in a while to show progress"""
 
     dmatrix = []
-    # total_time = 0
+    total_time = 0
 
     for row in enumerate(G):
-        # t1 = time()
+        t1 = time()
         dmatrix.append(BFS(G, row[0]))
-        # t2 = time()
-        # running_time = t2-t1
-        # total_time += running_time
-        # print(row[0], " Line Run: ", running_time, "Total Run: ", total_time)
+        t2 = time()
+        running_time = t2-t1
+        total_time += running_time
+        print(row[0], " Line Run: ", running_time, "Total Run: ", total_time)
     # print(total_time)
     # df = pd.DataFrame(dmatrix)
     # loadlist = df.to_csv("Loadlist.csv", header=False, index=False)  # This was a lot faster to use for the graphs etc
 
     # TODO write out the logic, and double check
-    # matrix = df.to_numpy()
     matrix = np.array(dmatrix)
 
     # Putting all the unique values into a dictionary and returning their counts
     unique, counts = np.unique(matrix, return_counts=True)
     frequency_dict = dict(zip(unique, counts))
 
+    # Iterating over the dictionary and turning values into
     s = sum(frequency_dict.values())
     for k, v in frequency_dict.items():
         frequency_dict[k] = v * 100.0 / s
@@ -150,9 +153,11 @@ def distanceDistribution(G):
 
 def test():
     """Testing code that prints out the final distribution dictionary"""
-    # graphit = loadGraph('edges.txt')
-    graphit = loadGraph('edgesshort.txt')
+    graphit = loadGraph('edges.txt')
+    # graphit = loadGraph('edgesshort.txt')
     distanceDistribution(graphit)
+    # TODO Add in the graphics here
+
 
 
 def main():
