@@ -44,29 +44,49 @@ class MyHashtable(object):
 
     def find_open_slot(self, key, index):
         """This find's an open slot and inserts the element"""
-        print("Looking where to put in", key, "in this index", index)
-        print(self.size)
-
-        self.index = index + 1
+        # print(self.size)
+        self.index = index + 1  # Increasing the list one to search down the line
         self.key = key
-        print(self.index, self.key)
-        # if self.index > self.size:
-        #     self.index = 0
-        # else:
-        #     if self.status[self.index] != ['filled']:
-        #         self.status[self.index][0] = 'filled'
-        #         self.table[self.index][0] = key
-        #         # print("Firing", self.status[hash])
-        #         return
-        #     else:
-        #         print("Hash", self.index, "Elem", key)
-        #         self.find_open_slot(key, self.index+1)
+        # print("Looking where to put in", self.key, "in this index", self.index)
+        if self.index >= self.size:
+            self.find_open_slot(self.key, -1)  # Sending it back around with a new index
+        else:
+            if self.status[self.index] != 'filled':
+                self.status[self.index] = 'filled'
+                self.table[self.index] = self.key
+                return
+            else:
+                self.find_open_slot(self.key, self.index)
 
 
 
     def member(self, elem): # Returns if element exists in hashtable
         hash = ord(elem[0]) % self.size
-        return elem in self.table[hash]
+        if elem == self.table[hash]:
+            return elem
+        elif self.status[hash] == "filled":
+            print("Search Next Spot")
+            self.search_next_slot(elem, hash)
+
+
+
+    def search_next_slot(self, key, index):
+        """This find's an open slot and inserts the element"""
+        self.index = index + 1  # Increasing the list one to search down the line
+        self.key = key
+        if self.index >= self.size:
+            self.search_next_slot(self.key, -1)  # Sending it back around with a new index
+        else:
+            print("Key in the loop", self.key, "Searching", self.table[self.index])
+            if self.key == str(self.table[self.index]):
+                print("Match")
+                return self.key
+            elif self.status[index] == 'filled':
+                print("BUmping")
+                self.search_next_slot(self.key, self.index)
+            else:
+                return False
+
 
     def delete_member(self, elem):
         """This function is meant for deleting """
@@ -83,13 +103,13 @@ def test_code():
     s = MyHashtable(10)
     # print(s)
     s.insert("amy") #97
-    print("Amy Added", s)
-    # s.insert("chase") #99
+    # print("Amy Added", s)
+    s.insert("chase") #99
     # print(s)
-    # s.insert("chris") #99
-    # print(s)
+    s.insert("chris") #99
+    print(s)
     # print(s.member("amy"))
-    # print(s.member("chris"))
+    print(s.member("chris"))
     # print(s.member("alyssa"))
     # s.delete("chase")
     # print(s.member("chris"))
