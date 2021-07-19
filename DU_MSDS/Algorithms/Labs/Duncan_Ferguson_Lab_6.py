@@ -62,30 +62,33 @@ class MyHashtable(object):
 
     def member(self, elem): # Returns if element exists in hashtable
         hash = ord(elem[0]) % self.size
-        if elem == self.table[hash]:
+        if self.status[hash] == 'empty':
+            return
+        elif self.table[hash] == elem:
             return elem
-        elif self.status[hash] == "filled":
-            print("Search Next Spot")
-            self.search_next_slot(elem, hash)
-
-
-
-    def search_next_slot(self, key, index):
-        """This find's an open slot and inserts the element"""
-        self.index = index + 1  # Increasing the list one to search down the line
-        self.key = key
-        if self.index >= self.size:
-            self.search_next_slot(self.key, -1)  # Sending it back around with a new index
         else:
-            print("Key in the loop", self.key, "Searching", self.table[self.index])
-            if self.key == str(self.table[self.index]):
-                print("Match")
-                return self.key
-            elif self.status[index] == 'filled':
-                print("BUmping")
-                self.search_next_slot(self.key, self.index)
-            else:
-                return False
+            self.search_next_member(elem, hash)
+            # return
+
+    def search_next_member(self, elem, hash):
+        """ Looping through"""
+        self.elem = elem
+        self.hash = hash + 1
+        if self.hash >= self.size:
+            self.search_next_member(self.elem, -1)
+        elif self.status[hash] == 'empty':
+            return
+        elif self.table[self.hash] == self.elem:
+            print("Hit")
+            print(self.elem)
+        else:
+            self.search_next_member(self.elem, self.hash)
+
+
+
+# Interesting idea changing it around
+    # def get_prob_range(self, index):
+    #         return [*range(index, len(self.table))] + [*range(0, index)]
 
 
     def delete_member(self, elem):
@@ -108,9 +111,9 @@ def test_code():
     # print(s)
     s.insert("chris") #99
     print(s)
-    # print(s.member("amy"))
+    print(s.member("amy"))
     print(s.member("chris"))
-    # print(s.member("alyssa"))
+    print(s.member("alyssa"))
     # s.delete("chase")
     # print(s.member("chris"))
     # You can use print(s) at any time to see the contents
