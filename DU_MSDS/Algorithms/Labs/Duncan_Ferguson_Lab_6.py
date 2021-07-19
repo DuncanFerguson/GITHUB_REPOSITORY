@@ -91,7 +91,6 @@ def test_code():
     print(s.member("chris"))
     print(s.member("alyssa"))
     s.delete("chase")
-    s.delete("chases")
     print(s.member("chris"))
     # You can use print(s) at any time to see the contents
     # of the table for debugging
