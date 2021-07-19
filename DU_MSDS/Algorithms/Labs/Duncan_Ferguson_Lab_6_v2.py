@@ -24,81 +24,35 @@ class MyHashtable(object):
         self.hash = self.gethash(elem)
         if self.status[self.hash] == 'empty' or self.status[self.hash] == 'deleted':
             self.status[self.hash], self.table[self.hash] = 'filled', elem
+            return
         else:
-            print("Here is where I need loop")
-            while self.status[self.hash] == 'filled':
-                if self.size >= self.hash:
-                    self.hash = -1
-                    print("reset")
+            while self.status[self.hash] != 'empty' or self.status[self.hash] != 'deleted':
                 self.hash += 1
-                if self.status[self.hash] == 'empty' or self.status[self.hash] == 'deleted':
+                if self.hash == self.size:
+                    self.hash = -1
+                elif self.status[self.hash] == 'empty' or self.status[self.hash] == 'deleted':
                     self.status[self.hash], self.table[self.hash] = 'filled', elem
-                    print("Adding")
-            #     else:
-            #         print("ON Continue")
-            #         continue
+                    return
 
 
-    # def insert(self, elem): # Adds an element into the hashtable
-    #     # TODO this is where the meat of the assignment goes down.
-    #     hash = ord(elem[0]) % self.size
-    #     if self.status[hash] != 'filled':
-    #         self.status[hash] = 'filled'
-    #         self.table[hash] = elem
-    #         # print("Firing", self.status[hash])
-    #         return
-    #     else:
-    #         print("Hash", hash, "Elem", elem)
-    #         self.find_open_slot(elem, hash)
-    #         # print("Here")
-
-    # def find_open_slot(self, key, index):
-    #     """This find's an open slot and inserts the element"""
-    #     # print(self.size)
-    #     self.index = index + 1  # Increasing the list one to search down the line
-    #     self.key = key
-    #     # print("Looking where to put in", self.key, "in this index", self.index)
-    #     if self.index >= self.size:
-    #         self.find_open_slot(self.key, -1)  # Sending it back around with a new index
-    #     else:
-    #         if self.status[self.index] != 'filled':
-    #             self.status[self.index] = 'filled'
-    #             self.table[self.index] = self.key
-    #             return
-    #         else:
-    #             self.find_open_slot(self.key, self.index)
+    def member(self, elem): # Returns if element exists in hashtable
+        self.hash = self.gethash(elem)
+        if self.status[self.hash] == 'empty':
+            return False
+        elif self.table[self.hash] == elem:
+            return elem
+        else:
+            while self.status[self.hash] == 'filled' or self.status[self.hash] == 'deleted':
+                self.hash += 1
+                if self.hash == self.size:
+                    self.hash = -1
+                if self.status[self.hash] == 'empty':
+                    break
+                elif self.table[self.hash] == elem:
+                    return elem
+        return False  # This is assuming that we get a empty slot
 
 
-
-    # def member(self, elem): # Returns if element exists in hashtable
-    #     hash = ord(elem[0]) % self.size
-    #     if self.status[hash] == 'empty':
-    #         return
-    #     elif self.table[hash] == elem:
-    #         return elem
-    #     else:
-    #         self.search_next_member(elem, hash)
-    #         # return
-
-    # def search_next_member(self, elem, hash):
-    #     """ Looping through"""
-    #     self.elem = elem
-    #     self.hash = hash + 1
-    #     if self.hash >= self.size:
-    #         self.search_next_member(self.elem, -1)
-    #     elif self.status[hash] == 'empty':
-    #         return
-    #     elif self.table[self.hash] == self.elem:
-    #         print("Hit")
-    #         print(self.elem)
-    #     else:
-    #         self.search_next_member(self.elem, self.hash)
-
-
-
-# Interesting idea changing it around
-    # def get_prob_range(self, index):
-    #         return [*range(index, len(self.table))] + [*range(0, index)]
 
 
     # def delete_member(self, elem):
@@ -116,14 +70,20 @@ def test_code():
     s = MyHashtable(10)
     # print(s)
     s.insert("amy") #97
-    print("Amy Added", s)
+    # print("Amy Added", s)
     s.insert("chase") #99
-    print(s)
+    # print(s)
     s.insert("chris") #99
-    print("Chris Added:", s)
-    # print(s.member("amy"))
-    # print(s.member("chris"))
-    # print(s.member("alyssa"))
+    # s.insert("charles")
+    # s.insert("abby")
+    # s.insert("Gabrielle")
+    print(s)
+    # print("Chris Added:", s)
+    print(s.member("amy"))
+    print(s.member("chase"))
+    print(s.member("alyssa"))
+    print(s.member("chris"))
+    # print(s.member("charles"))
     # s.delete("chase")
     # print(s.member("chris"))
     # You can use print(s) at any time to see the contents
