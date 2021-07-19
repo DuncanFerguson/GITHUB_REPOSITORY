@@ -4,124 +4,103 @@
 # Assignment: Lab 6
 # Date 7/20/2021
 
-""""
-https://coderbook.com/@marcus/how-to-create-a-hash-table-from-scratch-in-python/
-https://www.geeksforgeeks.org/hashing-set-3-open-addressing/
-https://www.youtube.com/watch?v=ea8BRGxGmlA
-https://github.com/codebasics/data-structures-algorithms-python/blob/master/data_structures/4_HashTable_2_Collisions/Solution/exercise_hash_table_linear_probing.ipynb
-https://www.youtube.com/watch?v=54iv1si4YCM
-"""
+"""This Hash Table only takes strings. It  uses open addressing with linear probing.
+The Assignment assumes that the hashtable will never fill up and thus you will always find a 'filled location"""
 
-# HashTable ADT with chaining implementation
-# This hashtable accepts only strings and hashes based on their
-# ASCII value of the first char
-# The constructor takes in the size of the table
+
 class MyHashtable(object):
     def __init__(self, size):  # Creates an empty hashtable
-        self.size = size
-        self.table = [None for _ in range(self.size)]
-        self.status = ['empty' for _ in range(self.size)]  # Create the list (of size) of empty lists (chaining)
+        self.size = size  # Creating the size of the table
+        self.table = [None for _ in range(self.size)]  # Creating a table list
+        self.status = ['empty' for _ in range(self.size)]  # Create a status list with empty
 
     def __str__(self):
-        return str(self.table) + "\n" + str(self.status)
+        """This prints out both the table and the status"""
+        return "table: " + str(self.table) + "\n" + "status:" + str(self.status)
 
     def gethash(self, elem):
+        """This function grabs the desired hash value"""
         return ord(elem[0]) % self.size
 
-
-    def insert(self, elem): # Adds an element into the hashtable
-        # TODO this is where the meat of the assignment goes down.
-        hash = ord(elem[0]) % self.size
-        if self.status[hash] != 'filled':
-            self.status[hash] = 'filled'
-            self.table[hash] = elem
-            # print("Firing", self.status[hash])
+    def insert(self, elem):
+        """"This function first asserts that what is being entered is a string. It then checks
+        to see if the hash spot is empty or deleted. If so it will insert the element. Otherwise it will
+        continue to loop through until it finds a empty or deleted spot to be filled """
+        assert type(elem) == str  # Only  strings can be inserted into the table
+        self.hash = self.gethash(elem)
+        if self.status[self.hash] == 'empty' or self.status[self.hash] == 'deleted':
+            self.status[self.hash], self.table[self.hash] = 'filled', elem
             return
         else:
-            print("Hash", hash, "Elem", elem)
-            self.find_open_slot(elem, hash)
-            # print("Here")
+            while self.status[self.hash] != 'empty' or self.status[self.hash] != 'deleted':
+                self.hash += 1  # Incrementing the hash
+                if self.hash >= self.size:  # Looping back through if the hash is too large
+                    self.hash = -1  # Since -1 is the same as the last element it will loop through and turn to 0
+                elif self.status[self.hash] == 'empty' or self.status[self.hash] == 'deleted':  # Finding open spot
+                    self.status[self.hash], self.table[self.hash] = 'filled', elem  # Filling status and table
+                    return
 
-    def find_open_slot(self, key, index):
-        """This find's an open slot and inserts the element"""
-        # print(self.size)
-        self.index = index + 1  # Increasing the list one to search down the line
-        self.key = key
-        # print("Looking where to put in", self.key, "in this index", self.index)
-        if self.index >= self.size:
-            self.find_open_slot(self.key, -1)  # Sending it back around with a new index
+    def member(self, elem):  # Returns if element exists in hashtable
+        """This function searches to see if there is a member. If the status is empty for the hash
+        it returns false. If it is filled or deleted it will continue to search for the elem untill it finds it
+        or there is an empty slot"""
+        self.hash = self.gethash(elem)
+        if self.status[self.hash] == 'empty':
+            return False
+        elif self.table[self.hash] == elem:
+            return True
         else:
-            if self.status[self.index] != 'filled':
-                self.status[self.index] = 'filled'
-                self.table[self.index] = self.key
-                return
-            else:
-                self.find_open_slot(self.key, self.index)
+            while self.status[self.hash] == 'filled' or self.status[self.hash] == 'deleted':
+                self.hash += 1
+                if self.hash >= self.size:  # Resetting the loop
+                    self.hash = -1  # Since -1 is the same as the last element it will loop through and turn to 0
+                elif self.status[self.hash] == 'empty':
+                    break
+                elif self.table[self.hash] == elem:
+                    return True
+            return False  # This is assuming that we get a empty slot
 
-
-
-    def member(self, elem): # Returns if element exists in hashtable
-        hash = ord(elem[0]) % self.size
-        if self.status[hash] == 'empty':
+    def delete(self, elem):
+        """This Function deletes a member if it finds it. Otherwise returns nothing. The implementation is similiar
+        to the self.member finding"""
+        self.hash = self.gethash(elem)
+        if self.status[self.hash] == 'filled' and self.table[self.hash] == elem:
+            self.status[self.hash], self.table[self.hash] = 'deleted', None
+        elif self.status[self.hash] == 'empty':
             return
-        elif self.table[hash] == elem:
-            return elem
         else:
-            self.search_next_member(elem, hash)
-            # return
-
-    def search_next_member(self, elem, hash):
-        """ Looping through"""
-        self.elem = elem
-        self.hash = hash + 1
-        if self.hash >= self.size:
-            self.search_next_member(self.elem, -1)
-        elif self.status[hash] == 'empty':
+            while self.status[self.hash] == 'filled' or self.status[self.hash] == 'deleted':
+                self.hash += 1
+                if self.hash >= self.size:  # Reset loop
+                    self.hash = -1  # Since -1 is the same as the last element it will loop through and turn to 0
+                elif self.status[self.hash] == 'empty':  # Element doesn't exist
+                    break
+                elif self.table[self.hash] == elem:  # If the element is found delete it
+                    self.status[self.hash], self.table[self.hash] = 'deleted', None
+                    break
             return
-        elif self.table[self.hash] == self.elem:
-            print("Hit")
-            print(self.elem)
-        else:
-            self.search_next_member(self.elem, self.hash)
 
-
-
-# Interesting idea changing it around
-    # def get_prob_range(self, index):
-    #         return [*range(index, len(self.table))] + [*range(0, index)]
-
-
-    def delete_member(self, elem):
-        """This function is meant for deleting """
-        # TODO make sure to update the status list to deleted
-        hash = ord(elem[0]) % self.size
-        return
-
-# def delete(self, elem): # Removes an element from the hashtable
-#     hash = ord(elem[0]) % self.size
-#     self.table[hash].remove(elem)
 
 def test_code():
     # Testing code
     s = MyHashtable(10)
-    # print(s)
-    s.insert("amy") #97
-    # print("Amy Added", s)
-    s.insert("chase") #99
-    # print(s)
-    s.insert("chris") #99
-    print(s)
+    s.insert("amy")  # 97
+    s.insert("chase")  # 99
+    s.insert("chris")  # 99
     print(s.member("amy"))
     print(s.member("chris"))
     print(s.member("alyssa"))
-    # s.delete("chase")
-    # print(s.member("chris"))
+    s.delete("chase")
+    s.delete("chases")
+    print(s.member("chris"))
     # You can use print(s) at any time to see the contents
     # of the table for debugging
-    #print(s)
+    print(s)
+
 
 def main():
     test_code()
+
 
 if __name__ == '__main__':
     main()
