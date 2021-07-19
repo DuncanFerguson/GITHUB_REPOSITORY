@@ -4,24 +4,22 @@
 # Assignment: Lab 6
 # Date 7/20/2021
 
-# HashTable ADT with chaining implementation
-# This hashtable accepts only strings and hashes based on their
-# ASCII value of the first char
-# The constructor takes in the size of the table
+"""This Hash Table only takes strings. It  uses open addressing with linear probing"""
+
 class MyHashtable(object):
     def __init__(self, size):  # Creates an empty hashtable
         self.size = size
-        self.table = [None for _ in range(self.size)]
+        self.table = [None for _ in range(self.size)]  # Creating a table list
         self.status = ['empty' for _ in range(self.size)]  # Create the list (of size) of empty lists (chaining)
 
     def __str__(self):
-        return str(self.table) + "\n" + str(self.status)
+        return "table: " + str(self.table) + "\n" + "status:" + str(self.status)
 
     def gethash(self, elem):
         return ord(elem[0]) % self.size
 
     def insert(self, elem):
-        assert type(elem) == str
+        assert type(elem) == str  # ONly  strings can be inserted into the table
         self.hash = self.gethash(elem)
         if self.status[self.hash] == 'empty' or self.status[self.hash] == 'deleted':
             self.status[self.hash], self.table[self.hash] = 'filled', elem
@@ -63,36 +61,21 @@ class MyHashtable(object):
             return "Name Does Not Exist"
 
 
-
-
-
 def test_code():
     # Testing code
     s = MyHashtable(10)
-    # print(s)
-    s.insert("amy") #97
-    # print("Amy Added", s)
-    s.insert("chase") #99
-    # print(s)
-    s.insert("chris") #99
-    s.insert("charles")
-    # s.insert("abby")
-    # s.insert("Gabrielle")
-    print(s)
-    # print("Chris Added:", s)
+    s.insert("amy")  # 97
+    s.insert("chase")  # 99
+    s.insert("chris")  # 99
+    s.insert(0)
     print(s.member("amy"))
-    print(s.member("chase"))
+    print(s.member("chris"))
     print(s.member("alyssa"))
-    print(s.member("chris"))
-    print(s.member("charles"))
-    print(s)
     s.delete("chase")
-    print(s)
     print(s.member("chris"))
-    print(s.member("chase"))
     # You can use print(s) at any time to see the contents
     # of the table for debugging
-    #print(s)
+    print(s)
 
 def main():
     test_code()
