@@ -21,6 +21,7 @@ class MyHashtable(object):
         return ord(elem[0]) % self.size
 
     def insert(self, elem):
+        assert type(elem) == str
         self.hash = self.gethash(elem)
         if self.status[self.hash] == 'empty' or self.status[self.hash] == 'deleted':
             self.status[self.hash], self.table[self.hash] = 'filled', elem
@@ -53,17 +54,17 @@ class MyHashtable(object):
         return False  # This is assuming that we get a empty slot
 
 
+    def delete(self, elem):
+        """This Function is aimed at deleting a member"""
+        self.hash = self.gethash(elem)
+        if self.status[self.hash] == 'filled' and self.table[self.hash] == elem:
+            self.status[self.hash], self.table[self.hash] = 'deleted', None
+        elif self.status[self.hash] == 'empty':
+            return "Name Does Not Exist"
 
 
-    # def delete_member(self, elem):
-    #     """This function is meant for deleting """
-    #     # TODO make sure to update the status list to deleted
-    #     hash = ord(elem[0]) % self.size
-    #     return
 
-# def delete(self, elem): # Removes an element from the hashtable
-#     hash = ord(elem[0]) % self.size
-#     self.table[hash].remove(elem)
+
 
 def test_code():
     # Testing code
@@ -74,7 +75,7 @@ def test_code():
     s.insert("chase") #99
     # print(s)
     s.insert("chris") #99
-    # s.insert("charles")
+    s.insert("charles")
     # s.insert("abby")
     # s.insert("Gabrielle")
     print(s)
@@ -83,9 +84,12 @@ def test_code():
     print(s.member("chase"))
     print(s.member("alyssa"))
     print(s.member("chris"))
-    # print(s.member("charles"))
-    # s.delete("chase")
-    # print(s.member("chris"))
+    print(s.member("charles"))
+    print(s)
+    s.delete("chase")
+    print(s)
+    print(s.member("chris"))
+    print(s.member("chase"))
     # You can use print(s) at any time to see the contents
     # of the table for debugging
     #print(s)
