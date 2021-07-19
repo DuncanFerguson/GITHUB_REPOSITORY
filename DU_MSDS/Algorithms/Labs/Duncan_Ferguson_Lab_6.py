@@ -12,7 +12,6 @@ https://github.com/codebasics/data-structures-algorithms-python/blob/master/data
 https://www.youtube.com/watch?v=54iv1si4YCM
 """
 
-
 # HashTable ADT with chaining implementation
 # This hashtable accepts only strings and hashes based on their
 # ASCII value of the first char
@@ -20,11 +19,11 @@ https://www.youtube.com/watch?v=54iv1si4YCM
 class MyHashtable(object):
     def __init__(self, size):  # Creates an empty hashtable
         self.size = size
-        self.table = [[None] for _ in range(self.size)]
-        self.status = [['empty'] for _ in range(self.size)]  # Create the list (of size) of empty lists (chaining)
+        self.table = [None for _ in range(self.size)]
+        self.status = ['empty' for _ in range(self.size)]  # Create the list (of size) of empty lists (chaining)
 
     def __str__(self):
-        return str(self.table)
+        return str(self.table) + "\n" + str(self.status)
 
     def gethash(self, elem):
         return ord(elem[0]) % self.size
@@ -33,13 +32,35 @@ class MyHashtable(object):
     def insert(self, elem): # Adds an element into the hashtable
         # TODO this is where the meat of the assignment goes down.
         hash = ord(elem[0]) % self.size
-        if self.status[hash] is not ['filled']:
-            self.status[hash][0] = 'filled'
-            self.table[hash][0] = elem
+        if self.status[hash] != 'filled':
+            self.status[hash] = 'filled'
+            self.table[hash] = elem
+            # print("Firing", self.status[hash])
             return
         else:
-            print("Looping")
-            self.insert(hash+1)
+            print("Hash", hash, "Elem", elem)
+            self.find_open_slot(elem, hash)
+            # print("Here")
+
+    def find_open_slot(self, key, index):
+        """This find's an open slot and inserts the element"""
+        print("Looking where to put in", key, "in this index", index)
+        print(self.size)
+
+        self.index = index + 1
+        self.key = key
+        print(self.index, self.key)
+        # if self.index > self.size:
+        #     self.index = 0
+        # else:
+        #     if self.status[self.index] != ['filled']:
+        #         self.status[self.index][0] = 'filled'
+        #         self.table[self.index][0] = key
+        #         # print("Firing", self.status[hash])
+        #         return
+        #     else:
+        #         print("Hash", self.index, "Elem", key)
+        #         self.find_open_slot(key, self.index+1)
 
 
 
@@ -53,11 +74,6 @@ class MyHashtable(object):
         hash = ord(elem[0]) % self.size
         return
 
-    def return_status(self):
-        return str(self.status)
-
-#
-#
 # def delete(self, elem): # Removes an element from the hashtable
 #     hash = ord(elem[0]) % self.size
 #     self.table[hash].remove(elem)
@@ -65,13 +81,12 @@ class MyHashtable(object):
 def test_code():
     # Testing code
     s = MyHashtable(10)
-    print(s, '\n', s.return_status())
+    # print(s)
     s.insert("amy") #97
-    print(s, '\n', s.return_status())
+    print("Amy Added", s)
     # s.insert("chase") #99
-    # print(s,'\n', s.return_status())
+    # print(s)
     # s.insert("chris") #99
-    # print(s, '\n', s.return_status())
     # print(s)
     # print(s.member("amy"))
     # print(s.member("chris"))

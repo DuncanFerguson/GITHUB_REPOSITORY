@@ -51,3 +51,30 @@ class HashTable:
             if self.arr[prob_index][0] == key:
                 self.arr[prob_index] = None
         print(self.arr)
+
+
+def test_code():
+    # Testing code
+    s = HashTable()
+    print(s)
+    s.insert("amy") #97
+    # print(s, '\n', s.return_status())
+    # s.insert("chase") #99
+    # print(s,'\n', s.return_status())
+    # s.insert("chris") #99
+    # print(s, '\n', s.return_status())
+    # print(s)
+    # print(s.member("amy"))
+    # print(s.member("chris"))
+    # print(s.member("alyssa"))
+    # s.delete("chase")
+    # print(s.member("chris"))
+    # You can use print(s) at any time to see the contents
+    # of the table for debugging
+    #print(s)
+
+def main():
+    test_code()
+
+if __name__ == '__main__':
+    main()
