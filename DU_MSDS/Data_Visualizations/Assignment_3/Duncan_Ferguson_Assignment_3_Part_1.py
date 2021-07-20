@@ -7,10 +7,6 @@
 """Assignment 3, Part 1: Using the built-in Seaborn dataset mpg, provide a heatmap of the
 correlation of all the numeric columns and provide a pairplot of the same."""
 
-# TODO look into this on displaying the data differently for the pair plot
-
-import numpy as np
-import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -18,12 +14,16 @@ import matplotlib.pyplot as plt
 mpg = sns.load_dataset('mpg')
 
 # Displaying Basic Info
-print(mpg.head())  # Printing out the head
-mpg.info()  # Getting a sense of the data
+# print(mpg.head())  # Printing out the head
+# mpg.info()  # Getting a sense of the data
 
 # Scrubbing Data to only include numeric values
 mpg = mpg.select_dtypes(include='number')
-print(mpg.head())
+
+# Scrubbing out year
+# mpg = mpg.drop(['model_year'], axis=1)  # Uncomment if you include year as a non numeric value
+# #If above is uncommented make sure to look at a different hugh for the other heatmap
+# print(mpg.head())
 
 # Heatmap of the correlation of all the numeric columns
 sns.heatmap(mpg.corr(), cmap='coolwarm')
@@ -32,13 +32,21 @@ plt.tight_layout()
 plt.show()
 
 # Displaying heatmap of null values
-sns.heatmap(mpg.isnull(), cbar=False, cmap='coolwarm')
-plt.title("Heatmap of the null values for all numeric columns")
-plt.tight_layout()
-plt.show()
+# sns.heatmap(mpg.isnull(), cbar=False, cmap='viridis')
+# plt.title("Heatmap of the null values for all numeric columns")
+# plt.tight_layout()
+# plt.show()
 
 # Pair plot of the all the numeric columns
-sns.pairplot(mpg)
-plt.tight_layout()
+sns.set_style('whitegrid')
+g = sns.pairplot(mpg, hue='model_year')  # Pairplot
+g.fig.suptitle("Pairplot of the correlation of all the numeric columns\nSeaborn 'mpg' data set", size=25)
+g.fig.subplots_adjust(top=.9)
 plt.show()
 
+# Pair plot of the all the numeric columns if model year excluded
+# sns.set_style('whitegrid')
+# g1 = sns.pairplot(mpg, hue='weight')  # Pairplot
+# g1.fig.suptitle("Pairplot of the correlation of all the numeric columns\nSeaborn 'mpg' data set", size=25)
+# g1.fig.subplots_adjust(top=.9)
+# plt.show()
