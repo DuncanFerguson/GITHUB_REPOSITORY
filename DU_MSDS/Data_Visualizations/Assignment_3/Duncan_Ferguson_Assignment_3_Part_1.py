@@ -5,12 +5,12 @@
 # Date 7/22/2021
 
 """Assignment 3, Part 1: Using the built-in Seaborn dataset mpg, provide a heatmap of the
-correlation of all the numeric columns and provide a pairplot of the same."""
+correlation of all the numeric columns and provide a pairplot of the same.
+
+**Please note that for this assignment I considered model year as a numeric value"""
 
 import seaborn as sns
 import matplotlib.pyplot as plt
-
-"""Please note that for this assignment I considered model year as a numeric value"""
 
 # Loading Data
 mpg = sns.load_dataset('mpg')
@@ -24,7 +24,6 @@ mpg = mpg.select_dtypes(include='number')
 
 # Scrubbing out year
 # mpg = mpg.drop(['model_year'], axis=1)  # Uncomment if you include year as a non numeric value
-
 
 # Heatmap of the correlation of all the numeric columns
 sns.heatmap(mpg.corr(), cmap='coolwarm')
