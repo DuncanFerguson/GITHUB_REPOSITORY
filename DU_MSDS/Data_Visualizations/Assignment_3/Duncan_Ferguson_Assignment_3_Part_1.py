@@ -10,6 +10,8 @@ correlation of all the numeric columns and provide a pairplot of the same."""
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+"""Please note that for this assignment I considered model year as a numeric value"""
+
 # Loading Data
 mpg = sns.load_dataset('mpg')
 
@@ -22,8 +24,7 @@ mpg = mpg.select_dtypes(include='number')
 
 # Scrubbing out year
 # mpg = mpg.drop(['model_year'], axis=1)  # Uncomment if you include year as a non numeric value
-# #If above is uncommented make sure to look at a different hugh for the other heatmap
-# print(mpg.head())
+
 
 # Heatmap of the correlation of all the numeric columns
 sns.heatmap(mpg.corr(), cmap='coolwarm')
@@ -43,10 +44,3 @@ g = sns.pairplot(mpg, hue='model_year')  # Pairplot
 g.fig.suptitle("Pairplot of the correlation of all the numeric columns\nSeaborn 'mpg' data set", size=25)
 g.fig.subplots_adjust(top=.9)
 plt.show()
-
-# Pair plot of the all the numeric columns if model year excluded
-# sns.set_style('whitegrid')
-# g1 = sns.pairplot(mpg, hue='weight')  # Pairplot
-# g1.fig.suptitle("Pairplot of the correlation of all the numeric columns\nSeaborn 'mpg' data set", size=25)
-# g1.fig.subplots_adjust(top=.9)
-# plt.show()
