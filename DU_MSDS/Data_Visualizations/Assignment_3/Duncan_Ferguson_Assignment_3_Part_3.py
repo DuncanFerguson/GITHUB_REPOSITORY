@@ -9,17 +9,26 @@ a scattergram with the linear model for both the total vs. speeding and the tota
 alcohol.
 """
 
-# TODO is this right? Will want to check further into it
-
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+# Setting Seaborn Style
+sns.set()
+sns.set_style('whitegrid')
+
+# Loading Data
 car_crashes = sns.load_dataset('car_crashes')
 car_crashes.info()
 print(car_crashes.head())
 
-sns.scatterplot(x='total', y='speeding', data=car_crashes)
+# Prepare plots with a scattergram with the linear model for the total vs. speeding
+sns.lmplot(x='total', y='speeding', data=car_crashes, scatter=True, fit_reg=True, aspect=2, truncate=False)
+plt.title("Total vs Speeding")
+plt.tight_layout()
 plt.show()
 
-sns.scatterplot(x='total', y='alcohol', data=car_crashes)
+# Plot with a scattergram with the linear model for the total vs. alcohol.
+sns.lmplot(x='total', y='alcohol', data=car_crashes, scatter=True, fit_reg=True, aspect=2, truncate=False)
+plt.title("Total vs Alcohol")
+plt.tight_layout()
 plt.show()
