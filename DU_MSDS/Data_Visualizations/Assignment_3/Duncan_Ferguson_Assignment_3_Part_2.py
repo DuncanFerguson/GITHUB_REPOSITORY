@@ -15,9 +15,8 @@ import matplotlib.pyplot as plt
 # Loading Data Set
 diamonds = sns.load_dataset('diamonds')
 
-
 # Eliminate colors ‘D’ and ‘E’ as well as the cut ‘Fair’. They are categorial variables
-diamonds = diamonds[(~diamonds.color.isin(["D", "E"])) & (diamonds.cut!='Fair')]
+diamonds = diamonds[(~diamonds.color.isin(["D", "E"])) & (diamonds.cut != 'Fair')]
 diamonds["color"] = diamonds["color"].cat.remove_unused_categories()
 diamonds["cut"] = diamonds["cut"].cat.remove_unused_categories()
 
