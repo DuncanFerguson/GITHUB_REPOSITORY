@@ -7,27 +7,38 @@
 """Assignment 3, Part 1: Using the built-in Seaborn dataset mpg, provide a heatmap of the
 correlation of all the numeric columns and provide a pairplot of the same."""
 
-"""Useful Linkes
-https://www.youtube.com/watch?v=UgtjatBt3vY
-"""
-
 # TODO look into this on displaying the data differently for the pair plot
-# TODO maybe look at filtering out the objects
 
 import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-df = sns.load_dataset('mpg')
-print(df.head())
-df.info()
+# Loading Data
+mpg = sns.load_dataset('mpg')
 
-sns.heatmap(df.corr(), cmap='coolwarm')
+# Displaying Basic Info
+print(mpg.head())  # Printing out the head
+mpg.info()  # Getting a sense of the data
+
+# Scrubbing Data to only include numeric values
+mpg = mpg.select_dtypes(include='number')
+print(mpg.head())
+
+# Heatmap of the correlation of all the numeric columns
+sns.heatmap(mpg.corr(), cmap='coolwarm')
+plt.title("Heatmap of the correlation of all the numeric columns\nSeaborn 'mpg' data set")
 plt.tight_layout()
 plt.show()
 
-sns.pairplot(df)
+# Displaying heatmap of null values
+sns.heatmap(mpg.isnull(), cbar=False, cmap='coolwarm')
+plt.title("Heatmap of the null values for all numeric columns")
+plt.tight_layout()
+plt.show()
+
+# Pair plot of the all the numeric columns
+sns.pairplot(mpg)
 plt.tight_layout()
 plt.show()
 
