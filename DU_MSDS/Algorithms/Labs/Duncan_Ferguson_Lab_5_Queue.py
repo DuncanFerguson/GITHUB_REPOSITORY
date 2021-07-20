@@ -50,7 +50,7 @@ def test_queue():
     print(q.front())
     print(q.dequeue())
     print(q.dequeue())
-    print(q.dequeue())  # should generate an error
+    # print(q.dequeue())  # should generate an error
 
 
 def main():
