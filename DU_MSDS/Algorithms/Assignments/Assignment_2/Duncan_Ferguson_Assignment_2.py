@@ -6,12 +6,29 @@
 
 import pandas as pd
 
+def find_stock(file, symbol):
+    stock = file[file['symbol'] == symbol]
+    print(stock)
+    MaxStockProfit(stock)
+
+
+def MaxStockProfit(stock):
+    print(type(stock))
+    stock.sort_values(['close'], ascending=True)
+    # print(stock)
+
+
+
+
 def main():
     """Running the main code"""
     psa = pd.read_csv("prices-split-adjusted.csv")
     print(psa.head())
     stock = psa['symbol'].unique()
-    print(stock)
+    find_stock(psa, 'AAPL')
+
+
+    # print(stock)
     # Laptop to main
 
 
