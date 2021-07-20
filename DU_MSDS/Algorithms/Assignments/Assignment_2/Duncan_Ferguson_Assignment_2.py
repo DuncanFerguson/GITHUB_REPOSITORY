@@ -6,16 +6,13 @@
 
 import pandas as pd
 
-
-
 def main():
     """Running the main code"""
     psa = pd.read_csv("prices-split-adjusted.csv")
     print(psa.head())
     stock = psa['symbol'].unique()
     print(stock)
-
-
+    # Pushing Testing From Main Computer
 
 
 if __name__ == '__main__':
