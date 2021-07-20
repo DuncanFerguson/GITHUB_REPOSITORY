@@ -12,7 +12,7 @@ def main():
     print(psa.head())
     stock = psa['symbol'].unique()
     print(stock)
-    # Pushing Testing From Main Computer 2
+    # Laptop to main
 
 
 if __name__ == '__main__':
