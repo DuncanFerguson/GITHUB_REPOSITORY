@@ -23,24 +23,20 @@ iris.info()
 print(iris.head())
 
 # Setting Up subplots
-fig, ax = plt.subplots(2, 2, sharex=True)
+fig, ax = plt.subplots(2, 2)
 fig.suptitle("Iris Data Boxplots\nDistribution of each numeric columns")
 
 # Box Plot 1
 sns.boxplot(ax=ax[0][0], x='species', y='sepal_length', data=iris, showfliers=False)
-# ax[0][0].set_title("sepal_length")
 
 # Box Plot 2
 sns.boxplot(ax=ax[0][1], x='species', y='sepal_width', data=iris, showfliers=False)
-# ax[0][1].set_title("sepal_width")
 
 # Box Plot 3
 sns.boxplot(ax=ax[1][0], x='species', y='petal_length', data=iris, showfliers=False)
-# ax[1][0].set_title("petal_length")
 
 # Box Plot 4
 sns.boxplot(ax=ax[1][1], x='species', y='petal_width', data=iris, showfliers=False)
-# ax[1][1].set_title("petal_width")
 
 plt.tight_layout()
 plt.show()
