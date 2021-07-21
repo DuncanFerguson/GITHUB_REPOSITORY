@@ -33,10 +33,27 @@ def MSSDAC(A, low=0, high=None):
 
     for i in range(mid, low-1, -1):
         left2Center[0] += A[i][0]
+        left2Center[1] = A[i][1]
         # left2Center[1] = "A[i][1]"
-        print(A[i])
+        # print(A[i])
+        # print(maxLeft2Center)
+        # print(left2Center)
+        # combolist = left2Center, maxLeft2Center
+        nummax = max(left2Center[0], maxLeft2Center[0])
+        if nummax == left2Center[0]:
+            maxLeft2Center = [left2Center[0], left2Center[1], maxLeft2Center[2]]
+        else:
+            maxLeft2Center = maxLeft2Center
         print(maxLeft2Center)
-        print(left2Center)
+
+
+        # if left2Center[i][0] > maxLeft2Center[0]:
+        #     print("here")
+            # maxLeft2Center = [left2Center[i], left2Center[i][1], "No CLue"]
+            # maxLeft2Center[0] = max(left2Center[i][0], maxLeft2Center[0])
+        # print(type(maxLeft2Center[0]))
+        # print(type(left2Center[0]))
+
         # print(left2Center)
         # print(maxLeft2Center[i])
 
