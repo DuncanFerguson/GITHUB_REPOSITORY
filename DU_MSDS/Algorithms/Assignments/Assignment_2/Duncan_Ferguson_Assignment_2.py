@@ -18,49 +18,49 @@ def MSSDAC(A, low=0, high=None):
     # print(A[low][0], A[low][1])
     if low == high:
         if A[low][0] > 0:
-            return A[low][0], A[low][1]
+            return [A[low][0], "Start Date"]
         else:
             A[low][0] = 0
             return A[low][0], A[low][1]
-
+            # return 0
     # Divide
     mid = (low+high)//2
     # print(mid)
 
     # Conquer
     maxLeft = MSSDAC(A, low, mid)
-    maxRight = MSSDAC(A, mid+1, high)
+    # maxRight = MSSDAC(A, mid+1, high)
 
     # # Combine
-    # TODO This is where I Grabe the Dates
-    maxLeft2Center = [0, 0]
-    left2Center = [0, 0]
-
-    for i in range(mid, low-1, -1):
+    # TODO max number coming out. Need to capture the date
+    maxLeft2Center = left2Center = [0, "Sell Date"]
+    for i in range(mid, low - 1, -1):
         left2Center[0] += A[i][0]
         left2Center[1] = A[i][1]
         if left2Center[0] > maxLeft2Center[0]:
             maxLeft2Center = left2Center
+        else:
+            maxLeft2Center = maxLeft2Center
 
-    maxRight2Center = [0, 0]
-    right2Center = [0, 0]
+        # maxLeft2Center[0] = left2Center[0]
+        # maxLeft2Center = max(left2Center, maxLeft2Center)
 
-    for i in range(mid+1, high+1):
-        right2Center[0] += A[i][0]
-        right2Center[1] = A[i][1]
-        if right2Center[0] > maxRight2Center[0]:
-            maxRight2Center = right2Center
+    # maxRight2Center = right2Center = 0
+    # for i in range(mid + 1, high + 1):
+    #     right2Center += A[i][0]
+    #     maxRight2Center = max(right2Center, maxRight2Center)
+    print("MaxLeft", maxLeft, "maxLeft2Center:", maxLeft2Center)
+    rmaxleft = maxLeft
+    if rmaxleft[0] > maxLeft2Center[0]:
+        return rmaxleft
+    else:
+        return maxLeft2Center
 
-    if maxLeft > maxRight:
-        if maxLeft > maxLeft2Center[0]+maxRight2Center[0]:
-            return maxLeft
-    # else:
-    #     return maxRight
+    # if max
 
-    # return maxRight2Center
-    # return maxRight
-    # return max(maxLeft[0], maxRight[0], maxLeft2Center[0]+maxRight2Center[0])
-    # return max(maxLeft, maxRight, maxLeft2Center+maxRight2Center)
+    # return max(maxLeft, maxLeft2Center)
+    # return max(maxLeft, maxRight, maxLeft2Center + maxRight2Center)
+
 
 
 def calcCanges(prices):
