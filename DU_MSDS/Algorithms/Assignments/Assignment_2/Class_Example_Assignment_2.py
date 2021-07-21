@@ -49,11 +49,14 @@ def MSSDAC(A, low=0, high=None):
     # print(max(A['close'])-min(A['close']))
     # if high == None:
     #     high =
+    print(A)
     if high == None:
         high = len(A) - 1
+
     # Base Case
     if low == high:
         if A[low] > 0:
+            # print(A[low])
             return A[low]
         else:
             return 0

@@ -5,18 +5,8 @@
 # Date 8/6/2021
 
 # Use Divide Conquere
-import math
+# import math
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-def graph_null(data):
-    """ Just to give it a look"""
-    sns.heatmap(data.isnull(), cbar=False, cmap='viridis')
-    plt.title("Heatmap of the null values for all numeric columns")
-    plt.tight_layout()
-    plt.show()
-
 
 # Divide and Conquer Algorithm
 def MSSDAC(A, low=0, high=None):
@@ -25,32 +15,52 @@ def MSSDAC(A, low=0, high=None):
         high = len(A) - 1
 
     # Base Case
+    # print(A[low][0], A[low][1])
     if low == high:
         if A[low][0] > 0:
-            return A[low]
+            return A[low][0], A[low][1]
         else:
             A[low][0] = 0
-            return A[low]
+            return A[low][0], A[low][1]
 
     # Divide
     mid = (low+high)//2
-    print(mid)
+    # print(mid)
 
     # Conquer
     maxLeft = MSSDAC(A, low, mid)
     maxRight = MSSDAC(A, mid+1, high)
 
-    # Combine
-    maxLeft2Center = left2Center = 0
-    for i in range(mid, low-1, -1):
-        left2Center += A[i][0]
-        maxLeft2Center = max(left2Center, maxLeft2Center)
+    # # Combine
+    # TODO This is where I Grabe the Dates
+    maxLeft2Center = [0, 0]
+    left2Center = [0, 0]
 
-    maxRight2Center = right2Center = 0
+    for i in range(mid, low-1, -1):
+        left2Center[0] += A[i][0]
+        left2Center[1] = A[i][1]
+        if left2Center[0] > maxLeft2Center[0]:
+            maxLeft2Center = left2Center
+
+    maxRight2Center = [0, 0]
+    right2Center = [0, 0]
+
     for i in range(mid+1, high+1):
-        right2Center += A[i][0]
-        maxRight2Center = max(right2Center, maxRight2Center)
-    return max(maxLeft, maxRight, maxLeft2Center+maxRight2Center)
+        right2Center[0] += A[i][0]
+        right2Center[1] = A[i][1]
+        if right2Center[0] > maxRight2Center[0]:
+            maxRight2Center = right2Center
+
+    if maxLeft > maxRight:
+        if maxLeft > maxLeft2Center[0]+maxRight2Center[0]:
+            return maxLeft
+    # else:
+    #     return maxRight
+
+    # return maxRight2Center
+    # return maxRight
+    # return max(maxLeft[0], maxRight[0], maxLeft2Center[0]+maxRight2Center[0])
+    # return max(maxLeft, maxRight, maxLeft2Center+maxRight2Center)
 
 
 def calcCanges(prices):
@@ -66,7 +76,8 @@ def find_stock(file, symbol):
     # Could probably do this quicker taking only the index values,
     stock = stock.reset_index()[['close', 'date']].values.tolist()
     stock = calcCanges(stock)
-    print("Final Return", MSSDAC(stock, low=0, high=None))
+    # print(stock)
+    print("Final Return", MSSDAC(stock))
 
 
 def main():
