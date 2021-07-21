@@ -57,20 +57,55 @@ def DPcoins(coins, amount):
     # when assigning to mincoin, make sure the current value is >= mincoins[i].
     # Don't overwrite mincoins with a higher value
 
-    amount_of_change = 0
     for i in range(1, amount):
         for currentCoin in coins:
             print("i: ", i, "Current Coin", currentCoin)
-            # Base Case
-
-            print("min coin", minCoins[i])
-            if i >= minCoins[i]:
-                minCoins[i] = minCoins[i - currentCoin] + 1
-                traceBack[i] = currentCoin
-            else:
-                # print("Exit")
+            if i >= currentCoin:
+                minCoins[i] = minCoins[i-currentCoin] + 1
+                traceBack[i] = 1
                 print("minCoins: ", minCoins)
                 print("traceBack: ", traceBack)
+            else:
+                print("minCoins: ", minCoins)
+                print("traceBack: ", traceBack)
+                continue
+
+            # if i >= minCoins[i]:
+            #     minCoins[i] = minCoins[i-currentCoin] + 1
+            #     traceBack[i] = 1
+            #     print("er")
+            # else:
+            #     minCoins[i] = minCoins[i-currentCoin] + 1
+            #     traceBack[i] = 1
+            #
+            # print("minCoins: ", minCoins)
+            # print("traceBack: ", traceBack)
+            # minCoins[i] += minCoins[i-coin]
+            #
+            # if minCoins[i] >= coin:
+            #     minCoins[i] = 1
+            #
+            #     # minCoins[i] = minCoins[i - currentCoin] + 1
+            #     # traceBack[i] = currentCoin
+            #     print("minCoins: ", minCoins)
+            #     print("traceBack: ", traceBack)
+
+
+
+    # amount_of_change = 0
+    # for i in range(1, amount):
+    #     for currentCoin in coins:
+    #         print("i: ", i, "Current Coin", currentCoin)
+    #         # Base Case
+    #
+    #         print("min coin", minCoins[i])
+    #         if i >= minCoins[i]:
+    #             minCoins[i] = minCoins[i - currentCoin] + 1
+    #             traceBack[i] = currentCoin
+    #         else:
+    #             # print("Exit")
+    #             print("minCoins: ", minCoins)
+    #             print("traceBack: ", traceBack)
 
 
     # Fill in the base case(s)
