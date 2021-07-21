@@ -59,29 +59,18 @@ def DPcoins(coins, amount):
 
     amount_of_change = 0
     for i in range(1, amount):
-        currentCoin = coins[i]
-        for coin in coins:
-            print("i: ", i, "Current Coin", coin)
+        for currentCoin in coins:
+            print("i: ", i, "Current Coin", currentCoin)
+            # Base Case
 
-        # print(i, currentCoin)
-        # print(i, amount)
-        # # Base Case
-        # for coin in coins:
-        #     print(coin)
-        #     print("i: ", i, "Current Coin", coins[coin])
-
-            # if coins[i] >= minCoins[i]:
-            #     print("i: ", i, "Current Coin", coins[coin])
-            #     print("Base Case")
-            # else:
-            #     print("Exit")
-            #     print("i: ", i, "Current Coin", coins[coin])
-        # currentCoin = i[1]
-        # print("i: ", i[], "currentCoin",  currentCoin)
-        # if currentCoin >= minCoins[i]:
-        #     minCoins[i] = currentCoin
-        # i += 1
-
+            print("min coin", minCoins[i])
+            if i >= minCoins[i]:
+                minCoins[i] = minCoins[i - currentCoin] + 1
+                traceBack[i] = currentCoin
+            else:
+                # print("Exit")
+                print("minCoins: ", minCoins)
+                print("traceBack: ", traceBack)
 
 
     # Fill in the base case(s)
