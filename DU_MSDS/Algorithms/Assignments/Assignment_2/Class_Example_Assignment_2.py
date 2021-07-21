@@ -11,30 +11,55 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def graph_null(data):
-    """ Just to give it a look"""
     sns.heatmap(data.isnull(), cbar=False, cmap='viridis')
     plt.title("Heatmap of the null values for all numeric columns")
     plt.tight_layout()
     plt.show()
 
+# Week Four Slides
+def MSS1(A):
+    best = 0
+    n = len(A)
+    for i in range(n):
+        for j in range(i, n):
+            sum = 0
+            for k in range(i, j+1):
+                sum = sum +A[k]
+            if sum > best:
+                best = sum
+    return best
+
+# Second Algorithm. Faster
+def MMS2(A):
+    best, ffrom, to = 0, 0, -1
+    n = len(A)
+    for i in range(n):
+        sum = 0
+        for j in range(i, n):
+            sum = sum + A[j]
+            if sum > best:
+                best, ffrom, to = sum, i, j
+    return best
 
 # Divide and Conquer Algorithm
 def MSSDAC(A, low=0, high=None):
-    """DAC: Stock Price"""
+    # A is the price change between the day and the previous dat
+    # They are passing in the change of prices
+    # print(A)
+    # print(max(A['close'])-min(A['close']))
+    # if high == None:
+    #     high =
     if high == None:
         high = len(A) - 1
-
     # Base Case
     if low == high:
-        if A[low][0] > 0:
+        if A[low] > 0:
             return A[low]
         else:
-            A[low][0] = 0
-            return A[low]
+            return 0
 
     # Divide
     mid = (low+high)//2
-    print(mid)
 
     # Conquer
     maxLeft = MSSDAC(A, low, mid)
@@ -43,40 +68,35 @@ def MSSDAC(A, low=0, high=None):
     # Combine
     maxLeft2Center = left2Center = 0
     for i in range(mid, low-1, -1):
-        left2Center += A[i][0]
+        left2Center += A[i]
         maxLeft2Center = max(left2Center, maxLeft2Center)
-
     maxRight2Center = right2Center = 0
     for i in range(mid+1, high+1):
-        right2Center += A[i][0]
+        right2Center += A[i]
         maxRight2Center = max(right2Center, maxRight2Center)
     return max(maxLeft, maxRight, maxLeft2Center+maxRight2Center)
 
-
 def calcCanges(prices):
     changes = []
-    for row in range(len(prices)-1):
-        delta = round(prices[row + 1][0] - prices[row][0], 3)
-        changes.append([delta, prices[row][1]])  # TODO will want to check on this date
+    for i in range(len(prices)-1):
+        delta = round(prices[i+1] - prices[i], 3)
+        changes.append(delta)
     return changes
 
 
 def find_stock(file, symbol):
     stock = file[file['symbol'] == symbol]
-    # Could probably do this quicker taking only the index values,
-    stock = stock.reset_index()[['close', 'date']].values.tolist()
+    stock = stock[['date', 'close']]
+    stock = stock['close'].tolist()
     stock = calcCanges(stock)
-    print("Final Return", MSSDAC(stock, low=0, high=None))
+    print(MSSDAC(stock, low=0, high=None))
 
 
 def main():
     """Running the main code"""
     psa = pd.read_csv("prices-split-adjusted.csv")
-    # print(psa.head())
-    # stock = psa['symbol'].unique()
     find_stock(psa, 'AAPL')
 
 
 if __name__ == '__main__':
     main()
-
