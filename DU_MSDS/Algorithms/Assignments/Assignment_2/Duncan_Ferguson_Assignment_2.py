@@ -29,7 +29,7 @@ def MSSDAC(A, low=0, high=None):
 
     # Conquer
     maxLeft = MSSDAC(A, low, mid)
-    # maxRight = MSSDAC(A, mid+1, high)
+    maxRight = MSSDAC(A, mid+1, high)
 
     # # Combine
     # TODO max number coming out. Need to capture the date
@@ -42,21 +42,43 @@ def MSSDAC(A, low=0, high=None):
         else:
             maxLeft2Center = maxLeft2Center
 
-        # maxLeft2Center[0] = left2Center[0]
-        # maxLeft2Center = max(left2Center, maxLeft2Center)
+    maxRight2Center = right2Center = [0, "Sell Date"]
+    for i in range(mid, low - 1, -1):
+        right2Center[0] += A[i][0]
+        right2Center[1] = A[i][1]
+        if right2Center[0] > maxRight2Center[0]:
+            maxRight2Center = right2Center
+        else:
+            maxRight2Center = maxRight2Center
 
-    # maxRight2Center = right2Center = 0
-    # for i in range(mid + 1, high + 1):
-    #     right2Center += A[i][0]
-    #     maxRight2Center = max(right2Center, maxRight2Center)
-    print("MaxLeft", maxLeft, "maxLeft2Center:", maxLeft2Center)
+    # print("MaxLeft", maxLeft, "maxLeft2Center:", maxLeft2Center)
     rmaxleft = maxLeft
-    if rmaxleft[0] > maxLeft2Center[0]:
-        return rmaxleft
-    else:
-        return maxLeft2Center
+    rmaxright = maxRight
 
-    # if max
+    # TODO Chase the dates in here
+    rmaxmid = [maxLeft2Center[0]+maxRight2Center[0], maxRight2Center[1]]
+    if rmaxleft[0] > rmaxright[0] and rmaxleft[0] > rmaxmid[0]:
+        return rmaxleft
+    elif rmaxright[0] > rmaxleft[0] and rmaxright[0] > rmaxmid[0]:
+        return rmaxright
+    else:
+        return rmaxmid
+    #
+    # print(rmaxleft, rmaxright, rmaxmid[0])
+
+
+    # if rmaxleft[0] > maxLeft2Center[0]:
+    #     if rmaxleft >
+    #     return rmaxleft
+    # else:
+    #     return maxLeft2Center
+    #
+    # print("MaxLeft", maxRight, "maxLeft2Center:", maxRight2Center)
+    #
+    # if rmaxright[0] > maxRight2Center[0]:
+    #     return rmaxright
+    # else:
+    #     return maxRight2Center
 
     # return max(maxLeft, maxLeft2Center)
     # return max(maxLeft, maxRight, maxLeft2Center + maxRight2Center)
