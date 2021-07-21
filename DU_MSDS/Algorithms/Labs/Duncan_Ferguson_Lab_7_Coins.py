@@ -57,7 +57,7 @@ def DPcoins(coins, amount):
     # when assigning to mincoin, make sure the current value is >= mincoins[i].
     # Don't overwrite mincoins with a higher value
 
-    for i in range(1, amount):
+    for i in range(1, amount+1):
         for currentCoin in coins:
             print("i: ", i, "Current Coin", currentCoin)
             if i >= currentCoin:
@@ -68,6 +68,7 @@ def DPcoins(coins, amount):
             else:
                 print("minCoins: ", minCoins)
                 print("traceBack: ", traceBack)
+                traceBack[i] += 1
                 continue
 
             # if i >= minCoins[i]:
