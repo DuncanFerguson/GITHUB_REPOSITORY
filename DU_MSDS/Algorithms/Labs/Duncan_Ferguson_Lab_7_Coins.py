@@ -10,6 +10,9 @@
 from time import time
 from math import inf as inf
 
+"""https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-s095-programming-for-the-puzzled-january-iap-2018/puzzle-11-memory-serves-you-well/MIT6_S095IAP18_Puzzle_11.pdf"""
+""""https://www.programmersought.com/article/90697579491/"""
+
 # Algorithm 1: Divide-and-Conquer
 def DACcoins(coins, amount):
     if amount == 0: # The base case
@@ -57,62 +60,37 @@ def DPcoins(coins, amount):
     # when assigning to mincoin, make sure the current value is >= mincoins[i].
     # Don't overwrite mincoins with a higher value
 
-    for i in range(1, amount+1):
-        for currentCoin in coins:
-            print("i: ", i, "Current Coin", currentCoin)
-            if i >= currentCoin:
-                minCoins[i] = minCoins[i-currentCoin] + 1
-                traceBack[i] = 1
-                print("minCoins: ", minCoins)
-                print("traceBack: ", traceBack)
+    for c in range(1, len(coins) + 1):
+        for r in range(1, amount+1):
+            if coins[c-1] == r:
+                print("c:", c, "r", coins[r])
+                minCoins[c] = 1
+            elif coins[c-1] > r:
+                minCoins[c] = minCoins[c-1]
             else:
-                print("minCoins: ", minCoins)
-                print("traceBack: ", traceBack)
-                traceBack[i] += 1
+                # minCoins[c] = min(minCoins[c-1], minCoins[c] + 1)
                 continue
+            # print(c, minCoins[c])
 
-            # if i >= minCoins[i]:
-            #     minCoins[i] = minCoins[i-currentCoin] + 1
-            #     traceBack[i] = 1
-            #     print("er")
-            # else:
-            #     minCoins[i] = minCoins[i-currentCoin] + 1
-            #     traceBack[i] = 1
-            #
-            # print("minCoins: ", minCoins)
-            # print("traceBack: ", traceBack)
-            # minCoins[i] += minCoins[i-coin]
-            #
-            # if minCoins[i] >= coin:
-            #     minCoins[i] = 1
-            #
-            #     # minCoins[i] = minCoins[i - currentCoin] + 1
-            #     # traceBack[i] = currentCoin
-            #     print("minCoins: ", minCoins)
-            #     print("traceBack: ", traceBack)
-
-
-
-    # amount_of_change = 0
-    # for i in range(1, amount):
+    # TODO This is close
+    # for i in range(1, amount+1):
     #     for currentCoin in coins:
     #         print("i: ", i, "Current Coin", currentCoin)
-    #         # Base Case
-    #
-    #         print("min coin", minCoins[i])
-    #         if i >= minCoins[i]:
-    #             minCoins[i] = minCoins[i - currentCoin] + 1
+    #         if i == currentCoin:
+    #             minCoins[i] = minCoins[i-currentCoin] + 1
     #             traceBack[i] = currentCoin
+    #             print("1 minCoins: ", minCoins)
+    #             print("1 traceBack: ", traceBack)
+    #         elif i >= currentCoin:
+    #             minCoins[i] = minCoins[i - currentCoin] + 1
+    #             print("2 minCoins: ", minCoins)
+    #             traceBack[i] = traceBack[i]
+    #             print("2 traceBack: ", traceBack)
     #         else:
-    #             # print("Exit")
-    #             print("minCoins: ", minCoins)
-    #             print("traceBack: ", traceBack)
+    #             traceBack[i] = traceBack[i]
+    #             print("3 minCoins: ", minCoins)
+    #             print("3 traceBack: ", traceBack)
 
-
-    # Fill in the base case(s)
-
-    # Fill in the rest of the table
-    # Perform the traceback to print result
     return -1  # return optimal number of coins
 
 
