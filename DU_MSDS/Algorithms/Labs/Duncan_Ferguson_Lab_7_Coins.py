@@ -37,12 +37,12 @@ def DPcoins(coins, amount):
     minCoins = [inf for _ in range(amount+1)]
     traceBack = [inf for _ in range(amount+1)]
 
-    # Setting the first values to zero
+    # Base Case Setting the first values to zero
     minCoins[0] = 0
     traceBack[0] = 0
 
-    print('initial minCoins:', minCoins)
-    print('initial traceBack:', traceBack)
+    # print('initial minCoins:', minCoins)
+    # print('initial traceBack:', traceBack)
 
     # i is going to loop from 1 to the amount of change
     # currentcoin is going to iterate through all the coin values [1, 5, 10, 12, 25]
@@ -53,33 +53,33 @@ def DPcoins(coins, amount):
         for currentCoin in enumerate(coins):
             print("\ni: ", i, "Current Coin", currentCoin[1])
             if i == coins[currentCoin[0]]:
+                print("IF Statement")
                 minCoins[i] = minCoins[i - currentCoin[1]] + 1
                 traceBack[i] = currentCoin[1]
             elif i > coins[currentCoin[0]]:
+                print("Elif Statment")
                 minCoins[i] = minCoins[i - currentCoin[1]] + 1
                 traceBack[i] = 1
             else:
-                traceBack[i] = traceBack[i]
+                print("Else Statment")
+                traceBack[i] = min(traceBack[i], currentCoin[1])
             print("minCoins: ", minCoins)
             print("traceBack: ", traceBack)
 
     print("\nfinal tracback: ", traceBack)
     print("final minCoins: ", minCoins)
 
-    # Looping backwards through track back
-    change = amount
-    for i in traceBack[::-1]:
-        if change > 0:
-            change -= i
-            print(i)
-    return -1  # return optimal number of coins
+    return minCoins[-1]  # return optimal number of coins
 
 
 def main():
     """Main Program To run the testing.txt code?"""
     C = [1, 5, 10, 12, 25] # coin denominations (must include a penny)
-    A = int(input('Enter desired amount of change: '))
-    # A = 6
+    # C = [1, 2, 3]
+
+
+    # A = int(input('Enter desired amount of change: '))
+    A = 6
     assert A >= 0
     # print("DAC:")
     # t1 = time()
