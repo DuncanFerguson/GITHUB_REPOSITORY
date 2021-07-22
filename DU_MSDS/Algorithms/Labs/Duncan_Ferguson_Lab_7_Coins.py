@@ -72,18 +72,15 @@ def DPcoins(coins, amount):
         if change > 0:
             change -= i
             print(i)
-
     return -1  # return optimal number of coins
-
 
 
 def main():
     """Main Program To run the testing.txt code?"""
     C = [1, 5, 10, 12, 25] # coin denominations (must include a penny)
-    # A = int(input('Enter desired amount of change: '))
-    A = 6
+    A = int(input('Enter desired amount of change: '))
+    # A = 6
     assert A >= 0
-
     # print("DAC:")
     # t1 = time()
     # numCoins = DACcoins(C, A)
