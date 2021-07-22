@@ -41,6 +41,9 @@ def count_no_of_ways(coins, n):
             # print(table)  # Nice Print to see the table
     return table[n]
 
+
+
+
 # Algorithm 2: Dynamic Programming with Traceback
 def DPcoins(coins, amount):
     """Dynamic Programming with Traceback"""
@@ -60,36 +63,76 @@ def DPcoins(coins, amount):
     # when assigning to mincoin, make sure the current value is >= mincoins[i].
     # Don't overwrite mincoins with a higher value
 
-    for c in range(1, len(coins) + 1):
-        for r in range(1, amount+1):
-            if coins[c-1] == r:
-                print("c:", c, "r", coins[r])
-                minCoins[c] = 1
-            elif coins[c-1] > r:
-                minCoins[c] = minCoins[c-1]
-            else:
-                # minCoins[c] = min(minCoins[c-1], minCoins[c] + 1)
-                continue
-            # print(c, minCoins[c])
+    # TODO Change up
+    # for i in range(1, len(coins)+1):
+    #     for r in range(1, amount+1):
+    #         # print(r)
+    #         if coins[i-1] == r:
+    #             minCoins[i] = 1
+    #             print(minCoins)
+    #         elif coins[i-1] > r:
+    #             minCoins[i] = minCoins[i-r]
+    #             print(minCoins)
+    #         #     print("minCoins: ", minCoins)
+    #         #     print("traceBack: ", traceBack)
 
-    # TODO This is close
+    #         # if i >= currentCoin:
+    #         #     minCoins[i] = minCoins[i - currentCoin] + 1
+    #         #     print("2 minCoins: ", minCoins)
+    #         #     traceBack[i] = currentCoin
+    #         #     print("2 traceBack: ", traceBack)
+    #         # else:
+    #         #     traceBack[i] = traceBack[i]
+    #         #     print("3 minCoins: ", minCoins)
+    #         #     print("3 traceBack: ", traceBack)
+    # print("\nfinal tracback: ", traceBack)
+    # print("final minCoins: ", minCoins)
+
+    # # Switch Up
+    for i in range(1, amount+1):
+        for currentCoin in enumerate(coins):
+            print("\ni: ", i, "Current Coin", currentCoin[1])
+            if i == coins[currentCoin[0]]:
+                minCoins[i] = minCoins[i - currentCoin[1]] + 1
+                traceBack[i] = currentCoin[1]
+                # print('If')
+                # print("minCoins2: ", minCoins)
+                # print("traceBack2: ", traceBack)
+            elif i > coins[currentCoin[0]]:
+                minCoins[i] = minCoins[i - currentCoin[1]] + 1
+                traceBack[i] = 1
+                # print("elif")
+                # print("minCoins2: ", minCoins)
+                # print("traceBack2: ", traceBack)
+            else:
+                traceBack[i] = traceBack[i]
+                # print("Else")
+                # print("minCoins3: ", minCoins)
+                # print("traceBack3: ", traceBack)
+            print("minCoins: ", minCoins)
+            print("traceBack: ", traceBack)
+
+    print("\nfinal tracback: ", traceBack)
+    print("final minCoins: ", minCoins)
+
+
+
+    # # TODO This is close
     # for i in range(1, amount+1):
     #     for currentCoin in coins:
     #         print("i: ", i, "Current Coin", currentCoin)
-    #         if i == currentCoin:
-    #             minCoins[i] = minCoins[i-currentCoin] + 1
-    #             traceBack[i] = currentCoin
-    #             print("1 minCoins: ", minCoins)
-    #             print("1 traceBack: ", traceBack)
-    #         elif i >= currentCoin:
+    #         if i >= currentCoin:
     #             minCoins[i] = minCoins[i - currentCoin] + 1
     #             print("2 minCoins: ", minCoins)
-    #             traceBack[i] = traceBack[i]
+    #             traceBack[i] = currentCoin
     #             print("2 traceBack: ", traceBack)
     #         else:
     #             traceBack[i] = traceBack[i]
     #             print("3 minCoins: ", minCoins)
     #             print("3 traceBack: ", traceBack)
+    # print("\nfinal tracback: ", traceBack)
+    # print("final minCoins: ", minCoins)
+
 
     return -1  # return optimal number of coins
 
@@ -119,8 +162,8 @@ def main():
     print("DP:")
     t1 = time()
     numCoins = DPcoins(C, A)
-    # t2 = time()
-    # print("optimal:", numCoins, " in time: ", round((t2-t1)*1000, 1), "ms")
+    t2 = time()
+    print("optimal:", numCoins, " in time: ", round((t2-t1)*1000, 1), "ms")
 
 
 if __name__ == '__main__':
