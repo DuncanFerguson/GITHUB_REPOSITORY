@@ -43,11 +43,17 @@ def DPcoins(coins, amount):
         for j in range(len(coins)):
             print("\ni: ", i, "current coin", coins[j])
             if coins[j] <= i:
-                # traceBack[i] = minCoins[i - coins[j]]
-                traceBack[i] = 1
+                traceBack[i] = minCoins[i - coins[j]]
+                # traceBack[i] = 1
                 if traceBack[i] + 1 < minCoins[i]:
                     minCoins[i] = minCoins[i-coins[j]] + 1
                     traceBack[i] = coins[j]
+                else:
+                    print("INNER Continue")
+                    # TODO this is where the code needs to be written better
+                    traceBack[i] = min(coins[j-1], coins[j])
+            elif coins[j] > i:
+                print("Continuing through")
             print("minCoins", minCoins)
             print("traceBack", traceBack)
 
@@ -101,7 +107,7 @@ def main():
 
 
     # A = int(input('Enter desired amount of change: '))
-    A = 6
+    A = 29
     assert A >= 0
     # print("DAC:")
     # t1 = time()
