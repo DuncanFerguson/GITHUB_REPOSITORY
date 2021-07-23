@@ -42,6 +42,6 @@ def change_making(coins, change):
 # coins = [25, 10, 5, 1]
 coins = [1, 5, 10, 12, 25]
 # amount = 28
-amount = 6
+amount = 29
 
 print(change_making(coins, amount))

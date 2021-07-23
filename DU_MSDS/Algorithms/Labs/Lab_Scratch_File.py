@@ -1,29 +1,45 @@
-def getNumberOfWays(N, Coins):
-    # Create the ways array to 1 plus the amount
-    # to stop overflow
-    ways = [0] * (N + 1)
+import sys
+from math import inf as inf
 
-    # Set the first way to 1 because its 0 and
-    # there is 1 way to make 0 with 0 coins
-    ways[0] = 1
+# n is size of coins array (number of
+# different coins)
+def DPcoins(coins, amount):
+    # minCoins[i] will be storing the minimum
+    # number of coins required for i value.
+    # So minCoins[amount] will have result
+    n = len(coins)
+    minCoins = [inf for _ in range(amount + 1)]
+    traceBack = [inf for _ in range(amount + 1)]
 
-    # Go through all of the coins
-    for i in range(len(Coins)):
+    # Base case (If given value amount is 0)
+    minCoins[0] = 0
+    traceBack[0] = 0
 
-        # Make a comparison to each index value
-        # of ways with the coin value.
-        for j in range(len(ways)):
-            if Coins[i] <= j:
-                # Update the ways array
-                ways[j] += ways[(int)(j - Coins[i])]
+    # Compute minimum coins required
+    # for all values from 1 to amount
+    for i in range(1, amount + 1):
+        # Go through all coins smaller than i
+        for j in range(n):
+            print("\ni: ", i, "current coin", coins[j])
+            if coins[j] <= i:
+                traceBack[i] = minCoins[i - coins[j]]
+                if traceBack[i] != inf and traceBack[i] + 1 < minCoins[i]:
+                    minCoins[i] = traceBack[i] + 1
+                    traceBack[i] = coins[j]
+            print("minCoins", minCoins)
+            print("traceBack", traceBack)
 
-    # return the value at the Nth position
-    # of the ways array.
-    return ways[N]
+    if minCoins[amount] == inf:
+        return -1
 
-if __name__ == '__main__':
-    Coins = [1, 5, 10, 12, 25]
-    print("The Coins Array:")
+    print("\nfinal mincoins:", minCoins)
+    print("final traceBack:", traceBack)
+    return minCoins[amount]
 
-    print("Solution:", end="")
-    print(getNumberOfWays(29, Coins))
+
+# Driver Code
+if __name__ == "__main__":
+    coins = [1, 5, 10, 12, 25]
+    n = len(coins)
+    amount = 6
+    print("Minimum coins required is ", DPcoins(coins, amount))

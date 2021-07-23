@@ -10,9 +10,6 @@
 from time import time
 from math import inf as inf
 
-"""https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-s095-programming-for-the-puzzled-january-iap-2018/puzzle-11-memory-serves-you-well/MIT6_S095IAP18_Puzzle_11.pdf"""
-""""https://www.programmersought.com/article/90697579491/"""
-
 # Algorithm 1: Divide-and-Conquer
 def DACcoins(coins, amount):
     if amount == 0: # The base case
@@ -41,6 +38,27 @@ def DPcoins(coins, amount):
     minCoins[0] = 0
     traceBack[0] = 0
 
+    for i in range(1, amount + 1):
+        # Go through all coins smaller than i
+        for j in range(len(coins)):
+            print("\ni: ", i, "current coin", coins[j])
+            if coins[j] <= i:
+                traceBack[i] = minCoins[i - coins[j]]
+                if traceBack[i] + 1 < minCoins[i]:
+                    # minCoins[i] = traceBack[i] + 1
+                    minCoins[i] = minCoins[i-coins[j]] + 1
+                    traceBack[i] = coins[j]
+            print("minCoins", minCoins)
+            print("traceBack", traceBack)
+
+    print("\nfinal mincoins:", minCoins)
+    print("final traceBack:", traceBack)
+
+    return minCoins[amount]
+
+
+    # TODO CODE BELOW DOESNT QUITE GET IT
+
     # print('initial minCoins:', minCoins)
     # print('initial traceBack:', traceBack)
 
@@ -49,22 +67,26 @@ def DPcoins(coins, amount):
     # when assigning to mincoin, make sure the current value is >= mincoins[i].
     # Don't overwrite mincoins with a higher value
 
-    for i in range(1, amount+1):
-        for currentCoin in enumerate(coins):
-            print("\ni: ", i, "Current Coin", currentCoin[1])
-            if i == coins[currentCoin[0]]:
-                print("IF Statement")
-                minCoins[i] = minCoins[i - currentCoin[1]] + 1
-                traceBack[i] = currentCoin[1]
-            elif i > coins[currentCoin[0]]:
-                print("Elif Statment")
-                minCoins[i] = minCoins[i - currentCoin[1]] + 1
-                traceBack[i] = 1
-            else:
-                print("Else Statment")
-                traceBack[i] = min(traceBack[i], currentCoin[1])
-            print("minCoins: ", minCoins)
-            print("traceBack: ", traceBack)
+    # TODO don't mess with this
+    # for i in range(1, amount+1):
+    #     for currentCoin in enumerate(coins):
+    #         print("\ni: ", i, "Current Coin", currentCoin[1])
+    #         if i == coins[currentCoin[0]]:
+    #             print("IF Statement")
+    #             minCoins[i] = minCoins[i - currentCoin[1]] + 1
+    #             traceBack[i] = currentCoin[1]
+    #         elif i > coins[currentCoin[0]]:
+    #             print("Elif Statment")
+    #             minCoins[i] = minCoins[i - currentCoin[1]] + 1
+    #             traceBack[i] = 1
+    #         else:
+    #             print("Else Statment")
+    #             traceBack[i] = min(traceBack[i], currentCoin[1])
+    #         print("minCoins: ", minCoins)
+    #         print("traceBack: ", traceBack)
+    #
+    # print("\nfinal tracback: ", traceBack)
+    # print("final minCoins: ", minCoins)
 
     print("\nfinal tracback: ", traceBack)
     print("final minCoins: ", minCoins)
@@ -79,7 +101,7 @@ def main():
 
 
     # A = int(input('Enter desired amount of change: '))
-    A = 6
+    A = 29
     assert A >= 0
     # print("DAC:")
     # t1 = time()
