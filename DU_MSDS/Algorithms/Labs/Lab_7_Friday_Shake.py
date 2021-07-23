@@ -32,6 +32,7 @@ def DPcoins(coins, amount):
     """Dynamic Programming with Traceback"""
     minCoins = [inf for _ in range(amount+1)]
     traceBack = [inf for _ in range(amount+1)]
+    index_look = [x for x in range(amount+1)]
 
     # # Base Case Setting the first values to zero
     minCoins[0] = 0
@@ -55,6 +56,7 @@ def DPcoins(coins, amount):
                     # traceBack = []
                 # traceBack[i] = min(coins[j - 1], 1+traceBack[i - coins[j - 1]])
 
+            print("Indexlool", index_look)
             print("minCoins", minCoins)
             print("traceBack", traceBack)
 
