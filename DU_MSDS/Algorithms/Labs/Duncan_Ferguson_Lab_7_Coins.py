@@ -101,7 +101,7 @@ def main():
 
 
     # A = int(input('Enter desired amount of change: '))
-    A = 29
+    A = 6
     assert A >= 0
     # print("DAC:")
     # t1 = time()
