@@ -30,82 +30,34 @@ def DACcoins(coins, amount):
 # Algorithm 2: Dynamic Programming with Traceback
 def DPcoins(coins, amount):
     """Dynamic Programming with Traceback"""
-    # Create the initial tables
     minCoins = [inf for _ in range(amount+1)]
     traceBack = [inf for _ in range(amount+1)]
 
-    # Base Case Setting the first values to zero
+    # # Base Case Setting the first values to zero
     minCoins[0] = 0
     traceBack[0] = 0
 
-    for i in range(1, amount + 1):
-        # Go through all coins smaller than i
-        for j in range(len(coins)):
-            print("\ni: ", i, "current coin", coins[j])
-            if coins[j] <= i:
-                traceBack[i] = minCoins[i - coins[j]]
-                if traceBack[i] + 1 < minCoins[i]:
-                    minCoins[i] = minCoins[i-coins[j]] + 1
-                    traceBack[i] = coins[j]
-                else:
-                    print("INNER Continue")
-                    # TODO this is where the code needs to be written better
-                    traceBack[i] = min(coins[j-1], coins[j])
-            elif coins[j] > i:
-                print("Continuing through")
+    # for i in range(1, amount+1):
+    #     for coin in coins:
+    #         if coin > i:
+    #             traceBack[i] = traceBack[i]
+    #         elif not minCoins[i] or len(min)
+    #     print("minCoins", minCoins)
+    #     print("traceBack", traceBack)
+
+
+    for i in range(1, amount+1):
+        for j in range(1, len(coins)+1):
+            print("i: ", i, "currentcoin", coins[j-1])
+            if i >= coins[j-1]:
+                numCoins = minCoins[i-coins[j-1]]+1
+                traceBack[i] = min(coins[j-1], 1+traceBack[i-coins[j-1]])
+                if numCoins < minCoins[i]:
+                    minCoins[i] = numCoins
+                    traceBack[i] = coins[j-1]
 
             print("minCoins", minCoins)
             print("traceBack", traceBack)
-
-    print("\nfinal mincoins:", minCoins)
-    print("final traceBack:", traceBack)
-
-    change = []
-    for i in traceBack[::-1]:
-        if sum(change) + i <= amount:
-            change.append(i)
-
-    print(change)
-
-
-    return minCoins[amount]
-
-
-    # TODO CODE BELOW DOESNT QUITE GET IT
-
-    # print('initial minCoins:', minCoins)
-    # print('initial traceBack:', traceBack)
-
-    # i is going to loop from 1 to the amount of change
-    # currentcoin is going to iterate through all the coin values [1, 5, 10, 12, 25]
-    # when assigning to mincoin, make sure the current value is >= mincoins[i].
-    # Don't overwrite mincoins with a higher value
-
-    # TODO don't mess with this
-    # for i in range(1, amount+1):
-    #     for currentCoin in enumerate(coins):
-    #         print("\ni: ", i, "Current Coin", currentCoin[1])
-    #         if i == coins[currentCoin[0]]:
-    #             print("IF Statement")
-    #             minCoins[i] = minCoins[i - currentCoin[1]] + 1
-    #             traceBack[i] = currentCoin[1]
-    #         elif i > coins[currentCoin[0]]:
-    #             print("Elif Statment")
-    #             minCoins[i] = minCoins[i - currentCoin[1]] + 1
-    #             traceBack[i] = 1
-    #         else:
-    #             print("Else Statment")
-    #             traceBack[i] = min(traceBack[i], currentCoin[1])
-    #         print("minCoins: ", minCoins)
-    #         print("traceBack: ", traceBack)
-    #
-    # print("\nfinal tracback: ", traceBack)
-    # print("final minCoins: ", minCoins)
-
-    # print("\nfinal tracback: ", traceBack)
-    # print("final minCoins: ", minCoins)
-    #
-    # return minCoins[-1]  # return optimal number of coins
 
 
 def main():
