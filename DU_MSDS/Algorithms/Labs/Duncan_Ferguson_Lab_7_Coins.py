@@ -43,9 +43,9 @@ def DPcoins(coins, amount):
         for j in range(len(coins)):
             print("\ni: ", i, "current coin", coins[j])
             if coins[j] <= i:
-                traceBack[i] = minCoins[i - coins[j]]
+                # traceBack[i] = minCoins[i - coins[j]]
+                traceBack[i] = 1
                 if traceBack[i] + 1 < minCoins[i]:
-                    # minCoins[i] = traceBack[i] + 1
                     minCoins[i] = minCoins[i-coins[j]] + 1
                     traceBack[i] = coins[j]
             print("minCoins", minCoins)
@@ -88,10 +88,10 @@ def DPcoins(coins, amount):
     # print("\nfinal tracback: ", traceBack)
     # print("final minCoins: ", minCoins)
 
-    print("\nfinal tracback: ", traceBack)
-    print("final minCoins: ", minCoins)
-
-    return minCoins[-1]  # return optimal number of coins
+    # print("\nfinal tracback: ", traceBack)
+    # print("final minCoins: ", minCoins)
+    #
+    # return minCoins[-1]  # return optimal number of coins
 
 
 def main():
