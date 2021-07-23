@@ -60,6 +60,14 @@ def DPcoins(coins, amount):
     print("\nfinal mincoins:", minCoins)
     print("final traceBack:", traceBack)
 
+    change = []
+    for i in traceBack[::-1]:
+        if sum(change) + i <= amount:
+            change.append(i)
+
+    print(change)
+
+
     return minCoins[amount]
 
 
