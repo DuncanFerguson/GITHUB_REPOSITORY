@@ -44,7 +44,6 @@ def DPcoins(coins, amount):
             print("\ni: ", i, "current coin", coins[j])
             if coins[j] <= i:
                 traceBack[i] = minCoins[i - coins[j]]
-                # traceBack[i] = 1
                 if traceBack[i] + 1 < minCoins[i]:
                     minCoins[i] = minCoins[i-coins[j]] + 1
                     traceBack[i] = coins[j]
@@ -54,6 +53,7 @@ def DPcoins(coins, amount):
                     traceBack[i] = min(coins[j-1], coins[j])
             elif coins[j] > i:
                 print("Continuing through")
+
             print("minCoins", minCoins)
             print("traceBack", traceBack)
 
