@@ -33,33 +33,35 @@ def DPcoins(coins, amount):
     minCoins = [inf for _ in range(amount+1)]
     traceBack = [inf for _ in range(amount+1)]
 
-    # # Base Case Setting the first values to zero
+    # Base Case Setting the first values to zero
     minCoins[0] = 0
     traceBack[0] = 0
-
 
     for i in range(1, amount+1):
         for j in range(1, len(coins)+1):
             print("i: ", i, "currentcoin", coins[j-1])
             if i >= coins[j-1]:
-                numCoins = minCoins[i-coins[j-1]]+1
-                if numCoins < minCoins[i]:
-                    minCoins[i] = numCoins
-                    traceBack[i] = coins[j -1]
-
+                if minCoins[i-coins[j-1]]+1 < minCoins[i]:
+                    minCoins[i] = minCoins[i-coins[j-1]]+1
+                    traceBack[i] = coins[j-1]
 
             print("minCoins", minCoins)
             print("traceBack", traceBack)
+
+    coin = amount
+    while coin > 0:
+        thisCoin = traceBack[coin]
+        print(thisCoin)
+        coin = coin - thisCoin
 
 
 def main():
     """Main Program To run the testing.txt code?"""
     C = [1, 5, 10, 12, 25] # coin denominations (must include a penny)
     # C = [1, 2, 3]
-
-
     # A = int(input('Enter desired amount of change: '))
     A = 29
+
     assert A >= 0
     # print("DAC:")
     # t1 = time()
