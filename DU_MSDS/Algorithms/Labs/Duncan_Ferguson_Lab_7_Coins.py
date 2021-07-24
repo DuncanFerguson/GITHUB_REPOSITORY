@@ -37,14 +37,6 @@ def DPcoins(coins, amount):
     minCoins[0] = 0
     traceBack[0] = 0
 
-    # for i in range(1, amount+1):
-    #     for coin in coins:
-    #         if coin > i:
-    #             traceBack[i] = traceBack[i]
-    #         elif not minCoins[i] or len(min)
-    #     print("minCoins", minCoins)
-    #     print("traceBack", traceBack)
-
 
     for i in range(1, amount+1):
         for j in range(1, len(coins)+1):
@@ -53,7 +45,8 @@ def DPcoins(coins, amount):
                 numCoins = minCoins[i-coins[j-1]]+1
                 if numCoins < minCoins[i]:
                     minCoins[i] = numCoins
-                traceBack[i] = min(coins[j - 1], 1+traceBack[i - coins[j - 1]])
+                    traceBack[i] = coins[j -1]
+
 
             print("minCoins", minCoins)
             print("traceBack", traceBack)

@@ -9,6 +9,7 @@
 # The DP version also prints out the coins needed to produce this min
 from time import time
 from math import inf as inf
+import sys
 
 # Algorithm 1: Divide-and-Conquer
 def DACcoins(coins, amount):
@@ -30,6 +31,7 @@ def DACcoins(coins, amount):
 # Algorithm 2: Dynamic Programming with Traceback
 def DPcoins(coins, amount):
     """Dynamic Programming with Traceback"""
+    inf = sys.maxsize
     minCoins = [inf for _ in range(amount+1)]
     traceBack = [inf for _ in range(amount+1)]
     index_look = [x for x in range(amount+1)]
@@ -38,27 +40,41 @@ def DPcoins(coins, amount):
     minCoins[0] = 0
     traceBack[0] = 0
 
-    for i in range(1, amount+1):
-        for j in range(1, len(coins)+1):
-            print("i: ", i, "currentcoin", coins[j-1])
-            if i == coins[j-1]:
-                print("First Hit")
-                minCoins[i] = 1
-                traceBack[i] = coins[j-1]
-            elif i > coins[j-1]:
-                print("Greater Than Hit")
-                numCoins = minCoins[i-coins[j-1]]+1
-                print(numCoins)
-                # traceBack[i] = coins[j-1]
-                traceBack[i] = min(traceBack[i], coins[j-1])
-                if numCoins < minCoins[i]:
-                    minCoins[i] = numCoins
-                    # traceBack = []
-                # traceBack[i] = min(coins[j - 1], 1+traceBack[i - coins[j - 1]])
+    for cents in range(1, amount+1):
+        print(cents)
+        coinCount = cents
+        for j in [c for c in coins if c <= cents]:
+            if int(minCoins[cents-j-1]) + 1 < coinCount:
+                coinCount = int(minCoins[cents-j-1])+1
+            minCoins[cents] = coins
 
-            print("Indexlool", index_look)
-            print("minCoins", minCoins)
-            print("traceBack", traceBack)
+        # print("Indexlool", index_look)
+        print("minCoins", minCoins)
+        # print("traceBack", traceBack)
+
+
+# TODO THIS IS GOOD but needs trace back looking better
+    # for i in range(1, amount+1):
+    #     for j in range(1, len(coins)+1):
+    #         print("i: ", i, "currentcoin", coins[j-1])
+    #         if i == coins[j-1]:
+    #             print("First Hit")
+    #             minCoins[i] = 1
+    #             traceBack[i] = coins[j-1]
+    #         elif i > coins[j-1]:
+    #             print("Greater Than Hit")
+    #             numCoins = minCoins[i-coins[j-1]]+1
+    #             print(numCoins)
+    #             # traceBack[i] = coins[j-1]
+    #             traceBack[i] = min(traceBack[i], coins[j-1])
+    #             if numCoins < minCoins[i]:
+    #                 minCoins[i] = numCoins
+    #                 # traceBack = []
+    #             # traceBack[i] = min(coins[j - 1], 1+traceBack[i - coins[j - 1]])
+
+            # print("Indexlool", index_look)
+            # print("minCoins", minCoins)
+            # print("traceBack", traceBack)
 
 
 def main():
