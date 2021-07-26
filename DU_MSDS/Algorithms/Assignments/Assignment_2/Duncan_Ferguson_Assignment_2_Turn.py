@@ -6,6 +6,7 @@
 
 # Use Divide Conquere
 import pandas as pd
+import numpy as np
 
 # Divide and Conquer Algorithm
 def MSSDAC(A, low=0, high=None):
@@ -74,6 +75,7 @@ def MSSDAC(A, low=0, high=None):
 #     return changes
 
 def calcCanges(prices):
+    """This Function"""
     changes = []
     day = 0
     for row in range(len(prices)-1):
@@ -86,18 +88,27 @@ def calcCanges(prices):
 
 def find_stock(file, symbol):
     stock = file[file['symbol'] == symbol]
+
+    # THis is to pull the list a bit differently
     # stock = stock[['date', 'close']]
     # stock = stock['close'].tolist()
     # TODO Revert this back. Only need to send one row through
     stock = stock.reset_index()[['close', 'date']].values.tolist()
-    # Still want two rows coming out though
-    stock = calcCanges(stock)
+    print(stock)
+    # Below Code is tester to see csv
+    # np.savetxt("Apple_Stock.csv", stock, delimiter=",", fmt='% s')
 
-    sample = [stock[i][0] for i in range(len(stock))]
-    # print(sample)
-    # print(MSSDAC(sample))
+    # # Still want two rows coming out though
+    # stock = calcCanges(stock)
+    #
+    # sample = [stock[i][0] for i in range(len(stock))]
+    # # print(sample)
+    # # print(MSSDAC(sample))
+    #
+    #
+    # print(stock)
+    # # print(MSSDAC(stock))
 
-    print(MSSDAC(stock))
 
 
 def main():
