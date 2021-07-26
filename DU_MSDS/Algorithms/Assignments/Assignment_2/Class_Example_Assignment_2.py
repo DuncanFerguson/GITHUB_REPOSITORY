@@ -72,17 +72,14 @@ def MSSDAC(A, low=0, high=None):
     maxLeft2Center = left2Center = 0
     for i in range(mid, low-1, -1):
         left2Center += A[i]
-        # print(A[i])
-        # print(maxLeft2Center)
-        # print(left2Center)
         maxLeft2Center = max(left2Center, maxLeft2Center)
-        print(maxLeft2Center)
-    # return maxLeft2Center
-    # maxRight2Center = right2Center = 0
-    # for i in range(mid+1, high+1):
-    #     right2Center += A[i]
-    #     maxRight2Center = max(right2Center, maxRight2Center)
-    # return max(maxLeft, maxRight, maxLeft2Center+maxRight2Center)
+
+    maxRight2Center = right2Center = 0
+    for i in range(mid+1, high+1):
+        right2Center += A[i]
+        maxRight2Center = max(right2Center, maxRight2Center)
+
+    return max(maxLeft, maxRight, maxLeft2Center+maxRight2Center)
 
 def calcCanges(prices):
     changes = []

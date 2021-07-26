@@ -6,76 +6,53 @@
 
 # Use Divide Conquere
 import pandas as pd
-import numpy as np
+# import numpy as np
 
 # Divide and Conquer Algorithm
 def MSSDAC(A, low=0, high=None):
-    if high == None:
+    if high == None:  # Turning the high into the length of list
         high = len(A) - 1
 
-    # print(low, high)
-    # Base Case
+    # Base Case If there is only one element
     if low == high:
-        if A[low][0] > 0:
+        # return max(low, high, A[low])
+    # TODO There was additional code ehre from the class example
+        if A[low] > 0:
             return A[low]
         else:
             return 0
 
     # Divide
     mid = (low+high)//2
-
-    # # Conquer
+    #
+    # # # Conquer
     maxLeft = MSSDAC(A, low, mid)
     maxRight = MSSDAC(A, mid+1, high)
-    #
-    # # Combine
+
+    # # # Combine
     maxLeft2Center = [0, "Buy Date", "Sell Date"]
     left2Center = [0, "Buy Date", "Sell Date"]
 
+    #  Center part of conquer
     for i in range(mid, low-1, -1):
-        left2Center[0] += A[i][0]
-        left2Center[1] = A[i][1]
-        # left2Center[1] = "A[i][1]"
-        # print(A[i])
-        # print(maxLeft2Center)
-        # print(left2Center)
-        # combolist = left2Center, maxLeft2Center
-        nummax = max(left2Center[0], maxLeft2Center[0])
-        if nummax == left2Center[0]:
-            maxLeft2Center = [left2Center[0], left2Center[1], maxLeft2Center[2]]
-        else:
-            maxLeft2Center = maxLeft2Center
-        print(maxLeft2Center)
+        left2Center[0] += A[i]
+        maxLeft2Center[0] = round(max(left2Center[0], maxLeft2Center[0]), 3)
 
 
-        # if left2Center[i][0] > maxLeft2Center[0]:
-        #     print("here")
-            # maxLeft2Center = [left2Center[i], left2Center[i][1], "No CLue"]
-            # maxLeft2Center[0] = max(left2Center[i][0], maxLeft2Center[0])
-        # print(type(maxLeft2Center[0]))
-        # print(type(left2Center[0]))
+    maxRight2Center = [0, "Buy Date", "Sell Date"]
+    right2Center = [0, "Buy Date", "Sell Date"]
 
-        # print(left2Center)
-        # print(maxLeft2Center[i])
+    for i in range(mid, mid+1, high+1):
+        right2Center[0] += A[i]
+        maxRight2Center[0] = round(max(right2Center[0], maxRight2Center[0]), 3)
 
-        # maxLeft2Center[i] = [max(left2Center[i][0], maxLeft2Center[i][0]), left2Center[i][1]]
-    # return left2Center[0]
-    # maxRight2Center = right2Center = 0
-    # for i in range(mid+1, high+1):
-    #     right2Center[0] += A[i][0]
-    #     maxRight2Center = max(right2Center[0], maxRight2Center[0])
-    # return max(maxLeft, maxRight, maxLeft2Center[0]+maxRight2Center[0])
+    # print(right2Center)
+    return max(maxLeft, maxRight, round(maxLeft2Center[0]+maxRight2Center[0], 3))
 
-# def calcCanges(prices):
-#     changes = []
-#     print(prices)
-#     for i in range(len(prices)-1):
-#         delta = round(prices[i+1] - prices[i], 3)
-#         changes.append(delta)
-#     return changes
 
 def calcCanges(prices):
-    """This Function"""
+    """This Function calculates the daily gains or losses.
+    It is also adding a day index."""
     changes = []
     day = 0
     for row in range(len(prices)-1):
@@ -85,29 +62,35 @@ def calcCanges(prices):
     return changes
 
 
-
 def find_stock(file, symbol):
     stock = file[file['symbol'] == symbol]
+    # stock.round(decimals=0, )
+
 
     # THis is to pull the list a bit differently
     # stock = stock[['date', 'close']]
     # stock = stock['close'].tolist()
     # TODO Revert this back. Only need to send one row through
     stock = stock.reset_index()[['close', 'date']].values.tolist()
-    print(stock)
+
+
+    # print(stock)
     # Below Code is tester to see csv
     # np.savetxt("Apple_Stock.csv", stock, delimiter=",", fmt='% s')
 
-    # # Still want two rows coming out though
-    # stock = calcCanges(stock)
-    #
-    # sample = [stock[i][0] for i in range(len(stock))]
-    # # print(sample)
-    # # print(MSSDAC(sample))
-    #
-    #
+    # Still want two rows coming out though
+    stock = calcCanges(stock)
+
+    # Example for what sending stock through like could be
+    sample = [stock[i][0] for i in range(len(stock))]
+    # print(sample)
+
     # print(stock)
-    # # print(MSSDAC(stock))
+    # print(sample)
+    print(MSSDAC(sample))
+
+    # print(stock)
+    # print(MSSDAC(stock))
 
 
 
