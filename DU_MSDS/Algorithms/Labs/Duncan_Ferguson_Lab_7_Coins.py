@@ -10,19 +10,19 @@
 from time import time
 from math import inf as inf
 
+
 # Algorithm 1: Divide-and-Conquer
 def DACcoins(coins, amount):
-    if amount == 0: # The base case
+    if amount == 0:  # The base case
         return 0
-    else: # The recursive case
+    else:   # The recursive case
         minCoins = float("inf")
-        for currentCoin in coins: # Check all coins
-        # If we can give change
+        for currentCoin in coins:  # Check all coins
+            # If we can give change
             if (amount - currentCoin) >= 0:
-            # Calculate the optimal for currentCoin
+                #  Calculate the optimal for currentCoin
                 currentMin = DACcoins(coins, amount-currentCoin) + 1
-                # print(currentMin)
-            # Keep the best
+                # Keep the best
                 minCoins = min(minCoins, currentMin)
         return minCoins
 
@@ -39,44 +39,36 @@ def DPcoins(coins, amount):
 
     for i in range(1, amount+1):
         for j in range(1, len(coins)+1):
-            print("i: ", i, "currentcoin", coins[j-1])
+            # print("i: ", i, "currentcoin", coins[j-1])
             if i >= coins[j-1]:
                 if minCoins[i-coins[j-1]]+1 < minCoins[i]:
                     minCoins[i] = minCoins[i-coins[j-1]]+1
                     traceBack[i] = coins[j-1]
 
-            print("minCoins", minCoins)
-            print("traceBack", traceBack)
+            # print("minCoins", minCoins)
+            # print("traceBack", traceBack)
 
     coin = amount
     while coin > 0:
-        thisCoin = traceBack[coin]
-        print(thisCoin)
-        coin = coin - thisCoin
+        print(traceBack[coin])
+        coin = coin - traceBack[coin]
+
+    return minCoins[-1]
 
 
 def main():
     """Main Program To run the testing.txt code?"""
-    C = [1, 5, 10, 12, 25] # coin denominations (must include a penny)
-    # C = [1, 2, 3]
-    # A = int(input('Enter desired amount of change: '))
-    A = 29
+    C = [1, 5, 10, 12, 25]  # coin denominations (must include a penny)
+    A = int(input('Enter desired amount of change: '))
 
     assert A >= 0
-    # print("DAC:")
-    # t1 = time()
-    # numCoins = DACcoins(C, A)
-    # t2 = time()
-    # print("optimal:", numCoins, " in time: ", round((t2-t1)*1000, 1), "ms")
+    print("DAC:")
+    t1 = time()
+    numCoins = DACcoins(C, A)
+    t2 = time()
+    print("optimal:", numCoins, " in time: ", round((t2-t1)*1000, 1), "ms")
 
-    # # TODO Testing Code
-    # print("count_number_of_ways: ")
-    # t3 = time()
-    # numCoins2 = count_no_of_ways(C, A)
-    # t4 = time()
-    # print("optimal:", numCoins2, " in time: ", round((t4-t3)*1000, 1), "ms")
-
-    # TODO THis is testing of the dynamic programing with Traceback
+    print()
     print("DP:")
     t1 = time()
     numCoins = DPcoins(C, A)

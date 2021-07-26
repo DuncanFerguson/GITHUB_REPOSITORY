@@ -13,9 +13,9 @@ def dpMakeChange(coinValueList,change,minCoins,coinsUsed):
 def printCoins(coinsUsed,change):
    coin = change
    while coin > 0:
-      thisCoin = coinsUsed[coin]
+      thisCoin =
       print(thisCoin)
-      coin = coin - thisCoin
+      coin = coin - coinsUsed[coin]
 
 def main():
     amnt = 29
