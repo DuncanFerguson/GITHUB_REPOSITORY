@@ -17,14 +17,14 @@ def MSSDAC(A, low=0, high=None):
     if low == high:
         # return max(low, high, A[low])
     # TODO There was additional code ehre from the class example
-        if A[low] > 0:
-            return A[low]
+        if A[low][0] > 0:
+            return A[low][0]
         else:
             return 0
 
     # Divide
     mid = (low+high)//2
-    #
+    # print(mid)
     # # # Conquer
     maxLeft = MSSDAC(A, low, mid)
     maxRight = MSSDAC(A, mid+1, high)
@@ -35,19 +35,20 @@ def MSSDAC(A, low=0, high=None):
 
     #  Center part of conquer
     for i in range(mid, low-1, -1):
-        left2Center[0] += A[i]
-        maxLeft2Center[0] = round(max(left2Center[0], maxLeft2Center[0]), 3)
-
+        left2Center[0] += A[i][0]
+        # print("Left Center", A[i][0])
+        maxLeft2Center[0] = max(left2Center[0], maxLeft2Center[0])
 
     maxRight2Center = [0, "Buy Date", "Sell Date"]
     right2Center = [0, "Buy Date", "Sell Date"]
-
-    for i in range(mid, mid+1, high+1):
-        right2Center[0] += A[i]
-        maxRight2Center[0] = round(max(right2Center[0], maxRight2Center[0]), 3)
+    for i in range(mid+1, high+1):
+        right2Center[0] += A[i][0]
+        # print("Right Center", A[i][0])
+        maxRight2Center[0] = max(right2Center[0], maxRight2Center[0])
 
     # print(right2Center)
-    return max(maxLeft, maxRight, round(maxLeft2Center[0]+maxRight2Center[0], 3))
+    print(maxRight2Center[0])
+    return max(maxLeft, maxRight, maxLeft2Center[0]+maxRight2Center[0])
 
 
 def calcCanges(prices):
@@ -80,19 +81,10 @@ def find_stock(file, symbol):
 
     # Still want two rows coming out though
     stock = calcCanges(stock)
-
-    # Example for what sending stock through like could be
-    sample = [stock[i][0] for i in range(len(stock))]
-    # print(sample)
+    # print(stock)
 
     # print(stock)
-    # print(sample)
-    print(MSSDAC(sample))
-
-    # print(stock)
-    # print(MSSDAC(stock))
-
-
+    print(MSSDAC(stock))
 
 def main():
     """Running the main code"""
