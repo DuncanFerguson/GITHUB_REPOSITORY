@@ -13,7 +13,8 @@ def parenStr(m, j, i):
     # TODO make this function recursive
     # TODO make sure to get the chain matrix working better
     if j == i:
-        print(chr(65+j), end="")
+        print("A",j, end=")")
+        # print(chr(65+j), end="")
         return
     else:
         print("(", end="")
