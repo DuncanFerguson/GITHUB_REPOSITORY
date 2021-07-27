@@ -45,11 +45,7 @@ def MMS2(A):
 def MSSDAC(A, low=0, high=None):
     # A is the price change between the day and the previous dat
     # They are passing in the change of prices
-    # print(A)
-    # print(max(A['close'])-min(A['close']))
-    # if high == None:
-    #     high =
-    # print(A)
+
     if high == None:
         high = len(A) - 1
 
@@ -97,9 +93,10 @@ def find_stock(file, symbol):
     stock = file[file['symbol'] == symbol]
     stock = stock[['date', 'close']]
     stock = stock['close'].tolist()
-    stock = calcCanges(stock)
     # print(stock)
-    print(MSSDAC(stock, low=0, high=None))
+    stock = calcCanges(stock)
+    print(stock)
+    # print(MSSDAC(stock, low=0, high=None))
 
 
 def main():

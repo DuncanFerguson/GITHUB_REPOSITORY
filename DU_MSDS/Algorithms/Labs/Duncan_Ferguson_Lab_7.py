@@ -1,7 +1,7 @@
 # Student: Duncan Ferguson
 # Student Id: 871641260
 # Class: Comp 4581
-# Assignment: Lab 5
+# Assignment: Lab 7
 # Date 7/13/2021
 
 # Below are two algorithms (DAC and DP) to compute the
