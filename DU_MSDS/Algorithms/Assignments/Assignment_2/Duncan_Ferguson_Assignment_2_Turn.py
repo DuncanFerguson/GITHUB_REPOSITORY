@@ -65,7 +65,7 @@ def calcCanges(prices):
     """This Function calculates the daily gains or losses.
     It is also adding a day index."""
     changes = []
-    day = -1
+    day = 0
     for row in range(len(prices)-1):
         delta = round(prices[row + 1][0] - prices[row][0], 3)
         day += 1
