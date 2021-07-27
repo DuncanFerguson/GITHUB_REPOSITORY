@@ -33,8 +33,8 @@ def MSSDAC(A, low=0, high=None):
     maxRight = MSSDAC(A, mid+1, high)
 
     # # # Combine
-    maxLeft2Center = [0, "Buy Date", "Sell Date"]
-    left2Center = [0, "Buy Date", "Sell Date"]
+    maxLeft2Center = [0, 0, 0]
+    left2Center = [0, 0, 0]
 
     #  Center part of conquer
     for i in range(mid, low-1, -1):
@@ -46,8 +46,8 @@ def MSSDAC(A, low=0, high=None):
             print(maxLeft2Center)
         # maxLeft2Center[0] = max(left2Center[0], maxLeft2Center[0])
 
-    maxRight2Center = [0, "Buy Date", "Sell Date"]
-    right2Center = [0, "Buy Date", "Sell Date"]
+    maxRight2Center = [0, 0, 0]
+    right2Center = [0, 0, 0]
     for i in range(mid+1, high+1):
         right2Center[0] += A[i][0]
         right2Center[1] = A[i][1]
@@ -57,6 +57,7 @@ def MSSDAC(A, low=0, high=None):
             maxRight2Center[1] = maxLeft2Center[1]
             print(maxRight2Center)
 
+    print("Just Before Finish")
     return max(maxLeft, maxRight, maxLeft2Center[0]+maxRight2Center[0])
 
 
@@ -64,17 +65,19 @@ def calcCanges(prices):
     """This Function calculates the daily gains or losses.
     It is also adding a day index."""
     changes = []
-    day = 0
+    day = -1
     for row in range(len(prices)-1):
         delta = round(prices[row + 1][0] - prices[row][0], 3)
         day += 1
-        changes.append([delta, day-1])  # TODO will want to check on this date
+        changes.append([delta, day])  # TODO will want to check on this date
     return changes
 
 
 def find_stock(file, symbol):
     stock = file[file['symbol'] == symbol]
     stock = stock.reset_index()[['close', 'date']].values.tolist()
+    my_df = pd.DataFrame(stock)
+    my_df.to_csv('PCLN.csv', index=False, header=False)
 
     # Still want two rows coming out though
     stock = calcCanges(stock)
@@ -85,7 +88,8 @@ def find_stock(file, symbol):
 def main():
     """Running the main code"""
     psa = pd.read_csv("prices-split-adjusted.csv")
-    find_stock(psa, 'AAPL')
+    # find_stock(psa, 'AAPL')
+    find_stock(psa, 'PCLN')
 
 
 if __name__ == '__main__':
