@@ -43,6 +43,7 @@ def chainMatrix(dims):
                 if q < m[i][j]:
                     m[i][j] = q
     printMatrix(m)
+    return m[0][n-1]
 
 
 
