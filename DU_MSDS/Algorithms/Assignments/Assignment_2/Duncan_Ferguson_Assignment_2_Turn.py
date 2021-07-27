@@ -54,7 +54,8 @@ def MSSDAC(A, low=0, high=None):
         if right2Center[0] > maxRight2Center[0]:
             maxRight2Center[2] = right2Center[1]
             maxRight2Center[0] = right2Center[0]
-            # print(maxRight2Center)
+            maxRight2Center[1] = maxLeft2Center[1]
+            print(maxRight2Center)
 
     return max(maxLeft, maxRight, maxLeft2Center[0]+maxRight2Center[0])
 
