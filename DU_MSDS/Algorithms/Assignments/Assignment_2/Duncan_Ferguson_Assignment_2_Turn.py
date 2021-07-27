@@ -12,14 +12,17 @@ import pandas as pd
 def MSSDAC(A, low=0, high=None):
     if high == None:  # Turning the high into the length of list
         high = len(A) - 1
+    # print(A)
 
     # Base Case If there is only one element
     if low == high:
         # return max(low, high, A[low])
     # TODO There was additional code ehre from the class example
         if A[low][0] > 0:
+            # print("Low", A[low][0], "Date:", A[low][1])
             return A[low][0]
         else:
+            # print("High", A[high][0], "HIgh Date", A[high][1])
             return 0
 
     # Divide
@@ -36,18 +39,23 @@ def MSSDAC(A, low=0, high=None):
     #  Center part of conquer
     for i in range(mid, low-1, -1):
         left2Center[0] += A[i][0]
-        # print("Left Center", A[i][0])
-        maxLeft2Center[0] = max(left2Center[0], maxLeft2Center[0])
+        left2Center[1] = A[i][1]
+        if left2Center[0] > maxLeft2Center[0]:
+            maxLeft2Center[1] = left2Center[1]
+            maxLeft2Center[0] = left2Center[0]
+            print(maxLeft2Center)
+        # maxLeft2Center[0] = max(left2Center[0], maxLeft2Center[0])
 
     maxRight2Center = [0, "Buy Date", "Sell Date"]
     right2Center = [0, "Buy Date", "Sell Date"]
     for i in range(mid+1, high+1):
         right2Center[0] += A[i][0]
-        # print("Right Center", A[i][0])
-        maxRight2Center[0] = max(right2Center[0], maxRight2Center[0])
+        right2Center[1] = A[i][1]
+        if right2Center[0] > maxRight2Center[0]:
+            maxRight2Center[2] = right2Center[1]
+            maxRight2Center[0] = right2Center[0]
+            # print(maxRight2Center)
 
-    # print(right2Center)
-    print(maxRight2Center[0])
     return max(maxLeft, maxRight, maxLeft2Center[0]+maxRight2Center[0])
 
 
@@ -59,31 +67,18 @@ def calcCanges(prices):
     for row in range(len(prices)-1):
         delta = round(prices[row + 1][0] - prices[row][0], 3)
         day += 1
-        changes.append([delta, day])  # TODO will want to check on this date
+        changes.append([delta, day-1])  # TODO will want to check on this date
     return changes
 
 
 def find_stock(file, symbol):
     stock = file[file['symbol'] == symbol]
-    # stock.round(decimals=0, )
-
-
-    # THis is to pull the list a bit differently
-    # stock = stock[['date', 'close']]
-    # stock = stock['close'].tolist()
-    # TODO Revert this back. Only need to send one row through
     stock = stock.reset_index()[['close', 'date']].values.tolist()
-
-
-    # print(stock)
-    # Below Code is tester to see csv
-    # np.savetxt("Apple_Stock.csv", stock, delimiter=",", fmt='% s')
 
     # Still want two rows coming out though
     stock = calcCanges(stock)
-    # print(stock)
 
-    # print(stock)
+    # TODO get the start and end dates for these sales to come through
     print(MSSDAC(stock))
 
 def main():
