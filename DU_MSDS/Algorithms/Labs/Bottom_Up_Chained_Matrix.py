@@ -24,6 +24,7 @@ def DP_MC(p):
                 print(q)
                 if q < m[i][j]:
                     m[i][j] = q
+
     printMatrix(m)
     return m[0][len(p)-2]
 

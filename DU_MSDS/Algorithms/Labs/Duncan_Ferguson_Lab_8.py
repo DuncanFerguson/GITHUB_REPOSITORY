@@ -8,12 +8,21 @@
 import math
 
 
-def parenStr():
+def parenStr(m, j, i):
     """This will return a string representation of the matrices with parentheses"""
     # TODO make this function recursive
     # TODO make sure to get the chain matrix working better
-    traceback = []
-    return traceback
+    if j == i:
+        print(chr(65+j), end="")
+        return
+    else:
+        print("(", end="")
+        # Going through m, k, i
+        parenStr(m, m[j][i]-1, i)
+
+        # Going through m, j, k+1
+        parenStr(m, j, m[j][i])
+        print(")", end="")
 
 def printMatrix(m):
     for row in m:
@@ -42,7 +51,11 @@ def chainMatrix(dims):
                 q = m[i][k] + m[k+1][j] + dims[i] * dims[k+1] * dims[j+1]
                 if q < m[i][j]:
                     m[i][j] = q
+                    # TODO This is placing k into the opposite index
+                    m[j][i] = k +1
+
     printMatrix(m)
+    parenStr(m, n-1, 0)
     return m[0][n-1]
 
 
@@ -51,7 +64,9 @@ def chainMatrix(dims):
 def main():
     """Main Function to run the testing code"""
     dims = [30, 35, 15, 5, 10, 20, 25]
-    print(chainMatrix(dims))
+    print("\n", chainMatrix(dims))
+    # matrix = chainMatrix(dims)
+
 
 
 if __name__ == '__main__':
