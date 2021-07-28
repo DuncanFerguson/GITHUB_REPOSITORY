@@ -8,27 +8,16 @@
 import math
 
 
-def parenStr(m, j, i):
+def parenStr(m, i, j):
     """This will return a string representation of the matrices with parentheses"""
     # TODO make this function recursive
     # TODO make sure to get the chain matrix working better
-    # if j == i:
-    #     print('A[{}]'.format(j), end="")
-    #     return
 
-    if j == i:
-        # print("A"+str(j), end="")
-        print('A{})'.format(j), end="")
-        return
+    if i == j:
+        return "A"+str(j)
     else:
-        print("(", end="")
-        # Going through m, k, i
-        # print(m[j][i])
-        parenStr(m, m[j][i]-1, i)
+        return "(" + parenStr(m, i, m[i][j]) + ")(" + parenStr(m, m[i][j]+1, j) + ")"
 
-        # Going through m, j, k+1
-        parenStr(m, j, m[j][i])
-        print(")", end="")
 
 def printMatrix(m):
     for row in m:
@@ -38,13 +27,13 @@ def chainMatrix(dims):
     # Create the empty 2-D table
     n = len(dims)-1
     m = [[None for i in range(n)] for j in range(n)]
+    trackback = [[None for i in range(n)] for j in range(n)]
 
     # Fill in the base case values zero diagonal
     for i in range(n):
         m[i][i] = 0  # Filling in the diagonal zero's
-
         # Fill in the rest of the table diagonal by diagonals
-    # printMatrix(m)
+
     for chainLength in range(2, n+1):
         for i in range(n+1-chainLength):
             j = i + chainLength - 1
@@ -57,19 +46,22 @@ def chainMatrix(dims):
                 if q < m[i][j]:
                     m[i][j] = q
                     # TODO This is placing k into the opposite index
-                    m[j][i] = k + 1
+                    # m[j][i] = k+1  # Alternative way to fill
+                    trackback[i][j] = k
 
     printMatrix(m)
-    parenStr(m, n-1, 0)
-    return m[0][n-1]
+    print("Traceback")
+    printMatrix(trackback)
+    print(parenStr(trackback, 0, n-1))
+    # return m[0][n-1]
 
 
 def main():
     """Main Function to run the testing code"""
     dims = [30, 35, 15, 5, 10, 20, 25]
+    # dims = [30, 35, 15, 5]
     print("\n", chainMatrix(dims))
     # matrix = chainMatrix(dims)
-
 
 
 if __name__ == '__main__':

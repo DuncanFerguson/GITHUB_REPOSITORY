@@ -64,11 +64,12 @@ def MSSDAC(A, low=0, high=None):
     # TODO need to code in a way to pull out this date that has been added in
     print("Just Before Finish", maxLeft2Center[0]+maxRight2Center[0], maxLeft2Center[1], maxRight2Center[2])
 
+    maxCenter = maxLeft2Center[1], maxRight2Center[2]
     # TODO an attempt that doesn't work that great
-    # if maxRight[0] > maxLeft[0] and maxRight[0] > maxLeft2Center[0]+maxRight2Center[0]:
-    #     return maxRight[0], maxRight[1]
-    # elif maxLeft[0] > maxRight[0] and maxLeft[0] > maxLeft2Center[0]+maxRight2Center[0]:
-    #     return maxLeft[0], maxLeft[1]
+    if maxRight[0] > maxLeft[0] and maxRight[0] > maxCenter:
+        return maxRight[0], maxRight[1]
+    elif maxLeft[0] > maxRight[0] and maxLeft[0] > maxCenter:
+        return maxLeft[0], maxLeft[1]
     # else:
     #     return maxLeft2Center[0]+maxRight2Center[0], maxLeft2Center[1]+maxRight2Center[1]
 
@@ -97,7 +98,9 @@ def find_stock(file, symbol):
     stock = calcCanges(stock)
 
     # TODO get the start and end dates for these sales to come through
-    print(MSSDAC(stock))
+    # print(MSSDAC(stock))
+    maxProfit, maxLow, maxHigh = MSSDAC(stock)
+    print(symbol,"-->: ", maxProfit, " buy on day: ", maxLow, "sell on day: ", maxHigh)
 
 def main():
     """Running the main code"""
