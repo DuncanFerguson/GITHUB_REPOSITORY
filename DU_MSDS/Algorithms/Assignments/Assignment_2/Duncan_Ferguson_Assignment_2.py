@@ -12,14 +12,13 @@ import pandas as pd
 def MSSDAC(A, low=0, high=None):
     if high == None:  # Turning the high into the length of list
         high = len(A) - 1
-    # print(A)
-
-    # Divide
-    mid = (low+high)//2
 
     # Base Case If there is only one element
     if low == high:
         return 0, A[low], A[high]
+
+    # Divide
+    mid = (low+high)//2
 
     # Conquer
     maxLeft, maxLeftLow, maxLeftHigh = MSSDAC(A, low, mid)
@@ -63,7 +62,6 @@ def find_stock(file, symbol):
 
     # Still want two rows coming out though
     stock2 = calcCanges(stock)
-
     maxProfit, maxLow, maxHigh = MSSDAC(stock2)
 
     # Converting into dates
@@ -79,10 +77,10 @@ def main():
     # psa = pd.read_csv("prices-split-adjusted_short_shorts.csv")
     # https://www.roelpeters.be/solved-dtypewarning-columns-have-mixed-types-specify-dtype-option-on-import-or-set-low-memory-in-pandas/
     # psa = pd.read_csv("prices-split-adjusted_v2.csv")
-    tickers = psa['symbol'].unique()
+    # tickers = psa['symbol'].unique()
     # tickers = ["MMM", "ABT", "ATVI", "AAPL", "PCLN"]
     # tickers = ["MMM", "ABT", "ATVI", "AAPL"]
-    # tickers = ["AAPL"]
+    tickers = ["AAPL"]
     # tickers = ["WLTW"]
 
     bestProfit = 0
@@ -95,10 +93,7 @@ def main():
             bestBuyDate = buyDate
             bestSellDate = sellDate
 
-
     sfile = pd.read_csv("securities.csv")
-
-    # print(sfile.columns)
 
     add_info = sfile[sfile['Ticker symbol'] == bestName]
     print("Best stock to buy:", add_info["Security"].values[0], " on ", bestBuyDate, "\n and sell on ", bestSellDate,
