@@ -19,10 +19,10 @@ def MSSDAC(A, low=0, high=None):
         # return max(low, high, A[low])
         # TODO There was additional code ehre from the class example
         if A[low] > 0:
-            # print("LowLeft?", A[low], "Low Date:", low, "Date High", high)
+            print("LowLeft?", A[low], "Low Date:", low, "Date High", high)
             return A[low], 0, high
         else:
-            # print("HighRight?", A[high], "Low Dat:", low, "HIgh Date", high)
+            print("HighRight?", A[high], "Low Dat:", 0, "HIgh Date", high)
             return 0, 0, high
 
     # Divide
@@ -35,8 +35,15 @@ def MSSDAC(A, low=0, high=None):
     # Conquer
     maxLeft = MSSDAC(A, low, mid)
     maxRight = MSSDAC(A, mid+1, high)
+
+    # TODO This is where I could be passing through the lows and highs
     maxLeft = maxLeft[0]
+    # maxLeftLow = maxLeft[1]
+    # maxLeftHigh = maxLeft[2]
+
     maxRight = maxRight[0]
+    # maxRightLow = maxRight[1]
+    # maxRightHigh = maxRight[2]
 
 
     # Combine
@@ -61,36 +68,30 @@ def MSSDAC(A, low=0, high=None):
             maxRight2Center = right2Center
             maxCenterHigh = i
 
+    # PRINTS TO CHECK DATES
+    # print("Max Center", maxCenter)
+    # print("Max Center Low", maxCenterLow)
+    # print("Max Center High", maxCenterHigh)
+    #
+    # print("maxLeft", maxLeft)
+    # print("maxLeft Low", maxLeftLow)
+    # print("maxLeft High", maxLeftHigh)
+    #
+    # print("maxRight", maxRight)
+    # print("maxRightLow", maxRightLow)
+    # print("maxRightHigh", maxRightHigh)
+
     maxCenter = maxLeft2Center + maxRight2Center
-    print("Max Center", maxCenter)
-    print("Max Center Low", maxCenterLow)
-    print("Max Center High", maxCenterHigh)
-
-    print("maxLeft", maxLeft)
-    print("maxLeft Low", maxLeftLow)
-    print("maxLeft High", maxLeftHigh)
-
-    print("maxRight", maxRight)
-    print("maxRightLow", maxRightLow)
-    print("maxRightHigh", maxRightHigh)
 
     if maxLeft > maxRight and maxLeft > maxCenter:
-        print("Left Hit")
-    #     # TODO Get This return to rip
+        print("Left Hit", maxLeft, maxLeftLow, maxLeftHigh)
         return maxLeft, maxLeftLow, maxLeftHigh
-        # return maxLeft, maxLeftLow
     elif maxRight > maxLeft and maxRight > maxCenter:
-        print("Right Hit")
-        # TODO Get This return to rip
+        print("Right Hit", maxRight, maxRightLow, maxRightHigh)
         return maxRight, maxRightLow, maxRightHigh
-        # return maxRight, maxRightLow
     else:
-        # TODO Get This Return
-        print("Center Hit!")
+        print("Center Hit!", maxCenter, maxCenterLow, maxCenterHigh)
         return maxCenter, maxCenterLow, maxCenterHigh
-        # return maxCenter, maxCenterLow
-
-
 
 def calcCanges(prices):
     """This Function calculates the daily gains or losses.
