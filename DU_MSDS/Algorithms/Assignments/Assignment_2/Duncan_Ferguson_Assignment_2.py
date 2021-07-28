@@ -43,9 +43,9 @@ def MSSDAC(A, low=0, high=None):
     maxCenter = maxLeft2Center + maxRight2Center
 
     if maxLeft > maxRight and maxLeft > maxCenter:
-        return maxLeft, maxLeftLow, maxLeftHigh+1
+        return maxLeft, maxLeftLow, maxLeftHigh
     elif maxRight > maxLeft and maxRight > maxCenter:
-        return maxRight, maxRightLow, maxRightHigh+1
+        return maxRight, maxRightLow, maxRightHigh
     else:
         return maxCenter, maxCenterLow, maxCenterHigh
 
@@ -80,7 +80,7 @@ def main():
     # tickers = psa['symbol'].unique()
     # tickers = ["MMM", "ABT", "ATVI", "AAPL", "PCLN"]
     # tickers = ["MMM", "ABT", "ATVI", "AAPL"]
-    tickers = ["AAPL"]
+    tickers = ["MMM"]
     # tickers = ["WLTW"]
 
     bestProfit = 0
