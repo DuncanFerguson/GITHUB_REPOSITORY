@@ -106,8 +106,11 @@ def find_stock(file, symbol):
 def main():
     """Running the main code"""
     psa = pd.read_csv("prices-split-adjusted.csv")
-    find_stock(psa, 'AAPL')
+    psa = pd.read_csv("prices-split-adjusted_short_shorts.csv")
+    find_stock(psa, 'WLTW')
+    # find_stock(psa, 'AAPL')
     # find_stock(psa, 'PCLN')
+    tickers = ["WLTW"]
 
 
 if __name__ == '__main__':
