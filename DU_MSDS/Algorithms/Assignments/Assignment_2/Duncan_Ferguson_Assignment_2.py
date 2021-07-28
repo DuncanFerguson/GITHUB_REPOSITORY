@@ -74,14 +74,11 @@ def find_stock(file, symbol):
 def main():
     """Running the main code"""
     psa = pd.read_csv("prices-split-adjusted.csv")
-    # psa = pd.read_csv("prices-split-adjusted_short_shorts.csv")
-    # https://www.roelpeters.be/solved-dtypewarning-columns-have-mixed-types-specify-dtype-option-on-import-or-set-low-memory-in-pandas/
-    # psa = pd.read_csv("prices-split-adjusted_v2.csv")
     tickers = psa['symbol'].unique()
     # tickers = ["MMM", "ABT", "ATVI", "AAPL", "PCLN"]
     # tickers = ["MMM", "ABT", "ATVI", "AAPL"]
-    tickers = ["MMM"]
-    # tickers = ["ATVI"]
+    # tickers = ["ABT"]
+    # tickers = ["AAPL"]
 
     bestProfit = 0
 
