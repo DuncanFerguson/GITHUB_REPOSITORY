@@ -5,112 +5,139 @@
 # Date 8/6/2021
 
 # Use Divide Conquere
-# import math
 import pandas as pd
+# import numpy as np
 
 # Divide and Conquer Algorithm
 def MSSDAC(A, low=0, high=None):
-    """DAC: Stock Price"""
-    if high == None:
+    if high == None:  # Turning the high into the length of list
         high = len(A) - 1
+    # print(A)
 
-    # Base Case
-    # print(A[low][0], A[low][1])
-    if low == high:
-        if A[low][0] > 0:
-            return [A[low][0], "Start Date"]
-        else:
-            A[low][0] = 0
-            return A[low][0], A[low][1]
-            # return 0
     # Divide
     mid = (low+high)//2
-    # print(mid)
+
+    # Base Case If there is only one element
+    if low == high:
+        # return max(low, high, A[low])
+        # TODO There was additional code ehre from the class example
+        if A[low] > 0:
+            # print("LowLeft?", A[low], "Low Date:", 0, "Date High", high)
+            return A[low], mid, high
+        else:
+            # print("HighRight?", A[high], "Low Dat:", 0, "HIgh Date", high)
+            return 0, low, mid
+
+
 
     # Conquer
     maxLeft = MSSDAC(A, low, mid)
     maxRight = MSSDAC(A, mid+1, high)
 
-    # # Combine
-    # TODO max number coming out. Need to capture the date
-    maxLeft2Center = left2Center = [0, "Sell Date"]
-    for i in range(mid, low - 1, -1):
-        left2Center[0] += A[i][0]
-        left2Center[1] = A[i][1]
-        if left2Center[0] > maxLeft2Center[0]:
+    # TODO This is where I could be passing through the lows and highs
+    maxLeft = maxLeft[0]
+    # maxLeftLow = maxLeft[1]
+    # maxLeftHigh = maxLeft[2]
+
+    maxRight = maxRight[0]
+    # maxRightLow = maxRight[1]
+    # maxRightHigh = maxRight[2]
+
+    # Combine
+    maxLeft2Center = left2Center = 0
+    maxLeftLow = maxCenterLow = 0
+    maxLeftHigh = mid
+    for i in range(mid, low-1, -1):
+        # maxLeftLow = i
+        left2Center += A[i]
+        if left2Center > maxLeft2Center:
             maxLeft2Center = left2Center
-        else:
-            maxLeft2Center = maxLeft2Center
+            maxCenterLow = i
+            # maxLeftLow = i
 
-    maxRight2Center = right2Center = [0, "Sell Date"]
-    for i in range(mid, low - 1, -1):
-        right2Center[0] += A[i][0]
-        right2Center[1] = A[i][1]
-        if right2Center[0] > maxRight2Center[0]:
+
+    maxRight2Center = right2Center = 0
+    maxRightHigh = maxCenterHigh = mid
+    maxRightLow = mid
+    for i in range(mid+1, high+1):
+        maxRightHigh = i
+        right2Center += A[i]
+        if right2Center > maxRight2Center:
             maxRight2Center = right2Center
-        else:
-            maxRight2Center = maxRight2Center
+            maxCenterHigh = i
 
-    print("MaxLeft", maxLeft, "maxLeft2Center:", maxLeft2Center)
-    rmaxleft = maxLeft
-    rmaxright = maxRight
+    maxCenter = maxLeft2Center + maxRight2Center
 
-    # TODO Chase the dates in here
-    # TODO This is in the class notes
-    rmaxmid = [maxLeft2Center[0]+maxRight2Center[0], maxRight2Center[1]]
-    if rmaxleft[0] > rmaxright[0] and rmaxleft[0] > rmaxmid[0]:
-        return rmaxleft
-    elif rmaxright[0] > rmaxleft[0] and rmaxright[0] > rmaxmid[0]:
-        return rmaxright
+    if maxLeft > maxRight and maxLeft > maxCenter:
+        print("Left Hit", maxLeft, maxLeftLow, maxLeftHigh)
+        return maxLeft, maxLeftLow, maxLeftHigh
+    elif maxRight > maxLeft and maxRight > maxCenter:
+        # print("Right Hit", maxRight, maxRightLow, maxRightHigh)
+        return maxRight, maxRightLow, maxRightHigh
     else:
-        return rmaxmid
-    #
-    # print(rmaxleft, rmaxright, rmaxmid[0])
-
-
-    # if rmaxleft[0] > maxLeft2Center[0]:
-    #     if rmaxleft >
-    #     return rmaxleft
-    # else:
-    #     return maxLeft2Center
-    #
-    # print("MaxLeft", maxRight, "maxLeft2Center:", maxRight2Center)
-    #
-    # if rmaxright[0] > maxRight2Center[0]:
-    #     return rmaxright
-    # else:
-    #     return maxRight2Center
-
-    # return max(maxLeft, maxLeft2Center)
-    # return max(maxLeft, maxRight, maxLeft2Center + maxRight2Center)
-
-
+        # print("Center Hit!", maxCenter, maxCenterLow, maxCenterHigh)
+        return maxCenter, maxCenterLow, maxCenterHigh
 
 def calcCanges(prices):
-    changes = []
-    for row in range(len(prices)-1):
-        delta = round(prices[row + 1][0] - prices[row][0], 3)
-        changes.append([delta, prices[row][1]])  # TODO will want to check on this date
+    """This Function calculates the daily gains or losses.
+    It is also adding a day index."""
+    changes = [round(prices[row + 1][0] - prices[row][0], 3) for row in range(len(prices)-1)]
+    # changes = []
+    # for row in range(len(prices)-1):
+        # delta = round(prices[row + 1][0] - prices[row][0], 3)
+        # changes.append(delta)
     return changes
 
 
 def find_stock(file, symbol):
     stock = file[file['symbol'] == symbol]
-    # Could probably do this quicker taking only the index values,
     stock = stock.reset_index()[['close', 'date']].values.tolist()
-    stock = calcCanges(stock)
-    # print(stock)
-    print("Final Return", MSSDAC(stock))
+
+    # This is to pull down the sheet so that it can be looked at
+    # my_df = pd.DataFrame(stock)
+    # my_df.to_csv('AAPL.csv', index=False, header=False)  # For Saving the data an looking at
+
+    # Still want two rows coming out though
+    stock2 = calcCanges(stock)
+
+    maxProfit, maxLow, maxHigh = MSSDAC(stock2)
+    # Converting into dates
+    maxLow = stock[maxLow][1]
+    maxHigh = stock[maxHigh][1]
+
+    return maxProfit, maxLow, maxHigh
 
 
 def main():
     """Running the main code"""
-    psa = pd.read_csv("prices-split-adjusted.csv")
-    # print(psa.head())
-    # stock = psa['symbol'].unique()
-    find_stock(psa, 'AAPL')
+    # psa = pd.read_csv("prices-split-adjusted.csv")
+
+    psa = pd.read_csv("prices-split-adjusted_v2.csv")
+    # tickers = psa['symbol'].unique()
+    tickers = ["MMM", "ABT", "ATVI", "AAPL", "PCLN"]
+    # tickers = ["MMM", "ABT", "ATVI", "AAPL"]
+    # tickers = ["AAPL"]
+    # tickers = ["WLTW"]
+
+    bestProfit = 0
+
+    for ticker in tickers:
+        profit, buyDate, sellDate = find_stock(psa, ticker)
+        if profit > bestProfit:
+            bestName = ticker
+            bestProfit = profit
+            bestBuyDate = buyDate
+            bestSellDate = sellDate
+
+
+    sfile = pd.read_csv("securities.csv")
+
+    # print(sfile.columns)
+
+    add_info = sfile[sfile['Ticker symbol'] == bestName]
+    print("Best stock to buy:", add_info["Security"].values[0], " on ", bestBuyDate, "\n and sell on ", bestSellDate,
+          " with a profit of ", bestProfit)
 
 
 if __name__ == '__main__':
     main()
-
