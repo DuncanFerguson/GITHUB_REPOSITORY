@@ -44,9 +44,10 @@ def chainMatrix(dims):
                 if q < m[i][j]:
                     m[i][j] = q
                     # TODO This is placing k into the opposite index
-                    m[j][i] = k+1  # Alternative way to fill
-                    trackback[i][j] = k
+                    # m[j][i] = k+1  # Alternative way to fill
+                    trackback[i][j] = k  # Simple fill in of the traceback Matrix
 
+    # Printing off the matrix's
     print("Normal Matrix")
     printMatrix(m)
     print("\nTraceback Matrix")
