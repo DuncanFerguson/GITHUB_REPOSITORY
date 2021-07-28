@@ -13,7 +13,8 @@ def parenStr(m, i, j):
     if i == j:
         return "A"+str(j)
     else:
-        return "(" + parenStr(m, i, m[i][j]) + ")(" + parenStr(m, m[i][j]+1, j) + ")"
+        return "({})({})".format(parenStr(m, i, m[i][j]), parenStr(m, m[i][j]+1, j))
+        # return "(" + parenStr(m, i, m[i][j]) + ")(" + parenStr(m, m[i][j]+1, j) + ")"
 
 
 def printMatrix(m):
