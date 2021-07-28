@@ -89,17 +89,19 @@ def calcCanges(prices):
 def find_stock(file, symbol):
     stock = file[file['symbol'] == symbol]
     stock = stock.reset_index()[['close', 'date']].values.tolist()
+    # dates = stock.reset_index()[['close', 'date']].values.tolist()
 
     # This is to pull down the sheet so that it can be looked at
     # my_df = pd.DataFrame(stock)
     # my_df.to_csv('AAPL.csv', index=False, header=False)  # For Saving the data an looking at
 
     # Still want two rows coming out though
-    stock = calcCanges(stock)
+    stock2 = calcCanges(stock)
 
-    maxProfit, maxLow, maxHigh= MSSDAC(stock)
-    maxLow = file['date'][maxLow]
-    maxHigh =file['date'][maxHigh]
+    maxProfit, maxLow, maxHigh = MSSDAC(stock2)
+    # Converting into dates
+    maxLow = stock[maxLow][1]
+    maxHigh = stock[maxHigh][1]
 
     return maxProfit, maxLow, maxHigh
     # print(maxProfit, maxLow, maxHigh)
@@ -118,8 +120,11 @@ def main():
     """Running the main code"""
     psa = pd.read_csv("prices-split-adjusted.csv")
     # print(psa.columns)
-    tickers = psa['symbol'].unique()
+    # tickers = psa['symbol'].unique()
     # print(tickers)
+    # tickers = ["MMM", "ABT", "ATVI", "AAPL", "PCLN"]
+    # tickers = ["MMM", "ABT", "ATVI", "AAPL"]
+    tickers= ["AAPL"]
 
     bestProfit = 0
 
@@ -132,10 +137,6 @@ def main():
             bestBuyDate = buyDate
             bestSellDate = sellDate
 
-    # find_stock(psa, 'MMM')
-    # find_stock(psa, 'ABT')
-    # find_stock(psa, 'ATVI')
-    # find_stock(psa, "PCLN")
 
     sfile = pd.read_csv("securities.csv")
     # print(sfile.columns)
