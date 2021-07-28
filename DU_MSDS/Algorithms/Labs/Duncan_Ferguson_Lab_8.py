@@ -44,7 +44,7 @@ def chainMatrix(dims):
                 if q < m[i][j]:
                     m[i][j] = q
                     # TODO This is placing k into the opposite index
-                    # m[j][i] = k+1  # Alternative way to fill
+                    m[j][i] = k+1  # Alternative way to fill
                     trackback[i][j] = k
 
     print("Normal Matrix")
@@ -57,8 +57,8 @@ def chainMatrix(dims):
 
 def main():
     """Main Function to run the testing code"""
-    # dims = [30, 35, 15, 5, 10, 20, 25]
-    dims = [30, 35, 15, 5]
+    dims = [30, 35, 15, 5, 10, 20, 25]
+    # dims = [30, 35, 15, 5]
     print("\n", chainMatrix(dims))
     # matrix = chainMatrix(dims)
 
