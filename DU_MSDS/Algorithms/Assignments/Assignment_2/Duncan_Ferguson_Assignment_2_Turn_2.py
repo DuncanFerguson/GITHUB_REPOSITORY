@@ -89,7 +89,6 @@ def calcCanges(prices):
 def find_stock(file, symbol):
     stock = file[file['symbol'] == symbol]
     stock = stock.reset_index()[['close', 'date']].values.tolist()
-    # dates = stock.reset_index()[['close', 'date']].values.tolist()
 
     # This is to pull down the sheet so that it can be looked at
     # my_df = pd.DataFrame(stock)
@@ -104,32 +103,21 @@ def find_stock(file, symbol):
     maxHigh = stock[maxHigh][1]
 
     return maxProfit, maxLow, maxHigh
-    # print(maxProfit, maxLow, maxHigh)
-    #
-    # # maxProfit, maxLow, maxHigh = MSSDAC(stock)
-    # print(symbol, "-->: ", maxProfit, "\n", " buy on day: ", maxLow, file['date'][maxLow],"\n",
-    #                                 "sell on day: ", maxHigh, file['date'][maxHigh])
-    # # TODO Make The translations
-    # # print(file['date'][maxLow])
-    # sfile = pd.read_csv("securities.csv")
-    # print(sfile.columns)
-    # add_info = sfile[sfile['Ticker symbol'] == symbol]
-    # print(add_info)
+
 
 def main():
     """Running the main code"""
-    psa = pd.read_csv("prices-split-adjusted.csv")
-    # print(psa.columns)
+    # psa = pd.read_csv("prices-split-adjusted.csv")
+
+    psa = pd.read_csv("prices-split-adjusted_v2.csv")
     # tickers = psa['symbol'].unique()
-    # print(tickers)
     # tickers = ["MMM", "ABT", "ATVI", "AAPL", "PCLN"]
     # tickers = ["MMM", "ABT", "ATVI", "AAPL"]
-    tickers= ["AAPL"]
+    tickers = ["AAPL"]
 
     bestProfit = 0
 
     for ticker in tickers:
-        # print(ticker)
         profit, buyDate, sellDate = find_stock(psa, ticker)
         if profit > bestProfit:
             bestName = ticker
@@ -139,7 +127,9 @@ def main():
 
 
     sfile = pd.read_csv("securities.csv")
+
     # print(sfile.columns)
+
     add_info = sfile[sfile['Ticker symbol'] == bestName]
     print("Best stock to buy:", add_info["Security"].values[0], " on ", bestBuyDate, "\n and sell on ", bestSellDate,
           " with a profit of ", bestProfit)
