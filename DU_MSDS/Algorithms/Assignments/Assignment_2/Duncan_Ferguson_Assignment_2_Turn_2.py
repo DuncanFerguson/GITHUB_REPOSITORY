@@ -137,10 +137,11 @@ def main():
     # find_stock(psa, 'ATVI')
     # find_stock(psa, "PCLN")
 
-
-    print(bestName, "-->: ", bestProfit, "\n", " buy on day: ", bestBuyDate,"\n",
-                                    "sell on day: ", bestSellDate)
-
+    sfile = pd.read_csv("securities.csv")
+    # print(sfile.columns)
+    add_info = sfile[sfile['Ticker symbol'] == bestName]
+    print("Best stock to buy:", add_info["Security"].values[0], " on ", bestBuyDate, "\n and sell on ", bestSellDate,
+          " with a profit of ", bestProfit)
 
 
 if __name__ == '__main__':
