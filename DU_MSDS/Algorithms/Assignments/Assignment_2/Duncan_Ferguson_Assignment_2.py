@@ -22,11 +22,11 @@ def MSSDAC(A, low=0, high=None):
         # return max(low, high, A[low])
         # TODO There was additional code ehre from the class example
         if A[low] > 0:
-            # print("LowLeft?", A[low], "Low Date:", 0, "Date High", high)
-            return A[low], mid, high
+            # print("LowRight?", A[low], "Low Date:", 0, "Date High", high)
+            return A[low], 0, 0
         else:
             # print("HighRight?", A[high], "Low Dat:", 0, "HIgh Date", high)
-            return 0, low, mid
+            return 0, 0, 0
 
 
 
@@ -70,12 +70,13 @@ def MSSDAC(A, low=0, high=None):
 
     if maxLeft > maxRight and maxLeft > maxCenter:
         print("Left Hit", maxLeft, maxLeftLow, maxLeftHigh)
+        # TODO MaxLeftLow and MaxLeftHigh are not hitting
         return maxLeft, maxLeftLow, maxLeftHigh
     elif maxRight > maxLeft and maxRight > maxCenter:
-        # print("Right Hit", maxRight, maxRightLow, maxRightHigh)
+        print("Right Hit", maxRight, maxRightLow, maxRightHigh)
         return maxRight, maxRightLow, maxRightHigh
     else:
-        # print("Center Hit!", maxCenter, maxCenterLow, maxCenterHigh)
+        print("Center Hit!", maxCenter, maxCenterLow, maxCenterHigh)
         return maxCenter, maxCenterLow, maxCenterHigh
 
 def calcCanges(prices):
@@ -101,6 +102,7 @@ def find_stock(file, symbol):
     stock2 = calcCanges(stock)
 
     maxProfit, maxLow, maxHigh = MSSDAC(stock2)
+    print("Final Hit", maxProfit, maxLow, maxHigh)
     # Converting into dates
     maxLow = stock[maxLow][1]
     maxHigh = stock[maxHigh][1]
@@ -111,13 +113,16 @@ def find_stock(file, symbol):
 def main():
     """Running the main code"""
     # psa = pd.read_csv("prices-split-adjusted.csv")
-
-    psa = pd.read_csv("prices-split-adjusted_v2.csv")
+    psa = pd.read_csv("prices-split-adjusted_short_shorts.csv")
+    # https://www.roelpeters.be/solved-dtypewarning-columns-have-mixed-types-specify-dtype-option-on-import-or-set-low-memory-in-pandas/
+    # psa = pd.read_csv("prices-split-adjusted_v2.csv")
     # tickers = psa['symbol'].unique()
-    tickers = ["MMM", "ABT", "ATVI", "AAPL", "PCLN"]
+    # tickers = ["MMM", "ABT", "ATVI", "AAPL", "PCLN"]
     # tickers = ["MMM", "ABT", "ATVI", "AAPL"]
     # tickers = ["AAPL"]
-    # tickers = ["WLTW"]
+    tickers = ["WLTW"]
+
+
 
     bestProfit = 0
 
