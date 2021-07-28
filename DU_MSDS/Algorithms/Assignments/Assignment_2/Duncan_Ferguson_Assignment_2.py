@@ -80,7 +80,7 @@ def main():
     tickers = psa['symbol'].unique()
     # tickers = ["MMM", "ABT", "ATVI", "AAPL", "PCLN"]
     # tickers = ["MMM", "ABT", "ATVI", "AAPL"]
-    tickers = ["AAPL"]
+    tickers = ["MMM"]
     # tickers = ["ATVI"]
 
     bestProfit = 0
