@@ -10,9 +10,6 @@ import math
 
 def parenStr(m, i, j):
     """This will return a string representation of the matrices with parentheses"""
-    # TODO make this function recursive
-    # TODO make sure to get the chain matrix working better
-
     if i == j:
         return "A"+str(j)
     else:
@@ -49,17 +46,18 @@ def chainMatrix(dims):
                     # m[j][i] = k+1  # Alternative way to fill
                     trackback[i][j] = k
 
+    print("Normal Matrix")
     printMatrix(m)
-    print("Traceback")
+    print("\nTraceback Matrix")
     printMatrix(trackback)
-    print(parenStr(trackback, 0, n-1))
-    # return m[0][n-1]
+    print("\n", parenStr(trackback, 0, n-1))
+    return m[0][n-1]
 
 
 def main():
     """Main Function to run the testing code"""
-    dims = [30, 35, 15, 5, 10, 20, 25]
-    # dims = [30, 35, 15, 5]
+    # dims = [30, 35, 15, 5, 10, 20, 25]
+    dims = [30, 35, 15, 5]
     print("\n", chainMatrix(dims))
     # matrix = chainMatrix(dims)
 
