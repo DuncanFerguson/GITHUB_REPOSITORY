@@ -14,19 +14,21 @@ def MSSDAC(A, low=0, high=None):
         high = len(A) - 1
     # print(A)
 
+    # Divide
+    mid = (low+high)//2
+
     # Base Case If there is only one element
     if low == high:
         # return max(low, high, A[low])
         # TODO There was additional code ehre from the class example
         if A[low] > 0:
             # print("LowLeft?", A[low], "Low Date:", 0, "Date High", high)
-            return A[low], 0, high
+            return A[low], mid, high
         else:
             # print("HighRight?", A[high], "Low Dat:", 0, "HIgh Date", high)
-            return 0, 0, high
+            return 0, low, mid
 
-    # Divide
-    mid = (low+high)//2
+
 
     # Conquer
     maxLeft = MSSDAC(A, low, mid)
@@ -107,13 +109,13 @@ def find_stock(file, symbol):
 
 def main():
     """Running the main code"""
-    # psa = pd.read_csv("prices-split-adjusted.csv")
+    psa = pd.read_csv("prices-split-adjusted.csv")
 
-    psa = pd.read_csv("prices-split-adjusted_v2.csv")
-    # tickers = psa['symbol'].unique()
+    # psa = pd.read_csv("prices-split-adjusted_v2.csv")
+    tickers = psa['symbol'].unique()
     # tickers = ["MMM", "ABT", "ATVI", "AAPL", "PCLN"]
     # tickers = ["MMM", "ABT", "ATVI", "AAPL"]
-    tickers = ["AAPL"]
+    # tickers = ["AAPL"]
 
     bestProfit = 0
 
