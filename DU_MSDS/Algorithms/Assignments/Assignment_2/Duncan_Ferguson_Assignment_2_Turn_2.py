@@ -20,10 +20,10 @@ def MSSDAC(A, low=0, high=None):
         # TODO There was additional code ehre from the class example
         if A[low] > 0:
             # print("LowLeft?", A[low], "Low Date:", low, "Date High", high)
-            return A[low]
+            return A[low], 0, high
         else:
             # print("HighRight?", A[high], "Low Dat:", low, "HIgh Date", high)
-            return 0
+            return 0, 0, high
 
     # Divide
     mid = (low+high)//2
@@ -35,6 +35,9 @@ def MSSDAC(A, low=0, high=None):
     # Conquer
     maxLeft = MSSDAC(A, low, mid)
     maxRight = MSSDAC(A, mid+1, high)
+    maxLeft = maxLeft[0]
+    maxRight = maxRight[0]
+
 
     # Combine
     maxLeft2Center = left2Center = 0
@@ -74,18 +77,18 @@ def MSSDAC(A, low=0, high=None):
     if maxLeft > maxRight and maxLeft > maxCenter:
         print("Left Hit")
     #     # TODO Get This return to rip
-    #     return maxLeft, maxLeftLow, maxLeftHigh
-        return maxLeft
+        return maxLeft, maxLeftLow, maxLeftHigh
+        # return maxLeft, maxLeftLow
     elif maxRight > maxLeft and maxRight > maxCenter:
         print("Right Hit")
         # TODO Get This return to rip
-        # return maxRight, maxRightLow, maxRightHigh
-        return maxRight
+        return maxRight, maxRightLow, maxRightHigh
+        # return maxRight, maxRightLow
     else:
         # TODO Get This Return
-        # return maxCenter, maxCenterLow, maxCenterHigh
         print("Center Hit!")
-        return maxCenter
+        return maxCenter, maxCenterLow, maxCenterHigh
+        # return maxCenter, maxCenterLow
 
 
 
@@ -110,7 +113,8 @@ def find_stock(file, symbol):
     stock = calcCanges(stock)
 
     # TODO get the start and end dates for these sales to come through
-    print(MSSDAC(stock))
+    maxProfit, maxLow, maxHigh= MSSDAC(stock)
+    print(maxProfit, maxLow, maxHigh)
 
     # maxProfit, maxLow, maxHigh = MSSDAC(stock)
     # print(symbol,"-->: ", maxProfit, " buy on day: ", maxLow, "sell on day: ", maxHigh)
