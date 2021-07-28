@@ -48,11 +48,12 @@ def MSSDAC(A, low=0, high=None):
     maxLeftLow = maxCenterLow = 0
     maxLeftHigh = mid
     for i in range(mid, low-1, -1):
-        maxLeftLow = i
+        # maxLeftLow = i
         left2Center += A[i]
         if left2Center > maxLeft2Center:
             maxLeft2Center = left2Center
             maxCenterLow = i
+            # maxLeftLow = i
 
 
     maxRight2Center = right2Center = 0
@@ -68,7 +69,7 @@ def MSSDAC(A, low=0, high=None):
     maxCenter = maxLeft2Center + maxRight2Center
 
     if maxLeft > maxRight and maxLeft > maxCenter:
-        # print("Left Hit", maxLeft, maxLeftLow, maxLeftHigh)
+        print("Left Hit", maxLeft, maxLeftLow, maxLeftHigh)
         return maxLeft, maxLeftLow, maxLeftHigh
     elif maxRight > maxLeft and maxRight > maxCenter:
         # print("Right Hit", maxRight, maxRightLow, maxRightHigh)
@@ -109,13 +110,14 @@ def find_stock(file, symbol):
 
 def main():
     """Running the main code"""
-    psa = pd.read_csv("prices-split-adjusted.csv")
+    # psa = pd.read_csv("prices-split-adjusted.csv")
 
-    # psa = pd.read_csv("prices-split-adjusted_v2.csv")
-    tickers = psa['symbol'].unique()
-    # tickers = ["MMM", "ABT", "ATVI", "AAPL", "PCLN"]
+    psa = pd.read_csv("prices-split-adjusted_v2.csv")
+    # tickers = psa['symbol'].unique()
+    tickers = ["MMM", "ABT", "ATVI", "AAPL", "PCLN"]
     # tickers = ["MMM", "ABT", "ATVI", "AAPL"]
     # tickers = ["AAPL"]
+    # tickers = ["WLTW"]
 
     bestProfit = 0
 
