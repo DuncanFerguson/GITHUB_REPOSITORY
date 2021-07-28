@@ -19,18 +19,14 @@ def MSSDAC(A, low=0, high=None):
         # return max(low, high, A[low])
         # TODO There was additional code ehre from the class example
         if A[low] > 0:
-            print("LowLeft?", A[low], "Low Date:", low, "Date High", high)
+            # print("LowLeft?", A[low], "Low Date:", 0, "Date High", high)
             return A[low], 0, high
         else:
-            print("HighRight?", A[high], "Low Dat:", 0, "HIgh Date", high)
+            # print("HighRight?", A[high], "Low Dat:", 0, "HIgh Date", high)
             return 0, 0, high
 
     # Divide
     mid = (low+high)//2
-    # maxRightHigh = mid
-    # maxRightLow = high
-    # maxLeftLow = low
-    # maxLeftHigh = mid
 
     # Conquer
     maxLeft = MSSDAC(A, low, mid)
@@ -44,7 +40,6 @@ def MSSDAC(A, low=0, high=None):
     maxRight = maxRight[0]
     # maxRightLow = maxRight[1]
     # maxRightHigh = maxRight[2]
-
 
     # Combine
     maxLeft2Center = left2Center = 0
@@ -68,29 +63,16 @@ def MSSDAC(A, low=0, high=None):
             maxRight2Center = right2Center
             maxCenterHigh = i
 
-    # PRINTS TO CHECK DATES
-    # print("Max Center", maxCenter)
-    # print("Max Center Low", maxCenterLow)
-    # print("Max Center High", maxCenterHigh)
-    #
-    # print("maxLeft", maxLeft)
-    # print("maxLeft Low", maxLeftLow)
-    # print("maxLeft High", maxLeftHigh)
-    #
-    # print("maxRight", maxRight)
-    # print("maxRightLow", maxRightLow)
-    # print("maxRightHigh", maxRightHigh)
-
     maxCenter = maxLeft2Center + maxRight2Center
 
     if maxLeft > maxRight and maxLeft > maxCenter:
-        print("Left Hit", maxLeft, maxLeftLow, maxLeftHigh)
+        # print("Left Hit", maxLeft, maxLeftLow, maxLeftHigh)
         return maxLeft, maxLeftLow, maxLeftHigh
     elif maxRight > maxLeft and maxRight > maxCenter:
-        print("Right Hit", maxRight, maxRightLow, maxRightHigh)
+        # print("Right Hit", maxRight, maxRightLow, maxRightHigh)
         return maxRight, maxRightLow, maxRightHigh
     else:
-        print("Center Hit!", maxCenter, maxCenterLow, maxCenterHigh)
+        # print("Center Hit!", maxCenter, maxCenterLow, maxCenterHigh)
         return maxCenter, maxCenterLow, maxCenterHigh
 
 def calcCanges(prices):
@@ -107,23 +89,58 @@ def calcCanges(prices):
 def find_stock(file, symbol):
     stock = file[file['symbol'] == symbol]
     stock = stock.reset_index()[['close', 'date']].values.tolist()
-    my_df = pd.DataFrame(stock)
+
+    # This is to pull down the sheet so that it can be looked at
+    # my_df = pd.DataFrame(stock)
     # my_df.to_csv('AAPL.csv', index=False, header=False)  # For Saving the data an looking at
 
     # Still want two rows coming out though
     stock = calcCanges(stock)
 
-    # TODO get the start and end dates for these sales to come through
     maxProfit, maxLow, maxHigh= MSSDAC(stock)
-    print(maxProfit, maxLow, maxHigh)
+    maxLow = file['date'][maxLow]
+    maxHigh =file['date'][maxHigh]
 
-    # maxProfit, maxLow, maxHigh = MSSDAC(stock)
-    # print(symbol,"-->: ", maxProfit, " buy on day: ", maxLow, "sell on day: ", maxHigh)
+    return maxProfit, maxLow, maxHigh
+    # print(maxProfit, maxLow, maxHigh)
+    #
+    # # maxProfit, maxLow, maxHigh = MSSDAC(stock)
+    # print(symbol, "-->: ", maxProfit, "\n", " buy on day: ", maxLow, file['date'][maxLow],"\n",
+    #                                 "sell on day: ", maxHigh, file['date'][maxHigh])
+    # # TODO Make The translations
+    # # print(file['date'][maxLow])
+    # sfile = pd.read_csv("securities.csv")
+    # print(sfile.columns)
+    # add_info = sfile[sfile['Ticker symbol'] == symbol]
+    # print(add_info)
 
 def main():
     """Running the main code"""
     psa = pd.read_csv("prices-split-adjusted.csv")
-    find_stock(psa, 'AAPL')
+    # print(psa.columns)
+    tickers = psa['symbol'].unique()
+    # print(tickers)
+
+    bestProfit = 0
+
+    for ticker in tickers:
+        # print(ticker)
+        profit, buyDate, sellDate = find_stock(psa, ticker)
+        if profit > bestProfit:
+            bestName = ticker
+            bestProfit = profit
+            bestBuyDate = buyDate
+            bestSellDate = sellDate
+
+    # find_stock(psa, 'MMM')
+    # find_stock(psa, 'ABT')
+    # find_stock(psa, 'ATVI')
+    # find_stock(psa, "PCLN")
+
+
+    print(bestName, "-->: ", bestProfit, "\n", " buy on day: ", bestBuyDate,"\n",
+                                    "sell on day: ", bestSellDate)
+
 
 
 if __name__ == '__main__':
