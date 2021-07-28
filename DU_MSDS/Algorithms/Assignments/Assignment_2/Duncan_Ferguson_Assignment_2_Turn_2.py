@@ -38,16 +38,18 @@ def MSSDAC(A, low=0, high=None):
 
     # Combine
     maxLeft2Center = left2Center = 0
-    maxCenterLow = 0
+    maxLeftLow = maxCenterLow = 0
     for i in range(mid, low-1, -1):
+        maxLeftLow = i
         left2Center += A[i]
         if left2Center > maxLeft2Center:
             maxLeft2Center = left2Center
             maxCenterLow = i
 
     maxRight2Center = right2Center = 0
-    maxCenterHigh = mid
+    maxRightHigh = maxCenterHigh = mid
     for i in range(mid+1, high+1):
+        maxRightHigh = i
         right2Center += A[i]
         if right2Center > maxRight2Center:
             maxRight2Center = right2Center
@@ -55,16 +57,16 @@ def MSSDAC(A, low=0, high=None):
 
     maxCenter = maxLeft2Center + maxRight2Center
     print("Max Center", maxCenter)
-    # print("Max Center Low", maxCenterLow)
-    # print("Max Center High", maxCenterHigh)
+    print("Max Center Low", maxCenterLow)
+    print("Max Center High", maxCenterHigh)
 
     print("maxLeft", maxLeft)
-    # print("maxLeft Low", maxLeftLow)
+    print("maxLeft Low", maxLeftLow)
     # print("maxLeft High", maxLeftHigh)
 
     print("maxRight", maxRight)
     # print("maxRightLow", maxRightLow)
-    # print("maxRightHIgh", maxRightHigh)
+    print("maxRightHigh", maxRightHigh)
 
     if maxLeft > maxRight and maxLeft > maxCenter:
         print("Left Hit")
