@@ -48,13 +48,10 @@ def MSSDAC(A, low=0, high=None):
     maxLeftLow = maxCenterLow = 0
     maxLeftHigh = mid
     for i in range(mid, low-1, -1):
-        # maxLeftLow = i
         left2Center += A[i]
         if left2Center > maxLeft2Center:
             maxLeft2Center = left2Center
             maxCenterLow = i
-            # maxLeftLow += i
-
 
     maxRight2Center = right2Center = 0
     maxRightHigh = maxCenterHigh = mid
