@@ -43,11 +43,11 @@ def MSSDAC(A, low=0, high=None):
     maxCenter = maxLeft2Center + maxRight2Center
 
     if maxLeft > maxRight and maxLeft > maxCenter:
-        return maxLeft, maxLeftLow, maxLeftHigh
+        return maxLeft, maxLeftLow, maxLeftHigh+1
     elif maxRight > maxLeft and maxRight > maxCenter:
-        return maxRight, maxRightLow, maxRightHigh
+        return maxRight, maxRightLow, maxRightHigh+1
     else:
-        return maxCenter, maxCenterLow, maxCenterHigh
+        return maxCenter, maxCenterLow, maxCenterHigh+1
 
 def calcCanges(prices):
     """This Function calculates the daily gains or losses.
@@ -77,11 +77,11 @@ def main():
     # psa = pd.read_csv("prices-split-adjusted_short_shorts.csv")
     # https://www.roelpeters.be/solved-dtypewarning-columns-have-mixed-types-specify-dtype-option-on-import-or-set-low-memory-in-pandas/
     # psa = pd.read_csv("prices-split-adjusted_v2.csv")
-    # tickers = psa['symbol'].unique()
+    tickers = psa['symbol'].unique()
     # tickers = ["MMM", "ABT", "ATVI", "AAPL", "PCLN"]
     # tickers = ["MMM", "ABT", "ATVI", "AAPL"]
-    tickers = ["MMM"]
-    # tickers = ["WLTW"]
+    tickers = ["AAPL"]
+    # tickers = ["ATVI"]
 
     bestProfit = 0
 
