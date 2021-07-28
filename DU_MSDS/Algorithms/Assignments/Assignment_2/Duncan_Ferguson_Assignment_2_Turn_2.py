@@ -92,7 +92,7 @@ def find_stock(file, symbol):
     stock = file[file['symbol'] == symbol]
     stock = stock.reset_index()[['close', 'date']].values.tolist()
     my_df = pd.DataFrame(stock)
-    # my_df.to_csv('PCLN.csv', index=False, header=False)
+    # my_df.to_csv('AAPL.csv', index=False, header=False)  # For Saving the data an looking at
 
     # Still want two rows coming out though
     stock = calcCanges(stock)
@@ -107,7 +107,6 @@ def main():
     """Running the main code"""
     psa = pd.read_csv("prices-split-adjusted.csv")
     find_stock(psa, 'AAPL')
-    # find_stock(psa, 'PCLN')
 
 
 if __name__ == '__main__':
