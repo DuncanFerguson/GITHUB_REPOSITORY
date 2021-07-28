@@ -17,16 +17,20 @@ def MSSDAC(A, low=0, high=None):
     # Base Case If there is only one element
     if low == high:
         # return max(low, high, A[low])
-    # TODO There was additional code ehre from the class example
+        # TODO There was additional code ehre from the class example
         if A[low] > 0:
-            print("Low", A[low], "Date:", A[low])
+            # print("LowLeft?", A[low], "Low Date:", low, "Date High", high)
             return A[low]
         else:
-            print("High", A[high], "HIgh Date", A[high])
+            # print("HighRight?", A[high], "Low Dat:", low, "HIgh Date", high)
             return 0
 
     # Divide
     mid = (low+high)//2
+    # maxRightHigh = mid
+    # maxRightLow = high
+    # maxLeftLow = low
+    # maxLeftHigh = mid
 
     # Conquer
     maxLeft = MSSDAC(A, low, mid)
@@ -43,22 +47,41 @@ def MSSDAC(A, low=0, high=None):
 
     maxRight2Center = right2Center = 0
     maxCenterHigh = mid
-
     for i in range(mid+1, high+1):
         right2Center += A[i]
         if right2Center > maxRight2Center:
             maxRight2Center = right2Center
             maxCenterHigh = i
 
-    maxCenter = maxLeft2Center+maxRight2Center
-    print("Max Center",maxCenter)
-    print("Max Center Low", maxCenterLow)
-    print("Max Center High", maxCenterHigh)
+    maxCenter = maxLeft2Center + maxRight2Center
+    print("Max Center", maxCenter)
+    # print("Max Center Low", maxCenterLow)
+    # print("Max Center High", maxCenterHigh)
 
+    print("maxLeft", maxLeft)
+    # print("maxLeft Low", maxLeftLow)
+    # print("maxLeft High", maxLeftHigh)
 
+    print("maxRight", maxRight)
+    # print("maxRightLow", maxRightLow)
+    # print("maxRightHIgh", maxRightHigh)
 
+    if maxLeft > maxRight and maxLeft > maxCenter:
+        print("Left Hit")
+    #     # TODO Get This return to rip
+    #     return maxLeft, maxLeftLow, maxLeftHigh
+        return maxLeft
+    elif maxRight > maxLeft and maxRight > maxCenter:
+        print("Right Hit")
+        # TODO Get This return to rip
+        # return maxRight, maxRightLow, maxRightHigh
+        return maxRight
+    else:
+        # TODO Get This Return
+        # return maxCenter, maxCenterLow, maxCenterHigh
+        print("Center Hit!")
+        return maxCenter
 
-    return max(maxLeft, maxRight, maxLeft2Center+maxRight2Center)
 
 
 def calcCanges(prices):
