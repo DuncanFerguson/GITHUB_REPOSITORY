@@ -22,31 +22,28 @@ def MSSDAC(A, low=0, high=None):
         # return max(low, high, A[low])
         # TODO There was additional code ehre from the class example
         if A[low] > 0:
-            # print("LowRight?", A[low], "Low Date:", 0, "Date High", high)
+            print("LowRight?", A[low], "Low Date:", 0, "Date High", high)
             return A[low], 0, 0
         else:
-            # print("HighRight?", A[high], "Low Dat:", 0, "HIgh Date", high)
+            print("HighRight?", A[high], "Low Dat:", 0, "HIgh Date", high)
             return 0, 0, 0
 
-
-
     # Conquer
-    maxLeft = MSSDAC(A, low, mid)
-    maxRight = MSSDAC(A, mid+1, high)
+    maxLeft, maxLeftLow, maxLeftHigh = MSSDAC(A, low, mid)
+    maxRight, maxRightLow, maxRightHigh = MSSDAC(A, mid+1, high)
 
     # TODO This is where I could be passing through the lows and highs
-    maxLeft = maxLeft[0]
-    # maxLeftLow = maxLeft[1]
-    # maxLeftHigh = maxLeft[2]
-
-    maxRight = maxRight[0]
-    # maxRightLow = maxRight[1]
-    # maxRightHigh = maxRight[2]
+    # maxLeft = maxLeft[0]
+    # # maxLeftLow = low
+    # maxLeftHigh = mid
+    #
+    # maxRight = maxRight[0]
+    # maxRightLow = mid+1
+    # maxRightHigh = high+1
 
     # Combine
     maxLeft2Center = left2Center = 0
-    maxLeftLow = maxCenterLow = 0
-    maxLeftHigh = mid
+    maxCenterLow = 0
     for i in range(mid, low-1, -1):
         left2Center += A[i]
         if left2Center > maxLeft2Center:
@@ -54,16 +51,15 @@ def MSSDAC(A, low=0, high=None):
             maxCenterLow = i
 
     maxRight2Center = right2Center = 0
-    maxRightHigh = maxCenterHigh = mid
-    maxRightLow = mid
+    maxCenterHigh = mid
     for i in range(mid+1, high+1):
-        maxRightHigh = i
         right2Center += A[i]
         if right2Center > maxRight2Center:
             maxRight2Center = right2Center
             maxCenterHigh = i
 
     maxCenter = maxLeft2Center + maxRight2Center
+
 
     if maxLeft > maxRight and maxLeft > maxCenter:
         print("Left Hit", maxLeft, maxLeftLow, maxLeftHigh)
