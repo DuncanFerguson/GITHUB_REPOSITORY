@@ -95,15 +95,15 @@ def find_stock(file, symbol):
     stock = stock['close'].tolist()
     # print(stock)
     stock = calcCanges(stock)
-    print(stock)
-    # print(MSSDAC(stock, low=0, high=None))
+    # print(stock)
+    print(MSSDAC(stock, low=0, high=None))
 
 
 def main():
     """Running the main code"""
     psa = pd.read_csv("prices-split-adjusted.csv")
-    find_stock(psa, 'AAPL')
-
+    # find_stock(psa, 'AAPL')
+    find_stock(psa, 'ATVI')
 
 if __name__ == '__main__':
     main()

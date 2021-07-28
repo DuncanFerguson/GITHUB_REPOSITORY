@@ -51,11 +51,12 @@ def MSSDAC(A, low=0, high=None):
         else:
             maxRight2Center = maxRight2Center
 
-    # print("MaxLeft", maxLeft, "maxLeft2Center:", maxLeft2Center)
+    print("MaxLeft", maxLeft, "maxLeft2Center:", maxLeft2Center)
     rmaxleft = maxLeft
     rmaxright = maxRight
 
     # TODO Chase the dates in here
+    # TODO This is in the class notes
     rmaxmid = [maxLeft2Center[0]+maxRight2Center[0], maxRight2Center[1]]
     if rmaxleft[0] > rmaxright[0] and rmaxleft[0] > rmaxmid[0]:
         return rmaxleft
