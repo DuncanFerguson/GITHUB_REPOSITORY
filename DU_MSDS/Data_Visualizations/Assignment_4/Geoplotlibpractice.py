@@ -1,12 +1,13 @@
-import json
-with open('states_geo.json') as json_data:
- print(type(json_data)) # _io.TextIOWrapper
- d=json.load(json_data)
- print(type(d)) # dictionary
- print(d['type'])
- print(d['features'][0]['geometry']['coordinates'][0][0:10])
-with open('world.geojson') as json_data2:
- d2=json.load(json_data2)
- print(d2['type'])
- print(d2['features'][0]['geometry']['coordinates'][0][0:10])
- print(d2['features'][1]['geometry']['coordinates'][0][0:2][0:10])
+import
+
+df_states= gpd.read_file('states_geo.json')
+np.random.seed(51)
+randy=pd.Series(np.random.rand(50))
+df_states['randy']=randy
+print(df_states.head(50))
+geoplot.choropleth(
+ df_states, hue=df_states['randy'],
+ cmap='viridis', figsize=(15, 8))
+plt.tight_layout()
+plt.show()
+
