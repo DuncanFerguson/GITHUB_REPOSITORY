@@ -39,5 +39,5 @@ print(df['icpsr'])
 # plt.show()
 
 # Displaying a map
-map = folium.Map()
-map.show()
+# map = folium.Map()
+# map.show()
