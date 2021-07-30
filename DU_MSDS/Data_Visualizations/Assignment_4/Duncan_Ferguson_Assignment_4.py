@@ -13,15 +13,16 @@ the columns containing dates such that the resulting visualizations (48 states o
 the story by conveying through color, texture, or both the time lines of achievement of
 each milestone/column in the provided dataset.
 
-Missing data are of particular interest in
+Missing geoJSON_df are of particular interest in
 that when a state has never achieved a given milestone, that should be indicated in a
 standout manner such as cross-hatching.
 
 Consider that the publication may be
 grayscale. Provide a solution for that as well. Provide the titles, labels, and legends
 necessary for clarification. File support is given as follows: SturmCodebook has the
-explanation. SturmData is the data CSV."""
+explanation. SturmData is the geoJSON_df CSV."""
 
+import pandas as pd
 import json
 import geoplotlib
 from geoplotlib.colors import ColorMap
@@ -31,23 +32,34 @@ from geoplotlib.utils import BoundingBox
 file = 'states_geo.json'
 
 # displaying one of the entries for the states
-with open(file) as data:
-    dataset = json.load(data)
+with open(file) as geoJSON_df:
+    dataset = json.load(geoJSON_df)
     first_state = dataset.get('features')[0]
     # only showing one coordinate instead of all points
     first_state['geometry']['coordinates'] = first_state['geometry']['coordinates'][0][0]
     print(json.dumps(first_state, indent=4))
 
 # listing the states in the dataset
-with open(file) as data:
-    dataset = json.load(data)
+with open(file) as geoJSON_df:
+    dataset = json.load(geoJSON_df)
     states = [feature['id'] for feature in dataset.get('features')]
     print(states)
 
+# Importing the sample geoJSON_df
+df = pd.read_csv('StrumData.csv')
+
+# Grabbing States and wills column
+df = df[["state", "wills"]]
+df.head()
+
+# We check how many rows we have and the types of our geoJSON_df
+df.info()
+
+# Checking Number of states
+print("Number of states", len(states))
+
 
 # plotting the information from the geojson file
-# geoplotlib.geojson(file)
-# geoplotlib.show()
-
-
+geoplotlib.geojson(file)
+geoplotlib.show()
 
