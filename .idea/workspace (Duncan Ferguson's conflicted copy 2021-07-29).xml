@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="99944316-a658-4569-9b05-cb648e354cea" name="Default Changelist" comment="Assignment 2: Let this one rip" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="main" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/DU_MSDS/Data_Visualizations/Assignment_3/Duncan_Ferguson_Assignment_3_Part_2.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DU_MSDS/Data_Visualizations/Assignment_3/Duncan_Ferguson_Assignment_3_Part_1.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DU_MSDS/Data_Visualizations/Assignment_3/Duncan_Ferguson_Assignment_3_Part_4.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DU_MSDS/Data_Visualizations/Assignment_3/Duncan_Ferguson_Assignment_3_Part_3.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="JupyterTrust" id="dcfd4016-0ef7-463e-a86f-a68eb7a1d4a4" />
+  <component name="ProjectId" id="1uKBVC8E4PR8VdxkIcllctxxcAu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/DU_MSDS/Algorithms/Assignments/Assignment_2" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\dunca\Dropbox (Personal)\Duncan\GITHUB_REPOSITORY\DU_MSDS\Algorithms\Assignments\Assignment_2" />
+      <recent name="C:\Users\dunca\Dropbox (Personal)\Duncan\GITHUB_REPOSITORY\DU_MSDS\Algorithms" />
+      <recent name="C:\Users\dunca\Dropbox (Personal)\Duncan\GITHUB_REPOSITORY\DU_MSDS\Data_Visualizations\Assignment_2" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\dunca\Dropbox (Personal)\Duncan\GITHUB_REPOSITORY\DU_MSDS\Algorithms\Assignments" />
+      <recent name="C:\Users\dunca\AppData\Roaming\JetBrains\PyCharm2021.1\scratches" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.Duncan_Ferguson_Assignment_2">
+    <configuration name="Duncan_Ferguson_Assignment_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GITHUB_REPOSITORY" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DU_MSDS/Algorithms/Assignments/Assignment_2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DU_MSDS/Algorithms/Assignments/Assignment_2/Duncan_Ferguson_Assignment_2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="true" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Duncan_Ferguson_Assignment_2_Turn" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GITHUB_REPOSITORY" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DU_MSDS/Algorithms/Assignments/Assignment_2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DU_MSDS/Algorithms/Assignments/Assignment_2/Duncan_Ferguson_Assignment_2_Turn.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Duncan_Ferguson_Assignment_2_Turn_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GITHUB_REPOSITORY" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DU_MSDS/Algorithms/Assignments/Assignment_2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DU_MSDS/Algorithms/Assignments/Assignment_2/Duncan_Ferguson_Assignment_2_Turn_2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="true" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Duncan_Ferguson_Lab_8" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GITHUB_REPOSITORY" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DU_MSDS/Algorithms/Labs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DU_MSDS/Algorithms/Labs/Duncan_Ferguson_Lab_8.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="true" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Scratch_testing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GITHUB_REPOSITORY" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DU_MSDS/Algorithms/Assignments/Assignment_2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DU_MSDS/Algorithms/Assignments/Assignment_2/Scratch_testing.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="GITHUB_REPOSITORY" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.Duncan_Ferguson_Lab_8" />
+      <item itemvalue="Python.Duncan_Ferguson_Assignment_2" />
+      <item itemvalue="Python.Duncan_Ferguson_Assignment_2_Turn" />
+      <item itemvalue="Python.Duncan_Ferguson_Assignment_2_Turn_2" />
+      <item itemvalue="Python.Scratch_testing" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Duncan_Ferguson_Assignment_2" />
+        <item itemvalue="Python.Scratch_testing" />
+        <item itemvalue="Python.Duncan_Ferguson_Assignment_2_Turn" />
+        <item itemvalue="Python.Duncan_Ferguson_Assignment_2_Turn_2" />
+        <item itemvalue="Python.Duncan_Ferguson_Lab_8" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="99944316-a658-4569-9b05-cb648e354cea" name="Default Changelist" comment="" />
+      <created>1624404423186</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1624404423186</updated>
+      <workItem from="1624404424723" duration="19957000" />
+      <workItem from="1624488266593" duration="1797000" />
+      <workItem from="1624500299763" duration="1284000" />
+      <workItem from="1624556354785" duration="8605000" />
+      <workItem from="1624641130537" duration="9604000" />
+      <workItem from="1624840036756" duration="404000" />
+      <workItem from="1624840705465" duration="27436000" />
+      <workItem from="1625008478384" duration="5397000" />
+      <workItem from="1625077478854" duration="9379000" />
+      <workItem from="1625156787251" duration="32221000" />
+      <workItem from="1625191503881" duration="2535000" />
+      <workItem from="1625321449920" duration="16016000" />
+      <workItem from="1625579807963" duration="34689000" />
+      <workItem from="1625758107788" duration="9512000" />
+      <workItem from="1625785230099" duration="58891000" />
+      <workItem from="1626111602967" duration="29687000" />
+      <workItem from="1626141849160" duration="14519000" />
+      <workItem from="1626200347876" duration="9292000" />
+      <workItem from="1626221575267" duration="382000" />
+      <workItem from="1626222420728" duration="9037000" />
+      <workItem from="1626306044447" duration="829000" />
+      <workItem from="1626363161656" duration="790000" />
+      <workItem from="1626393771649" duration="10026000" />
+      <workItem from="1626414325100" duration="3186000" />
+      <workItem from="1626445065730" duration="8315000" />
+      <workItem from="1626482131262" duration="389000" />
+      <workItem from="1626486998608" duration="396000" />
+      <workItem from="1626637200318" duration="41000" />
+      <workItem from="1626637443798" duration="14055000" />
+      <workItem from="1626749129518" duration="748000" />
+      <workItem from="1626750504510" duration="2485000" />
+      <workItem from="1626856536544" duration="72033000" />
+      <workItem from="1627055076019" duration="85428000" />
+    </task>
+    <task id="LOCAL-00178" summary="Getting the wrong amount">
+      <created>1627080123573</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1627080123573</updated>
+    </task>
+    <task id="LOCAL-00179" summary="Getting the wrong amount">
+      <created>1627080929144</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1627080929144</updated>
+    </task>
+    <task id="LOCAL-00180" summary="Right answer">
+      <created>1627150034975</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1627150034975</updated>
+    </task>
+    <task id="LOCAL-00181" summary="Right answer">
+      <created>1627151232020</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1627151232020</updated>
+    </task>
+    <task id="LOCAL-00182" summary="Lab 7: Final">
+      <created>1627314957326</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1627314957326</updated>
+    </task>
+    <task id="LOCAL-00183" summary="Lab 7: Final">
+      <created>1627315082773</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1627315082773</updated>
+    </task>
+    <task id="LOCAL-00184" summary="Assignment 2: Monday Restart">
+      <created>1627335489428</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1627335489428</updated>
+    </task>
+    <task id="LOCAL-00185" summary="Assignment 2: Monday Restart">
+      <created>1627342035009</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1627342035009</updated>
+    </task>
+    <task id="LOCAL-00186" summary="Assignment 2: It is indexing the right profitablility market.&#10;Now to add in the day">
+      <created>1627343733704</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1627343733704</updated>
+    </task>
+    <task id="LOCAL-00187" summary="Assignment 2: Capturing the right days within the for loops. Now need to extract those">
+      <created>1627346474327</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1627346474327</updated>
+    </task>
+    <task id="LOCAL-00188" summary="Assignment 2: Capturing the right days within the for loops. Now need to extract those.&#10;&#10;Extract the dates better">
+      <created>1627347089105</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1627347089105</updated>
+    </task>
+    <task id="LOCAL-00189" summary="Assignment 2: Capturing the right days within the for loops. Now need to extract those.&#10;&#10;Extract the dates better">
+      <created>1627349376198</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1627349376198</updated>
+    </task>
+    <task id="LOCAL-00190" summary="Assignment 2: Will want to look into returning the date. Right now it is seemingly to turn out the right date. But the dates on the left2Center have no max. Might want to look into this">
+      <created>1627349674938</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1627349674938</updated>
+    </task>
+    <task id="LOCAL-00191" summary="Tuesday Start">
+      <created>1627405415491</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1627405415492</updated>
+    </task>
+    <task id="LOCAL-00192" summary="Lab Change ups. Printing out what looks like a good matrix, will have to start ripping through the traceback list">
+      <created>1627418034249</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1627418034249</updated>
+    </task>
+    <task id="LOCAL-00193" summary="Lab Change ups. Printing out what looks like a good matrix, will have to start ripping through the traceback list">
+      <created>1627418227092</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1627418227092</updated>
+    </task>
+    <task id="LOCAL-00194" summary="Lab Change ups. Printing out what looks like a good matrix, will have to start ripping through the traceback list">
+      <created>1627420454254</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
+      <option name="project" value="LOCAL" />
+      <updated>1627420454254</updated>
+    </task>
+    <task id="LOCAL-00195" summary="Lab 8 getting closer, but there is something off with the answer">
+      <created>1627420633586</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1627420633586</updated>
+    </task>
+    <task id="LOCAL-00196" summary="Preclass scramble">
+      <created>1627437417531</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1627437417531</updated>
+    </task>
+    <task id="LOCAL-00197" summary="lab 7 solved">
+      <created>1627445412998</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1627445412998</updated>
+    </task>
+    <task id="LOCAL-00198" summary="Lab 8 finished: Could try some tweaks to make it slow a bit better">
+      <created>1627445769816</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1627445769816</updated>
+    </task>
+    <task id="LOCAL-00199" summary="Lab 8 finished: Could try some tweaks to make it slow a bit better. Looking at a nicer set of f strings">
+      <created>1627445913584</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1627445913584</updated>
+    </task>
+    <task id="LOCAL-00200" summary="Lab 8 finished: Maybe lay out the printing a bit differently">
+      <created>1627446386796</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1627446386796</updated>
+    </task>
+    <task id="LOCAL-00201" summary="Lab 8 finished: Maybe lay out the printing a bit differently">
+      <created>1627446556790</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1627446556790</updated>
+    </task>
+    <task id="LOCAL-00202" summary="Assignment 2: Tuesday Night Disco. Rewrite">
+      <created>1627447263426</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1627447263426</updated>
+    </task>
+    <task id="LOCAL-00203" summary="Assignment 2: Getting super close. Just need to return the values">
+      <created>1627448613565</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1627448613565</updated>
+    </task>
+    <task id="LOCAL-00204" summary="Assignment 2: Getting super close. Just need to return the values">
+      <created>1627451759267</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1627451759267</updated>
+    </task>
+    <task id="LOCAL-00205" summary="Assignment 2: Getting super close. Just need to return the values">
+      <created>1627452164843</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1627452164843</updated>
+    </task>
+    <task id="LOCAL-00206" summary="Assignment 2: Looking promissing. ONce again. Just need to get it to return the values">
+      <created>1627452601298</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1627452601298</updated>
+    </task>
+    <task id="LOCAL-00207" summary="Assignment 2: Got it coming out. But will want to check on certain values, Most likely the high and lows of the maxLeftLow, MaxRightHigh etc">
+      <created>1627453064481</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1627453064481</updated>
+    </task>
+    <task id="LOCAL-00208" summary="Assignment 2: Got it coming out. But will want to check on certain values, Most likely the high and lows of the maxLeftLow, MaxRightHigh etc">
+      <created>1627453603096</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1627453603096</updated>
+    </task>
+    <task id="LOCAL-00209" summary="Assignment 2: Got it coming out. But will want to check on certain values, Most likely the high and lows of the maxLeftLow, MaxRightHigh etc">
+      <created>1627455992596</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1627455992596</updated>
+    </task>
+    <task id="LOCAL-00210" summary="Assignment 2: Got it coming out. But will want to check on certain values, Most likely the high and lows of the maxLeftLow, MaxRightHigh etc&#10;&#10;The Correct Answer is coming out">
+      <created>1627456557635</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1627456557635</updated>
+    </task>
+    <task id="LOCAL-00211" summary="Assignment 2: The Correct Answer is coming out&#10;&#10;Will want to check the divide an conquere high low dates if one of those is the winner">
+      <created>1627458030545</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
+      <option name="project" value="LOCAL" />
+      <updated>1627458030545</updated>
+    </task>
+    <task id="LOCAL-00212" summary="Assignment 2: The Correct Answer is coming out&#10;&#10;Will want to check the divide an conquere high low dates if one of those is the winner">
+      <created>1627458676244</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
+      <option name="project" value="LOCAL" />
+      <updated>1627458676244</updated>
+    </task>
+    <task id="LOCAL-00213" summary="Assignment 2: The Correct Answer is coming out&#10;&#10;Will want to check the divide an conquere high low dates if one of those is the winner">
+      <created>1627459337878</created>
+      <option name="number" value="00213" />
+      <option name="presentableId" value="LOCAL-00213" />
+      <option name="project" value="LOCAL" />
+      <updated>1627459337878</updated>
+    </task>
+    <task id="LOCAL-00214" summary="Assignment 2: The Correct Answer is coming out&#10;&#10;Will want to check the divide an conquere high low dates if one of those is the winner">
+      <created>1627460316492</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1627460316492</updated>
+    </task>
+    <task id="LOCAL-00215" summary="Assignment 2: Changed 2_Turn_2 into the main assignment">
+      <created>1627490767945</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1627490767945</updated>
+    </task>
+    <task id="LOCAL-00216" summary="Assignment 2: Changed 2_Turn_2 into the main assignment">
+      <created>1627493384227</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1627493384227</updated>
+    </task>
+    <task id="LOCAL-00217" summary="Assignment 2: Still need to work on the sell date. Buy Date is correct for the left side">
+      <created>1627494421892</created>
+      <option name="number" value="00217" />
+      <option name="presentableId" value="LOCAL-00217" />
+      <option name="project" value="LOCAL" />
+      <updated>1627494421893</updated>
+    </task>
+    <task id="LOCAL-00218" summary="Assignment 2: Still need to work on the sell date. Buy Date is correct for the left side&#10;working on the high now">
+      <created>1627494821792</created>
+      <option name="number" value="00218" />
+      <option name="presentableId" value="LOCAL-00218" />
+      <option name="project" value="LOCAL" />
+      <updated>1627494821792</updated>
+    </task>
+    <task id="LOCAL-00219" summary="Assignment 2: Working on the base case returns">
+      <created>1627497530132</created>
+      <option name="number" value="00219" />
+      <option name="presentableId" value="LOCAL-00219" />
+      <option name="project" value="LOCAL" />
+      <updated>1627497530132</updated>
+    </task>
+    <task id="LOCAL-00220" summary="Assignment 2: I think i have it">
+      <created>1627504848319</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1627504848319</updated>
+    </task>
+    <task id="LOCAL-00221" summary="Assignment 2: I think i have it">
+      <created>1627505012199</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1627505012199</updated>
+    </task>
+    <task id="LOCAL-00222" summary="Assignment 2: might want to mess with the sell date">
+      <created>1627505550255</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1627505550255</updated>
+    </task>
+    <task id="LOCAL-00223" summary="Assignment 2: might want to mess with the sell date">
+      <created>1627505580906</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1627505580906</updated>
+    </task>
+    <task id="LOCAL-00224" summary="Assignment 2: Pretty Sure this is right!">
+      <created>1627507701005</created>
+      <option name="number" value="00224" />
+      <option name="presentableId" value="LOCAL-00224" />
+      <option name="project" value="LOCAL" />
+      <updated>1627507701005</updated>
+    </task>
+    <task id="LOCAL-00225" summary="Assignment 2: Pretty Sure this is right!">
+      <created>1627507787035</created>
+      <option name="number" value="00225" />
+      <option name="presentableId" value="LOCAL-00225" />
+      <option name="project" value="LOCAL" />
+      <updated>1627507787035</updated>
+    </task>
+    <task id="LOCAL-00226" summary="Assignment 2: Let this one rip">
+      <created>1627512908088</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
+      <option name="project" value="LOCAL" />
+      <updated>1627512908088</updated>
+    </task>
+    <option name="localTasksCounter" value="227" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/GITHUB_REPOSITORY" />
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="Assignment 2: Capturing the right days within the for loops. Now need to extract those" />
+    <MESSAGE value="Assignment 2: Capturing the right days within the for loops. Now need to extract those.&#10;&#10;Extract the dates better" />
+    <MESSAGE value="Assignment 2: Will want to look into returning the date. Right now it is seemingly to turn out the right date. But the dates on the left2Center have no max. Might want to look into this" />
+    <MESSAGE value="Tuesday Start" />
+    <MESSAGE value="Lab Change ups. Printing out what looks like a good matrix, will have to start ripping through the traceback list" />
+    <MESSAGE value="Lab 8 getting closer, but there is something off with the answer" />
+    <MESSAGE value="Preclass scramble" />
+    <MESSAGE value="lab 7 solved" />
+    <MESSAGE value="Lab 8 finished: Could try some tweaks to make it slow a bit better" />
+    <MESSAGE value="Lab 8 finished: Could try some tweaks to make it slow a bit better. Looking at a nicer set of f strings" />
+    <MESSAGE value="Lab 8 finished: Maybe lay out the printing a bit differently" />
+    <MESSAGE value="Assignment 2: Tuesday Night Disco. Rewrite" />
+    <MESSAGE value="Assignment 2: Getting super close. Just need to return the values" />
+    <MESSAGE value="Assignment 2: Looking promissing. ONce again. Just need to get it to return the values" />
+    <MESSAGE value="Assignment 2: Got it coming out. But will want to check on certain values, Most likely the high and lows of the maxLeftLow, MaxRightHigh etc" />
+    <MESSAGE value="Assignment 2: Got it coming out. But will want to check on certain values, Most likely the high and lows of the maxLeftLow, MaxRightHigh etc&#10;&#10;The Correct Answer is coming out" />
+    <MESSAGE value="Assignment 2: The Correct Answer is coming out&#10;&#10;Will want to check the divide an conquere high low dates if one of those is the winner" />
+    <MESSAGE value="Assignment 2: Changed 2_Turn_2 into the main assignment" />
+    <MESSAGE value="Assignment 2: Still need to work on the sell date. Buy Date is correct for the left side" />
+    <MESSAGE value="Assignment 2: Still need to work on the sell date. Buy Date is correct for the left side&#10;working on the high now" />
+    <MESSAGE value="Assignment 2: Working on the base case returns" />
+    <MESSAGE value="Assignment 2: I think i have it" />
+    <MESSAGE value="Assignment 2: might want to mess with the sell date" />
+    <MESSAGE value="Assignment 2: Pretty Sure this is right!" />
+    <MESSAGE value="Assignment 2: Let this one rip" />
+    <option name="LAST_COMMIT_MESSAGE" value="Assignment 2: Let this one rip" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/GITHUB_REPOSITORY$Duncan_Ferguson_Lab_3.coverage" NAME="Duncan_Ferguson_Lab_3 Coverage Results" MODIFIED="1624916260517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DU_MSDS/Algorithms/Labs" />
+    <SUITE FILE_PATH="coverage/GITHUB_REPOSITORY$Duncan_Ferguson_Assignment_3_Part_3.coverage" NAME="Duncan_Ferguson_Assignment_3_Part_3 Coverage Results" MODIFIED="1626815689536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DU_MSDS/Data_Visualizations/Assignment_3" />
+    <SUITE FILE_PATH="coverage/GITHUB_REPOSITORY$Duncan_Ferguson_Assignment_3_Part_1.coverage" NAME="Duncan_Ferguson_Assignment_3_Part_1 Coverage Results" MODIFIED="1626814577423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DU_MSDS/Data_Visualizations/Assignment_3" />
+    <SUITE FILE_PATH="coverage/GITHUB_REPOSITORY$Lab_7_Friday_Shake.coverage" NAME="Lab_7_Friday_Shake Coverage Results" MODIFIED="1627149782289" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DU_MSDS/Algorithms/Labs" />
+    <SUITE FILE_PATH="coverage/GITHUB_REPOSITORY$Assignment_1.coverage" NAME="Assignment_1 Coverage Results" MODIFIED="1624414858302" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DU_MSDS/Data_Visualizations/Assignment_1" />
+    <SUITE FILE_PATH="coverage/GITHUB_REPOSITORY$Duncan_Ferguson_Assignment_4.coverage" NAME="Duncan_Ferguson_Assignment_4 Coverage Results" MODIFIED="1626831625438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DU_MSDS/Data_Visualizations/Assignment_4" />
+    <SUITE FILE_PATH="coverage/GITHUB_REPOSITORY$Duncan_Ferguson_Assignment_3_Part_4.coverage" NAME="Duncan_Ferguson_Assignment_3_Part_4 Coverage Results" MODIFIED="1626818058639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DU_MSDS/Data_Visualizations/Assignment_3" />
+    <SUITE FILE_PATH="coverage/GITHUB_REPOSITORY$Class_07152021.coverage" NAME="Class_07152021 Coverage Results" MODIFIED="1626401546864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DU_MSDS/Data_Visualizations/Class_Scratch" />
+    <SUITE FILE_PATH="coverage/GITHUB_REPOSITORY$Assignment_1_Part_3.coverage" NAME="Assignment_1_Part_3 Coverage Results" MODIFIED="1624426373666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DU_MSDS/Data_Visualizations/Assignment_1" />
+    <SUITE FILE_PATH="coverage/GITHUB_REPOSITORY$Duncan_Ferguson_Lab_7_Coins.coverage" NAME="Duncan_Ferguson_Lab_7_Coins Coverage Results" MODIFIED="1627314882913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DU_MSDS/Algorithms/Labs" />
+    <SUITE FILE_PATH="coverage/GITHUB_REPOSITORY$Duncan_Ferguson_Assignment_2.coverage" NAME="Duncan_Ferguson_Assignment_2 Coverage Results" MODIFIED="1627512677821" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DU_MSDS/Algorithms/Assignments/Assignment_2" />
+    <SUITE FILE_PATH="coverage/GITHUB_REPOSITORY$Duncan_Ferguson_Assignment_3_Part_2.coverage" NAME="Duncan_Ferguson_Assignment_3_Part_2 Coverage Results" MODIFIED="1626815392877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DU_MSDS/Data_Visualizations/Assignment_3" />
+    <SUITE FILE_PATH="coverage/GITHUB_REPOSITORY$Duncan_Ferguson_Lab_8.coverage" NAME="Duncan_Ferguson_Lab_8 Coverage Results" MODIFIED="1627446519364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DU_MSDS/Algorithms/Labs" />
+    <SUITE FILE_PATH="coverage/GITHUB_REPOSITORY$Duncan_Ferguson_Assignment_2_Turn.coverage" NAME="Duncan_Ferguson_Assignment_2_Turn Coverage Results" MODIFIED="1627452257507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DU_MSDS/Algorithms/Assignments/Assignment_2" />
+    <SUITE FILE_PATH="coverage/GITHUB_REPOSITORY$Duncan_Ferguson_Assignment_2_Turn_2.coverage" NAME="Duncan_Ferguson_Assignment_2_Turn_2 Coverage Results" MODIFIED="1627460238083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DU_MSDS/Algorithms/Assignments/Assignment_2" />
+  </component>
+</project>

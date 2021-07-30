@@ -4,6 +4,10 @@
 # Assignment: Assignment 4
 # Date 8/6/2021
 
+# https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/
+# https://geoffboeing.com/2014/09/using-geopandas-windows/
+# https://towardsdatascience.com/how-to-step-up-your-folium-choropleth-map-skills-17cf6de7c6fe
+
 """ Using free and open source tools, provide a set of choropleth visualizations for each of
 the columns containing dates such that the resulting visualizations (48 states only) tell
 the story by conveying through color, texture, or both the time lines of achievement of
@@ -18,44 +22,32 @@ grayscale. Provide a solution for that as well. Provide the titles, labels, and 
 necessary for clarification. File support is given as follows: SturmCodebook has the
 explanation. SturmData is the data CSV."""
 
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import geoplotlib
-import numpy as np
-import folium
-
-from shapely.geometry import Polygon, MultiPolygon
-p1 = Polygon( [ (0,0), (3,4), (6,0) ] )
-p2 = Polygon( [ (0,0), (3,-4), (6,0) ] )
-p3 = Polygon( [ (0,0), (-3,4), (-6,0) ] )
-m1=MultiPolygon([ p1, p2, p3 ])
-print(m1.geom_type) # MultiPolygon
-print(m1.length, m1.area) # 48, 36
-
 import json
-with open('states_geo.json') as json_data:
-    print(type(json_data))
-    d = json.load(json_data)
-    print(type(d))
-    print(d['type'])
-    print(d['features'][0]['geometry']['coordinates'][0][0:10])
+import geoplotlib
+from geoplotlib.colors import ColorMap
+from geoplotlib.utils import BoundingBox
+
+# file = 'National_Obesity_By_State.geojson'
+file = 'states_geo.json'
+
+# displaying one of the entries for the states
+with open(file) as data:
+    dataset = json.load(data)
+    first_state = dataset.get('features')[0]
+    # only showing one coordinate instead of all points
+    first_state['geometry']['coordinates'] = first_state['geometry']['coordinates'][0][0]
+    print(json.dumps(first_state, indent=4))
+
+# listing the states in the dataset
+with open(file) as data:
+    dataset = json.load(data)
+    states = [feature['id'] for feature in dataset.get('features')]
+    print(states)
+
+
+# plotting the information from the geojson file
+# geoplotlib.geojson(file)
+# geoplotlib.show()
 
 
 
-# df = pd.read_csv('StrumData.csv')
-
-# Looking at the head
-# print(df.head())
-# df.info()
-# print(df['icpsr'])
-
-# TODO Displaying heatmap of null values
-# sns.heatmap(df.isnull(), cbar=False, cmap='viridis')
-# plt.title("Heatmap of the null values for all numeric columns")
-# plt.tight_layout()
-# plt.show()
-
-# Displaying a map
-# map = folium.Map()
-# map.show()
