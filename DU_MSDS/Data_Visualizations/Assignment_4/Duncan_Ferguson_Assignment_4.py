@@ -29,50 +29,61 @@ import geoplotlib
 from geoplotlib.colors import ColorMap
 from geoplotlib.utils import BoundingBox
 
-# file = 'National_Obesity_By_State.geojson'
-file = 'states_geo.json'
+def JSON_Fun():
+    """ Aimed at importing the JSON files"""
+    # file = 'National_Obesity_By_State.geojson'
+    file = 'states_geo.json'
 
-# displaying one of the entries for the states
-with open(file) as geoJSON_df:
-    dataset = json.load(geoJSON_df)
-    first_state = dataset.get('features')[0]
-    # only showing one coordinate instead of all points
-    first_state['geometry']['coordinates'] = first_state['geometry']['coordinates'][0][0]
-    print(json.dumps(first_state, indent=4))
+    # displaying one of the entries for the states
+    with open(file) as geoJSON_df:
+        dataset = json.load(geoJSON_df)
+        first_state = dataset.get('features')[0]
+        # only showing one coordinate instead of all points
+        first_state['geometry']['coordinates'] = first_state['geometry']['coordinates'][0][0]
+        # print(json.dumps(first_state, indent=4))
 
-# listing the states in the dataset
-with open(file) as geoJSON_df:
-    dataset = json.load(geoJSON_df)
-    GEO_states = [feature['id'] for feature in dataset.get('features')]
-    print("Geo States", GEO_states)
+    # listing the states in the dataset
+    with open(file) as geoJSON_df:
+        dataset = json.load(geoJSON_df)
+        GEO_states = [feature['id'] for feature in dataset.get('features')]
+        # print("Geo States", GEO_states)
 
-# Importing the sample geoJSON_df
-df = pd.read_csv('StrumData.csv')
+    # TODO Uncomment to display map
+    # geoplotlib.geojson(file)
+    # geoplotlib.show()
+    return dataset, GEO_states
 
-# Grabbing States and wills column
-df = df[["state", "wills"]]
-df.head()
-
-# Grabbing states from DF
-df_states = df[["state"]].values.tolist()
-print("DF States", df_states)
-
-# We check how many rows we have and the types of our geoJSON_df
-df.info()
-
-# Checking Number of states showing difference
-print("Number of Geo states", len(GEO_states))
-print("Number of df states", len(df["state"].unique()))
-
-# Finding the missing states
-missing_states = np.setdiff1d(GEO_states, df_states)
-print(missing_states)
-
-# Finding the difference
+def CSV_Fun():
+    """ Aimed at importing an aligning the CSV sheets"""
+    # Importing the sample geoJSON_df
+    df = pd.read_csv('StrumData.csv')
+    # df_states_id = pd.read_csv('states_id.csv', sep='\t', names=["id", "state"])
+    df_states_id = pd.read_csv('states_id.csv', usecols=[0, 1], names=["id", "state"], header=None, sep=',"\t')
+    # df_states_id['state'] = df_states_id['state'].str.strip('"')
 
 
-# plotting the information from the geojson file
-# TODO uncomment below to show file
-# geoplotlib.geojson(file)
-# geoplotlib.show()
+    print(df_states_id)
 
+    # Grabbing States and wills column
+    df = df[["state", "wills"]]
+    # df.head()
+    # Grabbing states from DF
+    df_states = df[["state"]].values.tolist()
+    df_states_index = df[["state"]].values.tolist()
+    # print("DF States", df_states)
+    # We check how many rows we have and the types of our geoJSON_df
+    df.info()
+    return df, df_states
+
+def main():
+    """Runs the main data"""
+    dataset, GEO_states = JSON_Fun()
+    df, df_states = CSV_Fun()
+
+    # Checking Number of states showing difference
+    # print("Number of Geo states", len(GEO_states))
+    # print("Number of df states", len(df_states))
+
+
+if __name__ == '__main__':
+    main()
