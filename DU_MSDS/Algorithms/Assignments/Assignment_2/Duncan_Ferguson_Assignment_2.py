@@ -4,6 +4,7 @@
 # Assignment: Assignment 2
 # Date 8/6/2021
 
+
 # Use Divide Conquere
 import pandas as pd
 # import numpy as np

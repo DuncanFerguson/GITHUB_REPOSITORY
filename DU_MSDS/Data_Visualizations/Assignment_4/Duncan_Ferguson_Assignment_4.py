@@ -22,6 +22,7 @@ grayscale. Provide a solution for that as well. Provide the titles, labels, and 
 necessary for clarification. File support is given as follows: SturmCodebook has the
 explanation. SturmData is the geoJSON_df CSV."""
 
+import numpy as np
 import pandas as pd
 import json
 import geoplotlib
@@ -42,8 +43,8 @@ with open(file) as geoJSON_df:
 # listing the states in the dataset
 with open(file) as geoJSON_df:
     dataset = json.load(geoJSON_df)
-    states = [feature['id'] for feature in dataset.get('features')]
-    print(states)
+    GEO_states = [feature['id'] for feature in dataset.get('features')]
+    print("Geo States", GEO_states)
 
 # Importing the sample geoJSON_df
 df = pd.read_csv('StrumData.csv')
@@ -52,14 +53,26 @@ df = pd.read_csv('StrumData.csv')
 df = df[["state", "wills"]]
 df.head()
 
+# Grabbing states from DF
+df_states = df[["state"]].values.tolist()
+print("DF States", df_states)
+
 # We check how many rows we have and the types of our geoJSON_df
 df.info()
 
-# Checking Number of states
-print("Number of states", len(states))
+# Checking Number of states showing difference
+print("Number of Geo states", len(GEO_states))
+print("Number of df states", len(df["state"].unique()))
+
+# Finding the missing states
+missing_states = np.setdiff1d(GEO_states, df_states)
+print(missing_states)
+
+# Finding the difference
 
 
 # plotting the information from the geojson file
-geoplotlib.geojson(file)
-geoplotlib.show()
+# TODO uncomment below to show file
+# geoplotlib.geojson(file)
+# geoplotlib.show()
 
