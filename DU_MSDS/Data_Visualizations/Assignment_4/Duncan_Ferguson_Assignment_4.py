@@ -40,7 +40,7 @@ def JSON_Fun():
         first_state = dataset.get('features')[0]
         # only showing one coordinate instead of all points
         first_state['geometry']['coordinates'] = first_state['geometry']['coordinates'][0][0]
-        # print(json.dumps(first_state, indent=4))
+        print(json.dumps(first_state, indent=4))
 
     # listing the states in the dataset
     with open(file) as geoJSON_df:
@@ -55,34 +55,42 @@ def JSON_Fun():
 
 def CSV_Fun():
     """ Aimed at importing an aligning the CSV sheets"""
-    # Importing the sample geoJSON_df
+    # Importing StrumData and States ID
     df = pd.read_csv('StrumData.csv')
-    # df_states_id = pd.read_csv('states_id.csv', sep='\t', names=["id", "state"])
-    df_states_id = pd.read_csv('states_id.csv', usecols=[0, 1], names=["id", "state"], header=None, sep=',"\t')
-    # df_states_id['state'] = df_states_id['state'].str.strip('"')
+    df_states_id = pd.read_csv('states_id.csv', usecols=[0, 1], names=["state_id", "state"], header=None, sep=',"\t')
+    df_states_id['state'] = df_states_id['state'].str.strip('"')
 
+    # Joining the two sheets together
+    combo_df = df.set_index('state').join(df_states_id.set_index('state'))
 
-    print(df_states_id)
+    print(combo_df.head())
 
     # Grabbing States and wills column
-    df = df[["state", "wills"]]
+    # df = df[["state", "wills"]]
     # df.head()
+
     # Grabbing states from DF
-    df_states = df[["state"]].values.tolist()
-    df_states_index = df[["state"]].values.tolist()
-    # print("DF States", df_states)
-    # We check how many rows we have and the types of our geoJSON_df
-    df.info()
-    return df, df_states
+    combo_df_states = combo_df[["state_id"]].values.tolist()
+    return df_states_id, combo_df, combo_df_states
 
 def main():
     """Runs the main data"""
     dataset, GEO_states = JSON_Fun()
-    df, df_states = CSV_Fun()
+    df_1, df, df_states = CSV_Fun()
 
     # Checking Number of states showing difference
-    # print("Number of Geo states", len(GEO_states))
-    # print("Number of df states", len(df_states))
+    print("\nNumber of Geo states", len(GEO_states))
+    print("Number of df states", len(df_states))
+
+    # Finding Missing States
+    missing_states_id = np.setdiff1d(GEO_states, df_states).tolist()
+    print("\nMissing States ID", missing_states_id)
+    print(df_1[df_1['state_id'].isin(missing_states_id)])
+    # These states were already removed on the merge
+
+    # Merging dataset and df
+    print(dataset["features"])
+
 
 
 if __name__ == '__main__':
