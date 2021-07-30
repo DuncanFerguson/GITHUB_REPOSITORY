@@ -86,10 +86,9 @@ def main():
     missing_states_id = np.setdiff1d(GEO_states, df_states).tolist()
     print("\nMissing States ID", missing_states_id)
     print(df_1[df_1['state_id'].isin(missing_states_id)])
-    # These states were already removed on the merge
 
-    # Merging dataset and df
-    print(dataset["features"])
+    # Wrangle the Data and remove missing states from jsonfile
+
 
 
 
