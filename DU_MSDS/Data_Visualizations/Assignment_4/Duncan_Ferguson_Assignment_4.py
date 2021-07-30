@@ -25,12 +25,30 @@ import geoplotlib
 import numpy as np
 import folium
 
-df = pd.read_csv('StrumData.csv')
+from shapely.geometry import Polygon, MultiPolygon
+p1 = Polygon( [ (0,0), (3,4), (6,0) ] )
+p2 = Polygon( [ (0,0), (3,-4), (6,0) ] )
+p3 = Polygon( [ (0,0), (-3,4), (-6,0) ] )
+m1=MultiPolygon([ p1, p2, p3 ])
+print(m1.geom_type) # MultiPolygon
+print(m1.length, m1.area) # 48, 36
+
+import json
+with open('states_geo.json') as json_data:
+    print(type(json_data))
+    d = json.load(json_data)
+    print(type(d))
+    print(d['type'])
+    print(d['features'][0]['geometry']['coordinates'][0][0:10])
+
+
+
+# df = pd.read_csv('StrumData.csv')
 
 # Looking at the head
-print(df.head())
-df.info()
-print(df['icpsr'])
+# print(df.head())
+# df.info()
+# print(df['icpsr'])
 
 # TODO Displaying heatmap of null values
 # sns.heatmap(df.isnull(), cbar=False, cmap='viridis')
