@@ -88,8 +88,17 @@ def main():
     print(df_1[df_1['state_id'].isin(missing_states_id)])
 
     # Wrangle the Data and remove missing states from jsonfile
+    # https://stackoverflow.com/questions/19201233/how-to-delete-json-object-using-python
 
+    i = 0
+    for element in dataset['features']:
+        i += 1
+        if element['id'] in missing_states_id:
+            del dataset['features'][i-1]
 
+    for i in range(len(dataset["features"])):
+        # if dataset['features'][i]['id'] in missing_states_id:
+        print(dataset['features'][i], "\n")
 
 
 if __name__ == '__main__':
