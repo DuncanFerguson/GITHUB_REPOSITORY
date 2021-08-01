@@ -9,6 +9,8 @@ import pandas as pd
 
 # Divide and Conquer Algorithm
 def MSSDAC(A, low=0, high=None):
+    """This is a divide and conquere function that looks for the best date to buy and sell to produce
+    the largest stock price gain."""
     if high == None:  # Turning the high into the length of list
         high = len(A) - 1
 
