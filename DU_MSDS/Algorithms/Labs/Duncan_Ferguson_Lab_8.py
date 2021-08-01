@@ -18,8 +18,10 @@ def parenStr(m, i, j):
 
 
 def printMatrix(m):
+    """Used for printing the matrix"""
     for row in m:
         print(row)
+
 
 def chainMatrix(dims):
     # Create the empty 2-D table
@@ -43,8 +45,6 @@ def chainMatrix(dims):
                 q = m[i][k] + m[k+1][j] + dims[i] * dims[k+1] * dims[j+1]
                 if q < m[i][j]:
                     m[i][j] = q
-                    # TODO This is placing k into the opposite index
-                    # m[j][i] = k+1  # Alternative way to fill
                     trackback[i][j] = k  # Simple fill in of the traceback Matrix
 
     # Printing off the matrix's
@@ -52,16 +52,15 @@ def chainMatrix(dims):
     printMatrix(m)
     print("\nTraceback Matrix")
     printMatrix(trackback)
-    print("\n", parenStr(trackback, 0, n-1))
+    # Sending off to get the right matrix multiplication parentheses
+    print("\nParentheses placement: ", parenStr(trackback, 0, n-1))
     return m[0][n-1]
 
 
 def main():
     """Main Function to run the testing code"""
     dims = [30, 35, 15, 5, 10, 20, 25]
-    # dims = [30, 35, 15, 5]
-    print("\n", chainMatrix(dims))
-    # matrix = chainMatrix(dims)
+    print("Total Number of multiplications: ", chainMatrix(dims))
 
 
 if __name__ == '__main__':
