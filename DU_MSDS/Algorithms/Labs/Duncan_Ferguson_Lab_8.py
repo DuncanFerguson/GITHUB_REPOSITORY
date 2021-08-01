@@ -13,7 +13,7 @@ def parenStr(m, i, j):
     if i == j:
         return "A"+str(j)
     else:
-        return "({})({})".format(parenStr(m, i, m[i][j]), parenStr(m, m[i][j]+1, j))
+        return "({})({})".format(parenStr(m, i, m[i][j]), parenStr(m, m[i][j]+1, j))  # Recursive formatting
         # return "(" + parenStr(m, i, m[i][j]) + ")(" + parenStr(m, m[i][j]+1, j) + ")"
 
 
