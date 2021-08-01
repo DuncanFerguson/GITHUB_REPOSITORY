@@ -2,12 +2,10 @@
 # Student Id: 871641260
 # Class: Comp 4581
 # Assignment: Assignment 2
-# Date 8/6/2021
-
+# Date 8/2/2021
 
 # Use Divide Conquere
 import pandas as pd
-# import numpy as np
 
 # Divide and Conquer Algorithm
 def MSSDAC(A, low=0, high=None):
@@ -35,20 +33,25 @@ def MSSDAC(A, low=0, high=None):
 
     maxRight2Center = right2Center = 0
     maxCenterHigh = mid
+
     for i in range(mid+1, high+1):
         right2Center += A[i]
         if right2Center > maxRight2Center:
             maxRight2Center = right2Center
             maxCenterHigh = i
 
+    # Setting Center
     maxCenter = maxLeft2Center + maxRight2Center
 
+    # Logic for returning left, right or center with dates included
+    # Max date is increased index by one.
     if maxLeft > maxRight and maxLeft > maxCenter:
         return maxLeft, maxLeftLow, maxLeftHigh+1
     elif maxRight > maxLeft and maxRight > maxCenter:
         return maxRight, maxRightLow, maxRightHigh+1
     else:
         return maxCenter, maxCenterLow, maxCenterHigh+1
+
 
 def calcCanges(prices):
     """This Function calculates the daily gains or losses.
@@ -58,11 +61,13 @@ def calcCanges(prices):
 
 
 def find_stock(file, symbol):
+    """This function finds the stock symbol, sends off for calcChanges, then returns
+    the best stock to buy and sell dates with the profit"""
     stock = file[file['symbol'] == symbol]
     stock = stock.reset_index()[['close', 'date']].values.tolist()
 
     # Still want two rows coming out though
-    stock2 = calcCanges(stock)
+    stock2 = calcCanges(stock)  # Sending off to calculate changes in price
     maxProfit, maxLow, maxHigh = MSSDAC(stock2)
 
     # Converting into dates
@@ -75,26 +80,24 @@ def find_stock(file, symbol):
 def main():
     """Running the main code"""
     psa = pd.read_csv("prices-split-adjusted.csv")
-    tickers = psa['symbol'].unique()
-    # tickers = ["MMM", "ABT", "ATVI", "AAPL", "PCLN"]
-    # tickers = ["MMM", "ABT", "ATVI", "AAPL"]
-    # tickers = ["ABT"]
-    # tickers = ["AAPL"]
+    tickers = psa['symbol'].unique()  # Grabbing unique tickers
 
+    # Looping through the stocks to find best profits
     bestProfit = 0
-
     for ticker in tickers:
-        profit, buyDate, sellDate = find_stock(psa, ticker)
+        profit, buyDate, sellDate = find_stock(psa, ticker)  # Sending ticker of to find best profit
         if profit > bestProfit:
             bestName = ticker
             bestProfit = profit
             bestBuyDate = buyDate
             bestSellDate = sellDate
 
+    # Importing securities and lining them up to get additional info on best stock
     sfile = pd.read_csv("securities.csv")
-
     add_info = sfile[sfile['Ticker symbol'] == bestName]
-    print("Best stock to buy:", add_info["Security"].values[0], " on ", bestBuyDate, "\n and sell on ", bestSellDate,
+    print("Best stock to buy:", add_info["Security"].values[0],
+          " on ", bestBuyDate,
+          " and sell on ", bestSellDate,
           " with a profit of ", bestProfit)
 
 
