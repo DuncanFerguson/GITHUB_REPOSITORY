@@ -24,6 +24,8 @@ def printMatrix(m):
 
 
 def chainMatrix(dims):
+    """Chain Matrix multiplication creating a normal matrix multiplication and a trackback table
+    Then sent off for formatting to obtain the correct parenthesis placement"""
     # Create the empty 2-D table
     n = len(dims)-1
     m = [[None for i in range(n)] for j in range(n)]
