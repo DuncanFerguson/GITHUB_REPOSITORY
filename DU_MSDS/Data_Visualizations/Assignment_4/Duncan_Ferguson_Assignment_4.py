@@ -28,6 +28,10 @@ import json
 import geoplotlib
 from geoplotlib.colors import ColorMap
 from geoplotlib.utils import BoundingBox
+import geopandas as gpd
+import folium
+from icecream import ic  # print tester
+
 
 def JSON_Fun():
     """ Aimed at importing the JSON files"""
@@ -49,8 +53,8 @@ def JSON_Fun():
         # print("Geo States", GEO_states)
 
     # TODO Uncomment to display map
-    # geoplotlib.geojson(file)
-    # geoplotlib.show()
+    geoplotlib.geojson(file)
+    geoplotlib.show()
     return dataset, GEO_states
 
 def CSV_Fun():
@@ -90,15 +94,39 @@ def main():
     # Wrangle the Data and remove missing states from jsonfile
     # https://stackoverflow.com/questions/19201233/how-to-delete-json-object-using-python
 
+
     i = 0
     for element in dataset['features']:
         i += 1
-        if element['id'] in missing_states_id:
+        if element['id'] in missing_states_id:  # Deleting the
             del dataset['features'][i-1]
+        else:
+            element['id'] = df_1.iloc[element['id'], :][1]  # Changing the state's id to abv
+            # print(element['id'])
+            # Maybe add in the best part on here
 
-    for i in range(len(dataset["features"])):
-        # if dataset['features'][i]['id'] in missing_states_id:
-        print(dataset['features'][i], "\n")
+    print(dataset)
+
+
+    # Place the dataset into a GeoPanda
+    print(type(dataset))
+    dataset = gpd.GeoDataFrame.from_features(dataset["features"])
+    print(type(dataset))
+    # print(dataset.head())
+    # print(dataset.columns)
+    # Change ID Names and Values to line up
+    sample = folium.Map(location=[48, -102], zoom_start=4)
+    sample_map
+
+    # final_df = dataset.merge(df, on="state_id")
+    # print(final_df.head())
+
+
+
+    # # To pring out the current data
+    # for i in range(len(dataset["features"])):
+    #     # if dataset['features'][i]['id'] in missing_states_id:
+    #     print(dataset['features'][i], "\n")
 
 
 if __name__ == '__main__':
