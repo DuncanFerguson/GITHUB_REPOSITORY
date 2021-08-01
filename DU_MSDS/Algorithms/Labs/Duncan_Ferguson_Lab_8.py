@@ -9,7 +9,7 @@ import math
 
 
 def parenStr(m, i, j):
-    """This will return a string representation of the matrices with parentheses"""
+    """This will return a string representation of the matrices with parentheses using recursion for formating"""
     if i == j:
         return "A"+str(j)
     else:
