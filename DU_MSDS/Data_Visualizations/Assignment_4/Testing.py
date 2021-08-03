@@ -12,7 +12,7 @@ import icecream as ic
 from datetime import datetime
 
 class TrackLayer(BaseLayer):
-    def __init__(self, dataset,bbox=BoundingBox.WORLD):
+    def __init__(self, dataset, bbox=BoundingBox.WORLD):
         self.data = dataset
         self.cmap = colorbrewer(self.data['hex_ident'], alpha=200)
         self.time = self.data['timestamp'].min()
@@ -60,7 +60,7 @@ dataset['timestamp'] = dataset.apply(lambda x: to_epoch(x['date'], x['time']), a
 leeds_bbox = BoundingBox(north=53.8074, west=-3, south=53.7074, east=0)
 
 data = DataAccessObject(dataset)
-geoplotlib.add_layer(TrackLayer(data,bbox=leeds_bbox))
+geoplotlib.add_layer(TrackLayer(data,  bbox=leeds_bbox))
 geoplotlib.show()
 
 print(dataset.head())

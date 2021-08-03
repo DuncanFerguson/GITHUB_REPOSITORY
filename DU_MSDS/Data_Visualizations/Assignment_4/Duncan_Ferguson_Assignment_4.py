@@ -27,7 +27,7 @@ import pandas as pd
 import json
 import geoplotlib
 from geoplotlib.colors import ColorMap
-from geoplotlib.utils import BoundingBox
+from geoplotlib.utils import BoundingBox, DataAccessObject
 import geopandas as gpd
 import folium
 from icecream import ic  # print tester
@@ -78,6 +78,10 @@ def CSV_Fun():
     combo_df_states = combo_df[["state_id"]].values.tolist()
     return df_states_id, combo_df, combo_df_states
 
+def get_color(properties):
+    cmap = ColorMap('Blues', alpha=255, levels=40)
+    return cmap.to_color(properties['Adding'], maxvalue=50, scale='lin')
+
 def main():
     """Runs the main data"""
     dataset, GEO_states = JSON_Fun()
@@ -103,8 +107,13 @@ def main():
         if element['id'] in missing_states_id:
             dataset['features'].remove(element)
 
+    i = 0
+    for element in dataset['features']:
+        element['properties']['Adding'] = i
+        i += 1
+        # print(element['properties'])
 
-
+    ic(['properties'])
 
     # Place the dataset into a GeoPanda
     # ic(dataset)
@@ -112,24 +121,17 @@ def main():
     # dataset = gpd.GeoDataFrame.from_features(dataset["features"])
     # ic(dataset)
 
-    geoplotlib.geojson(dataset)
+    # TODO the start of adding Data Color
+    geoplotlib.geojson(dataset, fill=True, color=get_color)
+    # geoplotlib.geojson(dataset, fill=False, color=[255, 255, 255, 255])  # Filling in the lines as whites
+    geoplotlib.set_bbox(BoundingBox.USA)
+    geoplotlib.tiles_provider('toner-lite')  # Great for gray scale printing
     geoplotlib.show()
 
-
-
-    # Change ID Names and Values to line up
-    # sample_map = folium.Map(location=[48, -102], zoom_start=4)
-    # sample_map()
-
-
     # To pring out the current data
-    for i in range(len(dataset["features"])):
-        # if dataset['features'][i]['id'] in missing_states_id:
-        print(dataset['features'][i], "\n")
-
-# geoplotlib.tiles_provider('toner-lite')  # Will want to use this for the gray scale printing
-
-
+    # for i in range(len(dataset["features"])):
+    #     # if dataset['features'][i]['id'] in missing_states_id:
+    #     print(dataset['features'][i], "\n")
 
 if __name__ == '__main__':
     main()
