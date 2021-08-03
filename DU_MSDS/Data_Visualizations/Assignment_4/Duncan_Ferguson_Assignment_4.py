@@ -62,12 +62,13 @@ def CSV_Fun():
     """ Aimed at importing an aligning the CSV sheets"""
     # Importing StrumData and States ID
     df = pd.read_csv('StrumData.csv')
+    # There is a tab space located in the csv file. Stripping that out and cleaning the data
     df_states_id = pd.read_csv('states_id.csv', usecols=[0, 1], names=["state_id", "state"], header=None, sep=',"\t')
     df_states_id['state'] = df_states_id['state'].str.strip('"')
 
+
     # Joining the two sheets together
     combo_df = df.set_index('state').join(df_states_id.set_index('state'))
-
     print(combo_df.head())
 
     # Grabbing States and wills column
@@ -104,16 +105,21 @@ def main():
     # Removing the missing states from the json file, also renaming the state ID to abv
     for element in reversed(dataset['features']):
         element['id'] = df_1.iloc[element['id'], :][1]  # Changing the state's id to abv
-        if element['id'] in missing_states_id:
+        if element['id'] in missing_states_id:  # If the state is in that change list, remove it
             dataset['features'].remove(element)
 
     i = 0
     for element in dataset['features']:
         element['properties']['Adding'] = i
         i += 1
-        # print(element['properties'])
+        element['properties']['fill-opacity'] = 0.5
+        # if element['id'] == df['earnings'][i]:
+        #     element['earnings'] = df['earnings'][i]
+        ic(element['id'])
+        ic(df['earnings'][i], i)
+    # earnings
 
-    ic(['properties'])
+
 
     # Place the dataset into a GeoPanda
     # ic(dataset)
@@ -123,7 +129,7 @@ def main():
 
     # TODO the start of adding Data Color
     geoplotlib.geojson(dataset, fill=True, color=get_color)
-    # geoplotlib.geojson(dataset, fill=False, color=[255, 255, 255, 255])  # Filling in the lines as whites
+    geoplotlib.geojson(dataset, fill=False, color=[255, 255, 255, 255])  # Filling in the lines as whites
     geoplotlib.set_bbox(BoundingBox.USA)
     geoplotlib.tiles_provider('toner-lite')  # Great for gray scale printing
     geoplotlib.show()
