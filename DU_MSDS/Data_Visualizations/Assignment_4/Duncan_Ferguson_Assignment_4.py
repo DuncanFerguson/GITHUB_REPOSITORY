@@ -53,8 +53,9 @@ def JSON_Fun():
         # print("Geo States", GEO_states)
 
     # TODO Uncomment to display map
-    geoplotlib.geojson(file)
-    geoplotlib.show()
+    # ic(file)
+    # geoplotlib.geojson(file)
+    # geoplotlib.show()
     return dataset, GEO_states
 
 def CSV_Fun():
@@ -90,43 +91,44 @@ def main():
     missing_states_id = np.setdiff1d(GEO_states, df_states).tolist()
     print("\nMissing States ID", missing_states_id)
     print(df_1[df_1['state_id'].isin(missing_states_id)])
+    list = df_1[df_1['state_id'].isin(missing_states_id)]
+    missing_states_id = list['state'].tolist()
 
     # Wrangle the Data and remove missing states from jsonfile
     # https://stackoverflow.com/questions/19201233/how-to-delete-json-object-using-python
 
+    # Removing the missing states from the json file, also renaming the state ID to abv
+    for element in reversed(dataset['features']):
+        element['id'] = df_1.iloc[element['id'], :][1]  # Changing the state's id to abv
+        if element['id'] in missing_states_id:
+            dataset['features'].remove(element)
 
-    i = 0
-    for element in dataset['features']:
-        i += 1
-        if element['id'] in missing_states_id:  # Deleting the
-            del dataset['features'][i-1]
-        else:
-            element['id'] = df_1.iloc[element['id'], :][1]  # Changing the state's id to abv
-            # print(element['id'])
-            # Maybe add in the best part on here
 
-    print(dataset)
 
 
     # Place the dataset into a GeoPanda
-    print(type(dataset))
-    dataset = gpd.GeoDataFrame.from_features(dataset["features"])
-    print(type(dataset))
-    # print(dataset.head())
-    # print(dataset.columns)
+    # ic(dataset)
+    # dataset = gpd.GeoDataFrame(dataset)
+    # dataset = gpd.GeoDataFrame.from_features(dataset["features"])
+    # ic(dataset)
+
+    geoplotlib.geojson(dataset)
+    geoplotlib.show()
+
+
+
     # Change ID Names and Values to line up
-    sample = folium.Map(location=[48, -102], zoom_start=4)
-    sample_map
-
-    # final_df = dataset.merge(df, on="state_id")
-    # print(final_df.head())
+    # sample_map = folium.Map(location=[48, -102], zoom_start=4)
+    # sample_map()
 
 
+    # To pring out the current data
+    for i in range(len(dataset["features"])):
+        # if dataset['features'][i]['id'] in missing_states_id:
+        print(dataset['features'][i], "\n")
 
-    # # To pring out the current data
-    # for i in range(len(dataset["features"])):
-    #     # if dataset['features'][i]['id'] in missing_states_id:
-    #     print(dataset['features'][i], "\n")
+# geoplotlib.tiles_provider('toner-lite')  # Will want to use this for the gray scale printing
+
 
 
 if __name__ == '__main__':
