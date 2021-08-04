@@ -27,7 +27,7 @@ import pandas as pd
 import json
 import geoplotlib
 from geoplotlib.colors import ColorMap
-from geoplotlib.utils import BoundingBox, DataAccessObject
+from geoplotlib.utils import BoundingBox
 import geopandas as gpd
 import folium
 from icecream import ic  # print tester
@@ -58,6 +58,7 @@ def JSON_Fun():
     # geoplotlib.show()
     return dataset, GEO_states
 
+
 def CSV_Fun():
     """ Aimed at importing an aligning the CSV sheets"""
     # Importing StrumData and States ID
@@ -66,11 +67,11 @@ def CSV_Fun():
     df_states_id = pd.read_csv('states_id.csv', usecols=[0, 1], names=["state_id", "state"], header=None, sep=',"\t')
     df_states_id['state'] = df_states_id['state'].str.strip('"')
 
-
     # Joining the two sheets together
     combo_df = df.set_index('state').join(df_states_id.set_index('state'))
-    print(combo_df.head())
+    # print(combo_df.head())
 
+    # TODO this is a spot to filter the columns
     # Grabbing States and wills column
     # df = df[["state", "wills"]]
     # df.head()
@@ -79,9 +80,11 @@ def CSV_Fun():
     combo_df_states = combo_df[["state_id"]].values.tolist()
     return df_states_id, combo_df, combo_df_states
 
+
 def get_color(properties):
     cmap = ColorMap('Blues', alpha=255, levels=40)
     return cmap.to_color(properties['Adding'], maxvalue=50, scale='lin')
+
 
 def main():
     """Runs the main data"""
@@ -109,35 +112,36 @@ def main():
             dataset['features'].remove(element)
 
     i = 0
+    # TODO This is a good spot to add to the properties
     for element in dataset['features']:
         element['properties']['Adding'] = i
         i += 1
-        element['properties']['fill-opacity'] = 0.5
+        # element['properties']['fill-opacity'] = 0.5
         # if element['id'] == df['earnings'][i]:
         #     element['earnings'] = df['earnings'][i]
-        ic(element['id'])
-        ic(df['earnings'][i], i)
+        # ic(element['id'])
+        # ic(df['earnings'][i], i)
     # earnings
 
-
+    # ic(dataset)
+    # To pring out the current data
+    # for i in range(len(dataset["features"])):
+    #     # if dataset['features'][i]['id'] in missing_states_id:
+    #     print(dataset['features'][i], "\n")
 
     # Place the dataset into a GeoPanda
     # ic(dataset)
     # dataset = gpd.GeoDataFrame(dataset)
     # dataset = gpd.GeoDataFrame.from_features(dataset["features"])
-    # ic(dataset)
 
     # TODO the start of adding Data Color
     geoplotlib.geojson(dataset, fill=True, color=get_color)
-    geoplotlib.geojson(dataset, fill=False, color=[255, 255, 255, 255])  # Filling in the lines as whites
+    # geoplotlib.geojson(dataset, fill=False, color=[255, 255, 255, 255])  # Filling in the lines as whites
     geoplotlib.set_bbox(BoundingBox.USA)
     geoplotlib.tiles_provider('toner-lite')  # Great for gray scale printing
     geoplotlib.show()
 
-    # To pring out the current data
-    # for i in range(len(dataset["features"])):
-    #     # if dataset['features'][i]['id'] in missing_states_id:
-    #     print(dataset['features'][i], "\n")
+
 
 if __name__ == '__main__':
     main()
