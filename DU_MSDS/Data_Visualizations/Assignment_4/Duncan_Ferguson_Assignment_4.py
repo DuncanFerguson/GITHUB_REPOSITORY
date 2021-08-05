@@ -4,6 +4,7 @@
 # Assignment: Assignment 4
 # Date 8/6/2021
 
+# Cited Links
 # https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/
 # https://geoffboeing.com/2014/09/using-geopandas-windows/
 # https://towardsdatascience.com/how-to-step-up-your-folium-choropleth-map-skills-17cf6de7c6fe
@@ -30,13 +31,19 @@ import geoplotlib
 from geoplotlib.colors import ColorMap
 from geoplotlib.utils import BoundingBox
 import geopandas as gpd
+
 # from bokeh.io import curdoc, output_notebook
 # from bokeh.models import Slider, HoverTool
-# from bokeh.layouts import widgetbox, row, column
-from bokeh.palettes import brewer
+from bokeh.layouts import widgetbox, row, column
+from bokeh.palettes import brewer, cividis, gray, viridis
 from bokeh.io import output_notebook, show, output_file
-from bokeh.plotting import figure
-from bokeh.models import GeoJSONDataSource, LinearColorMapper, ColorBar
+from bokeh.plotting import figure, show
+from bokeh.models import GeoJSONDataSource, LinearColorMapper, ColorBar, CustomJS, Dropdown, Slider, HoverTool
+from bokeh.models.widgets import Panel, Tabs
+# Example of adding in a drop down
+from bokeh.io import show
+
+from ipywidgets import interact, interact_manual
 from icecream import ic  # print tester
 
 def JSON_Fun():
@@ -91,6 +98,25 @@ def get_color(properties):
     return cmap.to_color(properties['fips'], maxvalue=50, scale='lin')
 
 
+def remove_states(dataset, df, df_1, missing_states_id):
+    # Removing the missing states from the json file, also renaming the state ID to abv
+    for element in reversed(dataset['features']):
+        element['state'] = df_1.iloc[element['id'], :][1]  # Changing the state's id to abv
+        add_df = df[df['state_id'] == element['id']]
+        if element['state'] in missing_states_id:  # If the state is in that change list, remove it
+            dataset['features'].remove(element)
+        else:
+            for i in add_df:
+                element['properties'][i] = add_df[i][0]
+    return dataset
+
+def update_plot(attr, old, new):
+    yr = slider.value
+    new_data = json_data(yr)
+    geosource.geojson = new_data
+    p.title.text = 'Share of adults who are obese, %d' %yr
+
+
 def main():
     """Runs the main data"""
     dataset, GEO_states = JSON_Fun()
@@ -107,41 +133,75 @@ def main():
     list = df_1[df_1['state_id'].isin(missing_states_id)]
     missing_states_id = list['state'].tolist()
 
-    # Removing the missing states from the json file, also renaming the state ID to abv
-    for element in reversed(dataset['features']):
-        element['state'] = df_1.iloc[element['id'], :][1]  # Changing the state's id to abv
-        add_df = df[df['state_id'] == element['id']]
-        if element['state'] in missing_states_id:  # If the state is in that change list, remove it
-            dataset['features'].remove(element)
-        else:
-            for i in add_df:
-                element['properties'][i] = add_df[i][0]
+    dataset = remove_states(dataset, df, df_1, missing_states_id)
 
     # Place the dataset into a GeoPanda
     dataset = gpd.GeoDataFrame(dataset)
     dataset = gpd.GeoDataFrame.from_features(dataset["features"])
-    ic(dataset.head())
+    # ic(dataset.head())
     # dataset.plot()
 
     # TODO REWRITE EVERYTHING BELOW HERE This is one route
 
-    merged_json = json.loads(dataset.to_json())
-    # Convert to String like object.
-    json_data = json.dumps(merged_json)
+    # Convert to String like object
+    json_data = json.dumps(json.loads(dataset.to_json()))
 
     # Input GeoJSON source that contains features for plotting.
-    geosource = GeoJSONDataSource(geojson=json_data)  # Define a sequential multi-hue color palette.
-    palette = brewer['YlGnBu'][8]  # Reverse color order so that dark blue is highest obesity.
-    palette = palette[::-1]  # Instantiate LinearColorMapper that linearly maps numbers in a range, into a sequence of colors.
-    color_mapper = LinearColorMapper(palette=palette, low=0, high=40)  # Define custom tick labels for color bar.
-    p = figure(title='Look at US Population Metrics', plot_height=600, plot_width=950, toolbar_location=None)
+    geosource = GeoJSONDataSource(geojson=json_data)
+
+    # TODO These are all of the color options
+    # https://docs.bokeh.org/en/latest/docs/reference/palettes.html
+    # palette = gray(100)
+    palette = viridis(100)
+    palette = palette[::-1]  # This inverses the colors
+
+    # WIll probably want to look into this to make it more dynamic
+    color_mapper = LinearColorMapper(palette=palette, low=0, high=100, nan_color='#000000')  # Define custom tick labels for color bar.
+
+    p = figure(title='Look at US Earnings Metrics', plot_height=600, plot_width=950, toolbar_location=None)
+
+    # Blanking out the grid lines
     p.xgrid.grid_line_color = None
-    p.ygrid.grid_line_color = None  # Add patch renderer to figure.
-    p.patches('xs', 'ys', source=geosource, fill_color={'field': 'icpsr', 'transform': color_mapper},
+    p.ygrid.grid_line_color = None
+
+    # Define custom tick labels for color bar.
+    tick_labels = {'0': '0%',
+                   '20': '20%',
+                   '40': '40%',
+                   '60': '60%',
+                   '80': '80%',
+                   '100': '100%'}
+
+
+    hover = HoverTool(tooltips=[('Country/region', '@country'), ('% obesity', '@per_cent_obesity')])
+
+
+    color_bar = ColorBar(color_mapper=color_mapper, label_standoff=8, width=500, height=20,
+                         border_line_color=None, location=(0, 0), orientation='horizontal',
+                         major_label_overrides=tick_labels)
+    p.add_layout(color_bar, 'below')  # Adding Scale on the bottom
+
+    # Patching together the map
+    p.patches('xs', 'ys', source=geosource, fill_color={'field': 'earnings', 'transform': color_mapper},
               line_color='black', line_width=0.25, fill_alpha=1)  # Specify figure layout.
-    show(p)
+
+    # Make a slider object: slider
+    slider = Slider(title='earnings', start=1975, end=2016, step=1, value=2016)
+    slider.on_change('value', update_plot)
+
+    # Make a column layout of widgetbox(slider) and plot, and add it to the current document
+    layout = column(p, widgetbox(slider))
+    # layout.add_root(layout)
+    show(layout)
 
 
+    # menu = [("Item 1", "item_1"), ("Item 2", "item_2"), None, ("Item 3", "item_3")]
+    # dropdown = Dropdown(label="Dropdown button", button_type="warning", menu=menu)
+    # dropdown.js_on_event("menu_item_click", CustomJS(code="console.log('dropdown: ' + this.item, this.toString())"))
+
+
+    # # Displaying the graph and buttons
+    # show(column(p))
 
 
 
