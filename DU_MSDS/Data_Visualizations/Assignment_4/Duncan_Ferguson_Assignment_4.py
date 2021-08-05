@@ -102,44 +102,20 @@ def main():
     list = df_1[df_1['state_id'].isin(missing_states_id)]
     missing_states_id = list['state'].tolist()
 
-    # Wrangle the Data and remove missing states from jsonfile
-    # https://stackoverflow.com/questions/19201233/how-to-delete-json-object-using-python
-
     # Removing the missing states from the json file, also renaming the state ID to abv
     for element in reversed(dataset['features']):
         element['state'] = df_1.iloc[element['id'], :][1]  # Changing the state's id to abv
+        add_df = df[df['state_id'] == element['id']]
         if element['state'] in missing_states_id:  # If the state is in that change list, remove it
             dataset['features'].remove(element)
-
-    # df.to_csv("Testing_DF.csv")
-    i = 0
-    # ic(df[df['state_id'] == element['id']])
-
-
-    # # TODO This is a good spot to add to the properties
-    for element in dataset['features']:
-        element['properties']['Adding'] = i
-        #     i += 1
-        #     ic(df[df['state_id'] == element['id']])
-        ic(element['state'])
-        #     ic(element['properties'])
-        add_df = df[df['state_id'] == element['id']]
-
-        ic(element['properties'])
-        for i in add_df:
-            element['properties'][i] = add_df[i][0]
-        ic(element['properties'])
-
-        #     element['properties'][i] = add_df[i]
-
-
-    #     # ic(df.iloc[element['id']][2])
-    #     ic(df[df['state_id']])
-
+        else:
+            for i in add_df:
+                # TODO maybe add in the state name on this inside property
+                element['properties'][i] = add_df[i][0]
 
 
     # To pring out the current data
-    # ic(dataset)
+    ic(dataset)
 
     # Place the dataset into a GeoPanda
     # ic(dataset)
