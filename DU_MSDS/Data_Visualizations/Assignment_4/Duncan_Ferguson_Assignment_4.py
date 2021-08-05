@@ -55,10 +55,9 @@ def JSON_Fun():
     with open(file) as geoJSON_df:
         dataset = json.load(geoJSON_df)
         GEO_states = [feature['id'] for feature in dataset.get('features')]
-        # print("Geo States", GEO_states)
 
     # TODO Uncomment to display map
-    # ic(file)
+    # print(type(dataset))
     # geoplotlib.geojson(file)
     # geoplotlib.show()
     return dataset, GEO_states
@@ -117,19 +116,13 @@ def main():
             for i in add_df:
                 # TODO maybe add in the state name on this inside property
                 element['properties'][i] = add_df[i][0]
-                # print(add_df[i][0])
-                # if add_df[i][0] != 'nan':
-                #     element['properties'][i] = add_df[i][0]
 
-
-
-    # To pring out the current data
 
     # Place the dataset into a GeoPanda
-    # ic(dataset)
     dataset = gpd.GeoDataFrame(dataset)
-    # dataset = gpd.GeoDataFrame.from_features(dataset["features"])
-    ic(dataset['features'])
+    dataset = gpd.GeoDataFrame.from_features(dataset["features"])
+    ic(dataset)
+
 
     # TODO the start of adding Data Color
     # geoplotlib.geojson(dataset, fill=True, color=get_color)
@@ -138,6 +131,12 @@ def main():
     # geoplotlib.set_bbox(BoundingBox.USA)
     # geoplotlib.tiles_provider('toner-lite')  # Great for gray scale printing
     # geoplotlib.show()
+
+    # json_data = json.dumps(dataset)
+    # print(json_data)
+    # merged_json = json.loads(dataset)
+    # print(type(merged_json))
+    # geosource = GeoJSONDataSource(geojson = dataset)
 
 
 
