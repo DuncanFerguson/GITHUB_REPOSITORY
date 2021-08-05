@@ -107,27 +107,39 @@ def main():
 
     # Removing the missing states from the json file, also renaming the state ID to abv
     for element in reversed(dataset['features']):
-        element['id'] = df_1.iloc[element['id'], :][1]  # Changing the state's id to abv
-        if element['id'] in missing_states_id:  # If the state is in that change list, remove it
+        element['state'] = df_1.iloc[element['id'], :][1]  # Changing the state's id to abv
+        if element['state'] in missing_states_id:  # If the state is in that change list, remove it
             dataset['features'].remove(element)
 
+    # df.to_csv("Testing_DF.csv")
     i = 0
-    # TODO This is a good spot to add to the properties
+    # ic(df[df['state_id'] == element['id']])
+
+
+    # # TODO This is a good spot to add to the properties
     for element in dataset['features']:
         element['properties']['Adding'] = i
-        i += 1
-        # element['properties']['fill-opacity'] = 0.5
-        # if element['id'] == df['earnings'][i]:
-        #     element['earnings'] = df['earnings'][i]
-        # ic(element['id'])
-        # ic(df['earnings'][i], i)
-    # earnings
+        #     i += 1
+        #     ic(df[df['state_id'] == element['id']])
+        ic(element['state'])
+        #     ic(element['properties'])
+        add_df = df[df['state_id'] == element['id']]
 
-    # ic(dataset)
+        ic(element['properties'])
+        for i in add_df:
+            element['properties'][i] = add_df[i][0]
+        ic(element['properties'])
+
+        #     element['properties'][i] = add_df[i]
+
+
+    #     # ic(df.iloc[element['id']][2])
+    #     ic(df[df['state_id']])
+
+
+
     # To pring out the current data
-    # for i in range(len(dataset["features"])):
-    #     # if dataset['features'][i]['id'] in missing_states_id:
-    #     print(dataset['features'][i], "\n")
+    # ic(dataset)
 
     # Place the dataset into a GeoPanda
     # ic(dataset)
@@ -135,11 +147,11 @@ def main():
     # dataset = gpd.GeoDataFrame.from_features(dataset["features"])
 
     # TODO the start of adding Data Color
-    geoplotlib.geojson(dataset, fill=True, color=get_color)
-    # geoplotlib.geojson(dataset, fill=False, color=[255, 255, 255, 255])  # Filling in the lines as whites
-    geoplotlib.set_bbox(BoundingBox.USA)
-    geoplotlib.tiles_provider('toner-lite')  # Great for gray scale printing
-    geoplotlib.show()
+    # geoplotlib.geojson(dataset, fill=True, color=get_color)
+    # # geoplotlib.geojson(dataset, fill=False, color=[255, 255, 255, 255])  # Filling in the lines as whites
+    # geoplotlib.set_bbox(BoundingBox.USA)
+    # geoplotlib.tiles_provider('toner-lite')  # Great for gray scale printing
+    # geoplotlib.show()
 
 
 
