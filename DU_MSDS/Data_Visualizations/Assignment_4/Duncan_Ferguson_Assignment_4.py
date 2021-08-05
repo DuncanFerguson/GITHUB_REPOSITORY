@@ -83,7 +83,7 @@ def CSV_Fun():
 
 def get_color(properties):
     cmap = ColorMap('Blues', alpha=255, levels=40)
-    return cmap.to_color(properties['Adding'], maxvalue=50, scale='lin')
+    return cmap.to_color(properties['fips'], maxvalue=50, scale='lin')
 
 
 def main():
@@ -111,11 +111,12 @@ def main():
         else:
             for i in add_df:
                 # TODO maybe add in the state name on this inside property
-                element['properties'][i] = add_df[i][0]
+                print(add_df[i][0])
+                if add_df[i][0] != 'nan':
+                    element['properties'][i] = add_df[i][0]
 
 
     # To pring out the current data
-    ic(dataset)
 
     # Place the dataset into a GeoPanda
     # ic(dataset)
@@ -123,11 +124,11 @@ def main():
     # dataset = gpd.GeoDataFrame.from_features(dataset["features"])
 
     # TODO the start of adding Data Color
-    # geoplotlib.geojson(dataset, fill=True, color=get_color)
-    # # geoplotlib.geojson(dataset, fill=False, color=[255, 255, 255, 255])  # Filling in the lines as whites
-    # geoplotlib.set_bbox(BoundingBox.USA)
-    # geoplotlib.tiles_provider('toner-lite')  # Great for gray scale printing
-    # geoplotlib.show()
+    geoplotlib.geojson(dataset, fill=True, color=get_color)
+    # geoplotlib.geojson(dataset, fill=False, color=[255, 255, 255, 255])  # Filling in the lines as whites
+    geoplotlib.set_bbox(BoundingBox.USA)
+    geoplotlib.tiles_provider('toner-lite')  # Great for gray scale printing
+    geoplotlib.show()
 
 
 
