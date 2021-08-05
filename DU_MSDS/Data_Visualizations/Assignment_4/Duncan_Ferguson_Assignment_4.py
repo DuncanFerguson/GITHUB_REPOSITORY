@@ -7,6 +7,7 @@
 # https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/
 # https://geoffboeing.com/2014/09/using-geopandas-windows/
 # https://towardsdatascience.com/how-to-step-up-your-folium-choropleth-map-skills-17cf6de7c6fe
+# https://towardsdatascience.com/a-complete-guide-to-an-interactive-geographical-map-using-python-f4c5197e23e0
 
 """ Using free and open source tools, provide a set of choropleth visualizations for each of
 the columns containing dates such that the resulting visualizations (48 states only) tell
@@ -29,7 +30,11 @@ import geoplotlib
 from geoplotlib.colors import ColorMap
 from geoplotlib.utils import BoundingBox
 import geopandas as gpd
-import folium
+from bokeh.io import curdoc, output_notebook
+from bokeh.models import Slider, HoverTool
+from bokeh.layouts import widgetbox, row, column
+
+
 from icecream import ic  # print tester
 
 
@@ -111,24 +116,28 @@ def main():
         else:
             for i in add_df:
                 # TODO maybe add in the state name on this inside property
-                print(add_df[i][0])
-                if add_df[i][0] != 'nan':
-                    element['properties'][i] = add_df[i][0]
+                element['properties'][i] = add_df[i][0]
+                # print(add_df[i][0])
+                # if add_df[i][0] != 'nan':
+                #     element['properties'][i] = add_df[i][0]
+
 
 
     # To pring out the current data
 
     # Place the dataset into a GeoPanda
     # ic(dataset)
-    # dataset = gpd.GeoDataFrame(dataset)
+    dataset = gpd.GeoDataFrame(dataset)
     # dataset = gpd.GeoDataFrame.from_features(dataset["features"])
+    ic(dataset['features'])
 
     # TODO the start of adding Data Color
-    geoplotlib.geojson(dataset, fill=True, color=get_color)
+    # geoplotlib.geojson(dataset, fill=True, color=get_color)
     # geoplotlib.geojson(dataset, fill=False, color=[255, 255, 255, 255])  # Filling in the lines as whites
-    geoplotlib.set_bbox(BoundingBox.USA)
-    geoplotlib.tiles_provider('toner-lite')  # Great for gray scale printing
-    geoplotlib.show()
+    # geoplotlib.labels(dataset, , color=[0, 0, 225, 255], font_size=15, anchor_x='center')
+    # geoplotlib.set_bbox(BoundingBox.USA)
+    # geoplotlib.tiles_provider('toner-lite')  # Great for gray scale printing
+    # geoplotlib.show()
 
 
 
