@@ -1,53 +1,53 @@
+from bokeh.plotting import figure, output_file, show, ColumnDataSource
+from bokeh.models.tools import HoverTool
+from bokeh.transform import factor_cmap
+from bokeh.palettes import Blues8
 import pandas as pd
-from bokeh.io import output_notebook
 import icecream as ic
-from datetime import datetime
-from ipywidgets import interact, interact_manual
-from bokeh.models.widgets import Panel, Tabs
-from bokeh.plotting import figure, show
-from bokeh.io import show
 
-file = 'Data-Visualization-with-Python-master\Lesson06\Exercise11\data\stock_prices\stock_prices.csv'
+df = pd.read_csv('StrumData_Duncan_testing.csv')
+earnings = df['earnings']
 
-dataset = pd.read_csv(file)
-# print(dataset)
+# Creat ColumnDataSource from dataframe
+source = ColumnDataSource(df)
 
-def shorten_time_stamp(timestamp):
-    shortened = timestamp[0]
-    if len(shortened) > 10:
-        parsed_date = datetime.strptime(shortened, '%Y-%m-%d %H:%M:%S')
-        shortened = datetime.strftime(parsed_date, '%Y-%m-%d')
-    return shortened
+# State list
+state_list = source.data['state'].tolist()
+# earnings_list = source.data['earnings'].tolist()
 
-# Method to build the tab-based plot
-def get_plot(stock):
-    stock_name = stock['symbol'].unique()[0]
-    line_plot = figure(title='stock prices',
-                       x_axis_label='Date',
-                       x_range=stock['short_date'],
-                       y_axis_label='Price in $USD')
-    line_plot.line(stock['short_date'], stock['high'], legend=stock_name)
-    line_plot.xaxis.major_label_orientation = 1
-    circle_plot = figure(title='Stock prices', x_axis_label='Date',
-                        x_range=stock['short_date'], y_axis_label='Price in $USD')
-    circle_plot.circle(stock['short_date'], stock['high'], legend=stock_name)
-    circle_plot.xaxis.major_label_orientation = 1
-    line_tab = Panel(child=line_plot, title='Line')
-    circle_tab = Panel(child=circle_plot, title='Circles')
-    tabs = Tabs(tabs=[line_tab, circle_tab])
-    return tabs
+output_file('index.html')
 
-dataset['short_date'] = dataset.apply(lambda x: shorten_time_stamp(x), axis=1)
-stock_names = dataset['symbol'].unique()
+# Add plot
+p = figure(title="Testing",
+           y_range=state_list,
+           plot_width=800,
+           plot_height=600,
+           x_axis_label='X Axis Label',
+           tools="pan,box_select,zoom_in,zoom_out,save,reset")
 
-@interact(Stock=stock_names)
-def get_stock_for(Stock='AAPL'):
-    stock = dataset[dataset['symbol'] == Stock][:25]
-    show(get_plot(stock))
+#render glyph
+p.hbar(y='state',
+       right='earnings',
+       left=0,
+       height=0.4,
+       fill_color=factor_cmap('Title', palette=Blues8, factors=state_list),
+       fill_alpha=0.9,
+       source=source,
+       legend='earnings')
 
+p.legend.orientation = 'vertical'
+p.legend.location = 'top_right'
+p.legend.label_text_font_size='10px'
 
-# print(dataset.head())
+# Add Tooltips
+hover = HoverTool()
+hover.tooltips = """
+    <div>
+        <h3>@state</h3>
+        <div><strong>Earnings: </strong>@earnings</div>
+    </div>
+"""
 
+p.add_tools(hover)
 
-
-# show()
+show(p)

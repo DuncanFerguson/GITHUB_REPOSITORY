@@ -57,27 +57,31 @@ from datetime import datetime
 # from bokeh.io import curdoc, output_notebook
 # from bokeh.models import Slider, HoverTool
 from bokeh.layouts import widgetbox, row, column
-from bokeh.palettes import brewer, cividis, gray, viridis, Blues8
+from bokeh.palettes import brewer, cividis, gray, viridis
 from bokeh.io import output_notebook, show, output_file
 from bokeh.plotting import figure, show
-from bokeh.models import GeoJSONDataSource, LinearColorMapper, ColorBar, CustomJS, Dropdown, Slider, HoverTool, ColumnDataSource
-from bokeh.models.widgets import Panel, Tabs
-# Example of adding in a drop down
+from bokeh.models import (CDSView, ColorBar, ColumnDataSource,
+                          CustomJS, CustomJSFilter,
+                          GeoJSONDataSource, HoverTool,
+                          LinearColorMapper, Slider, Dropdown)
+from bokeh.models.widgets import Panel, Tabs, Select
 from bokeh.io import show
-from bokeh.transform import factor_cmap
+from bokeh.application import Application
+from bokeh.application.handlers import FunctionHandler
+
+
 from ipywidgets import interact, interact_manual
+from bokeh.io import curdoc
 from icecream import ic  # print tester
+
 
 def JSON_Fun():
     """ Aimed at importing the JSON files"""
-    # file = 'National_Obesity_By_State.geojson'
     file = 'states_geo.json'
-
     # listing the states in the dataset
     with open(file) as geoJSON_df:
         dataset = json.load(geoJSON_df)
         GEO_states = [feature['id'] for feature in dataset.get('features')]
-
     return dataset, GEO_states
 
 
@@ -85,33 +89,28 @@ def CSV_Fun():
     """ Aimed at importing an aligning the CSV sheets"""
     # Importing StrumData and States ID
     df = pd.read_csv('StrumData.csv')
+
     # There is a tab space located in the csv file. Stripping that out and cleaning the data
     df_states_id = pd.read_csv('states_id.csv', usecols=[0, 1], names=["state_id", "state"], header=None, sep=',"\t')
     df_states_id['state'] = df_states_id['state'].str.strip('"')
 
     # Joining the two sheets together
     combo_df = df.set_index('state').join(df_states_id.set_index('state'))
-    # print(combo_df.head())
-
-    # TODO this is a spot to filter the columns
-    # Grabbing States and wills column
-    # df = df[["state", "wills"]]
-    # df.head()
 
     # Grabbing states from DF
     combo_df_states = combo_df[["state_id"]].values.tolist()
     return df_states_id, combo_df, combo_df_states
 
 
-# def get_color(properties, field):
-#     cmap = ColorMap('Blues', alpha=255, levels=40)
-#     return cmap.to_color(properties[field], maxvalue=50, scale='lin')
+def get_color(properties, field):
+    cmap = ColorMap('Blues', alpha=255, levels=40)
+    return cmap.to_color(properties[field], maxvalue=50, scale='lin')
 
 
 def remove_states(dataset, df, df_1, missing_states_id):
     """This function removes the missing states and adds in new data properties"""
     # Removing the missing states from the json file, also renaming the state ID to abv
-    datetime_cols = ['debtfree','effectivemwpa', 'earnings', 'wills', 'soletrader']  # columns to turn into datetime
+    datetime_cols = ['debtfree', 'effectivemwpa', 'earnings', 'wills', 'soletrader']  # columns to turn into datetime
     for element in reversed(dataset['features']):
         element['state'] = df_1.iloc[element['id'], :][1]  # Changing the state's id to abv
         add_df = df[df['state_id'] == element['id']]
@@ -130,6 +129,11 @@ def remove_states(dataset, df, df_1, missing_states_id):
                 else:
                     element['properties'][i] = int(element['properties'][i])  # Turning it into Year from float
     return dataset
+
+
+# @interact(Value=options)
+# def slider(Value=options[0]):
+#     print(Value)
 
 
 def main():
@@ -156,39 +160,64 @@ def main():
     json_data = json.dumps(json.loads(dataset.to_json()))
     geosource = GeoJSONDataSource(geojson=json_data)
 
-    # Color Options
+    # Adding Colors for graph
     # palette = gray(100)
     palette = viridis(100)
-    # palette = Blues8
     palette = palette[::-1]  # This inverses the colors
-    color_mapper = LinearColorMapper(palette=palette, low=1835, high=1890, nan_color='#000000')  # Define custom tick labels for color bar.
-    color_bar = ColorBar(color_mapper=color_mapper, label_standoff=8, width=20, height=500,
-                         border_line_color=None, location=(0, 0), orientation='vertical')
 
-    p = figure(title='Look at US Earnings Metrics',
+    low_year = 1835
+    high_year = 1890
+
+    color_mapper = LinearColorMapper(palette=palette, low=low_year, high=high_year, nan_color='white')
+
+    # Create color bar.
+    color_bar = ColorBar(color_mapper=color_mapper,
+                         label_standoff=8,
+                         width=500, height=20,
+                         border_line_color=None,
+                         location=(0, 0),
+                         orientation='horizontal')
+
+    # Creating initial figure
+    p = figure(title='Will Need to place title here',
                plot_height=600,
                plot_width=950,
-               toolbar_location='right',
-               tools='pan, box_select,zoom_in,zoom_out,save,reset')
+               toolbar_location='below',
+               tools='pan, wheel_zoom, box_zoom, reset')
 
-    # Blanking out the grid lines
+    # Hiding grid lines
     p.xgrid.grid_line_color = None
     p.ygrid.grid_line_color = None
 
-    p.patches('xs', 'ys', source=geosource,
-              fill_color={'field': 'earnings', 'transform': color_mapper},
-              line_color='black', line_width=0.25, fill_alpha=1)
+    # Add patch renderer to figure.
+    states = p.patches('xs', 'ys', source=geosource,
+                       fill_color={'field': 'debtfree', 'transform': color_mapper},
+                       line_color='grey',
+                       line_width=0.25,
+                       fill_alpha=1)
 
-    p.add_layout(color_bar, 'right')
+    # Create hover tool
+    p.add_tools(HoverTool(renderers=[states],
+                          tooltips=[('State', '@NAME'),
+                                    ('Population', '@POPESTIMATE2018')]))
 
+    # Add Color Bar
+    p.add_layout(color_bar, 'below')
+    p.add_tools()
+    # ic(dataset.columns[6::])
+    # creating a dropdown
+    options = ['option1', 'option1', 'option1', 'option1']
 
     menu = [("Item 1", "item_1"), ("Item 2", "item_2"), ("Item 3", "item_3")]
     dropdown = Dropdown(label="Dropdown button", button_type="warning", menu=menu)
     dropdown.js_on_event("menu_item_click", CustomJS(code="console.log('dropdown: ' + this.item, this.toString())"))
 
+    #Addubg defaykt case
+    ms_default = 'BASE'
+    dfk_filt = dfk.query('mol_spe')
 
-    # # Displaying the graph and buttons
-    show(column(p, dropdown))
+
+    show(column(p,dropdown)
 
 
 if __name__ == '__main__':
