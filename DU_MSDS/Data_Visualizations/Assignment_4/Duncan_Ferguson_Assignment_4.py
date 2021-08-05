@@ -5,6 +5,7 @@
 # Date 8/6/2021
 
 # Cited Links
+# https://towardsdatascience.com/walkthrough-mapping-basics-with-bokeh-and-geopandas-in-python-43f40aa5b7e9
 # https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/
 # https://geoffboeing.com/2014/09/using-geopandas-windows/
 # https://towardsdatascience.com/how-to-step-up-your-folium-choropleth-map-skills-17cf6de7c6fe
@@ -31,6 +32,8 @@ import geoplotlib
 from geoplotlib.colors import ColorMap
 from geoplotlib.utils import BoundingBox
 import geopandas as gpd
+from datetime import datetime
+
 
 # from bokeh.io import curdoc, output_notebook
 # from bokeh.models import Slider, HoverTool
@@ -42,7 +45,6 @@ from bokeh.models import GeoJSONDataSource, LinearColorMapper, ColorBar, CustomJ
 from bokeh.models.widgets import Panel, Tabs
 # Example of adding in a drop down
 from bokeh.io import show
-
 from ipywidgets import interact, interact_manual
 from icecream import ic  # print tester
 
@@ -93,13 +95,15 @@ def CSV_Fun():
     return df_states_id, combo_df, combo_df_states
 
 
-def get_color(properties):
+def get_color(properties, field):
     cmap = ColorMap('Blues', alpha=255, levels=40)
-    return cmap.to_color(properties['fips'], maxvalue=50, scale='lin')
+    return cmap.to_color(properties[field], maxvalue=50, scale='lin')
 
 
 def remove_states(dataset, df, df_1, missing_states_id):
+    """This function removes the missing states and adds in new data properties"""
     # Removing the missing states from the json file, also renaming the state ID to abv
+    datetime_cols = ['debtfree','effectivemwpa', 'earnings', 'wills', 'soletrader']  # columns to turn into datetime
     for element in reversed(dataset['features']):
         element['state'] = df_1.iloc[element['id'], :][1]  # Changing the state's id to abv
         add_df = df[df['state_id'] == element['id']]
@@ -108,13 +112,22 @@ def remove_states(dataset, df, df_1, missing_states_id):
         else:
             for i in add_df:
                 element['properties'][i] = add_df[i][0]
+
+    # Reformating Nan and years
+    for element in dataset['features']:
+        for i in element['properties']:
+            if i in datetime_cols:
+                if np.isnan(element['properties'][i]):
+                    element['properties'][i] = 'No Data'
+                else:
+                    element['properties'][i] = int(element['properties'][i])  # Turning it into Year from float
     return dataset
 
-def update_plot(attr, old, new):
-    yr = slider.value
-    new_data = json_data(yr)
-    geosource.geojson = new_data
-    p.title.text = 'Share of adults who are obese, %d' %yr
+# def update_plot(attr, old, new):
+#     yr = slider.value
+#     new_data = json_data(yr)
+#     geosource.geojson = new_data
+#     p.title.text = 'Share of adults who are obese, %d' %yr
 
 
 def main():
@@ -133,29 +146,18 @@ def main():
     list = df_1[df_1['state_id'].isin(missing_states_id)]
     missing_states_id = list['state'].tolist()
 
+    # Sending off Data to add properties and remove missing states
     dataset = remove_states(dataset, df, df_1, missing_states_id)
 
-    # Place the dataset into a GeoPanda
-    dataset = gpd.GeoDataFrame(dataset)
+    # Place the dataset into a GeoPanda Convert to String like object then dump json
     dataset = gpd.GeoDataFrame.from_features(dataset["features"])
-    # ic(dataset.head())
-    # dataset.plot()
-
-    # TODO REWRITE EVERYTHING BELOW HERE This is one route
-
-    # Convert to String like object
     json_data = json.dumps(json.loads(dataset.to_json()))
-
-    # Input GeoJSON source that contains features for plotting.
     geosource = GeoJSONDataSource(geojson=json_data)
 
-    # TODO These are all of the color options
-    # https://docs.bokeh.org/en/latest/docs/reference/palettes.html
+    # Color Options
     # palette = gray(100)
     palette = viridis(100)
     palette = palette[::-1]  # This inverses the colors
-
-    # WIll probably want to look into this to make it more dynamic
     color_mapper = LinearColorMapper(palette=palette, low=0, high=100, nan_color='#000000')  # Define custom tick labels for color bar.
 
     p = figure(title='Look at US Earnings Metrics', plot_height=600, plot_width=950, toolbar_location=None)
@@ -172,9 +174,7 @@ def main():
                    '80': '80%',
                    '100': '100%'}
 
-
-    hover = HoverTool(tooltips=[('Country/region', '@country'), ('% obesity', '@per_cent_obesity')])
-
+    # hover = HoverTool(tooltips=[('Country/region', '@country'), ('% obesity', '@per_cent_obesity')])
 
     color_bar = ColorBar(color_mapper=color_mapper, label_standoff=8, width=500, height=20,
                          border_line_color=None, location=(0, 0), orientation='horizontal',
@@ -185,15 +185,14 @@ def main():
     p.patches('xs', 'ys', source=geosource, fill_color={'field': 'earnings', 'transform': color_mapper},
               line_color='black', line_width=0.25, fill_alpha=1)  # Specify figure layout.
 
-    # Make a slider object: slider
-    slider = Slider(title='earnings', start=1975, end=2016, step=1, value=2016)
-    slider.on_change('value', update_plot)
+    # # Make a slider object: slider
+    # slider = Slider(title='earnings', start=1975, end=2016, step=1, value=2016)
+    # slider.on_change('value', update_plot)
 
     # Make a column layout of widgetbox(slider) and plot, and add it to the current document
-    layout = column(p, widgetbox(slider))
+    # layout = column(p, widgetbox(slider))
     # layout.add_root(layout)
-    show(layout)
-
+    # show(column(p))
 
     # menu = [("Item 1", "item_1"), ("Item 2", "item_2"), None, ("Item 3", "item_3")]
     # dropdown = Dropdown(label="Dropdown button", button_type="warning", menu=menu)
@@ -202,25 +201,6 @@ def main():
 
     # # Displaying the graph and buttons
     # show(column(p))
-
-
-
-
-
-    # TODO the start of adding Data Color
-    # geoplotlib.geojson(dataset, fill=True, color=get_color)
-    # geoplotlib.geojson(dataset, fill=False, color=[255, 255, 255, 255])  # Filling in the lines as whites
-    # geoplotlib.labels(dataset, , color=[0, 0, 225, 255], font_size=15, anchor_x='center')
-    # geoplotlib.set_bbox(BoundingBox.USA)
-    # geoplotlib.tiles_provider('toner-lite')  # Great for gray scale printing
-    # geoplotlib.show()
-
-    # json_data = json.dumps(dataset)
-    # print(json_data)
-    # merged_json = json.loads(dataset)
-    # print(type(merged_json))
-    # geosource = GeoJSONDataSource(geojson = dataset)
-
 
 
 if __name__ == '__main__':
