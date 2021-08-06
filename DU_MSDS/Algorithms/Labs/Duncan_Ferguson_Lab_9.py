@@ -43,29 +43,12 @@ def MST(g):
         vertsProcessed.append(u)
         print("U", u)
         for v in range(len(vertsToProcess)):
-            print("Verts", vertsProcessed, v)
-            if g[u[0]][v] > 0:
+            print("Verts", vertsToProcess, v)
+            if g[u[0]][v] > 0 and vertsToProcess[v][0] < g[u[0]][v]:
                 print("Checking", g[u[0]][v], v)
-                if u[1] + g[u[0]][v] > vertsToProcess[v][1]:
-                    vertsToProcess[v][1] = u[1] + g[u[0]][v]
 
-
-                    print("Yes")
-                        # if u[1] + g[u[0]][v[0]] < v[1]:
-                        #     v[1] = u[1] + g[u[0]][v[0]]
-            # print(vertsProcessed[v])
-
-        # print("to process:", vertsToProcess)
-        # print(" processed:", vertsProcessed)
-
-    # Examine all potential verts remaining
-    #     for v in vertsToProcess:
-    # # Only care about the ones that are adjacent to u
-    #     if g[u[0]][v[0]] > 0:
-    #         print('Checking', g[u[0]][v[0]])
-    #     # Update the distances if necessary
-    #         if u[1] + g[u[0]][v[0]] < v[1]:
-    #             v[1] = u[1] + g[u[0]][v[0]]
+        print("to process:", vertsToProcess)
+        print(" processed:", vertsProcessed)
 
     print(vertsProcessed)
 
