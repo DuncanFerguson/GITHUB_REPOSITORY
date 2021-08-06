@@ -22,6 +22,9 @@ def mst(g):
     verts[0] = 0
     parent[0] = -1
 
+    # print("verts", verts)
+    # print("p", parent)
+
     for _ in range(nVerts):
         u = extractMin(verts)
         print("u", u)
@@ -31,6 +34,7 @@ def mst(g):
                 print("Checking ", g[u][v], v)
                 verts[v] = g[u][v]
                 parent[v] = u
+                print("Old V", v)
                 print("New V", verts[v], parent[v])
 
         result = []

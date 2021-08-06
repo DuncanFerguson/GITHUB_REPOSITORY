@@ -32,37 +32,48 @@ def MST(g):
     nVerts = len(g)
     vertsToProcess = [[i, float("inf")] for i in range(nVerts)]
 
-    # Start at vertex 0 - it has a current shortest distance of 0
-    vertsToProcess[0][1] = 0
-    # print("V2P", vertsToProcess[0][1])
-    vertsProcessed = []
-    while len(vertsToProcess) > 0:
-        u = extractMin(vertsToProcess)
-        vertsProcessed.append(u)
-        print("U", u[1])
-        # print("to process:",vertsToProcess)
-        # print(" processed:",vertsProcessed)
-        # Examine all potential verts remaining
-        for v in vertsToProcess:
-            # Update the distances if necessary
-            if g[u[0]][v[0]] > 0 and v[1] > g[u[0]][v[0]]:
-                print("Checking", g[u[0]][v[0]], v[0])
-                v = [g[u[0]][v[0]], u[0]]
-                print("New V",v)
-                # v[0] = u[1]
+    key = [float("inf")]*nVerts
+    key[0] = 0
+    P = [None] * nVerts
+    P[0] = -1
 
-                # Start with an empty list of processed edges
+    # print("Key", key)
+    # print("P", P)
+
+    # Start at vertex 0 - it has a current shortest distance of 0
+    vertsToProcess[0][1] = -1
+    # print("V2P", vertsToProcess[0][1])
     # vertsProcessed = []
     # while len(vertsToProcess) > 0:
     #     u = extractMin(vertsToProcess)
     #     vertsProcessed.append(u)
     #     print("U", u[1])
-    #     for v in range(len(vertsToProcess)):
-    #         print("Verts", vertsToProcess, v)
-    #         if g[u[0]][v] > 0 and vertsToProcess[v][0] < g[u[0]][v]:
-    #             print("Checking", g[u[0]][v], v)
-    #             # vertsToProcess[v][0] = g[u[0]][v]
-    #             # vertsToProcess[v][1] = u[1]
+    #     # print("to process:",vertsToProcess)
+    #     # print(" processed:",vertsProcessed)
+    #     # Examine all potential verts remaining
+    #     for v in vertsToProcess:
+    #         # Update the distances if necessary
+    #         if g[u[0]][v[0]] > 0 and v[1] > g[u[0]][v[0]]:
+    #             print("Checking", g[u[0]][v[0]], v[0])
+    #             print("Old V", v)
+    #             v = [g[u[0]][v[0]], u[0]]
+    #             print("New V",v)
+    #             # P[v]
+    #             P[0] = u[1]
+    # print(P)
+
+                # Start with an empty list of processed edges
+    vertsProcessed = []
+    while len(vertsToProcess) > 0:
+        u = extractMin(vertsToProcess)
+        vertsProcessed.append(u)
+        print("U", u[1])
+        for v in range(len(vertsToProcess)):
+            print("Verts", vertsToProcess, v)
+            if g[u[0]][v] > 0 and vertsToProcess[v][0] < g[u[0]][v]:
+                print("Checking", g[u[0]][v], v)
+                # vertsToProcess[v][0] = g[u[0]][v]
+                # vertsToProcess[v][1] = u[1]
 
         # print("to process:", vertsToProcess)
         # print(" processed:", vertsProcessed)
