@@ -12,16 +12,16 @@ https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
 """
 
 def extractMin(verts):
-    # print("verts", verts)
+    print("vertsE", verts)
     minIndex = 0
     min = float("inf")
     for v in range(1, len(verts)):
-        print("verts: ", verts[v], "Min:", min)
+        print("verts: ", verts[v][1], "Min:", min)
         # print("Vert", verts[v])
         if verts[v][1] < min:
-            min = verts[v]
+            min = verts[v][1]
             minIndex = v
-            verts[v][1] = v
+            # verts[v][1] = v
     return verts.pop(minIndex)
 
 
@@ -35,20 +35,37 @@ def MST(g):
     # Start at vertex 0 - it has a current shortest distance of 0
     vertsToProcess[0][1] = 0
     # print("V2P", vertsToProcess[0][1])
-
-    # Start with an empty list of processed edges
     vertsProcessed = []
     while len(vertsToProcess) > 0:
         u = extractMin(vertsToProcess)
         vertsProcessed.append(u)
-        print("U", u)
-        for v in range(len(vertsToProcess)):
-            print("Verts", vertsToProcess, v)
-            if g[u[0]][v] > 0 and vertsToProcess[v][0] < g[u[0]][v]:
-                print("Checking", g[u[0]][v], v)
+        print("U", u[1])
+        # print("to process:",vertsToProcess)
+        # print(" processed:",vertsProcessed)
+        # Examine all potential verts remaining
+        for v in vertsToProcess:
+            # Update the distances if necessary
+            if g[u[0]][v[0]] > 0 and v[1] > g[u[0]][v[0]]:
+                print("Checking", g[u[0]][v[0]], v[0])
+                v = [g[u[0]][v[0]], u[0]]
+                print("New V",v)
+                # v[0] = u[1]
 
-        print("to process:", vertsToProcess)
-        print(" processed:", vertsProcessed)
+                # Start with an empty list of processed edges
+    # vertsProcessed = []
+    # while len(vertsToProcess) > 0:
+    #     u = extractMin(vertsToProcess)
+    #     vertsProcessed.append(u)
+    #     print("U", u[1])
+    #     for v in range(len(vertsToProcess)):
+    #         print("Verts", vertsToProcess, v)
+    #         if g[u[0]][v] > 0 and vertsToProcess[v][0] < g[u[0]][v]:
+    #             print("Checking", g[u[0]][v], v)
+    #             # vertsToProcess[v][0] = g[u[0]][v]
+    #             # vertsToProcess[v][1] = u[1]
+
+        # print("to process:", vertsToProcess)
+        # print(" processed:", vertsProcessed)
 
     print(vertsProcessed)
 
