@@ -6,8 +6,6 @@
 
 # Cited Links
 # https://towardsdatascience.com/walkthrough-mapping-basics-with-bokeh-and-geopandas-in-python-43f40aa5b7e9
-# https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/
-# https://geoffboeing.com/2014/09/using-geopandas-windows/
 # https://towardsdatascience.com/how-to-step-up-your-folium-choropleth-map-skills-17cf6de7c6fe
 # https://towardsdatascience.com/a-complete-guide-to-an-interactive-geographical-map-using-python-f4c5197e23e0
 
@@ -26,19 +24,10 @@ necessary for clarification. File support is given as follows: SturmCodebook has
 explanation. SturmData is the geoJSON_df CSV.
 
 state – State abbreviation
-
-fips – FIPS State Code
-
-icpsr – ICPSR State Code
-
 debtfree – Year of passage of state law protecting married women’s separate property from her husband’s debts
-
 effectivemwpa – Year of passage of state law granting married women control and management rights over their separate property
-
 earnings – Year of passage of state law granting married women ownership of their wages or earnings on par with other separate property
-
 wills – Year of passage of state law granting married women the ability to write wills without their husband's consent or other restrictions
-
 soletrader – Year of passage of state law granting married women as a class the right to sign contracts and engage in business without consent of husband
 
 Note: This study examines the passage of married women’s economic rights reforms prior to the Nineteenth Amendment (1920, granting women the right to vote at the national level), so states that passed laws later (i.e. Florida passed a control-and-management law in 1943) should be treated as missing data for the purposes of data visualization.
@@ -52,7 +41,6 @@ from geoplotlib.colors import ColorMap
 from geoplotlib.utils import BoundingBox
 import geopandas as gpd
 from datetime import datetime
-
 
 # from bokeh.io import curdoc, output_notebook
 # from bokeh.models import Slider, HoverTool

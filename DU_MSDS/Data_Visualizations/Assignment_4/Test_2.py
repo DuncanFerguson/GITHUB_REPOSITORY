@@ -9,7 +9,7 @@ from bokeh.io import show
 from bokeh.models import (CDSView, ColorBar, ColumnDataSource,
                           CustomJS, CustomJSFilter,
                           GeoJSONDataSource, HoverTool,
-                          LinearColorMapper, Slider, Dropdown)
+                          LinearColorMapper, Slider, Dropdown, Select)
 from bokeh.layouts import column, row, widgetbox
 from bokeh.palettes import brewer, viridis
 from bokeh.plotting import figure, output_file
@@ -62,21 +62,18 @@ for element in dataset['features']:
 j_dataset = gpd.GeoDataFrame.from_features(dataset["features"])
 json_data = json.dumps(json.loads(j_dataset.to_json()))
 geosource = GeoJSONDataSource(geojson=json_data)
+
+
+# source= ColumnDataSource(data=geosource)
 print(j_dataset.head())
 
 # Setting Up Color Scale to use
 palette = viridis(100)
 palette = palette[::-1]
 
-fields = ['state', 'debtfree', 'effectivemwpa', 'earnings', 'wills', 'soletrader']
+category = 'soletrader'
 
-d = Dropdown(label=fields[0], menu=fields)
-def handler(event):
-    print(event.item)
-
-d.on_click(handler)
-
-color_mapper = LinearColorMapper(palette=palette, low=strum_w_id['earnings'].min(), high=strum_w_id['earnings'].max(),
+color_mapper = LinearColorMapper(palette=palette, low=strum_w_id[category].min(), high=strum_w_id[category].max(),
                                  nan_color='#d9d9d9')  # Define custom tick labels for color bar.
 
 color_bar = ColorBar(color_mapper=color_mapper, label_standoff=8, width=20, height=500,
@@ -94,10 +91,13 @@ p.ygrid.grid_line_color = None
 
 #
 p.patches('xs', 'ys', source=geosource,
-          fill_color={'field': 'earnings', 'transform': color_mapper},
+          fill_color={'field': category, 'transform': color_mapper},
           line_color='black',
           line_width=0.25,
-          fill_alpha=1)
+          fill_alpha=1,
+          legend_label='Null Data')
+
+p.legend.click_policy ='hide'
 
 p.add_layout(color_bar, 'right')
 
@@ -115,12 +115,13 @@ hover.tooltips = """
     </div>
 """
 
-# RadioGroup(labels, active)
-
-output_file("index.html")
-cb = CheckboxGroup(labels=["Grey Scale"], active=[0])
+# Adding Gray Scale box
+output_file("index.html", title="Duncan Ferguson")
+drop_bar = Select(title="Select Category:", options=datetime_cols, value=datetime_cols[0], width=200)
+print(drop_bar)
 
 # show(checkbox_group)
 
 p.add_tools(hover)
-show(column(cb, d, p))
+show(column(drop_bar, p))
+# curdoc().add_root(column(drop_bar, p))
