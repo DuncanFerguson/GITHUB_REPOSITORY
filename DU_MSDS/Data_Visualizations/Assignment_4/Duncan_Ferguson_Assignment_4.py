@@ -168,6 +168,7 @@ def main():
 
     color_mapper = LinearColorMapper(palette=palette, low=dataset['earnings'].min(), high=dataset['earnings'].max(),
                                      nan_color='#d9d9d9')  # Define custom tick labels for color bar.
+
     color_bar = ColorBar(color_mapper=color_mapper, label_standoff=8, width=20, height=500,
                          border_line_color=None, location=(0, 0), orientation='vertical')
 
