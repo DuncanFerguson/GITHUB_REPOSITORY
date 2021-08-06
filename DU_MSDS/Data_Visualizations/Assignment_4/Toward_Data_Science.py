@@ -1,91 +1,112 @@
 import pandas as pd
-import geopandas as gpd
-import json
-import matplotlib as mpl
-import pylab as plt
+from bokeh.io import output_file
+from datetime import datetime
 
-from bokeh.io import output_file, show, output_notebook, export_png
-from bokeh.models import ColumnDataSource, GeoJSONDataSource, LinearColorMapper, ColorBar
-from bokeh.plotting import figure
-from bokeh.palettes import brewer
 
-import panel as pn
-import panel.widgets as pnw
+dataset = pd.read_csv('stock_prices.csv')
+# print(dataset.head())
 
-shapefile = 'data/ne_110m_admin_0_countries.shp'
-#Read shapefile using Geopandas
-gdf = gpd.read_file(shapefile)[['ADMIN', 'ADM0_A3', 'geometry']]
-#Rename columns.
-gdf.columns = ['country', 'country_code', 'geometry']
-gdf = gdf.drop(gdf.index[159])
-owid = pd.read_csv('data/owid.csv').set_index('name')
+def shorten_time_stamp(timestamp):
+    shortened = timestamp[0]
 
-def get_dataset(name,key=None,year=None):
+    if len(shortened) > 10:
+        parsed_date = datetime.strptime(shortened, '%Y-%m-%d %H:%M:%S')
+        shortened = datetime.strftime(parsed_date, '%Y-%m-%d')
+    return shortened
 
-    url = owid.loc[name].url
-    df = pd.read_csv(url)
-    if year is not None:
-        df = df[df['Year'] == year]
-    #Merge dataframes gdf and df_2016.
-    if key is None:
-        #name of column for plotting is always the third one
-        key = df.columns[2]
-    #merge with the geopandas dataframe
-    merged = gdf.merge(df, left_on = 'country', right_on = 'Entity', how = 'left')
-    merged[key] = merged[key].fillna(0)
-    return merged, key
 
-datasetname='Land surface temperature anomaly'
-data,key = get_dataset(datasetname, year=2010)
-fig, ax = plt.subplots(1, figsize=(14, 8))
-data.plot(column=key, cmap='OrRd', linewidth=0.8, ax=ax, edgecolor='black')
-ax.axis('off')
-ax.set_title('%s 2010' %datasetname, fontsize=18)
+dataset['short_date'] = dataset.apply(lambda x: shorten_time_stamp(x), axis=1)
 
-def get_geodatasource(gdf):
-    """Get getjsondatasource from geopandas object"""
-    json_data = json.dumps(json.loads(gdf.to_json()))
-    return GeoJSONDataSource(geojson = json_data)
+from bokeh.plotting import figure, show
+from ipywidgets import interact, widgets
 
-def bokeh_plot_map(gdf, column=None, title=''):
-    """Plot bokeh map from GeoJSONDataSource """
+def add_candle_plot(plot, stock_name, stock_range, color):
+    inc_1 = stock_range.close > stock_range.open
+    dec_1 = stock_range.open > stock_range.close
+    w = 0.5
 
-    geosource = get_geodatasource(gdf)
-    palette = brewer['OrRd'][8]
-    palette = palette[::-1]
-    vals = gdf[column]
-    #Instantiate LinearColorMapper that linearly maps numbers in a range, into a sequence of colors.
-    color_mapper = LinearColorMapper(palette = palette, low = vals.min(), high = vals.max())
-    color_bar = ColorBar(color_mapper=color_mapper, label_standoff=8, width=500, height=20,
-                         location=(0,0), orientation='horizontal')
+    plot.segment(stock_range['short_date'], stock_range['high'],
+                 stock_range['short_date'], stock_range['low'],
+                 color="grey")
 
-    tools = 'wheel_zoom,pan,reset'
-    p = figure(title = title, plot_height=400 , plot_width=850, toolbar_location='right', tools=tools)
-    p.xgrid.grid_line_color = None
-    p.ygrid.grid_line_color = None
-    #Add patch renderer to figure
-    p.patches('xs','ys', source=geosource, fill_alpha=1, line_width=0.5, line_color='black',
-              fill_color={'field' :column , 'transform': color_mapper})
-    #Specify figure layout.
-    p.add_layout(color_bar, 'below')
-    return p
+    plot.vbar(stock_range['short_date'][inc_1], w,
+              stock_range['high'][inc_1], stock_range['close'][inc_1],
+              fill_color="green", line_color="black",
+              legend=('Mean price of ' + stock_name), muted_alpha=0.2)
 
-def map_dash():
-    """Map dashboard"""
+    plot.vbar(stock_range['short_date'][dec_1], w,
+              stock_range['high'][dec_1], stock_range['close'][dec_1],
+              fill_color="red", line_color="black",
+              legend=('Mean price of ' + stock_name), muted_alpha=0.2)
 
-    from bokeh.models.widgets import DataTable
-    map_pane = pn.pane.Bokeh(width=400)
-    data_select = pnw.Select(name='dataset',options=list(owid.index))
-    year_slider = pnw.IntSlider(start=1950,end=2018,value=2010)
-    def update_map(event):
-        gdf,key = get_dataset(name=data_select.value,year=year_slider.value)
-        map_pane.object = bokeh_plot_map(gdf, key)
-        return
-    year_slider.param.watch(update_map,'value')
-    year_slider.param.trigger('value')
-    data_select.param.watch(update_map,'value')
-    app = pn.Column(pn.Row(data_select,year_slider),map_pane)
-    return app
+    stock_mean_val=stock_range[['high', 'low']].mean(axis=1)
+    plot.line(stock_range['short_date'], stock_mean_val,
+              legend=('Mean price of ' + stock_name), muted_alpha=0.2,
+              line_color=color, alpha=0.5)
 
-app = map_dash()
+
+# method to build the plot
+def get_plot(stock_1, stock_2, date, value):
+    stock_1 = dataset[dataset['symbol'] == stock_1]
+    stock_2 = dataset[dataset['symbol'] == stock_2]
+
+    stock_1_name = stock_1['symbol'].unique()[0]
+    stock_1_range = stock_1[(stock_1['short_date'] >= date[0]) & (stock_1['short_date'] <= date[1])]
+    stock_2_name = stock_2['symbol'].unique()[0]
+    stock_2_range = stock_2[(stock_2['short_date'] >= date[0]) & (stock_2['short_date'] <= date[1])]
+
+    plot = figure(title='Stock prices',
+                  x_axis_label='Date',
+                  x_range=stock_1_range['short_date'],
+                  y_axis_label='Price in $USD',
+                  plot_width=800,
+                  plot_height=500)
+
+    plot.xaxis.major_label_orientation = 1
+    plot.grid.grid_line_alpha = 0.3
+
+    if value == 'open-close':
+        add_candle_plot(plot, stock_1_name, stock_1_range, 'blue')
+        add_candle_plot(plot, stock_2_name, stock_2_range, 'orange')
+
+    if value == 'volume':
+        plot.line(stock_1_range['short_date'], stock_1_range['volume'],
+                  legend=stock_1_name, muted_alpha=0.2)
+        plot.line(stock_2_range['short_date'], stock_2_range['volume'],
+                  legend=stock_2_name, muted_alpha=0.2,
+                  line_color='orange')
+
+    plot.legend.click_policy = "mute"
+    return plot
+
+# extracing the necessary data
+stock_names=dataset['symbol'].unique()
+dates_2016=dataset[dataset['short_date'] >= '2016-01-01']['short_date']
+unique_dates_2016=sorted(dates_2016.unique())
+value_options=['open-close', 'volume']
+
+# setting up the interaction elements
+drp_1=widgets.Dropdown(options=stock_names,
+                       value='AAPL',
+                       description='Compare:')
+
+drp_2=widgets.Dropdown(options=stock_names,
+                       value='AON',
+                       description='to:')
+
+range_slider=widgets.SelectionRangeSlider(options=unique_dates_2016,
+                                          index=(0,25),
+                                          continuous_update=False,
+                                          description='From-To',
+                                          layout={'width': '500px'})
+
+value_radio=widgets.RadioButtons(options=value_options,
+                                 value='open-close',
+                                 description='Metric')
+
+# creating the interact method
+@interact(stock_1=drp_1, stock_2=drp_2, date=range_slider, value=value_radio)
+def get_stock_for_2016(stock_1, stock_2, date, value):
+    output_file('This.html')
+    show(get_plot(stock_1, stock_2, date, value))
 

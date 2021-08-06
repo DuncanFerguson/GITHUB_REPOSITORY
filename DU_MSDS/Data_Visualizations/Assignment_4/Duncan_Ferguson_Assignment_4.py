@@ -159,16 +159,11 @@ hover.tooltips = """
     </div>
 """
 
-def drop_down_select(attr,old, new):
-    print(new)
-
 # Adding Gray Scale box
 output_file("index.html", title="Duncan Ferguson")
 drop_bar = Select(title="Select Category:", options=datetime_cols, value=datetime_cols[0], width=200)
-# drop_bar.js_on_change('value', callback)
 
 # show(checkbox_group)
-
 p.add_tools(hover)
 show(column(drop_bar, p))
 # show(add_root(column(drop_bar, p)))
