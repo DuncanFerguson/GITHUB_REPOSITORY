@@ -7,11 +7,12 @@ def extractMin(verts):
     minIndex = 0
     min = float('inf')
     for v in range(1, len(verts)):
+        print("verts:", verts[v], "Min:", min)
         if verts[v] < min:
             min = verts[v]
             minIndex = v
-    print("MSTSet", )
-    print("Min Before Return", minIndex)
+    # print("MSTSet", )
+    # print("Min Before Return", minIndex)
     return minIndex
 
 def mst(g):
@@ -19,17 +20,15 @@ def mst(g):
     verts = [float("inf")] * nVerts
     parent = [None] * nVerts
     verts[0] = 0
-    mstSet = [False] * nVerts
     parent[0] = -1
 
-    print("verts", verts)
-    print("mst", mstSet)
-    print("parent", parent)
-
-    for cout in range(nVerts):
+    for _ in range(nVerts):
         u = extractMin(verts)
+        print("u", u)
         for v in range(nVerts):
+            print("verts", verts, v)
             if g[u][v] > 0 and verts[v] > g[u][v]:
+                print("Checking ", g[u][v], v)
                 verts[v] = g[u][v]
                 parent[v] = u
         result = []
