@@ -10,6 +10,8 @@
 # https://geoffboeing.com/2014/09/using-geopandas-windows/
 # https://towardsdatascience.com/how-to-step-up-your-folium-choropleth-map-skills-17cf6de7c6fe
 # https://towardsdatascience.com/a-complete-guide-to-an-interactive-geographical-map-using-python-f4c5197e23e0
+# https://towardsdatascience.com/walkthrough-mapping-basics-with-bokeh-and-geopandas-in-python-43f40aa5b7e9
+
 
 """ Using free and open source tools, provide a set of choropleth visualizations for each of
 the columns containing dates such that the resulting visualizations (48 states only) tell
@@ -152,8 +154,8 @@ def main():
     dataset = remove_states(dataset, df, df_1, missing_states_id)
 
     # Place the dataset into a GeoPanda Convert to String like object then dump json
-    dataset = gpd.GeoDataFrame.from_features(dataset["features"])
-    json_data = json.dumps(json.loads(dataset.to_json()))
+    j_dataset = gpd.GeoDataFrame.from_features(dataset["features"])
+    json_data = json.dumps(json.loads(j_dataset.to_json()))
     geosource = GeoJSONDataSource(geojson=json_data)
 
     # Color Options
@@ -161,7 +163,11 @@ def main():
     palette = viridis(100)
     # palette = Blues8
     palette = palette[::-1]  # This inverses the colors
-    color_mapper = LinearColorMapper(palette=palette, low=1835, high=1890, nan_color='#000000')  # Define custom tick labels for color bar.
+
+    print(dataset['features'][0]['properties'])
+
+    color_mapper = LinearColorMapper(palette=palette, low=dataset['earnings'].min(), high=dataset['earnings'].max(),
+                                     nan_color='#d9d9d9')  # Define custom tick labels for color bar.
     color_bar = ColorBar(color_mapper=color_mapper, label_standoff=8, width=20, height=500,
                          border_line_color=None, location=(0, 0), orientation='vertical')
 
