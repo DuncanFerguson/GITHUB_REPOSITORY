@@ -1,195 +1,91 @@
 import pandas as pd
+import geopandas as gpd
+import json
+import matplotlib as mpl
+import pylab as plt
 
-from bokeh.io import curdoc
+from bokeh.io import output_file, show, output_notebook, export_png
+from bokeh.models import ColumnDataSource, GeoJSONDataSource, LinearColorMapper, ColorBar
 from bokeh.plotting import figure
-from bokeh.layouts import row, column
+from bokeh.palettes import brewer
 
-from bokeh.models import Select, CheckboxButtonGroup ### Widgets
+import panel as pn
+import panel.widgets as pnw
 
-### Dataset Imports
-from bokeh.sampledata.stocks import GOOG as google
-from sklearn.datasets import load_iris, load_wine
+shapefile = 'data/ne_110m_admin_0_countries.shp'
+#Read shapefile using Geopandas
+gdf = gpd.read_file(shapefile)[['ADMIN', 'ADM0_A3', 'geometry']]
+#Rename columns.
+gdf.columns = ['country', 'country_code', 'geometry']
+gdf = gdf.drop(gdf.index[159])
+owid = pd.read_csv('data/owid.csv').set_index('name')
 
+def get_dataset(name,key=None,year=None):
 
-checkbox_options = ['open','high','low','close']
-color_mapping = {0:"tomato", 1:"dodgerblue", 2:"lime"}
-price_color_map = {"open":"dodgerblue", "close":"tomato", "low":"lime", "high":"orange"}
+    url = owid.loc[name].url
+    df = pd.read_csv(url)
+    if year is not None:
+        df = df[df['Year'] == year]
+    #Merge dataframes gdf and df_2016.
+    if key is None:
+        #name of column for plotting is always the third one
+        key = df.columns[2]
+    #merge with the geopandas dataframe
+    merged = gdf.merge(df, left_on = 'country', right_on = 'Entity', how = 'left')
+    merged[key] = merged[key].fillna(0)
+    return merged, key
 
-#### IRIS Dataset Loading #####
-iris = load_iris()
+datasetname='Land surface temperature anomaly'
+data,key = get_dataset(datasetname, year=2010)
+fig, ax = plt.subplots(1, figsize=(14, 8))
+data.plot(column=key, cmap='OrRd', linewidth=0.8, ax=ax, edgecolor='black')
+ax.axis('off')
+ax.set_title('%s 2010' %datasetname, fontsize=18)
 
-iris_df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
-iris_df["FlowerType"] = iris.target
+def get_geodatasource(gdf):
+    """Get getjsondatasource from geopandas object"""
+    json_data = json.dumps(json.loads(gdf.to_json()))
+    return GeoJSONDataSource(geojson = json_data)
 
+def bokeh_plot_map(gdf, column=None, title=''):
+    """Plot bokeh map from GeoJSONDataSource """
 
-### Google Price Dataset Loading ##############
-google_df = pd.DataFrame(google)
-google_df["date"] = pd.to_datetime(google_df["date"])
+    geosource = get_geodatasource(gdf)
+    palette = brewer['OrRd'][8]
+    palette = palette[::-1]
+    vals = gdf[column]
+    #Instantiate LinearColorMapper that linearly maps numbers in a range, into a sequence of colors.
+    color_mapper = LinearColorMapper(palette = palette, low = vals.min(), high = vals.max())
+    color_bar = ColorBar(color_mapper=color_mapper, label_standoff=8, width=500, height=20,
+                         location=(0,0), orientation='horizontal')
 
+    tools = 'wheel_zoom,pan,reset'
+    p = figure(title = title, plot_height=400 , plot_width=850, toolbar_location='right', tools=tools)
+    p.xgrid.grid_line_color = None
+    p.ygrid.grid_line_color = None
+    #Add patch renderer to figure
+    p.patches('xs','ys', source=geosource, fill_alpha=1, line_width=0.5, line_color='black',
+              fill_color={'field' :column , 'transform': color_mapper})
+    #Specify figure layout.
+    p.add_layout(color_bar, 'below')
+    return p
 
+def map_dash():
+    """Map dashboard"""
 
-### Line Chart of Google Prices Code Starts ###########
+    from bokeh.models.widgets import DataTable
+    map_pane = pn.pane.Bokeh(width=400)
+    data_select = pnw.Select(name='dataset',options=list(owid.index))
+    year_slider = pnw.IntSlider(start=1950,end=2018,value=2010)
+    def update_map(event):
+        gdf,key = get_dataset(name=data_select.value,year=year_slider.value)
+        map_pane.object = bokeh_plot_map(gdf, key)
+        return
+    year_slider.param.watch(update_map,'value')
+    year_slider.param.trigger('value')
+    data_select.param.watch(update_map,'value')
+    app = pn.Column(pn.Row(data_select,year_slider),map_pane)
+    return app
 
-line_chart = figure(plot_width=1000, plot_height=400, x_axis_type="datetime",
-                    title="Google Stock Prices from 2005 - 2013")
+app = map_dash()
 
-line_chart.line(
-                x="date", y="open",
-                line_width=0.5, line_color="dodgerblue",
-                legend_label = "open",
-                source=google_df
-                )
-
-line_chart.xaxis.axis_label = 'Time'
-line_chart.yaxis.axis_label = 'Price ($)'
-
-line_chart.legend.location = "top_left"
-
-### Line Chart of Google Prices Code Ends ###########
-
-
-### Scatter Chart Of IRIS Dimesions Code Starts ###########
-scatter = figure(plot_width=500, plot_height=400,
-                 title="Sepal Length vs Sepal Width Scatter Plot")
-
-for cls in [0,1,2]:
-    scatter.circle(x=iris_df[iris_df["FlowerType"]==cls]["sepal length (cm)"],
-               y=iris_df[iris_df["FlowerType"]==cls]["sepal width (cm)"],
-               color=color_mapping[cls],
-               size=10,
-               alpha=0.8,
-               legend_label=iris.target_names[cls])
-
-scatter.xaxis.axis_label= "sepal length (cm)".upper()
-scatter.yaxis.axis_label= "sepal width (cm)".upper()
-
-### Scatter Chart Of IRIS Dimesions Code Ends ###########
-
-
-### Bar Chart Of IRIS Dimesions Code Starts ###########
-iris_avg_by_flower_type = iris_df.groupby(by="FlowerType").mean()
-
-bar_chart = figure(plot_width=500, plot_height=400,
-                    title="Average Sepal Length (cm) per Flower Type")
-
-bar_chart.vbar(x = [1,2,3],
-                width=0.9,
-                top=iris_avg_by_flower_type["sepal length (cm)"],
-                fill_color="tomato", line_color="tomato", alpha=0.9)
-
-bar_chart.xaxis.axis_label="FlowerType"
-bar_chart.yaxis.axis_label="Sepal Length"
-
-bar_chart.xaxis.ticker = [1, 2, 3]
-bar_chart.xaxis.major_label_overrides = {1: 'Setosa', 2: 'Versicolor', 3: 'Virginica'}
-
-### Bar Chart Of IRIS Dimesions Code Starts ###########
-
-
-### Widgets Code Starts ################################
-drop_scat1 = Select(title="X-Axis-Dim",
-                    options=iris.feature_names,
-                    value=iris.feature_names[0],
-                    width=225)
-
-drop_scat2 = Select(title="Y-Axis-Dim",
-                    options=iris.feature_names,
-                    value=iris.feature_names[1],
-                    width=225)
-
-checkbox_grp = CheckboxButtonGroup(labels=checkbox_options, active=[0], button_type="success")
-
-drop_bar = Select(title="Dimension", options=iris.feature_names, value=iris.feature_names[0])
-
-### Widgets Code Ends ################################
-
-
-##### Code to Update Charts as Per Widget  State Starts #####################
-
-def update_line_chart(attrname, old, new):
-    '''
-        Code to update Line Chart as Per Check Box Selection
-    '''
-    line_chart = figure(plot_width=1000, plot_height=400, x_axis_type="datetime",
-                        title="Google Stock Prices from 2005 - 2013")
-
-    for option in checkbox_grp.active:
-        line_chart.line(
-                x="date", y=checkbox_options[option],
-                line_width=0.5, line_color=price_color_map[checkbox_options[option]],
-                legend_label=checkbox_options[option],
-                source=google_df
-            )
-
-    line_chart.xaxis.axis_label = 'Time'
-    line_chart.yaxis.axis_label = 'Price ($)'
-
-    line_chart.legend.location = "top_left"
-
-    layout_with_widgets.children[0].children[1] = line_chart
-
-
-def update_scatter(attrname, old, new):
-    '''
-        Code to update Scatter Chart as Per Dropdown Selections
-    '''
-    scatter = figure(plot_width=500, plot_height=400,
-                     title="%s vs %s Scatter Plot"%(drop_scat1.value.upper(), drop_scat2.value.upper()))
-
-    for cls in [0,1,2]:
-        scatter.circle(x=iris_df[iris_df["FlowerType"]==cls][drop_scat1.value],
-                   y=iris_df[iris_df["FlowerType"]==cls][drop_scat2.value],
-                   color=color_mapping[cls],
-                   size=10,
-                   alpha=0.8,
-                   legend_label=iris.target_names[cls])
-
-    scatter.xaxis.axis_label= drop_scat1.value.upper()
-    scatter.yaxis.axis_label= drop_scat2.value.upper()
-
-    layout_with_widgets.children[1].children[0].children[1] = scatter
-
-
-def update_bar_chart(attrname, old, new):
-    '''
-        Code to Update Bar Chart as Per Dropdown Selections
-    '''
-    bar_chart = figure(plot_width=500, plot_height=400,
-                       title="Average %s Per Flower Type"%drop_bar.value.upper())
-
-    bar_chart.vbar(x = [1,2,3],
-             width=0.9,
-             top=iris_avg_by_flower_type[drop_bar.value],
-             fill_color="tomato", line_color="tomato", alpha=0.9)
-
-    bar_chart.xaxis.axis_label="FlowerType"
-    bar_chart.yaxis.axis_label=drop_bar.value.upper()
-
-    bar_chart.xaxis.ticker = [1, 2, 3]
-    bar_chart.xaxis.major_label_overrides = {1: 'Setosa', 2: 'Versicolor', 3: 'Virginica'}
-
-    layout_with_widgets.children[1].children[1].children[1] = bar_chart
-
-##### Code to Update Charts as Per Widget  State Ends #####################
-
-
-#### Registering Widget Attribute Change with Methods Code Starts #############
-checkbox_grp.on_change("active", update_line_chart)
-
-drop_scat1.on_change("value", update_scatter)
-drop_scat2.on_change("value", update_scatter)
-
-drop_bar.on_change("value", update_bar_chart)
-
-#### Registering Widget Attribute Change with Methods Code Ends #############
-
-####### Widgets Layout #################
-layout_with_widgets = column(
-                            column(checkbox_grp, line_chart),
-                            row(
-                                column(row(drop_scat1, drop_scat2), scatter),
-                                column(drop_bar, bar_chart)))
-
-
-############ Creating Dashboard ################
-curdoc().add_root(layout_with_widgets)

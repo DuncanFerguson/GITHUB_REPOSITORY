@@ -5,16 +5,15 @@ import numpy as np
 import json
 import geoplot as gplt
 # import geoplot.crs as gcrs
-from bokeh.io import show
+from bokeh.io import show, curdoc
 from bokeh.models import (CDSView, ColorBar, ColumnDataSource,
                           CustomJS, CustomJSFilter,
                           GeoJSONDataSource, HoverTool,
                           LinearColorMapper, Slider, Dropdown, Select)
 from bokeh.layouts import column, row, widgetbox
-from bokeh.palettes import brewer, viridis
+from bokeh.palettes import viridis
 from bokeh.plotting import figure, output_file
-from bokeh.models.widgets import CheckboxGroup
-import icecream as ic
+from ipywidgets import interact, widgets
 
 # Importing the JSON data set
 file = 'states_geo.json'
@@ -71,15 +70,15 @@ print(j_dataset.head())
 palette = viridis(100)
 palette = palette[::-1]
 
+# TODO This give's us the chart that we want to look at
 category = 'soletrader'
 
 color_mapper = LinearColorMapper(palette=palette, low=strum_w_id[category].min(), high=strum_w_id[category].max(),
                                  nan_color='#d9d9d9')  # Define custom tick labels for color bar.
-
 color_bar = ColorBar(color_mapper=color_mapper, label_standoff=8, width=20, height=500,
                      border_line_color=None, location=(0, 0), orientation='vertical')
 
-p = figure(title='Look at US' + category + ' by Year',
+p = figure(title='Look at US ' + category + ' by Year',
            plot_height=600,
            plot_width=950,
            toolbar_location='right',
@@ -89,15 +88,12 @@ p = figure(title='Look at US' + category + ' by Year',
 p.xgrid.grid_line_color = None
 p.ygrid.grid_line_color = None
 
-#
 p.patches('xs', 'ys', source=geosource,
           fill_color={'field': category, 'transform': color_mapper},
           line_color='black',
           line_width=0.25,
           fill_alpha=1,
           legend_label='Null Data')
-
-p.legend.click_policy ='hide'
 
 p.add_layout(color_bar, 'right')
 
@@ -115,13 +111,16 @@ hover.tooltips = """
     </div>
 """
 
+def drop_down_select(attr,old, new):
+    print(new)
+
 # Adding Gray Scale box
 output_file("index.html", title="Duncan Ferguson")
 drop_bar = Select(title="Select Category:", options=datetime_cols, value=datetime_cols[0], width=200)
-print(drop_bar)
+# drop_bar.js_on_change('value', callback)
 
 # show(checkbox_group)
 
 p.add_tools(hover)
 show(column(drop_bar, p))
-# curdoc().add_root(column(drop_bar, p))
+# show(add_root(column(drop_bar, p)))

@@ -46,157 +46,129 @@ soletrader – Year of passage of state law granting married women as a class th
 Note: This study examines the passage of married women’s economic rights reforms prior to the Nineteenth Amendment (1920, granting women the right to vote at the national level), so states that passed laws later (i.e. Florida passed a control-and-management law in 1943) should be treated as missing data for the purposes of data visualization.
 """
 
-import numpy as np
-import pandas as pd
-import json
-import geoplotlib
-from geoplotlib.colors import ColorMap
-from geoplotlib.utils import BoundingBox
+# Import geopandas package
 import geopandas as gpd
-from datetime import datetime
+import pandas as pd
+import numpy as np
+import json
+import geoplot as gplt
+# import geoplot.crs as gcrs
+from bokeh.io import show, curdoc
+from bokeh.models import (CDSView, ColorBar, ColumnDataSource,
+                          CustomJS, CustomJSFilter,
+                          GeoJSONDataSource, HoverTool,
+                          LinearColorMapper, Slider, Dropdown, Select)
+from bokeh.layouts import column, row, widgetbox
+from bokeh.palettes import viridis
+from bokeh.plotting import figure, output_file
+from ipywidgets import interact, widgets
+
+# Importing the JSON data set
+file = 'states_geo.json'
+file2 = 'StrumData.csv'
+file3 = 'states_id.csv'
+
+# Importing the JSON File
+with open(file) as geoJSON_df:
+    dataset = json.load(geoJSON_df)
+
+# Importing the Strum Dataset
+with open(file2) as strum:
+    df_2 = pd.read_csv(strum)
+
+# Importing the State IDs
+with open(file3) as state_id:
+    df_3 = pd.read_csv(file3, usecols=[0, 1], names=["state_id", "state"], header=None, sep=',"\t')
+    df_3['state'] = df_3['state'].str.strip('"')
+
+# Merging Data Sets and finding Missing States
+strum_w_id = df_2.merge(df_3, left_on='state', right_on='state')  # Merged Data Set
+missing_states = np.setdiff1d(df_3['state'].to_list(), strum_w_id['state'].to_list()).tolist()  # Missing States
+
+# Removing Missing states from the JSON file
+datetime_cols = ['debtfree', 'effectivemwpa', 'earnings', 'wills', 'soletrader']  # columns to turn into datetime
+for element in reversed(dataset['features']):
+    element['state'] = df_3.iloc[element['id'], :][1]  # Add state
+    add_df = strum_w_id[strum_w_id['state_id'] == element['id']]
+    if element['state'] in missing_states:  # If the state is in that change list, remove it
+        dataset['features'].remove(element)  # Removing states that are in the data list
+    else:
+        for i in add_df:
+            element['properties'][i] = add_df[i].values[0]
+
+# Reformatting the difference in the data
+for element in dataset['features']:
+    for i in element['properties']:
+        if i in datetime_cols:
+            if np.isnan(element['properties'][i]):
+                element['properties'][i] = 'No Data'
+            else:
+                element['properties'][i] = int(element['properties'][i])
+
+# Creating a GeoDataFrame
+j_dataset = gpd.GeoDataFrame.from_features(dataset["features"])
+json_data = json.dumps(json.loads(j_dataset.to_json()))
+geosource = GeoJSONDataSource(geojson=json_data)
 
 
-# from bokeh.io import curdoc, output_notebook
-# from bokeh.models import Slider, HoverTool
-from bokeh.layouts import widgetbox, row, column
-from bokeh.palettes import brewer, cividis, gray, viridis, Blues8
-from bokeh.io import output_notebook, show, output_file
-from bokeh.plotting import figure, show
-from bokeh.models import GeoJSONDataSource, LinearColorMapper, ColorBar, CustomJS, Dropdown, Slider, HoverTool, ColumnDataSource
-from bokeh.models.widgets import Panel, Tabs
-# Example of adding in a drop down
-from bokeh.io import show
-from bokeh.transform import factor_cmap
-from ipywidgets import interact, interact_manual
-from icecream import ic  # print tester
+# source= ColumnDataSource(data=geosource)
+print(j_dataset.head())
 
-def JSON_Fun():
-    """ Aimed at importing the JSON files"""
-    # file = 'National_Obesity_By_State.geojson'
-    file = 'states_geo.json'
+# Setting Up Color Scale to use
+palette = viridis(100)
+palette = palette[::-1]
 
-    # listing the states in the dataset
-    with open(file) as geoJSON_df:
-        dataset = json.load(geoJSON_df)
-        GEO_states = [feature['id'] for feature in dataset.get('features')]
+# TODO This give's us the chart that we want to look at
+category = 'soletrader'
 
-    return dataset, GEO_states
+color_mapper = LinearColorMapper(palette=palette, low=strum_w_id[category].min(), high=strum_w_id[category].max(),
+                                 nan_color='#d9d9d9')  # Define custom tick labels for color bar.
+color_bar = ColorBar(color_mapper=color_mapper, label_standoff=8, width=20, height=500,
+                     border_line_color=None, location=(0, 0), orientation='vertical')
 
+p = figure(title='Look at US ' + category + ' by Year',
+           plot_height=600,
+           plot_width=950,
+           toolbar_location='right',
+           tools='pan,box_select,zoom_in,zoom_out,save,reset')
 
-def CSV_Fun():
-    """ Aimed at importing an aligning the CSV sheets"""
-    # Importing StrumData and States ID
-    df = pd.read_csv('StrumData.csv')
-    # There is a tab space located in the csv file. Stripping that out and cleaning the data
-    df_states_id = pd.read_csv('states_id.csv', usecols=[0, 1], names=["state_id", "state"], header=None, sep=',"\t')
-    df_states_id['state'] = df_states_id['state'].str.strip('"')
+# Blanking out the grid lines
+p.xgrid.grid_line_color = None
+p.ygrid.grid_line_color = None
 
-    # Joining the two sheets together
-    combo_df = df.set_index('state').join(df_states_id.set_index('state'))
-    # print(combo_df.head())
+p.patches('xs', 'ys', source=geosource,
+          fill_color={'field': category, 'transform': color_mapper},
+          line_color='black',
+          line_width=0.25,
+          fill_alpha=1,
+          legend_label='Null Data')
 
-    # TODO this is a spot to filter the columns
-    # Grabbing States and wills column
-    # df = df[["state", "wills"]]
-    # df.head()
+p.add_layout(color_bar, 'right')
 
-    # Grabbing states from DF
-    combo_df_states = combo_df[["state_id"]].values.tolist()
-    return df_states_id, combo_df, combo_df_states
+# Setting Up Hover Options
+hover = HoverTool()
+hover.tooltips = """
+    <div>
+        <h3>@state</h3>
+        <div><strong>Earnings: </strong>@earnings</div>
+        <div><strong>Debtfree: </strong>@debtfree</div>
+        <div><strong>Effective_mwpa: </strong>@effectivemwpa</div>
+        <div><strong>Earnings: </strong>@earnings</div>
+        <div><strong>Wills: </strong>@wills</div>
+        <div><strong>Sole_Trader: </strong>@soletrader</div>
+    </div>
+"""
 
+def drop_down_select(attr,old, new):
+    print(new)
 
-# def get_color(properties, field):
-#     cmap = ColorMap('Blues', alpha=255, levels=40)
-#     return cmap.to_color(properties[field], maxvalue=50, scale='lin')
+# Adding Gray Scale box
+output_file("index.html", title="Duncan Ferguson")
+drop_bar = Select(title="Select Category:", options=datetime_cols, value=datetime_cols[0], width=200)
+# drop_bar.js_on_change('value', callback)
 
+# show(checkbox_group)
 
-def remove_states(dataset, df, df_1, missing_states_id):
-    """This function removes the missing states and adds in new data properties"""
-    # Removing the missing states from the json file, also renaming the state ID to abv
-    datetime_cols = ['debtfree','effectivemwpa', 'earnings', 'wills', 'soletrader']  # columns to turn into datetime
-    for element in reversed(dataset['features']):
-        element['state'] = df_1.iloc[element['id'], :][1]  # Changing the state's id to abv
-        add_df = df[df['state_id'] == element['id']]
-        if element['state'] in missing_states_id:  # If the state is in that change list, remove it
-            dataset['features'].remove(element)
-        else:
-            for i in add_df:
-                element['properties'][i] = add_df[i][0]
-
-    # Reformating Nan and years
-    for element in dataset['features']:
-        for i in element['properties']:
-            if i in datetime_cols:
-                if np.isnan(element['properties'][i]):
-                    element['properties'][i] = 'No Data'
-                else:
-                    element['properties'][i] = int(element['properties'][i])  # Turning it into Year from float
-    return dataset
-
-
-def main():
-    """Runs the main data"""
-    dataset, GEO_states = JSON_Fun()
-    df_1, df, df_states = CSV_Fun()
-
-    # Checking Number of states showing difference
-    print("\nNumber of Geo states", len(GEO_states))
-    print("Number of df states", len(df_states))
-
-    # Finding Missing States
-    missing_states_id = np.setdiff1d(GEO_states, df_states).tolist()
-    print("\nMissing States ID", missing_states_id)
-    print(df_1[df_1['state_id'].isin(missing_states_id)])
-    list = df_1[df_1['state_id'].isin(missing_states_id)]
-    missing_states_id = list['state'].tolist()
-
-    # Sending off Data to add properties and remove missing states
-    dataset = remove_states(dataset, df, df_1, missing_states_id)
-
-    # Place the dataset into a GeoPanda Convert to String like object then dump json
-    j_dataset = gpd.GeoDataFrame.from_features(dataset["features"])
-    json_data = json.dumps(json.loads(j_dataset.to_json()))
-    geosource = GeoJSONDataSource(geojson=json_data)
-
-    # Color Options
-    # palette = gray(100)
-    palette = viridis(100)
-    # palette = Blues8
-    palette = palette[::-1]  # This inverses the colors
-
-    print(dataset['features'][0]['properties'])
-
-    color_mapper = LinearColorMapper(palette=palette, low=dataset['earnings'].min(), high=dataset['earnings'].max(),
-                                     nan_color='#d9d9d9')  # Define custom tick labels for color bar.
-
-    color_bar = ColorBar(color_mapper=color_mapper, label_standoff=8, width=20, height=500,
-                         border_line_color=None, location=(0, 0), orientation='vertical')
-
-    p = figure(title='Look at US Earnings Metrics',
-               plot_height=600,
-               plot_width=950,
-               toolbar_location='right',
-               tools='pan, box_select,zoom_in,zoom_out,save,reset')
-
-    # Blanking out the grid lines
-    p.xgrid.grid_line_color = None
-    p.ygrid.grid_line_color = None
-
-    p.patches('xs', 'ys', source=geosource,
-              fill_color={'field': 'earnings', 'transform': color_mapper},
-              line_color='black', line_width=0.25, fill_alpha=1)
-
-    p.add_layout(color_bar, 'right')
-
-
-    menu = [("Item 1", "item_1"), ("Item 2", "item_2"), ("Item 3", "item_3")]
-    dropdown = Dropdown(label="Dropdown button", button_type="warning", menu=menu)
-    dropdown.js_on_event("menu_item_click", CustomJS(code="console.log('dropdown: ' + this.item, this.toString())"))
-
-
-    # # Displaying the graph and buttons
-    show(column(p, dropdown))
-
-
-if __name__ == '__main__':
-    main()
+p.add_tools(hover)
+show(column(drop_bar, p))
+# show(add_root(column(drop_bar, p)))
