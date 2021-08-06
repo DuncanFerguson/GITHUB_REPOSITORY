@@ -79,11 +79,11 @@ color_mapper = LinearColorMapper(palette=palette, low=strum_w_id[category].min()
 color_bar = ColorBar(color_mapper=color_mapper, label_standoff=8, width=20, height=500,
                      border_line_color=None, location=(0, 0), orientation='vertical')
 
-p = figure(title='Look at US Earnings Metrics',
+p = figure(title='Look at US' + category + ' by Year',
            plot_height=600,
            plot_width=950,
            toolbar_location='right',
-           tools='pan, box_select,zoom_in,zoom_out,save,reset')
+           tools='pan,box_select,zoom_in,zoom_out,save,reset')
 
 # Blanking out the grid lines
 p.xgrid.grid_line_color = None
