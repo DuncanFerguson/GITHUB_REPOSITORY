@@ -2,45 +2,35 @@ import sys
 
 # Prim's MST greedy algorithm
 
-def extractMin(verts):
-    print("vertsE", verts)
+def extractMin(key):
     minIndex = 0
     min = float('inf')
-    for v in range(1, len(verts)):
-        print("verts:", verts[v], "Min:", min)
-        if verts[v] < min:
-            min = verts[v]
+    for v in range(1, len(key)):
+        if key[v] < min:
+            min = key[v]
             minIndex = v
-    # print("MSTSet", )
-    # print("Min Before Return", minIndex)
+    print("Return", minIndex, key)
     return minIndex
 
 def mst(g):
     nVerts = len(g)
-    verts = [float("inf")] * nVerts
-    parent = [None] * nVerts
-    verts[0] = 0
-    parent[0] = -1
-
-    # print("verts", verts)
-    # print("p", parent)
+    key = [float("inf")] * nVerts
+    p = [None] * nVerts
+    key[0] = 0
+    p[0] = -1
 
     for _ in range(nVerts):
-        u = extractMin(verts)
-        print("u", u)
+        u = extractMin(key)
         for v in range(nVerts):
-            # print("verts 2", verts, v)
-            if g[u][v] > 0 and verts[v] > g[u][v]:
-                print("Checking ", g[u][v], v)
-                verts[v] = g[u][v]
-                parent[v] = u
-                print("Old V", v)
-                print("New V", verts[v], parent[v])
+            if g[u][v] > 0 and key[v] > g[u][v]:
+                key[v] = g[u][v]
+                p[v] = u
 
         result = []
         for i in range(nVerts):
-            edge = [i, parent[i]]
+            edge = [i, p[i]]
             result.append(edge)
+        print(result)
 
     print(result)
 

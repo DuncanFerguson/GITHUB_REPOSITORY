@@ -62,7 +62,6 @@ j_dataset = gpd.GeoDataFrame.from_features(dataset["features"])
 json_data = json.dumps(json.loads(j_dataset.to_json()))
 geosource = GeoJSONDataSource(geojson=json_data)
 
-
 # source= ColumnDataSource(data=geosource)
 print(j_dataset.head())
 

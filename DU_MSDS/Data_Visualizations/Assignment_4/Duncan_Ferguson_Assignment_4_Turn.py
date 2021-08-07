@@ -205,7 +205,7 @@ def main():
     dfk_filt = dfk.query('mol_spe')
 
 
-    show(column(p,dropdown)
+    show(column(p,dropdown))
 
 
 if __name__ == '__main__':

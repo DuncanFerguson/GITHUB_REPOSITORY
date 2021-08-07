@@ -16,12 +16,13 @@ def extractMin(verts):
     minIndex = 0
     min = float("inf")
     for v in range(1, len(verts)):
-        print("verts: ", verts[v][1], "Min:", min)
+        # print("verts: ", verts[v][1], "Min:", min)
         # print("Vert", verts[v])
         if verts[v][1] < min:
             min = verts[v][1]
             minIndex = v
-            # verts[v][1] = v
+
+    print("Return", verts[minIndex])
     return verts.pop(minIndex)
 
 
@@ -41,7 +42,7 @@ def MST(g):
     # print("P", P)
 
     # Start at vertex 0 - it has a current shortest distance of 0
-    vertsToProcess[0][1] = -1
+    vertsToProcess[0][1] = 0
     # print("V2P", vertsToProcess[0][1])
     # vertsProcessed = []
     # while len(vertsToProcess) > 0:
