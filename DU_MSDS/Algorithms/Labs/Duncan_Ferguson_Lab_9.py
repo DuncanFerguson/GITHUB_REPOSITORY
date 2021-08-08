@@ -20,6 +20,7 @@ def mst(g):
                 # print("MIN IN", minimum)
                 for j in range(nVerts):
                     # If the key is not already selected and there is an edge and the min is greater adj then update
+                    print("G", g[i][j], "v", j, "u", i)
                     if key[j] == None and g[i][j] and minimum > g[i][j]:
                         minimum = g[i][j]  # Updating the minimum
                         x, y = i, j  # Grabbing location of adjacency
