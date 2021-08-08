@@ -13,7 +13,7 @@ def mst(g):
 
     # Going through the number edge
     while no_edge < nVerts - 1:
-        print("Looking at", no_edge)
+        # print("Looking at", no_edge)
         minimum = float("inf")  # Setting the Current Min Start
         for i in range(nVerts):  # Looping the amount of vertices
             if key[i] == True:  # If the Key is true look to update
@@ -23,9 +23,9 @@ def mst(g):
                     if key[j] == None and g[i][j] and minimum > g[i][j]:
                         minimum = g[i][j]  # Updating the minimum
                         x, y = i, j  # Grabbing location of adjacency
-                        print("Edge", x, y, "Weight", minimum)
+                        # print("Edge", x, y, "Weight", minimum)
 
-        print("Add", x, y)
+        print(x, "-", y, "\t", minimum)
         P.append([y, x])  # Adding The Edge to the list
         key[y] = True  # Marking the key as checked true
         no_edge += 1  # Indexing to go through the next edge

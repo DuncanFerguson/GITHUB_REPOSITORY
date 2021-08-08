@@ -4,12 +4,11 @@ import sys
 
 def min_Key(key, mstSet, nVerts):
     min = float('inf')
-    print("key", key)
-    print("mst", mstSet)
     for v in range(nVerts):
         if key[v] < min and mstSet[v] == False:
             min = key[v]
             min_index = v
+    print(min_index)
     return min_index
 
 def prim(g):
@@ -24,6 +23,7 @@ def prim(g):
     p = [[0, -1]]
     for cout in range(nVerts):
         u = min_Key(key, mstSet, nVerts)
+        print(mstSet)
         mstSet[u] = True
         for v in range(nVerts):
             if g[u][v] > 0 and mstSet[v] == False and key[v] > g[u][v]:
