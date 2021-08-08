@@ -11,8 +11,8 @@ def extractMin(verts):
         if verts[v] < min:
             min = verts[v]
             minIndex = v
-    # print("MSTSet", )
-    # print("Min Before Return", minIndex)
+            print("min", min)
+            print("Vers Min Index", minIndex)
     return minIndex
 
 def mst(g):
@@ -29,19 +29,22 @@ def mst(g):
         u = extractMin(verts)
         print("u", u)
         for v in range(nVerts):
-            print("verts 2", verts, v)
-            print(g[u][v])
+            print("verts_L", verts, v)
+            print("INside Enumerate", g[u][v])
             if g[u][v] > 0 and verts[v] > g[u][v]:
                 # print("Checking ", g[u][v], v)
                 verts[v] = g[u][v]
                 parent[v] = u
-                print('New vert[v]', g[u][v])
-                print('New parent[v]', u)
+                print('New vert[v]', verts[v])
+                print('New parent[v]', parent[v])
 
         result = []
+        print("Done With Loop", list(zip(verts, parent)))
+        # print()
         for i in range(nVerts):
             edge = [i, parent[i]]
             result.append(edge)
+            print("edge", edge)
 
     print(result)
 

@@ -12,7 +12,7 @@ def MST(g):
     nVerts = len(g)
     vertsToProcess = [[i, float("inf")] for i in range(nVerts)]
     # Start at vertex 0 - it has a current shortest distance of 0
-    vertsToProcess[0][1] = -1
+    vertsToProcess[0][1] = 0
     # Start with an empty list of processed edges
     vertsProcessed = []
     while len(vertsToProcess) > 0:
@@ -21,15 +21,16 @@ def MST(g):
         #print("to process:",vertsToProcess)
         #print(" processed:",vertsProcessed)
 
-# Examine all potential verts remaining
+        # Examine all potential verts remaining
         for v in vertsToProcess:
-        # Only care about the ones that are adjacent to u
+            # Only care about the ones that are adjacent to u
             if g[u[0]][v[0]] > 0:
-            # Update the distances if necessary
+                # Update the distances if necessary
                 if u[1] + g[u[0]][v[0]] < v[1]:
                     v[1] = u[1] + g[u[0]][v[0]]
 
     print(vertsProcessed)
+
 
 def main():
     graph = [[0, 7, 0, 0, 0, 10, 15, 0],

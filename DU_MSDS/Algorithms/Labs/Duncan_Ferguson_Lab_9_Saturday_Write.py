@@ -6,45 +6,74 @@
 
 import icecream as ic
 
-def extractMin(verts):
+def extractMin(key):
+    print("key1", key)
     minIndex = 0
-    for v in range(1,len(verts)):
-        print("ExtractMin Vert", verts[v])
-        if verts[v][1] < verts[minIndex][1]:
+    min = float('inf')
+    for v in range(1, len(key)):
+        print("inside1",key[v])
+        if key[v] < min:
+            min = key[v]
             minIndex = v
-    return verts.pop(minIndex)
+    return minIndex
 
-# Dijkstra's shortest path algorithm
-def MST(g):
-# Create a list of vertices and their current shortest distances
-# from vertex 0
-# [vertNum, dist]
+def extractMin2(key):
+    print("key2", key)
+    minIndex = 0
+    min = float('inf')
+    for v in range(1, len(key)):
+        print("inside2", key[v][1])
+        if key[v][1] < min:
+            min = key[v][1]
+            minIndex = v
+    return minIndex
+
+
+def mst(g):
     nVerts = len(g)
-    vertsToProcess = [[i, float("inf")] for i in range(nVerts)]
+    key = [float("inf")] * nVerts
+    p = [None] * nVerts
+    vertsToProcess = [[None, float("inf")] for i in range(nVerts)]
 
-    # Start at vertex 0 - it has a current shortest distance of -1 unto it self
-    vertsToProcess[0][1] = 0
-    # Start with an empty list of processed edges
-    vertsProcessed = []
-    while len(vertsToProcess) > 0:
-        u = extractMin(vertsToProcess)
-        print("U", u)
-        vertsProcessed.append(u)
-        for v in enumerate(vertsToProcess):
-            # Only care about the ones that are adjacent to u
-            print('verts 2', v[1])
-            print(g[u[0]][v[1][0]])
-            if u[1] + g[u[0]][v[1][0]] < v[1][1] and g[u[0]][v[1][0]] > 0:
-                g[u[0]][v[1][0]] = u[1]
-                v[1][1] = g[u[0]][v[0]]
+    # The First node is -1, starting on 0
+    vertsToProcess[0] = [-1, 0]
+    key[0] = 0
+    p[0] = -1
 
-                # vertsToProcess[1][1] = g[u[0]][v[1][0]]
-                print('New vert[v]', g[u[0]][v[1][0]])
-                print('New parent[v]', u[1])
-                print("to process:",vertsToProcess)
-                print(" processed:",vertsProcessed)
+    print("V2P-Start", vertsToProcess)
+    print("K2P-Start",list(zip(p, key)))
 
-    print(vertsProcessed)
+    for _ in range(nVerts):
+        u = extractMin(key)
+        # print("U1", u)
+        for v in range(nVerts):
+            if g[u][v] > 0 and key[v] > g[u][v]:
+                key[v] = g[u][v]
+                p[v] = u
+                print("hit1", u, g[u][v])
+
+    print("K2P-Finish", list(zip(p, key)))
+    result = []
+    for i in range(nVerts):
+        edge = [i, p[i]]
+        result.append(edge)
+
+    for _ in range(nVerts):
+        u2 = extractMin2(vertsToProcess)
+        # print("U2", u2)
+        for v in range(nVerts):
+            if g[u2][v] > 0 and vertsToProcess[v][1] > g[u2][v]:
+                vertsToProcess[v] = [u2, g[u2][v]]
+                print("hit2", u2, g[u2][v])
+
+    print("V2P-Finish", vertsToProcess)
+    result2 = []
+    for i in range(nVerts):
+        edge2 = [i, vertsToProcess[i][0]]
+        result2.append(edge2)
+
+    print(result)
+    print(result2)
 
 def main():
     graph = [[0, 7, 0, 0, 0, 10, 15, 0],
@@ -56,7 +85,7 @@ def main():
              [15, 0, 0, 0, 0, 0, 0, 0],
              [0, 9, 0, 0, 0, 0, 0, 0]]
 
-    MST(graph)
+    mst(graph)
 
 if __name__ == '__main__':
     main()

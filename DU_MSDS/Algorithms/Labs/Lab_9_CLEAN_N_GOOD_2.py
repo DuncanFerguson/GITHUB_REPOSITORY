@@ -9,7 +9,6 @@ def extractMin(key):
         if key[v] < min:
             min = key[v]
             minIndex = v
-    # print("Return", minIndex, key)
     return minIndex
 
 def mst(g):
