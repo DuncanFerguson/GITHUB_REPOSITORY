@@ -9,7 +9,7 @@ def extractMin(key):
         if key[v] < min:
             min = key[v]
             minIndex = v
-    print("Return", minIndex, key)
+    # print("Return", minIndex, key)
     return minIndex
 
 def mst(g):
@@ -30,7 +30,6 @@ def mst(g):
         for i in range(nVerts):
             edge = [i, p[i]]
             result.append(edge)
-        print(result)
 
     print(result)
 

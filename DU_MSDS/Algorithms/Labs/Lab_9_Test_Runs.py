@@ -3,11 +3,11 @@ import sys
 # Prim's MST greedy algorithm
 
 def extractMin(verts):
-    print("vertsE", verts)
     minIndex = 0
     min = float('inf')
     for v in range(1, len(verts)):
-        print("verts:", verts[v], "Min:", min)
+        print("ExtractMin Vert", verts)
+        # print("verts:", verts[v], "Min:", min)
         if verts[v] < min:
             min = verts[v]
             minIndex = v
@@ -29,13 +29,14 @@ def mst(g):
         u = extractMin(verts)
         print("u", u)
         for v in range(nVerts):
-            # print("verts 2", verts, v)
+            print("verts 2", verts, v)
+            print(g[u][v])
             if g[u][v] > 0 and verts[v] > g[u][v]:
-                print("Checking ", g[u][v], v)
+                # print("Checking ", g[u][v], v)
                 verts[v] = g[u][v]
                 parent[v] = u
-                print("Old V", v)
-                print("New V", verts[v], parent[v])
+                print('New vert[v]', g[u][v])
+                print('New parent[v]', u)
 
         result = []
         for i in range(nVerts):

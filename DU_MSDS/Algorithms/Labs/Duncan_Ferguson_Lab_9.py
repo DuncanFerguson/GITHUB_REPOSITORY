@@ -4,9 +4,6 @@
 # Assignment: Lab 9
 # Date 8/10/2021
 
-import icecream as ic
-import sys
-
 """
 https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
 """
@@ -44,24 +41,25 @@ def MST(g):
     # Start at vertex 0 - it has a current shortest distance of 0
     vertsToProcess[0][1] = 0
     # print("V2P", vertsToProcess[0][1])
-    # vertsProcessed = []
-    # while len(vertsToProcess) > 0:
-    #     u = extractMin(vertsToProcess)
-    #     vertsProcessed.append(u)
-    #     print("U", u[1])
-    #     # print("to process:",vertsToProcess)
-    #     # print(" processed:",vertsProcessed)
-    #     # Examine all potential verts remaining
-    #     for v in vertsToProcess:
-    #         # Update the distances if necessary
-    #         if g[u[0]][v[0]] > 0 and v[1] > g[u[0]][v[0]]:
-    #             print("Checking", g[u[0]][v[0]], v[0])
-    #             print("Old V", v)
-    #             v = [g[u[0]][v[0]], u[0]]
-    #             print("New V",v)
-    #             # P[v]
-    #             P[0] = u[1]
-    # print(P)
+
+    vertsProcessed = []
+    while len(vertsToProcess) > 0:
+        u = extractMin(vertsToProcess)
+        vertsProcessed.append(u)
+        print("U", u[1])
+        # print("to process:",vertsToProcess)
+        # print(" processed:",vertsProcessed)
+        # Examine all potential verts remaining
+        for v in vertsToProcess:
+            # Update the distances if necessary
+            if g[u[0]][v[0]] > 0 and v[1] > g[u[0]][v[0]]:
+                print("Checking", g[u[0]][v[0]], v[0])
+                print("Old V", v)
+                v = [g[u[0]][v[0]], u[0]]
+                print("New V",v)
+                # P[v]
+                P[0] = u[1]
+    print(P)
 
                 # Start with an empty list of processed edges
     vertsProcessed = []
