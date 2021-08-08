@@ -5,7 +5,7 @@
 # Date 8/10/2021
 
 def mst(g):
-    nVerts= len(g)
+    nVerts = len(g)
     key = [None for _ in range(nVerts)]  # Creating an array to track vertex's that have been selected
     no_edge = 0  # Starting at Edge 0
     key[0] = True  # Checking the first key to show that we represented it above
@@ -14,24 +14,23 @@ def mst(g):
     # Going through the number edge
     while no_edge < nVerts - 1:
         print("Looking at", no_edge)
-        minimum = float("inf")  # Setting the Current Min
+        minimum = float("inf")  # Setting the Current Min Start
         for i in range(nVerts):  # Looping the amount of vertices
-            if key[i] == True:
+            if key[i] == True:  # If the Key is true look to update
                 # print("MIN IN", minimum)
                 for j in range(nVerts):
                     # If the key is not already selected and there is an edge and the min is greater adj then update
                     if key[j] == None and g[i][j] and minimum > g[i][j]:
-                        minimum = g[i][j]
-                        x = i
-                        y = j
+                        minimum = g[i][j]  # Updating the minimum
+                        x, y = i, j  # Grabbing location of adjacency
                         print("Edge", x, y, "Weight", minimum)
 
-        print("Add", x,y)
-        P.append([x, y]) # Adding The Edge to the list
+        print("Add", x, y)
+        P.append([y, x])  # Adding The Edge to the list
         key[y] = True  # Marking the key as checked true
         no_edge += 1  # Indexing to go through the next edge
 
-    print(P)
+    return P
 
 
 def main():
@@ -43,13 +42,8 @@ def main():
              [10, 0, 0, 8, 3, 0, 0, 0],
              [15, 0, 0, 0, 0, 0, 0, 0],
              [0, 9, 0, 0, 0, 0, 0, 0]]
-    mst(graph)
+    print(mst(graph))
+
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-
