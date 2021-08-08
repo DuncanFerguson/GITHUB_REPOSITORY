@@ -6,10 +6,10 @@ def extractMin(verts):
     return verts.pop(minIndex)
 # Dijkstra's shortest path algorithm
 def MST(g):
-# Create a list of vertices and their current shortest distances
-# from vertex 0
-# [vertNum, dist]
+    # from vertex 0
+    # [vertNum, dist]
     nVerts = len(g)
+    # Create a list of vertices and their current shortest distances
     vertsToProcess = [[i, float("inf")] for i in range(nVerts)]
     # Start at vertex 0 - it has a current shortest distance of 0
     vertsToProcess[0][1] = 0
@@ -18,8 +18,8 @@ def MST(g):
     while len(vertsToProcess) > 0:
         u = extractMin(vertsToProcess)
         vertsProcessed.append(u)
-        #print("to process:",vertsToProcess)
-        #print(" processed:",vertsProcessed)
+        print("to process:",vertsToProcess)
+        print(" processed:",vertsProcessed)
 
         # Examine all potential verts remaining
         for v in vertsToProcess:

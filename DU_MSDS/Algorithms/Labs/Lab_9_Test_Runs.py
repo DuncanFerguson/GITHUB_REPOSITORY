@@ -16,37 +16,27 @@ def extractMin(verts):
     return minIndex
 
 def mst(g):
-    nVerts = len(g)
-    verts = [float("inf")] * nVerts
-    parent = [None] * nVerts
-    verts[0] = 0
-    parent[0] = -1
+    INF = float("inf")
+    nVert= len(g)
+    selected = [0]*nVert
+    no_edge = 0
+    selected[0] = True
 
-    # print("verts", verts)
-    # print("p", parent)
-
-    for _ in range(nVerts):
-        u = extractMin(verts)
-        print("u", u)
-        for v in range(nVerts):
-            print("verts_L", verts, v)
-            print("INside Enumerate", g[u][v])
-            if g[u][v] > 0 and verts[v] > g[u][v]:
-                # print("Checking ", g[u][v], v)
-                verts[v] = g[u][v]
-                parent[v] = u
-                print('New vert[v]', verts[v])
-                print('New parent[v]', parent[v])
-
-        result = []
-        print("Done With Loop", list(zip(verts, parent)))
-        # print()
-        for i in range(nVerts):
-            edge = [i, parent[i]]
-            result.append(edge)
-            print("edge", edge)
-
-    print(result)
+    while (no_edge < nVert - 1):
+        minimum = INF
+        x = 0
+        y = 0
+        for i in range(nVert):
+            if selected[i]:
+                for j in range(nVert):
+                    if ((not selected[j]) and g[i][j]):
+                        if minimum > g[i][j]:
+                            minimum = g[i][j]
+                            x = i
+                            y = j
+        print(str(x)+"-"+str(y)+":"+str(g[x][y]))
+        selected[y] = True
+        no_edge += 1
 
 graph = [[0, 7, 0, 0, 0, 10, 15, 0],
          [7, 0, 12, 5, 0, 0, 0, 9],

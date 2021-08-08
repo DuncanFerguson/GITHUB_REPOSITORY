@@ -25,12 +25,12 @@ def mst(g):
                 key[v] = g[u][v]
                 p[v] = u
 
-        result = []
-        for i in range(nVerts):
-            edge = [i, p[i]]
-            result.append(edge)
+    result = []
+    for i in range(nVerts):
+        edge = [i, p[i]]
+        result.append(edge)
 
-    print(result)
+    print(list(zip(p,key)))
 
 graph = [[0, 7, 0, 0, 0, 10, 15, 0],
          [7, 0, 12, 5, 0, 0, 0, 9],
