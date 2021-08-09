@@ -17,16 +17,12 @@ def mst(g):
         minimum = float("inf")  # Setting the Current Min Start
         for i in range(nVerts):  # Looping the amount of vertices
             if key[i] == True:  # If the Key is true look to update
-                # print("MIN IN", minimum)
                 for j in range(nVerts):
                     # If the key is not already selected and there is an edge and the min is greater adj then update
-                    print("G", g[i][j], "v", j, "u", i)
                     if key[j] == None and g[i][j] and minimum > g[i][j]:
                         minimum = g[i][j]  # Updating the minimum
                         x, y = i, j  # Grabbing location of adjacency
-                        # print("Edge", x, y, "Weight", minimum)
 
-        print(x, "-", y, "\t", minimum)
         P.append([y, x])  # Adding The Edge to the list
         key[y] = True  # Marking the key as checked true
         no_edge += 1  # Indexing to go through the next edge
