@@ -85,17 +85,17 @@ def graphColoring(graph, colors):
     # That is, we have filled in every column with a queen
     while not s.empty():
         currentState = s.pop()  # Grabbing the next state
-        currentCol = len(currentState)
+        current_node_list = len(currentState)
         # See if we have found a solved state at a leaf node
         # That is, we have filled in every node with a color
-        if currentCol == n:
+        if current_node_list == n:
             solutions_list.append(currentState)  # Adding a solution to the list and continuing to find more solutions
             break  # stopping after the first solution, uncomment for all solutions
         else:
             for color in colors:  # Going through all the different colors
                 feasible = True
-                for node in range(currentCol):
-                    if graph[currentCol][node] and currentState[node] == color:  # Checking to see if feasible
+                for node in range(current_node_list):
+                    if graph[current_node_list][node] and currentState[node] == color:  # Checking to see if feasible
                         feasible = False
                 if feasible:
                     # Create child by making a copy and appending new color
