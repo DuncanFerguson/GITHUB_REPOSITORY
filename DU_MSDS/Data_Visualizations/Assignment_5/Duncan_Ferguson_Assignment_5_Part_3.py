@@ -32,3 +32,29 @@ feature_collection = FeatureCollection(features)
 
 with open('Duncan_Ferguson_Assignment_5_Part_3.geojson', 'w') as f:
     dump(feature_collection, f)
+
+#%%
+
+
+from geojson import Polygon, Feature, FeatureCollection, Point
+import folium
+
+Rabat = Point((-6.841650, 34.020882))
+Cape_town = Point((18.423300, -33.918861))
+Mogadishu = Point((45.335854608315366, 2.0336321657252183))
+African_Triangle = Polygon([[(2.38, 57.322), (23.194, -20.28), (-120.43, 19.15), (2.38, 57.322)]])
+
+features = list()
+features.append(Feature(geometry=Rabat, properties={"city":"Rabat"}))
+features.append(Feature(geometry=Cape_town, properties={"city":"Cape Town"}))
+features.append(Feature(geometry=Mogadishu, properties={"city":"Mogadishu"}))
+# features.append(Feature(geometry=African_Triangle, properties={"perimiter":"5"}))
+
+african_triangle = FeatureCollection(features)
+print(type(african_triangle))
+
+map = folium.Map(location=[0,10],
+                 zoom_start=2,
+                 crs='EPSG3857')
+folium.GeoJson(african_triangle).add_to(map)
+map
