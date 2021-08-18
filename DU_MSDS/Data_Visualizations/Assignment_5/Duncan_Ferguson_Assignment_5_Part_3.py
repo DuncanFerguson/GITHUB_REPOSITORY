@@ -8,14 +8,22 @@
 Construct a GeoJSON file from that. Then write a Python program to read that file, form a dictionary,
 and plot the results"""
 
-from geojson import Point, Feature, FeatureCollection, dump
-from shapely.geometry import Point, Polygon
+import folium
+from geojson import Point, Feature, FeatureCollection, Polygon, dump
+# from shapely.geometry import Point, Polygon
 
 # Kansas in 4 lat-long points
 NW_KA = Point((40.00581067533721, -102.0528170631371))
 NE_KA = Point((39.99893185672504, -94.61847649961597))
 SW_KA = Point((36.993067, -102.042071))
 SE_KA = Point((36.99891776893816, -94.6179717441199))
+kansas = Polygon([NW_KA, NE_KA, SE_KA, SW_KA, NW_KA])
+
+map = folium.Map(location=[0,10],
+                 zoom_start=2,
+                 crs='EPSG3857')
+folium.GeoJson(kansas).add_to(map)
+
 
 # Nebraska in 4 lat-long points
 # NW_NE = [43.0008807956697, -104.05310504007869]
@@ -26,22 +34,18 @@ SE_KA = Point((36.99891776893816, -94.6179717441199))
 # NE_NE = [42.936541272131834, -96.53327113679717]
 
 # Creating GeoJSON
-features = []
-features.append(Feature(geometry=[NW_KA, NE_KA, SE_KA, SW_KA], properties={'state':'Kansas'}))
-feature_collection = FeatureCollection(features)
-
-with open('Duncan_Ferguson_Assignment_5_Part_3.geojson', 'w') as f:
-    dump(feature_collection, f)
+# features = []
+# features.append(Feature(geometry=[NW_KA, NE_KA, SE_KA, SW_KA], properties={'state':'Kansas'}))
+# feature_collection = FeatureCollection(features)
+#
+# with open('Duncan_Ferguson_Assignment_5_Part_3.geojson', 'w') as f:
+#     dump(feature_collection, f)
 
 #%%
-
-
 from geojson import Polygon, Feature, FeatureCollection, Point
 import folium
 
-Rabat = Point((-6.841650, 34.020882))
-Cape_town = Point((18.423300, -33.918861))
-Mogadishu = Point((45.335854608315366, 2.0336321657252183))
+
 African_Triangle = Polygon([[(2.38, 57.322), (23.194, -20.28), (-120.43, 19.15), (2.38, 57.322)]])
 
 features = list()
