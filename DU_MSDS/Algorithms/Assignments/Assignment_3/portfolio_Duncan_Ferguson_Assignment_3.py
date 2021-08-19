@@ -6,7 +6,7 @@
 
 """In this assignment, you will be using dynamic programming to select a set of investment options that maximize
 your return on investment. you will be given a file of investment options along with the estimated return on
-investment for eachone. You also have a given amount of money to invest. The specific file of investment options
+investment for eachone. You also have a given cash of money to invest. The specific file of investment options
 you will be given will vary, but you will always have the following three pieces of information you can obtain from
  the file
 
@@ -38,44 +38,50 @@ def printMatrix(m):
         print(row)
 
 
-def optimizeInvestments(investments, amount):
-    """This function takes the list of possible investments along with the amount of money available to spend
-    This function returns both the optimal return on investment amount as well as the actual investments selected
+def optimizeInvestments(investments, cash):
+    """This function takes the list of possible investments along with the cash of money available to spend
+    This function returns both the optimal return on investment cash as well as the actual investments selected
     to achieve this optimal return, implement this function using dynamic programming
     """
 
     # Setting up the tables
-    optimalTable = [[None for _ in range(amount + 1)] for _ in range(len(investments)+1)]
-    traceback = [[None for _ in range(amount+1)] for _ in range(len(investments)+1)]
-    for c in range(amount+1):
+    optimalTable = [[None for _ in range(cash + 1)] for _ in range(len(investments)+1)]
+    traceback = [[None for _ in range(cash+1)] for _ in range(len(investments)+1)]
+    for c in range(cash+1):
         optimalTable[0][c] = 0
         traceback[0][c] = False
 
-    for i in range(1, len(investments) + 1):
-        name, cost, ereturn = investments[i-1]
-        for c in range(amount + 1):
-            # print("c", c)
-            # print("amount", amount)
-            if amount > c:
-                # print("WE have enough money")
-                optimalTable[i][c] = optimalTable[i-1][c]
-                traceback[i][c] = False
-                # print("Optimal table", optimalTable[i-1][c])
+    print("\noptimal table Start:\n")
+    printMatrix(optimalTable)
+    print("\ntraceback table Start:\n")
+    printMatrix(traceback)
 
+    for i in range(1, len(investments) + 1):
+
+        name, cost, ereturn = investments[i-1]
+
+        for c in range(cash + 1):
+
+            if cost > c:
+                optimalTable[i][c] = optimalTable[i-1][c]
+                # optimalTable[i][c] = investments[i][2]
+                traceback[i][c] = False
             else:
                 # TODO Line below needs editing
                 # print("Opt here", optimalTable[i-1])
                 # If we have enough cash then we can either not include it or include it
                 # We take the best of these two options
-                # Recall that if we include it we need to remove amount of cash and increase our expectedReturn
-                if (optimalTable[i-1][c] > optimalTable[i-1][c-amount]):
-                    print("In If")
+                # Recall that if we include it we need to remove cash of cash and increase our expectedReturn
+                if (optimalTable[i-1][c] > optimalTable[i-1][c-cost]):
+                    print("Here")
                     optimalTable[i][c] = optimalTable[i-1][c]
                     traceback[i][c] = False
                 else:
-                    optimalTable[i][c] = optimalTable[i-1][c-amount]
-                    # print("Opt else", optimalTable[i-1][c-amount])
+                    # optimalTable[i][c] = investments[i][2]
+                    optimalTable[i][c] = optimalTable[i-1][c-cost]
                     traceback[i][c] = True
+                    print("\noptimal table Update:\n")
+                    printMatrix(optimalTable)
 
     print("\noptimal table:\n")
     printMatrix(optimalTable)
@@ -83,14 +89,14 @@ def optimizeInvestments(investments, amount):
     printMatrix(traceback)
 
     results = []
-    c = amount
+    c = cash
     for i in range(len(investments), 0, -1):
         if traceback[i][c]:
             name, cost, ereturn = investments[i-1]
             results.append(investments[i-1][0])
             c -= cost
 
-    return optimalTable[len(investments)][amount], results
+    return optimalTable[len(investments)][c], results
 
 
 
