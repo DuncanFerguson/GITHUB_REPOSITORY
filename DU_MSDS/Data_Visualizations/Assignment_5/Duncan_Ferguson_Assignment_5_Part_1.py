@@ -19,7 +19,7 @@ print(df.head())
 center = [0, 0]
 map = folium.Map(location=center,
                  tiles='stamenterrain',
-                 zoom_start=3)
+                 zoom_start=2)
 
 for index, row in df.iterrows():
     folium.Marker([row['Latitude'], row['Longitude']],
