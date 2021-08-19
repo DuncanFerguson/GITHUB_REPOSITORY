@@ -22,58 +22,51 @@ def printMatrix(m):
 def optimizeInvestments(investments, cash):
     optimalTable = [[None for _ in range(cash + 1)] for _ in range(len(investments)+1)]
     traceback = [[None for _ in range(cash+1)] for _ in range(len(investments)+1)]
-    # print(len(investments))
-    #
-    # print("\nOptimal Start\n")
-    # printMatrix(optimalTable)
-    # print("\nTracback Start\n")
-    # printMatrix(traceback)
-
-    # for c in range(cash+1):
-    #     optimalTable[0][c] = 0
-    #     traceback[0][c] = False
 
     # Build table optimalTable[][] in bottom up manner
     for i in range(len(investments) + 1):
-        # name, cost, ereturn = investments[i - 1]
-        for w in range(cash + 1):
-            if i == 0 or w == 0:
-                optimalTable[i][w] = 0
-                traceback[i][w] = False
-            elif investments[i - 1][1] <= w:
-                optimalTable[i][w] = max(investments[i - 1][2] + optimalTable[i - 1][w - investments[i - 1][1]],
-                                         optimalTable[i - 1][w])
-                traceback[i][w] = True
-                if optimalTable[i][w] == investments[i - 1][2] + optimalTable[i - 1][w - investments[i - 1][1]]:
-                    print("Here")
-                elif optimalTable[i][w] == optimalTable[i - 1][w]:
-                    print(investments[i-1][0])
-
+        for c in range(cash + 1):
+            if i == 0 or c == 0:
+                optimalTable[i][c] = 0
+                traceback[i][c] = False
+            elif investments[i - 1][1] <= c:
+                optimalTable[i][c] = max(investments[i - 1][2] + optimalTable[i - 1][c - investments[i - 1][1]],
+                                         optimalTable[i - 1][c])
+                if optimalTable[i][c] == investments[i - 1][2] + optimalTable[i - 1][c - investments[i - 1][1]]:
+                    traceback[i][c] = True
+                elif optimalTable[i][c] == optimalTable[i - 1][c]:
+                    traceback[i][c] = False
             else:
-                optimalTable[i][w] = optimalTable[i - 1][w]
-                traceback[i][w] = False
+                optimalTable[i][c] = optimalTable[i - 1][c]
+                traceback[i][c] = False
 
-    print("\nOptimal Start\n")
-    printMatrix(optimalTable)
-    print("\nTracback Start\n")
-    printMatrix(traceback)
+    # Uncomment below when looking at the short copy only
+    # print("\nOptimal Finished\n")
+    # printMatrix(optimalTable)
+    # print("\nTracback Finished")
+    # printMatrix(traceback)
 
-    return optimalTable[len(investments)][cash]
+    results = []
+    c = cash
+    for i in range(len(investments), 0, -1):
+        if traceback[i][c]:
+            name, cost, ereturn = investments[i-1]
+            results.append(investments[i-1][0])
+            c -= cost
+    return optimalTable[len(investments)][cash], results
 
 
 def main():
     """This function runs the main code"""
-    file = 'zhvi-short.csv'
-    # file = 'state_zhvi_summary_allhomes.csv'
+    # file = 'zhvi-short.csv'
+    file = 'state_zhvi_summary_allhomes.csv'
+    # investment_amount = 15
+    investment_amount = 1000000
     investments = loadZillow(file)
-    # print(investments)
-    investment_amount = 15
-    # investment_amount = 1000000
 
-    # len(investments) = len(investments)
-    print(optimizeInvestments(investments, investment_amount))
-    # print('\n\nerturn:\n', ereturn)
-    # print('\n\npicked:\n', picked)
+    ereturn, picked = optimizeInvestments(investments, investment_amount)
+    print('\nereturn:\n', ereturn)
+    print('\npicked:\n', picked)
 
 
 if __name__ == '__main__':

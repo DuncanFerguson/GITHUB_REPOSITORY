@@ -12,11 +12,6 @@ you will be given will vary, but you will always have the following three pieces
 
  InvestmentName, InvestmentCost, EstimatedReturnOninvestment """
 
-# TODO multiples of 1k dollars
-
-import pandas as pd
-
-# Load in the investment data from State_Zhvi_Summary_AllHomes.csv
 
 def loadZillow(filename):
     investments = [] # [name(2), cost(4), return([4] * [9])]  # investments[2] list is the cost times the estimated return
@@ -28,7 +23,7 @@ def loadZillow(filename):
         investmentLine = investmentLine.split(",")
         # investments is a list of lists.  Each sublist is name, initial cost, and estimated 10 year return
         print(investmentLine[2], investmentLine[4], investmentLine[9])
-        investments.append([investmentLine[2], int(investmentLine[4]), int(investmentLine[4])*float(investmentLine[9])])
+        investments.append([investmentLine[2].strip('"'), int(investmentLine[4]), int(investmentLine[4])*float(investmentLine[9])])
     print("\nInvestments list:\len(investments)", investments,"\len(investments)")
     f.close()
     return investments
@@ -39,54 +34,32 @@ def printMatrix(m):
 
 
 def optimizeInvestments(investments, cash):
-    """This function takes the list of possible investments along with the cash of money available to spend
-    This function returns both the optimal return on investment cash as well as the actual investments selected
-    to achieve this optimal return, implement this function using dynamic programming
-    """
-
-    # Setting up the tables
     optimalTable = [[None for _ in range(cash + 1)] for _ in range(len(investments)+1)]
     traceback = [[None for _ in range(cash+1)] for _ in range(len(investments)+1)]
-    for c in range(cash+1):
-        optimalTable[0][c] = 0
-        traceback[0][c] = False
 
-    print("\noptimal table Start:\n")
-    printMatrix(optimalTable)
-    print("\ntraceback table Start:\n")
-    printMatrix(traceback)
-
-    for i in range(1, len(investments) + 1):
-
-        name, cost, ereturn = investments[i-1]
-
+    # Build table optimalTable[][] in bottom up manner
+    for i in range(len(investments) + 1):
         for c in range(cash + 1):
-
-            if cost > c:
-                optimalTable[i][c] = optimalTable[i-1][c]
-                # optimalTable[i][c] = investments[i][2]
+            if i == 0 or c == 0:
+                optimalTable[i][c] = 0
                 traceback[i][c] = False
-            else:
-                # TODO Line below needs editing
-                # print("Opt here", optimalTable[i-1])
-                # If we have enough cash then we can either not include it or include it
-                # We take the best of these two options
-                # Recall that if we include it we need to remove cash of cash and increase our expectedReturn
-                if (optimalTable[i-1][c] > optimalTable[i-1][c-cost]):
-                    print("Here")
-                    optimalTable[i][c] = optimalTable[i-1][c]
-                    traceback[i][c] = False
-                else:
-                    # optimalTable[i][c] = investments[i][2]
-                    optimalTable[i][c] = optimalTable[i-1][c-cost]
+            elif investments[i - 1][1] <= c:
+                optimalTable[i][c] = max(investments[i - 1][2] + optimalTable[i - 1][c - investments[i - 1][1]],
+                                         optimalTable[i - 1][c])
+                # Adjusting my traceback table to coincide with the max
+                if optimalTable[i][c] == investments[i - 1][2] + optimalTable[i - 1][c - investments[i - 1][1]]:
                     traceback[i][c] = True
-                    print("\noptimal table Update:\n")
-                    printMatrix(optimalTable)
+                elif optimalTable[i][c] == optimalTable[i - 1][c]:
+                    traceback[i][c] = False
+            else:
+                optimalTable[i][c] = optimalTable[i - 1][c]
+                traceback[i][c] = False
 
-    print("\noptimal table:\n")
-    printMatrix(optimalTable)
-    print("\ntraceback table:\n")
-    printMatrix(traceback)
+    # Uncomment below when looking at the short copy only
+    # print("\nOptimal Finished\n")
+    # printMatrix(optimalTable)
+    # print("\nTracback Finished")
+    # printMatrix(traceback)
 
     results = []
     c = cash
@@ -95,23 +68,20 @@ def optimizeInvestments(investments, cash):
             name, cost, ereturn = investments[i-1]
             results.append(investments[i-1][0])
             c -= cost
-
-    return optimalTable[len(investments)][c], results
-
+    return optimalTable[len(investments)][cash], results
 
 
 def main():
     """This function runs the main code"""
-    file = 'zhvi-short.csv'
-    # file = 'state_zhvi_summary_allhomes.csv'
+    # file = 'zhvi-short.csv'
+    file = 'state_zhvi_summary_allhomes.csv'
+    # investment_amount = 15
+    investment_amount = 1000000
     investments = loadZillow(file)
-    # print(investments)
-    investment_amount = 15
 
-    # len(investments) = len(investments)
     ereturn, picked = optimizeInvestments(investments, investment_amount)
-    print('\n\nerturn:\n', ereturn)
-    print('\n\npicked:\n', picked)
+    print('\nereturn:\n', ereturn)
+    print('\npicked:\n', picked)
 
 
 if __name__ == '__main__':
