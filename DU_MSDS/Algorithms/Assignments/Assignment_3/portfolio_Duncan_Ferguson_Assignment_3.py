@@ -56,10 +56,11 @@ def optimizeInvestments(investments, cash):
                 traceback[i][c] = False
 
     # Uncomment below when looking at the short copy only
-    # print("\nOptimal Finished\n")
-    # printMatrix(optimalTable)
-    # print("\nTracback Finished")
-    # printMatrix(traceback)
+    print("\nOptimal Finished\n")
+    printMatrix(optimalTable)
+    print("\nTracback Finished")
+    printMatrix(traceback)
+    print(investments)
 
     results = []
     c = cash
@@ -73,10 +74,10 @@ def optimizeInvestments(investments, cash):
 
 def main():
     """This function runs the main code"""
-    # file = 'zhvi-short.csv'
-    file = 'state_zhvi_summary_allhomes.csv'
-    # investment_amount = 15
-    investment_amount = 1000000
+    file = 'zhvi-short.csv'
+    # file = 'state_zhvi_summary_allhomes.csv'
+    investment_amount = 15
+    # investment_amount = 1000000
     investments = loadZillow(file)
 
     ereturn, picked = optimizeInvestments(investments, investment_amount)
