@@ -36,6 +36,7 @@ n = 9
 
 array_1 = np.random.default_rng().normal(mu, sigma, n)
 array_2 = np.random.default_rng().normal(mu, sigma, n)
+print(array_1)
 
 # Array of nine elements ranging from zero to two times pi. Name it ‘angle’.
 angle = np.random.uniform(low=0, high=2*np.math.pi, size=n)
@@ -56,3 +57,4 @@ print(df)
 df_sorted = df.sort_index()
 df_sorted = df_sorted.drop(columns=["Array_1", "Array_2"], index="Zeta")
 print(df_sorted)
+
