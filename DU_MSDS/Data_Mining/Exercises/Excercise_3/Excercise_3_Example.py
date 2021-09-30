@@ -10,7 +10,7 @@ itemCategories = ['produce', 'meat', 'bakery', 'freezer', 'dairy', 'deli', 'snac
 numLocations = len(locations)
 numItemCategories = len(itemCategories)
 
-cube = np.zeros((12,numLocations,numItemCategories) )
+cube = np.zeros((12,numLocations,numItemCategories))
 
 print(cube.size)
 
