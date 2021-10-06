@@ -16,7 +16,7 @@ with open('smallinput.csv', 'r') as read_obj:
         for i in perms:
             itemSetCount[i] += 1
 
-df = pd.DataFrame({'Keys':list(itemSetCount.keys()), 'Values':list(itemSetCount.values())})
+df = pd.DataFrame({'Keys': list(itemSetCount.keys()), 'Values': list(itemSetCount.values())})
 df.set_index('Keys', inplace=True)
 df['min_sup'] = df['Values']/NUMTRANS * 100
 print(df)
