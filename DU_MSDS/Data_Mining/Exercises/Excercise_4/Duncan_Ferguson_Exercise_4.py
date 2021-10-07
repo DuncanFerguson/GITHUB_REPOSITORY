@@ -2,6 +2,7 @@ from csv import reader
 import collections
 from itertools import combinations
 import pandas as pd
+import numpy as np
 
 NUMTRANS = 0
 minSupCount = 3
