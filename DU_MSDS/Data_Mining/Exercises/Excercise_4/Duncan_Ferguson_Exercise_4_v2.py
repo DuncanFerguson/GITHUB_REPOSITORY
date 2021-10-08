@@ -63,7 +63,7 @@ def main():
                 if df_confidence.at[row, c_index] >= .6 and row != c_index:
                     minsup_4_minconf_60.append([row, c_index, df_confidence.at[row, c_index]])
 
-    print("FOr min confidence 60%")
+    print("For min confidence greater than 60%")
     for item in minsup_4_minconf_60:
         list1 = [char for char in item[0]]
         list2 = [char for char in item[1]]
@@ -77,10 +77,21 @@ def main():
         print(item[0],"=>","".join(list2), "STRONG, confidence = ", item[2],
               "Lift = ", lift, meaningful)
 
+    print("\nFor min confidence greater than 50%")
+    for item in minsup_4_minconf_50:
+        list1 = [char for char in item[0]]
+        list2 = [char for char in item[1]]
+        for element in list1:
+            if element in list2:
+                list2.remove(element)
+        lift = df.at[str(item[1]),"min_support"] / (df.at[item[0], "min_support"]*df.at["".join(list2), "min_support"])
+        meaningful = ""
+        if lift > 1.0:
+            meaningful = " (Meaningful)"
+        print(item[0],"=>","".join(list2), "STRONG, confidence = ", item[2],
+              "Lift = ", lift, meaningful)
 
 
-    # print("D=>B confidence=", df_confidence.at["D", "BD"], "Lift:", df.at["BD", "min_support"] /
-    #       (df.at["D", "min_support"]*df.at["B", "min_support"]))
 
 
 if __name__ == '__main__':
