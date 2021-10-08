@@ -16,13 +16,15 @@ def printAssociations(association_list, df):
     """This function goes through and prints out the proper format for the associations
     It also calculates the lift"""
     for item in association_list:
-        list1 = [char for char in item[0]]  # Casting the string into a individual character list
-        list2 = [char for char in item[1]]
+        # Casting the string into a individual character list
+        list1, list2 = [char for char in item[0]], [char for char in item[1]]
         for element in list1:
             if element in list2:
                 list2.remove(element)  # Removing the similar letters from the list
         lift = df.at[str(item[1]), "min_support"] / (df.at[item[0], "min_support"]*df.at["".join(list2), "min_support"])
         meaningful = ""
+
+        # Assigning value if the lift is meaningful
         if lift > 1.0:
             meaningful = " (Meaningful)"
         print(item[0], "=>", "".join(list2), "STRONG, confidence = ", item[2],
@@ -58,8 +60,7 @@ def main():
     del df['Key']  # Removing columns used for sorts
 
     # Creating a confidence matrix
-    df_confidence = pd.DataFrame(columns=df.index, index=df.index)
-    df_confidence = df_confidence.fillna(0)  # Filling out the the matrix with zeros
+    df_confidence = pd.DataFrame(columns=df.index, index=df.index).fillna(0)
 
     # Creating list that contain associations that we are looking for
     minsup_4_minconf_60, minsup_4_minconf_50 = [], []
@@ -71,7 +72,7 @@ def main():
             if row in perm:
                 df_confidence.loc[row, c_index] = int(df.at[str(c_index), 'Values']) / int(df.at[str(row), 'Values'])
 
-                # Appending minimum confidence intervals to the corresponding list
+                # Appending minimum confidence intervals to the correct corresponding list
                 if df_confidence.at[row, c_index] >= .5 and row != c_index:
                     minsup_4_minconf_50.append([row, c_index, df_confidence.at[row, c_index]])
                 if df_confidence.at[row, c_index] >= .6 and row != c_index:
