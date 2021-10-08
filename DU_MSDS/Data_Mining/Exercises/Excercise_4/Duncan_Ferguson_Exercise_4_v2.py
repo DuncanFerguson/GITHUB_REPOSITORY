@@ -92,7 +92,5 @@ def main():
               "Lift = ", lift, meaningful)
 
 
-
-
 if __name__ == '__main__':
     main()
