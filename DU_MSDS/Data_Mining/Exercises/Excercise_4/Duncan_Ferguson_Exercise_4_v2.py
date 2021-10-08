@@ -57,22 +57,27 @@ def main():
                 df_confidence.loc[row, c_index] = int(df.at[str(c_index), 'Values']) / int(df.at[str(row), 'Values'])
 
                 # Appending minimum confidence intervals to a list
+                # Adding in First Value compared to Second Value and confidence
                 if df_confidence.at[row, c_index] >= .5 and row != c_index:
                     minsup_4_minconf_50.append([row, c_index, df_confidence.at[row, c_index]])
                 if df_confidence.at[row, c_index] >= .6 and row != c_index:
                     minsup_4_minconf_60.append([row, c_index, df_confidence.at[row, c_index]])
 
+    print("FOr min confidence 60%")
+    for item in minsup_4_minconf_60:
+        list1 = [char for char in item[0]]
+        list2 = [char for char in item[1]]
+        for element in list1:
+            if element in list2:
+                list2.remove(element)
+        print(item[0],"=>","".join(list2), "STRONG, confidence = ", item[2],
+              "Lift = ", df.at[str(item[1]),"min_support"] / (df.at[item[0], "min_support"]*df.at["".join(list2), "min_support"]),)
 
 
-    print("60", len(minsup_4_minconf_60))
-    print("50", len(minsup_4_minconf_50))
 
+    # print("D=>B confidence=", df_confidence.at["D", "BD"], "Lift:", df.at["BD", "min_support"] /
+    #       (df.at["D", "min_support"]*df.at["B", "min_support"]))
 
-
-
-    # print("D=>B confidence=", df_confidence.at["D", "BD"], "Lift:", df_confidence.at["BD", "Prob"] / (df_confidence.at["D", "Prob"]*df_confidence.at["B", "Prob"]))
-    # print("E=>F confidence=", df_confidence.at["E", "EF"], "Lift:", df_confidence.at["EF", "Prob"] / (df_confidence.at["E", "Prob"]*df_confidence.at["F", "Prob"]))
-    # print("CG=>H confidence=", df_confidence.at["CG", "CGH"], "Lift:", df_confidence.at["CGH", "Prob"] / (df_confidence.at["CG", "Prob"]*df_confidence.at["H", "Prob"]))
 
 if __name__ == '__main__':
     main()
