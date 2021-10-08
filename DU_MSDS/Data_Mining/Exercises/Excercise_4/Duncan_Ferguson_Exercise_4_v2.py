@@ -70,8 +70,12 @@ def main():
         for element in list1:
             if element in list2:
                 list2.remove(element)
+        lift = df.at[str(item[1]),"min_support"] / (df.at[item[0], "min_support"]*df.at["".join(list2), "min_support"])
+        meaningful = ""
+        if lift > 1.0:
+            meaningful = " (Meaningful)"
         print(item[0],"=>","".join(list2), "STRONG, confidence = ", item[2],
-              "Lift = ", df.at[str(item[1]),"min_support"] / (df.at[item[0], "min_support"]*df.at["".join(list2), "min_support"]),)
+              "Lift = ", lift, meaningful)
 
 
 
