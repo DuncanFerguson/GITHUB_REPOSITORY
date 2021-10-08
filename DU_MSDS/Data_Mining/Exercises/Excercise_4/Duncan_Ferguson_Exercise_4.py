@@ -2,7 +2,6 @@ from csv import reader
 import collections
 from itertools import combinations
 import pandas as pd
-import numpy as np
 
 NUMTRANS = 0
 minSupCount = .03
@@ -20,7 +19,6 @@ with open("inputExercise4.csv", 'r') as read_obj:
 
 df = pd.DataFrame({'Keys': list(itemSetCount.keys()), 'Values': list(itemSetCount.values())})
 df.set_index('Keys', inplace=True)
-# df['min_sup'] = df['Values']/NUMTRANS * 100
 df['min_sup'] = df['Values']/NUMTRANS
 df = df[df.min_sup >= minSupCount]
 
@@ -29,8 +27,6 @@ df['Key'] = df.index
 df['Key_Length'] = df['Key'].str.len()
 df.sort_values(by=["Key_Length", 'Values', 'Key'], ascending=True, inplace=True)
 del df['Key_Length']
-
-# print(df)
 
 #%%
 
@@ -41,17 +37,14 @@ index_i = columns.copy()
 df_confidence = pd.DataFrame(columns=columns, index=index_i)
 df_confidence =df_confidence.fillna(0)
 df_lift = df_confidence.copy()
-df_prop = df_confidence.copy()
 
 for row in df_confidence.index:
     for c_index in df_confidence.keys():
         perm = [''.join(l) for i in range(len(c_index)) for l in combinations(c_index, i + 1)]
         if row in perm:
             df_confidence.loc[row, c_index] = int(df.at[str(c_index), 'Values']) / int(df.at[str(row), 'Values'])
-            df_prop.loc[row, c_index] = 1
 
 df["Prob"] = df["Values"] / NUMTRANS
-
 
 df_confidence.insert(0, "Values", df["Values"])
 df_confidence.insert(1, "min_sup", df["min_sup"])
