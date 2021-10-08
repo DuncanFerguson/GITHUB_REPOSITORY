@@ -38,32 +38,25 @@ columns = list(df['Key'])
 del df['Key']
 index_i = columns.copy()
 
-df_2 = pd.DataFrame(columns=columns, index=index_i)
-df_2 =df_2.fillna(0)
-df_3 =df_2.copy()
+df_confidence = pd.DataFrame(columns=columns, index=index_i)
+df_confidence =df_confidence.fillna(0)
+df_lift = df_confidence.copy()
+df_prop = df_confidence.copy()
 
-for row in df_2.index:
-    for c_index in df_2.keys():
+for row in df_confidence.index:
+    for c_index in df_confidence.keys():
         perm = [''.join(l) for i in range(len(c_index)) for l in combinations(c_index, i + 1)]
         if row in perm:
-            df_2.loc[row, c_index] = int(df.at[str(c_index), 'Values']) / int(df.at[str(row), 'Values'])
+            df_confidence.loc[row, c_index] = int(df.at[str(c_index), 'Values']) / int(df.at[str(row), 'Values'])
+            df_prop.loc[row, c_index] = 1
 
-for row in df_3.index:
-    for c_index in df_3.keys():
-        df_3.loc[row, c_index] = int(df.at[str(c_index), 'Values']) *NUMTRANS/ int(df.at[str(row), 'Values'])*int(df.at[str(c_index), 'Values'])
-        # print(itemSetCount[c_index])
+df["Prob"] = df["Values"] / NUMTRANS
 
-# for row in df.index:
-#     for col in df.keys():
-#         df_lift.loc[row, col] = df.loc[row, col] * df.at[str(c_index),"Values"]
 
-# print(df)
-# print(df_3)
+df_confidence.insert(0, "Values", df["Values"])
+df_confidence.insert(1, "min_sup", df["min_sup"])
+df_confidence.insert(2, "Prob", df["Prob"])
 
-# df_2.insert(0, "Values", df["Values"])
-# df_2.insert(1, "min_sup", df["min_sup"])
-#
-print(df_2.at["D", "BD"])
-print(df_3.at["D", "BD"])
-
-# print(df_2)
+print("D=>B confidence=",df_confidence.at["D", "BD"], "Lift:", df_confidence.at["BD", "Prob"] / (df_confidence.at["D", "Prob"]*df_confidence.at["B", "Prob"]))
+print("E=>F confidence=",df_confidence.at["E", "EF"], "Lift:", df_confidence.at["EF", "Prob"] / (df_confidence.at["E", "Prob"]*df_confidence.at["F", "Prob"]))
+print("CG=>H confidence=",df_confidence.at["CG", "CGH"], "Lift:", df_confidence.at["CGH", "Prob"] / (df_confidence.at["CG", "Prob"]*df_confidence.at["H", "Prob"]))
