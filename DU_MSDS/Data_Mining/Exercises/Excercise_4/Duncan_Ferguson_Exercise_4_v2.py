@@ -11,15 +11,31 @@ import collections
 from itertools import combinations
 import pandas as pd
 
+
+def printAssociations(association_list, df):
+    """This function goes through and prints out the proper format for the associations
+    It also calculates the lift"""
+    for item in association_list:
+        list1 = [char for char in item[0]]  # Casting the string into a individual character list
+        list2 = [char for char in item[1]]
+        for element in list1:
+            if element in list2:
+                list2.remove(element)  # Removing the similar letters from the list
+        lift = df.at[str(item[1]), "min_support"] / (df.at[item[0], "min_support"]*df.at["".join(list2), "min_support"])
+        meaningful = ""
+        if lift > 1.0:
+            meaningful = " (Meaningful)"
+        print(item[0], "=>", "".join(list2), "STRONG, confidence = ", item[2],
+              "Lift = ", lift, meaningful)
+
+
 def main():
     """Initializing a dictionary, number of transaction counts, and the minimum support threshold"""
-    itemSetCount = collections.defaultdict(int)
+    itemSetCount = collections.defaultdict(int)  # Creating blank default dict
     NUMTRANS = 0
-    minSupCount = .04
 
     # Scanning through the file and creating a list of each itemset present and their counts
     with open("inputExercise4.csv", 'r') as read_obj:
-    # with open('smallinput.csv', 'r') as read_obj:
         csv_reader = reader(read_obj)
         for row in csv_reader:
             NUMTRANS += 1
@@ -32,7 +48,7 @@ def main():
     df = pd.DataFrame({'Keys': list(itemSetCount.keys()), 'Values': list(itemSetCount.values())})
     df["min_support"] = df["Values"] / NUMTRANS  # Adding the minimum support
     df.set_index('Keys', inplace=True)  # Setting the index to be the keys
-    df = df[df.min_support >= minSupCount]  # Filtering out anything that doesn't meet the min support threshold
+    df = df[df.min_support >= .04]  # Filtering out anything that doesn't meet the min support threshold of .04
 
     # Sorting the dataframe to make it easier to read
     df['Key'] = df.index  # Creating a key column to be better able to count length
@@ -46,8 +62,7 @@ def main():
     df_confidence = df_confidence.fillna(0)  # Filling out the the matrix with zeros
 
     # Creating list that contain associations that we are looking for
-    minsup_4_minconf_60 = []
-    minsup_4_minconf_50 = []
+    minsup_4_minconf_60, minsup_4_minconf_50 = [], []
 
     # Filling out the confidence matrix
     for row in df_confidence.index:
@@ -56,40 +71,17 @@ def main():
             if row in perm:
                 df_confidence.loc[row, c_index] = int(df.at[str(c_index), 'Values']) / int(df.at[str(row), 'Values'])
 
-                # Appending minimum confidence intervals to a list
-                # Adding in First Value compared to Second Value and confidence
+                # Appending minimum confidence intervals to the corresponding list
                 if df_confidence.at[row, c_index] >= .5 and row != c_index:
                     minsup_4_minconf_50.append([row, c_index, df_confidence.at[row, c_index]])
                 if df_confidence.at[row, c_index] >= .6 and row != c_index:
                     minsup_4_minconf_60.append([row, c_index, df_confidence.at[row, c_index]])
 
     print("For min confidence greater than 60%")
-    for item in minsup_4_minconf_60:
-        list1 = [char for char in item[0]]
-        list2 = [char for char in item[1]]
-        for element in list1:
-            if element in list2:
-                list2.remove(element)
-        lift = df.at[str(item[1]),"min_support"] / (df.at[item[0], "min_support"]*df.at["".join(list2), "min_support"])
-        meaningful = ""
-        if lift > 1.0:
-            meaningful = " (Meaningful)"
-        print(item[0],"=>","".join(list2), "STRONG, confidence = ", item[2],
-              "Lift = ", lift, meaningful)
+    printAssociations(minsup_4_minconf_60, df)
 
     print("\nFor min confidence greater than 50%")
-    for item in minsup_4_minconf_50:
-        list1 = [char for char in item[0]]
-        list2 = [char for char in item[1]]
-        for element in list1:
-            if element in list2:
-                list2.remove(element)
-        lift = df.at[str(item[1]),"min_support"] / (df.at[item[0], "min_support"]*df.at["".join(list2), "min_support"])
-        meaningful = ""
-        if lift > 1.0:
-            meaningful = " (Meaningful)"
-        print(item[0],"=>","".join(list2), "STRONG, confidence = ", item[2],
-              "Lift = ", lift, meaningful)
+    printAssociations(minsup_4_minconf_50, df)
 
 
 if __name__ == '__main__':
