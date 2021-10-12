@@ -49,7 +49,7 @@ def main():
     df = pd.DataFrame({'Keys': list(itemSetCount.keys()), 'Values': list(itemSetCount.values())})
     df["min_support"] = df["Values"] / NUMTRANS  # Adding the minimum support
     df.set_index('Keys', inplace=True)  # Setting the index to be the keys
-    df = df[df.min_support >= .00]  # Filtering out anything that doesn't meet the min support threshold of .04
+    df = df[df.min_support >= float(2/17)]  # Filtering out anything that doesn't meet the min support threshold of .04
 
     # Sorting the dataframe to make it easier to read
     df['Key'] = df.index  # Creating a key column to be better able to count length
@@ -77,12 +77,12 @@ def main():
                 if df_confidence.at[row, c_index] >= .6 and row != c_index:
                     minsup_4_minconf_60.append([row, c_index, df_confidence.at[row, c_index]])
 
+    df = df.sort_values("Values", ascending=False)
     print(df)
-    # print("For min confidence greater than 60%")
-    # printAssociations(minsup_4_minconf_60, df)
+    print("For min confidence greater than 60%: number of rules:", len(minsup_4_minconf_60))
+    printAssociations(minsup_4_minconf_60, df)
 
-    print("\nFor min confidence greater than 50%")
-    print(len(minsup_4_minconf_50))
+    print("\nFor min confidence greater than 50%: number of rules:", len(minsup_4_minconf_50))
     printAssociations(minsup_4_minconf_50, df)
 
 
