@@ -1,10 +1,9 @@
 # Student: Duncan Ferguson
 # Student Id: 871641260
 # Class: Comp 4431-1
-# Assignment: Exercise 4
-# Date: 10/7/2021
-# Group: Name: Broken Toe
-# Group Members: Emma Bright, Mike Santoro
+# Assignment: Assignment 1 part 1
+# Date: 10/19/2021
+# Group Members from Assignment 4: Emma Bright, Mike Santoro
 
 from csv import reader
 import collections
@@ -37,7 +36,7 @@ def main():
     NUMTRANS = 0
 
     # Scanning through the file and creating a list of each itemset present and their counts
-    with open("inputExercise4.csv", 'r') as read_obj:
+    with open("Assignment_1_part_1_data.csv", 'r') as read_obj:
         csv_reader = reader(read_obj)
         for row in csv_reader:
             NUMTRANS += 1
@@ -50,7 +49,7 @@ def main():
     df = pd.DataFrame({'Keys': list(itemSetCount.keys()), 'Values': list(itemSetCount.values())})
     df["min_support"] = df["Values"] / NUMTRANS  # Adding the minimum support
     df.set_index('Keys', inplace=True)  # Setting the index to be the keys
-    df = df[df.min_support >= .04]  # Filtering out anything that doesn't meet the min support threshold of .04
+    df = df[df.min_support >= .00]  # Filtering out anything that doesn't meet the min support threshold of .04
 
     # Sorting the dataframe to make it easier to read
     df['Key'] = df.index  # Creating a key column to be better able to count length
@@ -73,17 +72,19 @@ def main():
                 df_confidence.loc[row, c_index] = int(df.at[str(c_index), 'Values']) / int(df.at[str(row), 'Values'])
 
                 # Appending minimum confidence intervals to the correct corresponding list
-                if df_confidence.at[row, c_index] >= .5 and row != c_index:
+                if df_confidence.at[row, c_index] >= .000000000 and row != c_index:
                     minsup_4_minconf_50.append([row, c_index, df_confidence.at[row, c_index]])
                 if df_confidence.at[row, c_index] >= .6 and row != c_index:
                     minsup_4_minconf_60.append([row, c_index, df_confidence.at[row, c_index]])
 
     print(df)
-    print("For min confidence greater than 60%")
-    printAssociations(minsup_4_minconf_60, df)
+    # print("For min confidence greater than 60%")
+    # printAssociations(minsup_4_minconf_60, df)
 
     print("\nFor min confidence greater than 50%")
+    print(len(minsup_4_minconf_50))
     printAssociations(minsup_4_minconf_50, df)
+
 
 
 if __name__ == '__main__':
