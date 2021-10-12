@@ -71,6 +71,19 @@ def viz_data(rules):
     plt.title("Support vs Confidence")
     plt.show()
 
+    # Support v lift
+    plt.scatter(rules['support'], rules['lift'], alpha=0.5)
+    plt.xlabel('support')
+    plt.ylabel('lift')
+    plt.title('Support vs Lift')
+    plt.show()
+
+    # Lift vs confidence
+    fit = np.polyfit(rules['lift'], rules['confidence'], 1)
+    fit_fn = np.poly1d(fit)
+    plt.plot(rules['lift'], rules['confidence'], 'yo', rules['lift'], fit_fn(rules['lift']))
+    plt.show()
+
 def main():
     """This Is the main function for running the code"""
     df, items = import_file()  # Importing the file
