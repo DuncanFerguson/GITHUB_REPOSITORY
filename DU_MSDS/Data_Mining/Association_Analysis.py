@@ -15,7 +15,7 @@ def import_file():
     """This function imports our Data Set"""
 
     # TODO get rid of the NaNs
-    df = pd.read_csv("retail_dataset.csv", sep=",")
+    df = pd.read_csv("retail_dataset.csv", sep=",", na_filter=False)
     print(df.head())
 
     items = set()
@@ -23,12 +23,13 @@ def import_file():
         items.update(df[col].unique())
 
     # Looking at the unique values and count that are in the data set
-    print(len(items))
-    print(items)
+    items.remove("")
+    print("Count of Items", len(items))
+    print("Items", items)
 
     # Taking a sneak peak of the NaNs
-    sns.heatmap(df.isnull(), cbar=False)
-    plt.show()
+    # sns.heatmap(df.isnull(), cbar=False)
+    # plt.show()
 
 
     return df, items
@@ -50,19 +51,33 @@ def data_Preprocessing(df, items):
     print(encoded_vals[0])
     ohe_df = pd.DataFrame(encoded_vals)
     print(ohe_df.head())
-    # del ohe_df['NaN']  # Dropping the Nan Values
     return ohe_df
 
 def apply_apriori(ohe_df):
     """Applying the Apriori Algorithm"""
     freq_items = apriori(ohe_df, min_support=0.2, use_colnames=True, verbose=1)
-    print(freq_items.head(7))
+    print(freq_items.head(8))
+    rules = association_rules(freq_items, metric="confidence", min_threshold=0.6)
+    print(rules.head())
+    return rules
+
+def viz_data(rules):
+    """This Function shows the vizualization rules"""
+
+    # Support v Confidence
+    plt.scatter(rules['support'], rules['confidence'], alpha=0.5)
+    plt.xlabel("support")
+    plt.ylabel("confidence")
+    plt.title("Support vs Confidence")
+    plt.show()
 
 def main():
     """This Is the main function for running the code"""
     df, items = import_file()  # Importing the file
     ohe_df = data_Preprocessing(df, items)  # Preprocessing the data
-    apply_apriori(ohe_df)
+    rules = apply_apriori(ohe_df)
+    viz_data(rules)
 
 if __name__ == '__main__':
     main()
+
