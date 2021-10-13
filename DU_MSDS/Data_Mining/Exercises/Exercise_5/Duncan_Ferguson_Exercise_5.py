@@ -14,6 +14,11 @@ from csv import reader
 from mlxtend.frequent_patterns import apriori, association_rules
 from mlxtend.preprocessing import TransactionEncoder
 
+pd.set_option('display.max_rows', 30)
+pd.set_option('display.max_rows', None)  # print all the rows
+pd.set_option('display.width', None)   # allow long lines to get rid of ...
+
+
 theData = []
 with open('exercise5b_input.csv.txt', 'r') as read_obj:
     csv_reader = reader(read_obj)
@@ -23,29 +28,32 @@ with open('exercise5b_input.csv.txt', 'r') as read_obj:
 # use transaction encoder to transform into an 1-hot boolean encoded numpy arrayk
 te = TransactionEncoder()
 te_ary = te.fit(theData).transform(theData)
-print("\n\nte_ary returned from TransactionEncoder.fit().transform():")
-print(te_ary)
+# print("\n\nte_ary returned from TransactionEncoder.fit().transform():")
+# print(te_ary)
 
 # convert into a data frame for convience and to pass into apriori
 df2 = pd.DataFrame(te_ary,columns = te.columns_)
 
-print("\n\nDataFrame version:")
-print(df2.head(25))
-
-
+# print("\n\nDataFrame version:")
+# print(df2.head(25))
 
 # Call apriori to find frequent itemsets with min_support = 30%
 freq_items = apriori(df2, min_support=0.01, use_colnames=True)
 print("\n\nfreq_items:")
+# freq_items = freq_items.sort_values('support', inplace=True)
+# print(freq_items)
+# freq_items.sort_values("support")
+#
+# # for index, row in freq_items.iterrows():
+# # 	print(str(row[0]) + ' ' + str(row[1]) )
+#
+#
+# # add a column to freq_items that contains the number of items in the itemset
+freq_items['length'] = freq_items['itemsets'].apply(lambda x: len(x))
+freq_items.sort_values(["length", "support"], inplace=True, ascending=True)
 print(freq_items)
 
 
-# for index, row in freq_items.iterrows():
-# 	print(str(row[0]) + ' ' + str(row[1]) )
-
-
-# add a column to freq_items that contains the number of items in the itemset
-freq_items['length'] = freq_items['itemsets'].apply(lambda x: len(x))
 print(type(freq_items))
 print(freq_items.columns)
 print(freq_items)
@@ -74,4 +82,4 @@ print(rules.columns)
 print(rules[["antecedents","consequents","antsup","consup","support","confidence","lift"]])
 
 # print("rules.head(20):")
-# print( rules.head(20) )
+print(rules.head(20))

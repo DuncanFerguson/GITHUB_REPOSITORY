@@ -1,0 +1,255 @@
+maida flour,yogurt,oil,sugar
+gram flour,ghee,sugar
+carrots,milk,sugar,ghee,cashews,raisins
+flour,ghee,kewra,milk,clarified butter,sugar,almonds,pistachio,saffron,green cardamom
+milk powder,plain flour,baking powder,ghee,milk,sugar,water,rose water
+sugar syrup,lentil flour
+maida,corn flour,baking soda,vinegar,curd,water,turmeric,saffron,cardamom
+cashews,ghee,cardamom,sugar
+milk,cottage cheese,sugar
+milk,rice,sugar,dried fruits
+gram flour,ghee,sugar
+yogurt,milk,nuts,sugar
+refined flour,besan,ghee,powdered sugar,yoghurt,green cardamom
+firm white pumpkin,sugar,kitchen lime,alum powder
+rice,sugar,nuts
+condensed milk,sugar,spices,nuts
+semolina,ghee,nuts,milk
+khoa,coconut,molu leaf
+corn flour,ghee,dry fruits
+gram flour,ghee,sugar,milk,cardamom
+chhena,sugar,ghee
+chhena,sugar,milk
+sugar,chenna cheese
+flour,cream,sugar,saffron,lemon juice,coconut flakes
+chenna,condensed milk,sugar,saffron,cardamom
+chhena,sugar,ghee
+flour,fried milk power,sugar syrup
+yoghurt,refined flour,ghee,fennel seeds
+besan flour,sugar,ghee
+milk,jaggery
+chhena,sugar,ghee,flour
+rice flour,wheat flour
+chenna,sweetened milk
+chhena,reduced milk,pistachio
+chhena,sugar,cardamom
+milk,sugar,saffron,cardamom
+rice flour,jaggery,ghee,vegetable oil,elachi
+rice flour,jaggery,ghee
+besan,jaggery,cardamom powder,ghee,cashews and raisins,jaggery syrup,sugar
+peanuts,jaggery
+milk,sugar,dharwadi buffalo milk
+loaf bread,milk
+rice flour,sugar,salt,ghee,semolina
+wheat flour,sugar
+black lentils,rice
+besan flour,semolina,mung bean,jaggery,coconut,skimmed milk powder,sugar,ghee
+maida flour,turmeric,coconut,chickpeas,jaggery,ghee,cardamom
+rice flour,milk
+chana dal,jaggery
+rice,jaggery,cashews,ghee
+rice flour,powdered sugar,ghee
+apricots,sugar syrup
+vermicelli pudding,milk
+rice flour,banana,jaggery,coconut
+rice flour,jaggery,coconut
+rice flour,jaggery,khus-khus seeds
+sugar,milk,nuts
+cucumber,rava
+milk,rice,sugar,dry fruits
+semolina,sugar
+rice flour,coconut,jaggery 
+sugar,ghee,maida flour,semolina
+curd,sugar,saffron,cardamom
+maida,sugar,ghee
+fish,potol,tomato,chillies,ginger,garlic
+boiled pork,onions,chillies,ginger and garlic
+rice,milk,sugar,cardamom
+rice,axone,salt,water,chillies,pork
+cauliflower,potato,garam masala,turmeric,curry leaves
+rice flour,potato,bread crumbs,garam masala,salt
+potato,peas,chillies,ginger,garam masala,garlic
+potato,fenugreek leaves,chillies,salt,oil
+potato,shimla mirch,garam masala,amchur powder,salt
+chole,rava,yogurt,plain flour,baking soda
+ladies finger,garam masala,kasuri methi,tomatoes,chili powder
+chicken thighs,basmati rice,star anise,sweet,green chillies
+chicken,greek yogurt,cream,garam masala powder,cashew nuts,butter
+chickpeas,tomato paste,garam masala,ginger,red onion,avocado oil
+whole wheat flour,olive oil,hot water,all purpose flour
+chicken,dahi,sesame seeds,garam masala powder,cashew nuts,saffron
+naan bread,tomato sauce,skinless chicken breasts,heavy cream,garam masala
+chicken,whole wheat bread,rice flour,garam masala powder,whole egg
+chole,bhatura,garam masala,bay leaf,cinnamon stick
+moong dal,masoor dal,chana dal,wheat flour,almond
+moong dal,garam masala powder,garlic,green chilli,all purpose flour
+red kidney beans,urad dal,cream,garam masala,chili powder
+pigeon peas,garam masala,ginger,red onion,kasuri methi
+baby potatoes,garam masala,cashew nuts,kasuri methi,tomatoes
+beaten rice flakes,potato,curry leaves,green chilies,lemon juice
+chana dal,whole wheat flour,arhar dal,white urad dal,garam masala powder
+moong dal,rava,garam masala,dough,fennel seeds
+cottage cheese,bell peppers,gravy,garam masala,cashew nuts
+besan,garam masala powder,gram flour,ginger,curry leaves
+bitter gourd,fennel,garam masala powder,chili powder,amchur powder
+moong dal,green peas,ginger,tomato,green chili
+paneer,potato,cream,corn flour,garam masala
+rose syrup,falooda sev,mixed nuts,saffron,sugar
+bottle gourd,garam masala powder,gram flour,ginger,chillies
+bottle gourd,coconut oil,garam masala,ginger,green chillies
+wheat flour,roasted gram flour,tomato,nigella seeds,chilli
+palak,makki atta,mustard green,garam masala,ginger
+whole wheat flour,chickpea flour,green chilies
+mushroom,malai,garam masala,ginger,capsicum
+canned coconut milk,frozen green peas,wild mushrooms,garam masala,tomatoes
+whole wheat flour,honey,butter,garlic
+green beans,potatoes,khus khus,low fat,garam masala powder
+cottage cheese,palak,cream,garam masala,butter
+paneer,whipping cream,garam masala,cashew nuts,butter
+paneer,greek yogurt,tandoori masala,cream,bell pepper
+kala chana,mashed potato,boondi,sev,lemon
+whole wheat flour,musk melon seeds,poppy seeds,edible gum,semolina
+urad dal,sev,lemon juice,chopped tomatoes
+wheat flour,butter,potato,coriander
+arbi ke patte,sesame seeds,gur,bengal gram flour,imli
+fennel,tea bags,tomato,kasuri methi,cinnamon
+red kidney beans,garam masala powder,ginger,tomato,mustard oil
+garam masala powder,tomato,kasuri methi,cinnamon,mustard oil
+potatoes,green peas,garam masala,ginger,dough
+sattu,atta,dough,filling,mustard oil
+cottage cheese,malai,garam masala,ginger,tomato
+rose water,milk,white bread slices,saffron,almonds
+baby corn,french beans,garam masala,ginger,carrot
+greek yogurt,garam masala,kasuri methi,marinade,mustard oil
+chickpea flour,biryani masala powder,yogurt,fish fillets,green bell pepper
+whole wheat flour,arhar dal,ginger,kala jeera,green chilli
+raw banana,elephant foot yam,long beans,tindora,urad dal
+split pigeon peas,chana dal,urad dal,green peas,french beans
+chana dal,urad dal,fresh coconut,sesame seeds,curry leaves
+chana dal,urad dal,whole urad dal,blend rice,rock salt
+rice flour,hot water,grated coconut
+split urad dal,urad dal,idli rice,thick poha,rock salt
+carrot,yellow mustard,red chilli,black salt
+sesame oil,drumstick,tamarind paste,sambar powder,tomato
+moong dal,chana dal,spinach,urad dal,coconut oil
+urad dal,curry leaves,sugar,mustard seeds,spinach
+greens,tomato,mustard seeds,fenugreek seeds
+amaranth leaves,split urad dal,mustard seeds,grated coconut,red chili
+beef,coconut,garam masala,curry leaves,green chilies,chili powder
+chana dal,urad dal,potato,beans,peas
+moong dal,chana dal,cabbage,tamarind,curry leaves
+moong dal,cucumber,curry leaves,green chili,lemon juice
+chana dal,urad dal,gooseberry,raw rice,curry leaves
+sesame oil,raw rice,jaggery,grated coconut
+pearl onions,urad dal,drumsticks,tomato,curry leaves
+chana dal,urad dal,potatoes,idli rice,thick poha
+coconut oil,cucumber,curd,curry leaves,mustard seeds
+yogurt,ginger,curry leaves,baking soda,green chilli
+lentils,black pepper,vegetable oil
+raw rice, jaggery,milk
+rice,cashew nuts,milk,raisins,sugar
+arhar dal,sambar powder,tomato,curry leaves,fennel seeds
+green moong beans,rice flour
+chana dal,urad dal,beans,coconut,mustard
+urad dal,lemon,tamarind,cooked rice,curry leaves
+tomato,curry leaves,garlic,mustard seeds,hot water
+brown rice flour,sugar,grated coconut
+pigeon peas,eggplant,drumsticks,sambar powder,tamarind
+thin rice flakes,black sesame seeds,curry leaves
+sevai,parboiled rice,steamer
+urad dal,curd,sesame oil,ginger,curry leaves,mustard seeds
+coconut,whole red beans,masala,sesame oil,tamarind
+chana dal,urad dal,thick poha,tomato,butter
+urad dal,ginger,curry leaves,green chilies,black pepper
+meat curry powder,chicken chunks,ginger,tomato,cinnamon
+chana dal,urad dal,ginger,curry leaves,sugar
+kala masala,arhar dal,curry leaves,mustard seeds,hot water
+gram flour,mustard,garlic,turmeric,red chilli
+baingan,fish,coconut oil,fresh coconut,ginger
+urad dal,potatoes,wheat flour,sooji
+wheat flour,pearl millet flour,hot water
+condensed milk,mawa,desiccated coconut,almonds,cashews
+jowar flour,sesame seeds
+bombay duck,malvani masala,rice flour,bombay rava,green chilies
+rice flour,sesame,plain flour,turmeric,red chilli
+citric acid,fry,raisins,sugar,chana daal
+urad dal,bengal gram flour,dried mango,baking soda,black salt
+condensed milk,nestle cream,coconut ice,red food coloring,desiccated coconut
+whole wheat flour,dal,kokum,gur,bengal gram flour
+pav,aloo,peanut,pomegranate,star anise
+urad dal,bhuna chana,garam masala,dates,tamarind
+arhar dal,coconut oil,curry leaves,mustard seeds,red chilli
+rava,coconut,gram flour,mustard,sesame
+bottle gourd,green,raisins,sugar,clarified butter
+yogurt,besan,sauce,garam masala powder,gram flour
+wheat flour,jaggery,clarified butter,sliced almonds
+dry fruits,semolina,all purpose flour
+bottle gourd,chana dal,cabbage,urad dal,toor dal
+whole wheat rava,chia seed,lemon,edible gum,litre milk
+green chilies,lemon juice,chili powder,boiled potatoes
+wheat flour,cashews,rapeseed oil
+mango,sugar
+whole wheat flour,low fat,bengal gram flour
+green chili paste,white sesame seeds,gram flour,curry leaves,green chili
+rice flour,urad dal,wheat flour,gram flour,turmeric
+cinnamon,jaggery,clarified butter,dry roasted
+cucumber,carrot,tomatoes,cilantro
+rava,gram flour,lemon juice,turmeric,fenugreek leaves
+rose water,pistachio,badam,bengal gram flour,saffron
+bottle gourd,whole wheat flour,rava,sesame seeds,bengal gram flour
+arbi ke patte,sesame seeds,gur,bengal gram flour,imli
+pav bhaji masala,gobi,potatoes,green peas,dinner rolls
+aloo,urad dal,mustard,ginger,curry leaves
+raw peanuts,sabudana,lemon,avocado oil,curry leaves,green chili
+khaman,pomegranate,sev,powdered sugar,garlic
+sev,ginger,tomato,sugar
+wheat flour,baking soda,all purpose flour,black pepper,sunflower oil
+whole wheat flour,gur,clarified butter
+rice flakes,yogurt,raw rice,jaggery,grated coconut
+whole wheat flour,rice flour,pearl millet flour,sorghum flour,sesame seeds
+sweet potato,surti papdi,baby potatoes,valor papdi,green peas
+gobi,potato,beans,khus khus,coconut
+chicken,coconut oil,wine vinegar,ginger,green,cinnamon
+green garlic chutney,fresh green peas,ginger,lemon juice,plain flour
+moong beans,jaggery,red chillies,oil,salt
+rice flour,sesame seeds,baking soda,peanut oil
+chickpea flour,methi leaves,jowar flour,wheat flour
+semolina,clarified butter,oil,white flour,black pepper
+yogurt,fresh coconut,sesame seeds,semolina,gram flour
+ridge gourd,baking soda,sugar,grated coconut,peas
+whole wheat flour,khus khus,sesame seeds,dry coconut,gur
+rice,mango,curd
+sticky rice,rice flour,jaggery,orange rind
+raw papaya,panch phoran masala,nigella seeds,mustard oil,fennel seeds
+rice,eggs,carrot,beetroot
+maida,vegetable oil
+potatoes,mustard oil,fish,green chillies
+ridge gourd,fish,lemon,tomatoes,mustard oil
+brinjal,onions,salt,sesame seeds,coriander
+potatoes,garam masala,tomatoes,mustard oil,bay leaf
+forbidden black rice,chicken,olive oil,slivered almonds,garlic powder
+biryani masala,mixed vegetables,yellow moong daal,whole red,mustard seeds
+brown rice,soy sauce,olive oil
+coconut milk,lobster,fresh green chilli,ginger,red onion
+baking soda,clarified butter,oil,all purpose flour
+jaggery,raisins
+lamb,garam masala powder,curd,turmeric,bay leaf
+coconut,prawns,curd,mustard seed,green chili
+fish fillet,besan,lemon,mint,ginger
+fermented bamboo shoot,potato,ginger,green,mustard oil
+banana flower,chicken,green chili,mustard oil,lemon juice
+aloo,tomatoes,mustard oil,bay leaf,cinnamon stick
+rice flour,mutton,banana,gram flour,olive oil,baking powder
+fish roe,pumpkin flowers,mustard oil,turmeric,tomato
+chana dal,fresh coconut,ginger,cinnamon,raisins
+curd,cooked rice,curry leaves,dry chilli
+tea leaves,white sesame seeds,dry coconut,soaked rice
+basmati rice,rose water,sugar,clarified butter,cardamom pods
+coconut milk,prawns,garlic,turmeric,sugar
+red pepper,red onion,butter,watercress,olive oil
+green beans,bitter gourd,ridge gourd,banana,brinjal
+glutinous rice,black sesame seeds,gur
+coconut milk,egg yolks,clarified butter,all purpose flour
+cottage cheese,dry dates,dried rose petals,pistachio,badam
+milk powder,dry fruits,arrowroot powder,all purpose flour
+brown rice,fennel seeds,grated coconut,black pepper,ginger powder
