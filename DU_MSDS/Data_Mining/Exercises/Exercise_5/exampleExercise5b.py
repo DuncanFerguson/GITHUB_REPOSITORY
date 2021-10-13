@@ -9,8 +9,8 @@ import numpy as np
 from mlxtend.frequent_patterns import apriori, association_rules
 from mlxtend.preprocessing import TransactionEncoder
 
-pd.set_option('display.max_columns', 20)
-# pd.set_option('display.max_rows',30)
+# pd.set_option('display.max_columns', 20)
+pd.set_option('display.max_rows',30)
 pd.set_option('display.max_rows',None)  # print all the rows
 pd.set_option('display.width',None)   # allow long lines to get rid of ...
 
@@ -56,26 +56,26 @@ print(df2.head(25))
 
 
 # Call apriori to find frequent itemsets with min_support = 30%
-freq_items = apriori(df2,min_support=0.3,use_colnames=True)
+freq_items = apriori(df2, min_support=0.3, use_colnames=True)
 print("\n\nfreq_items:")
 print(freq_items)
 
 
-#for index, row in freq_items.iterrows():
-#	print(str(row[0]) + ' ' + str(row[1]) )
+# for index, row in freq_items.iterrows():
+# 	print(str(row[0]) + ' ' + str(row[1]) )
 
 
 # add a column to freq_items that contains the number of items in the itemset
 freq_items['length'] = freq_items['itemsets'].apply(lambda x: len(x))
 print(type(freq_items))
-print( freq_items.columns)
+print(freq_items.columns)
 print(freq_items)
 
 
 # examples of how to filter your itemsets further, for illustration only, not actually used below
 # NOTE: Do not assign back to freq_items because may remove rows need by association_rules() function below
-reducedFreqItems = freq_items[(  ((freq_items['length'] == 2) &  (freq_items['support'] >= 0.40)) |
-	((freq_items['length'] >= 3) &  (freq_items['support'] >= 0.30)) )]
+reducedFreqItems = freq_items[(((freq_items['length'] == 2) & (freq_items['support'] >= 0.40)) |
+	((freq_items['length'] >= 3)&(freq_items['support'] >= 0.30)))]
 # reducedFreqItems = freq_items[ (freq_items['length'] >= 2) &  (freq_items['support'] >= 0.35) ]
 print("\n\nReduced freq_items (length == 2 & support >= 40%) | (length >=3 & support >= 30%) ")
 print(reducedFreqItems)
@@ -88,12 +88,13 @@ rules = association_rules(freq_items, metric="confidence", min_threshold=0.7)
 print(type(rules))
 
 # rename columns "antecedents support" to "antsup" and "consequents support" to "consup" so print nicer table
-rules.columns = [ 'antecedents', 'consequents', 'antsup', 'consup', 'support', 'confidence', 'lift', 'leverage', 'conviction']
+rules.columns = ['antecedents', 'consequents', 'antsup', 'consup', 'support', 'confidence', 'lift', 'leverage', 'conviction']
 print(rules.columns)
 # print( rules[ ["antecedents","consequents","support","confidence","lift"] ] )
 # print( rules[ ["antecedents","antsup","consequents","consup","support","confidence","lift"] ] )
-print( rules[ ["antecedents","consequents","antsup","consup","support","confidence","lift"] ] )
+print(rules[["antecedents","consequents","antsup","consup","support","confidence","lift"]])
 
 # print("rules.head(20):")
 # print( rules.head(20) )
 
+#%%

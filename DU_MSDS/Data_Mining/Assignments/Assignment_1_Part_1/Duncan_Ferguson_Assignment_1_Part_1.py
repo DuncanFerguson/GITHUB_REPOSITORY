@@ -72,7 +72,7 @@ def main():
                 df_confidence.loc[row, c_index] = int(df.at[str(c_index), 'Values']) / int(df.at[str(row), 'Values'])
 
                 # Appending minimum confidence intervals to the correct corresponding list
-                if df_confidence.at[row, c_index] >= .000000000 and row != c_index:
+                if df_confidence.at[row, c_index] >= .5 and row != c_index:
                     minsup_4_minconf_50.append([row, c_index, df_confidence.at[row, c_index]])
                 if df_confidence.at[row, c_index] >= .6 and row != c_index:
                     minsup_4_minconf_60.append([row, c_index, df_confidence.at[row, c_index]])

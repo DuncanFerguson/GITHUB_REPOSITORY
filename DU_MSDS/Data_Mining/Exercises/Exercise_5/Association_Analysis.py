@@ -30,8 +30,6 @@ def import_file():
     # Taking a sneak peak of the NaNs
     # sns.heatmap(df.isnull(), cbar=False)
     # plt.show()
-
-
     return df, items
 
 def data_Preprocessing(df, items):
@@ -58,7 +56,7 @@ def apply_apriori(ohe_df):
     freq_items = apriori(ohe_df, min_support=0.2, use_colnames=True, verbose=1)
     print(freq_items.head(8))
     rules = association_rules(freq_items, metric="confidence", min_threshold=0.6)
-    print(rules.head())
+    print(rules)
     return rules
 
 def viz_data(rules):
