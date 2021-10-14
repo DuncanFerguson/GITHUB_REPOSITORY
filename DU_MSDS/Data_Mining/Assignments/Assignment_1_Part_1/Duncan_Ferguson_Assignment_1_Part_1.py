@@ -11,7 +11,7 @@ from itertools import combinations
 import pandas as pd
 
 
-def printAssociations(association_list, df):
+def printAssociations(association_list, df, conf_level):
     """This function goes through and prints out the proper format for the associations
     It also calculates the lift"""
     for item in association_list:
@@ -22,11 +22,13 @@ def printAssociations(association_list, df):
                 list2.remove(element)  # Removing the similar letters from the list
         lift = df.at[str(item[1]), "min_support"] / (df.at[item[0], "min_support"]*df.at["".join(list2), "min_support"])
         meaningful = ""
-
-        # Assigning value if the lift is meaningful
+        strong_conf = ""
+        # Assigning value if the lift is meaningful and if confidence is strong
         if lift > 1.0:
             meaningful = " (Meaningful)"
-        print(item[0], "=>", "".join(list2), "STRONG, confidence = ", item[2],
+        if item[2] > conf_level:
+            strong_conf = "STRONG"
+        print(item[0], "=>", "".join(list2), strong_conf, ", confidence = ", item[2],
               "Lift = ", lift, meaningful)
 
 
@@ -62,7 +64,7 @@ def main():
     df_confidence = pd.DataFrame(columns=df.index, index=df.index).fillna(0)
 
     # Creating list that contain associations that we are looking for
-    minsup_4_minconf_60, minsup_4_minconf_50 = [], []
+    minsup_4_minconf_60, minsup_4_minconf_50, non_interesting = [], [], []
 
     # Filling out the confidence matrix
     for row in df_confidence.index:
@@ -76,16 +78,19 @@ def main():
                     minsup_4_minconf_50.append([row, c_index, df_confidence.at[row, c_index]])
                 if df_confidence.at[row, c_index] >= .6 and row != c_index:
                     minsup_4_minconf_60.append([row, c_index, df_confidence.at[row, c_index]])
+                if row != c_index:
+                    non_interesting.append([row, c_index, df_confidence.at[row, c_index]])
 
     df = df.sort_values("Values", ascending=False)
     print(df)
-    print("For min confidence greater than 60%: number of rules:", len(minsup_4_minconf_60))
-    printAssociations(minsup_4_minconf_60, df)
+    print("\nFor min confidence greater than 60%: number of rules:", len(minsup_4_minconf_60))
+    printAssociations(minsup_4_minconf_60, df, .6)
 
     print("\nFor min confidence greater than 50%: number of rules:", len(minsup_4_minconf_50))
-    printAssociations(minsup_4_minconf_50, df)
+    printAssociations(minsup_4_minconf_50, df, .5)
 
-
+    print("\n All of the Rules")
+    printAssociations(non_interesting, df, .5)
 
 if __name__ == '__main__':
     main()
