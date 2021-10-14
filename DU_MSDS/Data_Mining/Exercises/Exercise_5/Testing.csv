@@ -1,0 +1,15 @@
+,support,itemsets,length
+5,0.75,frozenset({'onion'}),1
+3,0.55,frozenset({'garlic'}),1
+4,0.55,frozenset({'milk'}),1
+1,0.45,frozenset({'chili'}),1
+8,0.4,"frozenset({'egg', 'milk'})",2
+10,0.4,"frozenset({'onion', 'garlic'})",2
+11,0.4,"frozenset({'onion', 'milk'})",2
+0,0.4,frozenset({'beans'}),1
+2,0.4,frozenset({'egg'}),1
+6,0.35,"frozenset({'beans', 'garlic'})",2
+12,0.3,"frozenset({'beans', 'garlic', 'onion'})",3
+13,0.3,"frozenset({'onion', 'egg', 'milk'})",3
+7,0.3,"frozenset({'beans', 'onion'})",2
+9,0.3,"frozenset({'onion', 'egg'})",2
