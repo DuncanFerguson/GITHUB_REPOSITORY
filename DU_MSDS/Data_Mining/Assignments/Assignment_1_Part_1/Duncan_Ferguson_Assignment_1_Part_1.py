@@ -26,10 +26,10 @@ def printAssociations(association_list, df, conf_level):
         # Assigning value if the lift is meaningful and if confidence is strong
         if lift > 1.0:
             meaningful = " (Meaningful)"
-        if item[2] > conf_level:
+        if item[2] >= conf_level:
             strong_conf = "STRONG"
-        print(item[0], "=>", "".join(list2), strong_conf, ", confidence = ", item[2],
-              "Lift = ", lift, meaningful)
+        print(item[0], "=>", "".join(list2),",", strong_conf, "confidence = ", item[2],
+              ", Lift = ", lift, meaningful)
 
 
 def main():
@@ -64,7 +64,7 @@ def main():
     df_confidence = pd.DataFrame(columns=df.index, index=df.index).fillna(0)
 
     # Creating list that contain associations that we are looking for
-    minsup_4_minconf_60, minsup_4_minconf_50, non_interesting = [], [], []
+    minsup_4_minconf_60, minsup_4_minconf_50, all_rules = [], [], []
 
     # Filling out the confidence matrix
     for row in df_confidence.index:
@@ -79,7 +79,7 @@ def main():
                 if df_confidence.at[row, c_index] >= .6 and row != c_index:
                     minsup_4_minconf_60.append([row, c_index, df_confidence.at[row, c_index]])
                 if row != c_index:
-                    non_interesting.append([row, c_index, df_confidence.at[row, c_index]])
+                    all_rules.append([row, c_index, df_confidence.at[row, c_index]])
 
     df = df.sort_values("Values", ascending=False)
     print(df)
@@ -89,8 +89,8 @@ def main():
     print("\nFor min confidence greater than 50%: number of rules:", len(minsup_4_minconf_50))
     printAssociations(minsup_4_minconf_50, df, .5)
 
-    print("\n All of the Rules")
-    printAssociations(non_interesting, df, .5)
+    print("\n All of the Rules with a support above 2: number of rules (Strong Conf >.5):", len(all_rules))
+    printAssociations(all_rules, df, .5)
 
 if __name__ == '__main__':
     main()
