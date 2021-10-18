@@ -5,10 +5,12 @@ class Solution(object):
         :type val: int
         :rtype: int
         """
-        k = nums.count(val)
-        nums =[i for i in nums if i != val]
-        print(nums)
-        return k
+        index = 0
+        for i in range(len(nums)):
+            if nums[i] != val:
+                nums[index] = nums[i]
+                index += 1
+        return index
 
 
 nums = [0,1,2,2,3,0,4,2]
