@@ -7,13 +7,17 @@
 # Group Members: Emma Bright, Mike Santoro <br>
 
 import pandas as pd
-import sklearn
+from sklearn.tree import export_graphviz
+import graphviz
 
 
 def main():
     """Main Function for running the code"""
     df = pd.read_csv("Table_8_1.csv", index_col="RID")
-    print(df)
+    dot_data =tree.export_graphviz(clf2, node_ids="true", class_names="true")
+    graph = graphviz(dot_data)
+    print(graph)
+    # print(df)
 
 
 
