@@ -1,0 +1,130 @@
+---
+title: "Excercise_6_Data_Mining"
+author: "Duncan Ferguson"
+date: "10/20/2021"
+output:
+  word_document: default
+  html_document: default
+group: Duncan Ferguson, Emma Bright, Mike Santoro
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+# Importing Table
+```{r}
+df <- read.table("Table_8_1.csv", header=TRUE, sep=",")
+df
+
+```
+
+```{r}
+subset <- df[df$Age =="youth",]
+subset
+```
+$$Gain(Income)=Info(D)-Info_{predictor}(D)$$
+$$Info_{predictor}(D)= \sum_{j=1}^{v} \frac{|D_j|}{|D|} \times Info(D_j)$$
+$$Info(D) = -\sum_{i=1}^{m} p_ilog_2{p_i}$$
+
+$$Info(D)=-[\frac{3}{5}log_2(\frac{3}{5})] - [\frac{2}{5}log_2(\frac{2}{5})] = 0.9709506$$
+```{r}
+Info_i_D <- -((3/5)*log2(3/5))-((2/5)*log2(2/5))
+Info_i_D
+```
+*Classifying Credit*
+# Splitting on Credit Rating
+```{r}
+subset_credit_e <- subset[subset$credit_rating =="excellent",]
+subset_credit_f <- subset[subset$credit_rating =="fair",]
+subset_credit_e
+subset_credit_f
+```
+
+
+$$Info_{Credit}(D) =\frac{2}{5} Info_{Credit=Excellent} + \frac{3}{5}Info_{Credit=Fair} = 0.9509775$$
+$$Info_{Credit=Fair} = -\frac{1}{3}log_2(\frac{1}{3})-\frac{2}{3}log_2(\frac{2}{3}) = 0.9182958$$
+$$Info_{Credit=Excelent} = -\frac{1}{2}log_2(\frac{1}{2})-\frac{1}{2}log_2(\frac{1}{2}) = 1 $$
+
+```{r}
+Info_Credit_Fair <- -((1/3)*log2(1/3))-((2/3)*log2(2/3))
+Info_Credit_Fair
+Info_Credit_Excellent <- -((1/2)*log2(1/2))-((1/2)*log2(1/2))
+Info_Credit_Excellent
+Info_Credit <- ((2/5)*Info_Credit_Excellent) + ((3/5)*Info_Credit_Fair)
+Info_Credit
+Gain_Credit <- Info_i_D-Info_Credit
+Gain_Credit
+
+```
+$$Gain(Credit\ Rating) = Info(D)- Info_{income}(D) = 0.01997309$$
+$$Gain(Credit\ Rating) = 0.9709506 - 0.9509775 = 0.01997309$$
+
+*Classifying Student*
+# Splitting on Student
+```{r}
+subset_student_y <- subset[subset$student == "yes",]
+subset_student_n <- subset[subset$student == "no",]
+subset_student_y
+subset_student_n
+```
+
+$$Info_{Student}(D) =\frac{2}{5} Info_{Student=Yes} + \frac{3}{5}Info_{Studen=No} = 0$$
+
+$$Info_{Studen=Yes} = -\frac{2}{2}log_2(\frac{2}{2})-\frac{0}{2}log_2(\frac{0}{2})= 0$$
+$$Info_{Studen=No} = -\frac{0}{3}log_2(\frac{0}{3})-\frac{3}{3}log_2(\frac{3}{3})= 0$$
+```{r}
+Info_Student_Yes <- -((2/2)*log(2/2))-((0/2)*log2(0/2))
+Info_Student_Yes
+Info_Student_No <- -((0/3)*log(0/3))-((3/3)*log2(3/3))
+Info_Student_No
+Info_Student <- ((2/5)*0)+((3/5)*0)
+Info_Student
+Gain_Student <- Info_i_D - Info_Student
+Gain_Student
+```
+
+$$Gain(Student) = Info(D)- Info_{Student}(D) = 0.9709506$$
+
+$$Gain(Student) = 0.9709506 - 0 = 0.9709506$$
+
+
+*Classifying Income*
+
+# Splitting on Income
+```{r}
+subset_income_high <- subset[subset$income == "high",]
+subset_income_medium <- subset[subset$income == "medium",]
+subset_income_low <- subset[subset$income == "low",]
+subset_income_low
+subset_income_medium
+subset_income_high
+```
+
+$$Info_{Income}(D) =\frac{1}{5} Info_{Income=Low} + \frac{2}{5}Info_{Income=Medium} + \frac{2}{5}Info_{Income=High} = .4 $$
+
+$$Info_{Income=Low} = -\frac{1}{1}log_2(\frac{1}{1}) -\frac{0}{1}log_2(\frac{0}{1}) = 0 $$
+$$Info_{Income=Medium} = -\frac{1}{2}log_2(\frac{1}{2}) -\frac{1}{2}log_2(\frac{1}{2}) = 1 $$
+
+$$Info_{Income=High} = -\frac{0}{2}log_2(\frac{0}{2}) -\frac{2}{2}log_2(\frac{2}{2}) = 0$$
+
+```{r}
+Info_Income_Low <- -(1/1)*log2(1/1) - 0
+Info_Income_Low
+Info_Income_Medium <- -((1/2)*log2(1/2))-((1/2)*log2(1/2))
+Info_Income_Medium
+Info_Income_High <- 0-((2/2)*log2(2/2))
+Info_Income_High
+Info_Income <- ((1/5)*Info_Income_Low) + ((2/5)*Info_Income_Medium) + ((2/5)*Info_Income_High)
+Info_Income
+Gain_Income <- Info_i_D - Info_Income
+Gain_Income
+```
+
+$$Gain(Income) = Info(D)- Info_{Income}(D) =  0.5709506$$
+
+$$Gain(Student) = 0.9709506 - .4 =  0.5709506$$

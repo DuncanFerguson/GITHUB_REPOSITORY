@@ -51,11 +51,6 @@ def create_tuples():
 
 
 
-    print(GPA)
-    print(WORKED)
-
-
-
 def main():
     """Main Function for running the code"""
     tuples = create_tuples()
