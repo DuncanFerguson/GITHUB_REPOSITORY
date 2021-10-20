@@ -7,17 +7,61 @@
 # Group Members: Emma Bright, Mike Santoro <br>
 
 import pandas as pd
+import random
 from sklearn.tree import export_graphviz
 import graphviz
+
+def create_tuples():
+    """This Function goes through and creates"""
+    random.seed(5)
+
+    # Creating a list of 12 Random GPAS
+    GPA = [round(random.uniform(1, 4), 2) for _ in range(12)]  # Creating List of Random GPA
+
+    # Setting up quasi random Ranking
+    RANK = []
+    for grade in GPA:
+        if grade > 3.5:
+            RANK.append(round(random.uniform(.9, 1), 2))
+        elif grade > 3:
+            RANK.append(round(random.uniform(.8, .9), 2))
+        elif grade > 2.5:
+            RANK.append(round(random.uniform(.7, .8), 2))
+        elif grade > 2:
+            RANK.append(round(random.uniform(.6, .7), 2))
+        else:
+            RANK.append(round(random.uniform(0, .6), 2))
+
+    # Setting up Random Work 0 did not work 1 did, Scalling it toward working have lower GPA
+    WORKED = []
+    for num in enumerate(GPA):
+        if grade > 3.5:
+            WORKED.append(round(random.uniform(.0, .6)),1)
+        # elif grade > 3:
+        #
+        # elif grade > 2.5:
+        #
+        # elif grade > 2:
+        #
+        else:
+            WORKED.append(1)
+    print(GPA)
+    print(RANK)
+    print(WORKED)
+
+
+
+    print(GPA)
+    print(WORKED)
+
 
 
 def main():
     """Main Function for running the code"""
-    df = pd.read_csv("Table_8_1.csv", index_col="RID")
-    dot_data =tree.export_graphviz(clf2, node_ids="true", class_names="true")
-    graph = graphviz(dot_data)
-    print(graph)
-    # print(df)
+    tuples = create_tuples()
+
+
+
 
 
 
