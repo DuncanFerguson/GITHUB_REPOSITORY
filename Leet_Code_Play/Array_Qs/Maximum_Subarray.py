@@ -12,15 +12,8 @@ class Solution(object):
             for j in range(i, len(nums)):
                 current_sub += nums[j]
                 max_sub = max(max_sub, current_sub)
-        print(max_sub)
-        return max
+        return max_sub
 
-        # for i in nums:
-        #     print(i)
-
-
-
-
-nums = [-2,1,-3,4,-1,2,1,-5,4]
+nums = [-2, 5, -2, 6, 5, -10,-1, 1, 50, -24, 50, -6]
 test = Solution()
-test.maxSubArray(nums)
+print(test.maxSubArray(nums))
