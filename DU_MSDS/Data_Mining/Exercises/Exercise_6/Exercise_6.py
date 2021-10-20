@@ -51,14 +51,12 @@ def create_tuples():
     #  Setting up if they Graduated College
     for num in enumerate(GPA):
         if num[1] > 2:
-            rand_work = random.randint(0, 60)
-            if rand_work > 50:
+            if random.randint(0, 60) > 50:
                 WORKED.append(1)
             else:
                 WORKED.append(0)
         else:
-            rand_work = random.randint(30, 100)
-            if rand_work > 50:
+            if random.randint(30, 100) > 50:
                 WORKED.append(1)
             else:
                 WORKED.append(0)
@@ -67,18 +65,17 @@ def create_tuples():
     print("RANK", RANK)
     print("WORKED", WORKED)
 
-    return list(zip(GPA, RANK, WORKED))
+    # List of lists
+    list_o_lists = []
+    for num in enumerate(GPA):
+        list_o_lists.append([GPA[num[0]], RANK[num[0]], WORKED[num[0]]])
 
+    return list_o_lists
 
 def main():
     """Main Function for running the code"""
-    tuples = create_tuples()
-    print(tuples)
-
-
-
-
-
+    list_o_list = create_tuples()
+    print(list_o_list)
 
 
 if __name__ == '__main__':
