@@ -31,9 +31,10 @@ $$Gain(Income)=Info(D)-Info_{predictor}(D)$$
 $$Info_{predictor}(D)= \sum_{j=1}^{v} \frac{|D_j|}{|D|} \times Info(D_j)$$
 $$Info(D) = -\sum_{i=1}^{m} p_ilog_2{p_i}$$
 
-$$Info(D)=-[\frac{3}{5}log_2(\frac{3}{5})] - [\frac{2}{5}log_2(\frac{2}{5})] = 0.9709506$$
+$$Info(D)=-[\frac{2}{5}log_2(\frac{2}{5})] - [\frac{2}{5}log_2(\frac{2}{5})] = 0.9709506$$
 ```{r}
-Info_i_D <- -((3/5)*log2(3/5))-((2/5)*log2(2/5))
+#Info_i_D <- -((3/5)*log2(3/5))-((2/5)*log2(2/5))
+Info_i_D <- -((2/5)*log2(2/5))-((3/5)*log2(3/5))
 Info_i_D
 ```
 *Classifying Credit*
@@ -49,6 +50,9 @@ subset_credit_f
 $$Info_{Credit}(D) =\frac{2}{5} Info_{Credit=Excellent} + \frac{3}{5}Info_{Credit=Fair} = 0.9509775$$
 $$Info_{Credit=Fair} = -\frac{1}{3}log_2(\frac{1}{3})-\frac{2}{3}log_2(\frac{2}{3}) = 0.9182958$$
 $$Info_{Credit=Excelent} = -\frac{1}{2}log_2(\frac{1}{2})-\frac{1}{2}log_2(\frac{1}{2}) = 1 $$
+
+$$Info_{Credit}(D) =\frac{2}{5}[-\frac{1}{2}log_2(\frac{1}{2})-\frac{1}{2}log_2(\frac{1}{2})] + \frac{3}{5}[-\frac{1}{3}log_2(\frac{1}{3})-\frac{2}{3}log_2(\frac{2}{3})] = 0.9509775$$
+
 
 ```{r}
 Info_Credit_Fair <- -((1/3)*log2(1/3))-((2/3)*log2(2/3))
@@ -127,4 +131,10 @@ Gain_Income
 
 $$Gain(Income) = Info(D)- Info_{Income}(D) =  0.5709506$$
 
-$$Gain(Student) = 0.9709506 - .4 =  0.5709506$$
+$$Gain(Income) = 0.9709506 - .4 =  0.5709506$$
+*All Gains*
+
+$$Gain(Income) = 0.9709506 - .4 =  0.5709506$$
+
+$$Gain(Credit\ Rating) = 0.9709506 - 0.9509775 = 0.01997309$$
+$$Gain(Student) = 0.9709506 - 0 = 0.9709506$$

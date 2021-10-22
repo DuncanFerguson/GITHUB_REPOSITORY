@@ -1,0 +1,17 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname=helvetica] ;
+edge [fontname=helvetica] ;
+0 [label=<node &#35;0<br/>X<SUB>1</SUB> &le; 0.605<br/>entropy = 0.98<br/>samples = 12<br/>value = [5, 7]<br/>class = yes buy>, fillcolor="#c6e3f8"] ;
+1 [label=<node &#35;1<br/>X<SUB>1</SUB> &le; 0.5<br/>entropy = 0.65<br/>samples = 6<br/>value = [5, 1]<br/>class = not buy>, fillcolor="#ea9a61"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label=<node &#35;2<br/>entropy = 0.0<br/>samples = 4<br/>value = [4, 0]<br/>class = not buy>, fillcolor="#e58139"] ;
+1 -> 2 ;
+3 [label=<node &#35;3<br/>X<SUB>0</SUB> &le; 1.495<br/>entropy = 1.0<br/>samples = 2<br/>value = [1, 1]<br/>class = not buy>, fillcolor="#ffffff"] ;
+1 -> 3 ;
+4 [label=<node &#35;4<br/>entropy = 0.0<br/>samples = 1<br/>value = [1, 0]<br/>class = not buy>, fillcolor="#e58139"] ;
+3 -> 4 ;
+5 [label=<node &#35;5<br/>entropy = 0.0<br/>samples = 1<br/>value = [0, 1]<br/>class = yes buy>, fillcolor="#399de5"] ;
+3 -> 5 ;
+6 [label=<node &#35;6<br/>entropy = 0.0<br/>samples = 6<br/>value = [0, 6]<br/>class = yes buy>, fillcolor="#399de5"] ;
+0 -> 6 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+}
