@@ -111,16 +111,25 @@ def create_tree(list_o_lists, graduate):
         print(str(Xnum[i]) + "," + str(foo[i]))
 
     # NOTE - adding in node_ids and class_names as options to make tree viz more robust
-    dot_data = tree.export_graphviz(clf2, node_ids="true",class_names=('not buy','yes buy'),out_file=None, filled=True, rounded=True, special_characters=True)
+    dot_data = tree.export_graphviz(clf2, node_ids="true",class_names=('Did not graduate','Did Graduate'),out_file=None, filled=True, rounded=True, special_characters=True)
     graph = graphviz.Source(dot_data)
     graph.formate = "png"
     graph.render("graph", view = True)
+
+    clf3 = tree.DecisionTreeClassifier(criterion="gini")
+    clf3 = clf3.fit(Xnum, classifications)
+    dotData3 = tree.export_graphviz(clf3, out_file=None, filled=True, rounded=True, special_characters=True)
+    # foo_2 = clf3.predict_proba(Xnum)
+
+    graph_2 = graphviz.Source(dotData3)
+    graph_2.formate = "png"
+    graph_2.render("graph", view = True)
 
 
 def main():
     """Main Function for running the code"""
     list_o_list, graduate = create_tuples()
-    # print(list_o_list)
+    print(list_o_list)
     create_tree(list_o_list, graduate)
 
 if __name__ == '__main__':
