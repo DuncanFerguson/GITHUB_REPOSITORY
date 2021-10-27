@@ -73,7 +73,7 @@ tuples.append(atuple)
 df = pd.DataFrame(tuples,columns=['age','education','minoritized','prochoice','gender','candidate'])
 print(df)
 
-X = df[ ['age','education','minoritized','prochoice','gender'] ]
+X = df[ ['age', 'education', 'minoritized', 'prochoice', 'gender'] ]
 Y = df[ 'candidate']
 
 x_train, x_test, y_train, y_test  = train_test_split( X, Y,  test_size=0.25, random_state=1)

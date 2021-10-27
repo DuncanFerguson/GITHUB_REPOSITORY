@@ -66,12 +66,12 @@ for i in range(numTuples):
 
 	# candidate = -1
 	# now assign who they are likely to vote for
-	if ( (age <= 30) and (education == 2 or education == 3)):
+	if ((age <= 30) and (education == 2 or education == 3)):
 		if (np.random.random() < probInGroup):
 			candidate = 0
 		else:
 			candidate = equalProb()
-	elif ( (age > 30) and (education == 2 or education == 3) and (gender == 0)):
+	elif ((age > 30) and (education == 2 or education == 3) and (gender == 0)):
 		if (np.random.random() < probInGroup):
 			candidate = 0
 		else:
@@ -115,7 +115,7 @@ for i in range(numTuples):
 		candidate = -1  # going to remove all those not in a class
 
 	if (candidate > -1):   # if in one of the rule groups add it, else skip
-		atuple = (age,education,minoritized,prochoice,gender,candidate)
+		atuple = (age, education, minoritized, prochoice, gender, candidate)
 		tuples.append(atuple)
 
 	# print(atuple)

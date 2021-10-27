@@ -20,11 +20,11 @@ def equalProb():  # returns 0 or 1 with equal probablity
 		return(1)
 
 def boundedNormal(bound,stddev):
-	rNum = np.random.normal(0,stddev)
+	rNum = np.random.normal(0, stddev)
 	while rNum < -bound or rNum > bound:
-		rNum = np.random.normal(0,stddev)
-	if (rNum < -2) or (rNum > 2):
-		print('returning ' + str(rNum))
+		rNum = np.random.normal(0, stddev)
+	# if (rNum < -2) or (rNum > 2):
+	# 	print('returning ' + str(rNum))
 	return(rNum)
 
 center1 = 9
@@ -41,13 +41,13 @@ for i in range(numTuples):
 	if (equalProb() == 0):
 		candidate = 0
 
-		rNum = boundedNormal(bound,stddev)
+		rNum = boundedNormal(bound, stddev)
 		a1 = center1 + rNum
 
-		rNum = boundedNormal(bound,stddev)
+		rNum = boundedNormal(bound, stddev)
 		a2 = center1 + rNum
 
-		rNum = boundedNormal(bound,stddev)
+		rNum = boundedNormal(bound, stddev)
 		a3 = center1 + rNum
 
 	else:
@@ -70,18 +70,10 @@ for i in range(numTuples):
 	print(atuple)
 
 
-
-
 df = pd.DataFrame(tuples,columns=['a1','a2','a3','candidate'])
 print(df)
 
-
-
-
-
-
-
-X = df[ ['a1','a2','a3'] ]
+X = df[['a1','a2','a3']]
 Y = df[ 'candidate']
 
 x_train, x_test, y_train, y_test  = train_test_split( X, Y,  test_size=0.33, random_state=1)
@@ -127,8 +119,8 @@ print('recall = ' + str(recall))
 print('precision = ' + str(precision))
 
 
+print( df.hist() )
 
+# d = df.hist()
+# d.show()
 
-# print( df.hist() )
-
-# print( df.hist() )
