@@ -17,6 +17,7 @@ def chooseStation():
                    'Taos Powderhorn, NM':  '1168:NM',
                    'Grand Targhee, WY': '1082:WY',
                    'Squaw, CA': '784:CA'}
+
     #Printing out station choices, and throwing them into a dictionary
     print("\nWhich Station Would you Like to Look at?\n")
     i = 1
