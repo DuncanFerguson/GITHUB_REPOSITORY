@@ -35,28 +35,23 @@ def assign_clusters(centroids, df, k):
 def cluster_out(centroids, clusters, k):
     """This function saves the centroids and the clusters in to a txt file"""
     for i in range(k):
-        print("cluster ", i,":", centroids[i])
+        print("centroid ", i, ":", centroids[i])
         print("number of points in cluster = ", len(clusters[i]))
         print(clusters[i])
+        with open("handCodedOut.txt", "w+") as file:
 
+            file.write("centroid: 0 \n")
+            file.write("number of points in cluser = " + str(len(clusters[0])) + "\n")
+            file.write(str(clusters[0]) + "\n")
 
-    # with open('handCodedOut.txt', 'w') as file:
-    #     file.write('Centroid 1: ' + str(centroidNew[0]) + '\n')
-    #     file.write('Number of Points: ' + str(len(cluster2)) + '\n')
-    #     file.write('Cluster 0:\n')
-    #     for point in cluster2:
-    #         file.write(str(point) + "\n")
-    #     file.write('\nCentroid 2: ' + str(centroidNew[1]) + '\n')
-    #     file.write('Number of Points: ' + str(len(cluster1)) + '\n')
-    #     file.write('Cluster 1:\n')
-    #     for point in cluster1:
-    #         file.write(str(point) + "\n")
-    #     file.write('\nCentroid 3: ' + str(centroidNew[2]) + '\n')
-    #     file.write('Number of Points: ' + str(len(cluster0)) + '\n')
-    #     file.write('Cluster 2:\n')
-    #     for point in cluster0:
-    #         file.write(str(point) + "\n")
+            file.write("centroid 1 \n")
+            file.write("number of points in cluser = " + str(len(clusters[1])) + "\n")
+            file.write(str(clusters[1]) + "\n")
 
+            file.write("centroid 2 \n")
+            file.write("number of points in cluser = " + str(len(clusters[2]))+  "\n")
+            file.write(str(clusters[2]) + "\n")
+            file.close()
 
 
 def main():
@@ -91,6 +86,7 @@ def main():
 
     # Could have used the while loop that we had with the group from mikes code
     # Just wanted to rip through the algorithm knowing this way can work if you set the iterations to a high number
+    # That way it can be used later on larger data sets if I dont want to go through too many times
     iterations = 10000
     for _ in range(iterations):
         clusters = assign_clusters(centroids, df, k)
