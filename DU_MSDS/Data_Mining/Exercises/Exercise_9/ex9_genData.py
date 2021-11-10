@@ -38,10 +38,10 @@ for i in range(numTuples):
 	if (rNum == 0):
 		candidate = 0
 
-		rNum = boundedNormal(bound+5,stddev)
+		rNum = boundedNormal(bound+5, stddev)
 		a1 = center1 + rNum + 6
 
-		rNum = boundedNormal(bound+5,stddev)
+		rNum = boundedNormal(bound+5, stddev)
 		a2 = center1 + rNum
 
 

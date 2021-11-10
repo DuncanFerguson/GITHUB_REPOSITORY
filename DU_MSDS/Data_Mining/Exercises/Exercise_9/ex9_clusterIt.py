@@ -14,27 +14,27 @@ from matplotlib import pyplot as plt
 # borrowed from https://scikit-learn.org/stable/auto_examples/cluster/plot_digits_linkage.html#sphx-glr-auto-examples-cluster-plot-digits-linkage-py
 
 def plot_clustering(theData, kmeanLabels, brcLabels, aggLabels, dbLabels ):
-	fig,ax = plt.subplots(2,2)
+	fig,ax = plt.subplots(2, 2)
 
 	for i in range(len(theData)):
 		if kmeanLabels[i] == 0: theColor = 'red'
 		if kmeanLabels[i] == 1: theColor = 'green'
 		if kmeanLabels[i] == 2: theColor = 'blue'
-		ax[0,0].scatter(theData[i][0],theData[i][1], s=9.5, alpha=1.0,color=theColor)
+		ax[0,0].scatter(theData[i][0], theData[i][1], s=9.5, alpha=1.0, color=theColor)
 		ax[0,0].set_title('kmeans')
 
 	for i in range(len(theData)):
 		if brcLabels[i] == 0: theColor = 'blue'
 		if brcLabels[i] == 1: theColor = 'red'
 		if brcLabels[i] == 2: theColor = 'green'
-		ax[0,1].scatter(theData[i][0],theData[i][1], s=9.5, alpha=1.0,color=theColor)
+		ax[0,1].scatter(theData[i][0], theData[i][1], s=9.5, alpha=1.0, color=theColor)
 		ax[0,1].set_title('birch')
 
 	for i in range(len(theData)):
 		if aggLabels[i] == 0: theColor = 'red'
 		if aggLabels[i] == 1: theColor = 'green'
 		if aggLabels[i] == 2: theColor = 'blue'
-		ax[1,0].scatter(theData[i][0],theData[i][1], s=9.5, alpha=1.0,color=theColor)
+		ax[1,0].scatter(theData[i][0], theData[i][1], s=9.5, alpha=1.0, color=theColor)
 		ax[1,0].set_title('agglomerative')
 
 
@@ -43,7 +43,7 @@ def plot_clustering(theData, kmeanLabels, brcLabels, aggLabels, dbLabels ):
 		elif dbLabels[i] == 1: theColor = 'green'
 		elif dbLabels[i] == 2: theColor = 'blue'
 		else: theColor = 'pink'
-		ax[1,1].scatter(theData[i][0],theData[i][1], s=9.5, alpha=1.0,color=theColor)
+		ax[1,1].scatter(theData[i][0], theData[i][1], s=9.5, alpha=1.0, color=theColor)
 		ax[1,1].set_title('dbscan')
 
 
