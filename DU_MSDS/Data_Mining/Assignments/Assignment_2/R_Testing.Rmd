@@ -1,0 +1,54 @@
+---
+title: "Data_Mining_Test"
+author: "Duncan Ferguson"
+date: "11/10/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+# Importing the R File
+```{r}
+df <- read.table("assignment2_cleanInfile.csv", header=TRUE, sep=",")
+str(df)
+set.seed(0)
+```
+```{r}
+#df$WindGustDir <- as.factor(df$WindGustDir)
+#df$Location <- as.factor(df$Location)
+#df$WindDir3pm <- as.factor(df$WindDir3pm)
+#df$WindDir9am <- as.factor(df$WindDir9am)
+#df$RainTomorrow <- as.factor(df$RainTomorrow)
+
+str(df)
+
+```
+
+```{r}
+n <- nrow(df)
+n
+```
+
+```{r}
+tvt2 <- sample(rep(0:2,c(round(n*.15),round(n*.15),n-2*round(n*.15))),n)# Complete this line
+
+dat.train<-df[tvt2==2,] 
+dat.valid<-df[tvt2==1,] 
+dat.test<-df[tvt2==0,] 
+```
+
+
+```{r}
+null.model <- glm(RainTomorrow~1, data=dat.train, family="binomial")
+fmla <- as.formula("RainTomorow~Location+MinTemp+MaxTemp+Rainfall+WindGustDir+WindGustSpeed+WindDir9am+WindDir3pm+WindSpeed9am+WindSpeed3pm+Humidity9am+Humidity3pm+Pressure9am+Pressure3pm+Cloud9am +Cloud3pm+Temp9am+Temp3pm+RainToday")
+forward.model <- step(null.model,scope=fmla, direction="forward", trace=1)
+summary(forward.model)
+```
+```{r}
+summary(forward.model)
+```
+
+
