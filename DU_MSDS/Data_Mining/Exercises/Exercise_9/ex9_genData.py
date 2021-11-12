@@ -6,7 +6,7 @@ import pandas as pd
 np.random.seed(1)
 
 def equalProb():  # returns 0 or 1 with equal probablity
-	if (np.random.random() < 0.95):
+	if (np.random.random() < 0.5):
 		return(0)
 	else:
 		return(1)
@@ -17,10 +17,10 @@ def boundedNormal(bound,stddev):
 		rNum = np.random.normal(0, stddev)
 	return(rNum)
 
-center1 = 5
-center2 = 15
+center1 = 10
+center2 = 20
 center3 = 30
-bound = 5
+bound = 4
 stddev = 2
 
 tuples = []
