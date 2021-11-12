@@ -54,7 +54,8 @@ def plot_clustering(theData, kmeanLabels, brcLabels, aggLabels, dbLabels ):
 
 numClusters = 3
 
-df = pd.read_csv('outfile.csv')
+# df = pd.read_csv('outfile.csv')
+df = pd.read_csv('outfile_square.csv')
 theData = df.to_numpy()
 
 ########## kmeans
@@ -130,3 +131,9 @@ print(db.labels_)
 theData = df.to_numpy()
 plot_clustering(theData, kmeans.labels_ , brc.labels_, agg.labels_, db.labels_)
 
+"""
+What To upload:
+
+A pdf file containg a writeup describing one or two data sets, the 4-char visualization that shows
+the results in different clustering, and an explanation of WHY the different clustering algorithms behave
+as they do"""

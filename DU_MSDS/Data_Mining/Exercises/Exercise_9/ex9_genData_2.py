@@ -24,10 +24,10 @@ def boundedNormal(bound,stddev):
 		rNum = np.random.normal(0,stddev)
 	return(rNum)
 
-center1 = 10
+center1 = 15
 center2 = 15
-center3 = 30
-bound = 10
+center3 = 15
+bound = 25
 stddev = 2
 
 tuples = []
