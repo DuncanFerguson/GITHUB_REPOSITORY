@@ -52,7 +52,7 @@ for i in range(numTuples):
 	atuple = (a1,a2)
 	tuples.append(atuple)
 
-df = pd.DataFrame(tuples,columns=['a1','a2'])
+df = pd.DataFrame(tuples, columns=['a1', 'a2'])
 
 # df.to_csv('outfile_Square.csv', index=False)
 df.to_csv('outfile.csv', index=False)
