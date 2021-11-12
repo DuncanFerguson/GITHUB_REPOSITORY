@@ -54,8 +54,8 @@ def plot_clustering(theData, kmeanLabels, brcLabels, aggLabels, dbLabels ):
 
 numClusters = 3
 
-# df = pd.read_csv('outfile.csv')
-df = pd.read_csv('outfile_square.csv')
+df = pd.read_csv('outfile.csv')
+# df = pd.read_csv('outfile_square.csv')
 theData = df.to_numpy()
 
 ########## kmeans
