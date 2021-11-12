@@ -1,9 +1,5 @@
 import numpy as np
 import pandas as pd
-from sklearn import tree
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import *
-from sklearn.naive_bayes import *
 from sklearn.cluster import KMeans
 from sklearn.cluster import Birch
 from sklearn.cluster import AgglomerativeClustering
@@ -37,7 +33,6 @@ def plot_clustering(theData, kmeanLabels, brcLabels, aggLabels, dbLabels ):
 		ax[1,0].scatter(theData[i][0], theData[i][1], s=9.5, alpha=1.0, color=theColor)
 		ax[1,0].set_title('agglomerative')
 
-
 	for i in range(len(theData)):
 		if dbLabels[i] == 0: theColor = 'red'
 		elif dbLabels[i] == 1: theColor = 'green'
@@ -46,11 +41,8 @@ def plot_clustering(theData, kmeanLabels, brcLabels, aggLabels, dbLabels ):
 		ax[1,1].scatter(theData[i][0], theData[i][1], s=9.5, alpha=1.0, color=theColor)
 		ax[1,1].set_title('dbscan')
 
-
 	plt.figure(figsize=(7, 5))
 	plt.show()
-
-
 
 numClusters = 3
 
