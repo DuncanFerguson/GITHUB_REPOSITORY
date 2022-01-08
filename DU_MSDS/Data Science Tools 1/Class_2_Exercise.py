@@ -24,3 +24,5 @@ first = TotemPole(['bear', 'eagle', 'hummingbird'])
 
 orca = TotemPole(['orca'])
 print(first + orca)
+
+print("Num instances: " +str(TotemPole.get_num_instances()))
