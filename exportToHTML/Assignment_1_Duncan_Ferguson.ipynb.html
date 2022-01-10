@@ -1,0 +1,345 @@
+<html>
+<head>
+<title>Assignment_1_Duncan_Ferguson.ipynb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #808080;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #cc7832;}
+.s3 { color: #6897bb;}
+.s4 { color: #6a8759;}
+.s5 { color: #629755; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Assignment_1_Duncan_Ferguson.ipynb</font>
+</center></td></tr></table>
+<pre><span class="s0">#%% md 
+</span><span class="s1"># Assignment 1 - Python Fundamentals 
+## Data Science Tools I 
+### Professor: Don Dalton 
+ 
+--- 
+ 
+### Student: Duncan Ferguson 
+</span><span class="s0">#%% md 
+</span><span class="s1"># Question 1 - Warm-up with Random Numbers 
+### 2 points 
+ 
+Create a list of 20 randomly generated integers in the range 1 to 10. Print the list of integers. Sort the list and print out the integers in sorted order. Count the number of duplicate values (i.e. how many integers in the list show up more than once in the list) and print out the result. 
+ 
+*Hint: There is a correlation between the number of unique values and number of duplicates.* 
+</span><span class="s0">#%% 
+</span><span class="s2">import </span><span class="s1">random</span>
+<span class="s1">random.seed(</span><span class="s3">42</span><span class="s1">)</span>
+
+<span class="s0"># Creating List of 20 randomly generated integers in between 1-10</span>
+<span class="s1">rand_list = [random.randrange(</span><span class="s3">1</span><span class="s2">,</span><span class="s3">10</span><span class="s2">,</span><span class="s3">1</span><span class="s1">) </span><span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">range(</span><span class="s3">20</span><span class="s1">)]</span>
+
+<span class="s0"># Sorting Integers in list</span>
+<span class="s1">rand_list.sort()</span>
+
+<span class="s0"># Printing List of</span>
+<span class="s1">print(</span><span class="s4">&quot;Random List of &quot;</span><span class="s2">, </span><span class="s1">len(rand_list)</span><span class="s2">, </span><span class="s4">&quot; inbetween 1 and 10:&quot;</span><span class="s2">, </span><span class="s1">rand_list)</span>
+
+<span class="s0"># Counting Duplicates</span>
+<span class="s1">counts = dict()</span>
+<span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">rand_list:</span>
+     <span class="s1">counts[i] = counts.get(i</span><span class="s2">, </span><span class="s3">0</span><span class="s1">) + </span><span class="s3">1</span>
+
+<span class="s0"># Printing Count Dictionary</span>
+<span class="s1">print(</span><span class="s4">&quot;Number of times a number appears: &quot;</span><span class="s2">, </span><span class="s1">counts)</span>
+
+<span class="s0"># Now printing out only dictionary items that are greater than 1</span>
+<span class="s1">dup_dict = {k:v </span><span class="s2">for </span><span class="s1">(k</span><span class="s2">,</span><span class="s1">v) </span><span class="s2">in </span><span class="s1">counts.items() </span><span class="s2">if </span><span class="s1">v &gt; </span><span class="s3">1</span><span class="s1">}</span>
+<span class="s1">print(</span><span class="s4">&quot;Count of duplicate values of more than 1&quot;</span><span class="s2">, </span><span class="s1">dup_dict)</span>
+
+<span class="s0"># Print Number of duplicates</span>
+<span class="s1">print(</span><span class="s4">&quot;Number of numbers that have duplicates&quot;</span><span class="s2">,</span><span class="s1">len(dup_dict))</span>
+
+<span class="s0">#%% md 
+</span><span class="s1"># Question 2 - Warm-up with List Comprehension 
+ 
+### 3 points 
+ 
+Write a snippet of code that asks the user for a positive integer. To keep things simple, you may assume that the user will indeed type a positive integer, and not a negative value or any string that is otherwise not an integer. Add the user's input to an initially empty list. Repeatedly ask for an integer until you have added the user's input 7 times to a list. (Do not convert the input to ints just yet.) 
+ 
+Since the `input` function in Python takes in strings, you will want the list of user-inputted values to be converted to integers. Do so using **list comprehension**. Create a new list that applies the `int` function to all of the elements in the original, thereby creating a separate list of integers that are, indeed, integers and not strings. 
+ 
+After using list comprehension to perform the conversion, determine the maximum and minimum values of the list as well as the average. Print these values to the screen. 
+</span><span class="s0">#%% 
+# Asking User to input 7 positive integers</span>
+<span class="s1">user_list =[input(</span><span class="s4">&quot;Enter a positive number&quot;</span><span class="s1">) </span><span class="s2">for </span><span class="s1">_ </span><span class="s2">in </span><span class="s1">range(</span><span class="s3">7</span><span class="s1">)]</span>
+<span class="s1">print(</span><span class="s4">&quot;User Entered&quot;</span><span class="s2">, </span><span class="s1">len(user_list)</span><span class="s2">, </span><span class="s4">&quot;numbers:&quot;</span><span class="s2">,</span><span class="s1">user_list)</span>
+<span class="s0">#%% 
+# Casting Items in list into integer value</span>
+<span class="s1">int_user_list = [int(i) </span><span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">user_list]</span>
+
+<span class="s0"># Sorting list</span>
+<span class="s1">int_user_list.sort()</span>
+
+<span class="s0"># Printing out list</span>
+<span class="s1">print(int_user_list)</span>
+<span class="s0">#%% 
+# Printing Max and Min of list</span>
+<span class="s1">print(</span><span class="s4">&quot;Max:&quot;</span><span class="s2">, </span><span class="s1">max(int_user_list)</span><span class="s2">, </span><span class="s4">&quot;Min:&quot;</span><span class="s2">, </span><span class="s1">min(int_user_list)</span><span class="s2">, </span><span class="s4">&quot;Average:&quot;</span><span class="s2">, </span><span class="s1">sum(int_user_list)/len(int_user_list) )</span>
+<span class="s0">#%% md 
+ </span><span class="s1"># Question 3 - Multiplication Questions 
+### 4 points 
+ 
+You work as a programmer contracted with the Denver Public School District to develop an educational program for primary school mathematics. Use the random module to generate two positive integers so that the program starts by displaying a question such as: 
+ 
+ 
+    How much is 10 times 5? 
+ 
+ 
+To keep things simple, the randomly generated integers should be between 2 and 12. 
+ 
+The student should be able to answer the question and the program will verify if the answer they type is correct. If the student is incorrect, the program should print &quot;Incorrect. Please try again.&quot; and wait for another answer for the same question. 
+ 
+If the student is correct, the program should randomly choose among a list of words to display to congratulate them (e.g. &quot;Good job!&quot;, &quot;Excellent!&quot;, &quot;Fantastic!&quot;). After printing a randomly chosen response, the program should then ask another multiplication question. 
+ 
+If at any point the student enters `quit`, the program should terminate. *You may assume that the student will only type either an integer value or the word `quit`.* 
+ 
+**Test your program:** Answer the first two generated questions correctly, then answer the subsequent question with two incorrect answers followed by the correct answer. 
+ 
+ 
+</span><span class="s0">#%% 
+# List of Congratulations</span>
+<span class="s1">random_congrats = [</span><span class="s4">&quot;Well Done&quot;</span><span class="s2">, </span><span class="s4">&quot;Good Job!&quot;</span><span class="s2">, </span><span class="s4">&quot;Way to go!&quot;</span><span class="s2">, </span><span class="s4">&quot;Excellent!&quot;</span><span class="s1">]</span>
+<span class="s1">looping = </span><span class="s2">True</span>
+<span class="s1">nums = [random.randint(</span><span class="s3">2</span><span class="s2">,</span><span class="s3">12</span><span class="s1">) </span><span class="s2">for </span><span class="s1">_ </span><span class="s2">in </span><span class="s1">range(</span><span class="s3">2</span><span class="s1">)]</span>
+
+<span class="s0"># Asking for initial input</span>
+<span class="s1">response = input(</span><span class="s4">&quot;How much is &quot; </span><span class="s1">+ str(nums[</span><span class="s3">0</span><span class="s1">]) + </span><span class="s4">&quot; times &quot; </span><span class="s1">+ str(nums[</span><span class="s3">1</span><span class="s1">]) + </span><span class="s4">&quot;?&quot;</span><span class="s1">)</span>
+
+<span class="s0"># Looping until user types QUIT</span>
+<span class="s2">while </span><span class="s1">looping:</span>
+    <span class="s1">answer = nums[</span><span class="s3">0</span><span class="s1">]*nums[</span><span class="s3">1</span><span class="s1">]</span>
+    <span class="s2">if </span><span class="s1">response.upper() == </span><span class="s4">&quot;QUIT&quot;</span><span class="s1">:</span>
+        <span class="s1">looping = </span><span class="s2">False</span>
+
+    <span class="s0"># If response is correct enter loop</span>
+    <span class="s2">elif </span><span class="s1">int(response) == answer:</span>
+        <span class="s1">print(</span><span class="s4">&quot;{}. {} times {} does equal {}&quot;</span><span class="s1">.format(random_congrats[random.randint(</span><span class="s3">0</span><span class="s2">, </span><span class="s1">len(random_congrats)-</span><span class="s3">1</span><span class="s1">)]</span><span class="s2">, </span><span class="s1">nums[</span><span class="s3">0</span><span class="s1">]</span><span class="s2">, </span><span class="s1">nums[</span><span class="s3">1</span><span class="s1">]</span><span class="s2">, </span><span class="s1">answer))</span>
+
+        <span class="s0"># Get new set of random numbers</span>
+        <span class="s1">nums = [random.randint(</span><span class="s3">2</span><span class="s2">,</span><span class="s3">12</span><span class="s1">) </span><span class="s2">for </span><span class="s1">_ </span><span class="s2">in </span><span class="s1">range(</span><span class="s3">2</span><span class="s1">)]</span>
+
+        <span class="s0"># Ask question again</span>
+        <span class="s1">response = input(</span><span class="s4">&quot;How much is &quot; </span><span class="s1">+ str(nums[</span><span class="s3">0</span><span class="s1">]) + </span><span class="s4">&quot; times &quot; </span><span class="s1">+ str(nums[</span><span class="s3">1</span><span class="s1">]) + </span><span class="s4">&quot;?&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Else; response is not correct, ask same question</span>
+    <span class="s2">else</span><span class="s1">:</span>
+        <span class="s1">print(</span><span class="s4">&quot;Incorrect. Please try again. {} times {} does not equal {}.&quot;</span><span class="s1">.format(nums[</span><span class="s3">0</span><span class="s1">]</span><span class="s2">, </span><span class="s1">nums[</span><span class="s3">1</span><span class="s1">]</span><span class="s2">, </span><span class="s1">response))</span>
+        <span class="s1">response = input(</span><span class="s4">&quot;How much is &quot; </span><span class="s1">+ str(nums[</span><span class="s3">0</span><span class="s1">]) + </span><span class="s4">&quot; times &quot; </span><span class="s1">+ str(nums[</span><span class="s3">1</span><span class="s1">]) + </span><span class="s4">&quot;?&quot;</span><span class="s1">)</span>
+<span class="s0">#%% md 
+</span><span class="s1"># Question 4 - Pascal's Triangle 
+ 
+### 4 points 
+ 
+[Pascal's Triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle) is a visualization of a sequence of numbers that is relevant in many subfields of math. It starts with 1 at the top of the triangle in its own row. Each subsequent row is constructed by adding the number &quot;north-west&quot; to the number &quot;north-east&quot; of the current position, treating any blanks on either side of the triangle as 0. It's perhaps easier to just look at the pattern below: 
+ 
+``` 
+            1             
+           1 1            
+          1 2 1           
+         1 3 3 1          
+        1 4 6 4 1         
+      1 5 10 10 5 1       
+    1 6 15 20 15 6 1      
+   1 7 21 35 35 21 7 1 
+``` 
+ 
+Note that each row always has 1 as the first and last element. 
+ 
+Write a function called `pascals_triangle` that takes in an integer `n` and prints the first `n` rows of Pascal's Triangle. You do not have to center-justify your triangle; left-justification is perfectly fine. The important thing is that the values in each row are calculated and printed correctly. 
+ 
+**Test your program** by providing your function the value of 8, which should yield the same values as the ones provided above. 
+</span><span class="s0">#%% 
+</span><span class="s2">def </span><span class="s1">n_row_pascals(n):</span>
+    <span class="s5">&quot;&quot;&quot;This Function prints the nth row of pascals triangle&quot;&quot;&quot;</span>
+    <span class="s1">start = </span><span class="s3">1</span>
+    <span class="s1">print(start</span><span class="s2">, </span><span class="s1">end = </span><span class="s4">&quot;&quot;</span><span class="s1">)</span>
+    <span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">range(</span><span class="s3">1</span><span class="s2">, </span><span class="s1">n +</span><span class="s3">1</span><span class="s1">):</span>
+        <span class="s1">curr = (start*(n-i+</span><span class="s3">1</span><span class="s1">))//i</span>
+        <span class="s1">print(</span><span class="s4">&quot;,&quot;</span><span class="s2">, </span><span class="s1">curr</span><span class="s2">, </span><span class="s1">end=</span><span class="s4">&quot;&quot;</span><span class="s1">)</span>
+        <span class="s1">start = curr</span>
+
+<span class="s1">n= </span><span class="s3">9</span>
+<span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">range(n):</span>
+    <span class="s1">n_row_pascals(i)</span>
+    <span class="s1">print(</span><span class="s4">&quot;&quot;</span><span class="s1">)  </span><span class="s0"># entering new line</span>
+          
+<span class="s0">#%% md 
+</span><span class="s1"># Question 5 - Word Sandwiches 
+### 4 points 
+ 
+For this question, we will utilize a list of words provided by the NLTK (Natural Language Toolkit) library. We will likely use NLTK more later in the quarter, but for now start by simply running the code below to get a list of English words. Keep in mind that this is not necessarily a *complete* list of English words (e.g. &quot;carousel&quot; is not in the list), but it suffices for this question. 
+</span><span class="s0">#%% 
+</span><span class="s2">import </span><span class="s1">nltk</span>
+<span class="s1">nltk.download(</span><span class="s4">'words'</span><span class="s1">)</span>
+
+<span class="s2">from </span><span class="s1">nltk.corpus </span><span class="s2">import </span><span class="s1">words</span>
+
+<span class="s0"># You can refer to word_lst for checking if a string is a valid English word</span>
+<span class="s1">word_lst = words.words()</span>
+<span class="s0">#%% md 
+</span><span class="s1">Write a function called `word_sandwich` that takes two strings as input, call them `str_a` and `str_b`.  
+ 
+Since this question is more interesting if the input strings are valid words, the function should first determine if `str_a` and `str_b` are in fact English words. If they are not, return `None`. Otherwise, continue on. 
+ 
+The function should determine if by inserting `str_a` somewhere inside `str_b` **or** by inserting `str_b` somewhere inside `str_a`, a new word can be formed. That is, we want to know if the words can &quot;meld&quot;. You should create an inner function that checks one direction (like `str_a` into `str_b`) to prevent repeating code. 
+ 
+Here are a few example inputs and outputs: 
+ 
+    Input: (&quot;eight&quot;, &quot;yes&quot;), Output: &quot;eyesight&quot; 
+    Input: (&quot;net&quot;, &quot;magic&quot;), Output: &quot;magnetic&quot; 
+    Input: (&quot;entry&quot;, &quot;eat&quot;), Output: &quot;entreaty&quot; 
+    Input: (&quot;word&quot;, &quot;sandwich&quot;), Output: None 
+    Input: (&quot;i&quot;, &quot;team&quot;), Output: None 
+    Input: (&quot;butter&quot;, &quot;fly&quot;), Output: None 
+ 
+Note that we are *not* checking if the two words concatenated form another word. We are interested in checking if by inserting one word *inside* another (not at the front nor at the end) we can form a new word. 
+ 
+**Test your program** by trying out the above word pairs as examples. If you can think of more valid words sandwiches, feel free to use them. 
+ 
+*Side note: This question was inspired by [a Sunday Puzzle from NPR](https://www.npr.org/2020/12/27/950036966/sunday-puzzle-word-sandwiches). The word pairs they came up with all happen to be of length 3 and 5, but clearly that is not a requirement for making a word sandwich.* 
+</span><span class="s0">#%% 
+</span><span class="s1">str_a = input(</span><span class="s4">&quot;Enter Word 1&quot;</span><span class="s1">)</span>
+<span class="s1">str_b = input(</span><span class="s4">&quot;Enter Word 2&quot;</span><span class="s1">)</span>
+<span class="s1">output = []</span>
+
+<span class="s0"># Looping through str_a and inserting str_b inbetween to see if it is in word list</span>
+<span class="s2">for </span><span class="s1">char </span><span class="s2">in </span><span class="s1">range(len(str_a)):</span>
+    <span class="s1">combo = str_a[:char]+str_b+str_a[char:]  </span><span class="s0"># inserting word</span>
+    <span class="s2">if </span><span class="s1">combo </span><span class="s2">in </span><span class="s1">word_lst:  </span><span class="s0"># Checking if in list</span>
+        <span class="s1">output.append(combo)</span>
+
+<span class="s0"># Looping through str_b and inserting str_a inbetween to see if it is in word list</span>
+<span class="s2">for </span><span class="s1">char </span><span class="s2">in </span><span class="s1">range(len(str_b)):</span>
+    <span class="s1">combo = str_b[:char]+str_a+str_b[char:]  </span><span class="s0"># inserting word</span>
+    <span class="s2">if </span><span class="s1">combo </span><span class="s2">in </span><span class="s1">word_lst:  </span><span class="s0"># checking if in list</span>
+        <span class="s1">output.append(combo)</span>
+
+
+<span class="s2">if </span><span class="s1">len(output) &gt; </span><span class="s3">0</span><span class="s1">:  </span><span class="s0"># If there is a match print this line</span>
+    <span class="s1">print(</span><span class="s4">&quot;Input: ('{}','{}'), Output: {}&quot;</span><span class="s1">.format(str_a</span><span class="s2">, </span><span class="s1">str_b</span><span class="s2">, </span><span class="s1">output))</span>
+<span class="s2">else</span><span class="s1">:  </span><span class="s0"># Else no match, print this line</span>
+    <span class="s1">print(</span><span class="s4">&quot;Input: ('{}','{}'), Output: None&quot;</span><span class="s1">.format(str_a</span><span class="s2">, </span><span class="s1">str_b))</span>
+<span class="s0">#%% md 
+</span><span class="s1"># Question 6 - Data for Dogs 
+ 
+### 4 points 
+ 
+You work as a contractor for a dog-walking company, developing some of their backend applications. Their employees (the dogwalkers) use a logging system that logs their walks by appending to a list of tuples. Each tuple has the structure (walker_name, dog_name, minutes_walked). 
+ 
+To make this information more readable, you are asked to display a summary table of this information. The columns of the table should represent each dog walker; each row represents each dog; and each entry in the table corresponding to a walker *w* and a dog *d* should have the total number of minutes that *w* has walked *d*. 
+ 
+Your output should print this information with the walker names and dog names in **sorted order**. The data should be evenly spaced and easy to read. 
+ 
+Execute the code cell below to initialize the test list of tuples. 
+ 
+ 
+</span><span class="s0">#%% 
+</span><span class="s1">logs = [</span>
+        <span class="s1">(</span><span class="s4">&quot;Marceline&quot;</span><span class="s2">, </span><span class="s4">&quot;Oakley&quot;</span><span class="s2">, </span><span class="s3">30</span><span class="s1">)</span><span class="s2">,</span>
+        <span class="s1">(</span><span class="s4">&quot;Kelly&quot;</span><span class="s2">, </span><span class="s4">&quot;Luther&quot;</span><span class="s2">, </span><span class="s3">15</span><span class="s1">)</span><span class="s2">,</span>
+        <span class="s1">(</span><span class="s4">&quot;Ryan&quot;</span><span class="s2">, </span><span class="s4">&quot;Appa&quot;</span><span class="s2">, </span><span class="s3">30</span><span class="s1">)</span><span class="s2">,</span>
+        <span class="s1">(</span><span class="s4">&quot;Forest&quot;</span><span class="s2">, </span><span class="s4">&quot;Appa&quot;</span><span class="s2">, </span><span class="s3">20</span><span class="s1">)</span><span class="s2">,</span>
+        <span class="s1">(</span><span class="s4">&quot;Marceline&quot;</span><span class="s2">, </span><span class="s4">&quot;Oakley&quot;</span><span class="s2">, </span><span class="s3">10</span><span class="s1">)</span><span class="s2">,</span>
+        <span class="s1">(</span><span class="s4">&quot;Marceline&quot;</span><span class="s2">, </span><span class="s4">&quot;Appa&quot;</span><span class="s2">, </span><span class="s3">20</span><span class="s1">)</span><span class="s2">,</span>
+        <span class="s1">(</span><span class="s4">&quot;Kelly&quot;</span><span class="s2">, </span><span class="s4">&quot;Luther&quot;</span><span class="s2">, </span><span class="s3">20</span><span class="s1">)</span><span class="s2">,</span>
+        <span class="s1">(</span><span class="s4">&quot;Kelly&quot;</span><span class="s2">, </span><span class="s4">&quot;Luther&quot;</span><span class="s2">, </span><span class="s3">10</span><span class="s1">)</span><span class="s2">,</span>
+        <span class="s1">(</span><span class="s4">&quot;Forest&quot;</span><span class="s2">, </span><span class="s4">&quot;Oakley&quot;</span><span class="s2">, </span><span class="s3">25</span><span class="s1">)</span><span class="s2">,</span>
+        <span class="s1">(</span><span class="s4">&quot;Marceline&quot;</span><span class="s2">, </span><span class="s4">&quot;Luther&quot;</span><span class="s2">, </span><span class="s3">20</span><span class="s1">)</span><span class="s2">,</span>
+        <span class="s1">(</span><span class="s4">&quot;Ryan&quot;</span><span class="s2">, </span><span class="s4">&quot;Oakley&quot;</span><span class="s2">, </span><span class="s3">15</span><span class="s1">)</span><span class="s2">,</span>
+        <span class="s1">(</span><span class="s4">&quot;Ryan&quot;</span><span class="s2">, </span><span class="s4">&quot;Appa&quot;</span><span class="s2">, </span><span class="s3">10</span><span class="s1">)</span><span class="s2">,</span>
+        <span class="s1">(</span><span class="s4">&quot;Marceline&quot;</span><span class="s2">, </span><span class="s4">&quot;Luther&quot;</span><span class="s2">, </span><span class="s3">15</span><span class="s1">)</span>
+<span class="s1">]</span>
+<span class="s0">#%% md 
+</span><span class="s1">For reference, a possible tabular output for the above data is: 
+ 
+``` 
+               Forest      Kelly     Marceline      Ryan     
+        Appa     20          0           20          40      
+      Luther     0           45          35          0       
+      Oakley     25          0           40          15  
+``` 
+</span><span class="s0">#%% md 
+</span><span class="s1">If you happen to already be familiar with objects like data frames from certain data science libraries, be sure NOT to use these. All of your code should utilize data structures in Python's standard library (i.e. lists, dicts, etc.). 
+ 
+You may find it useful to print without a newline at the end. Python's `print` function allows you to specify what string to add to the end of a print statement, which is by default `\n`. If you instead use an empty string, the newline will not be printed. 
+```python 
+print(&quot;a&quot;, end=&quot;&quot;) # replace `\n` with empty string 
+print(&quot;b&quot;)  
+print(&quot;c&quot;) 
+``` 
+produces the following output: 
+ 
+    ab 
+    c 
+</span><span class="s0">#%% 
+</span><span class="s1">dogs = list(set([dog[</span><span class="s3">1</span><span class="s1">] </span><span class="s2">for </span><span class="s1">dog </span><span class="s2">in </span><span class="s1">logs]))</span>
+<span class="s1">dog_walker = list(set([dog_walker[</span><span class="s3">0</span><span class="s1">] </span><span class="s2">for </span><span class="s1">dog_walker </span><span class="s2">in </span><span class="s1">logs]))</span>
+<span class="s1">dogs.sort()</span>
+<span class="s1">dog_walker.sort()</span>
+<span class="s1">data = []</span>
+
+<span class="s0"># Placing data in to list by looking at the sorted dogs and dog walkers</span>
+<span class="s0"># Information is placed into a list of list with dog names as the row</span>
+<span class="s2">for </span><span class="s1">dog </span><span class="s2">in </span><span class="s1">dogs:  </span><span class="s0"># Dogs are columns</span>
+    <span class="s1">row = []</span>
+    <span class="s2">for </span><span class="s1">walker </span><span class="s2">in </span><span class="s1">dog_walker:  </span><span class="s0"># Walkers are rows</span>
+        <span class="s1">row.append(sum([num[</span><span class="s3">2</span><span class="s1">] </span><span class="s2">for </span><span class="s1">num </span><span class="s2">in </span><span class="s1">logs </span><span class="s2">if </span><span class="s1">dog </span><span class="s2">in </span><span class="s1">num </span><span class="s2">and </span><span class="s1">walker </span><span class="s2">in </span><span class="s1">num]))</span>
+    <span class="s1">data.append(row)  </span><span class="s0"># Adding Dog data to row</span>
+
+<span class="s0"># Printing out information</span>
+<span class="s1">format_columns = </span><span class="s4">&quot;{:&gt;15}&quot; </span><span class="s1">* (len(dog_walker) + </span><span class="s3">1</span><span class="s1">)</span>
+<span class="s1">print(format_columns.format(</span><span class="s4">&quot;&quot;</span><span class="s2">, </span><span class="s1">*dog_walker))  </span><span class="s0"># Printing Columns of Dog Walkers</span>
+<span class="s2">for </span><span class="s1">dog</span><span class="s2">, </span><span class="s1">row </span><span class="s2">in </span><span class="s1">zip(dogs</span><span class="s2">, </span><span class="s1">data):</span>
+    <span class="s1">print(format_columns.format(dog</span><span class="s2">, </span><span class="s1">*row))  </span><span class="s0"># Printing out how much each dog walker walked each dog</span>
+<span class="s0">#%% md 
+</span><span class="s1">### sorting 
+Sort a list of words by the number of capital letters in the word 
+</span><span class="s0">#%% 
+</span><span class="s2">def </span><span class="s1">upper_sort(word):</span>
+    <span class="s5">&quot;&quot;&quot;This Function returns the number of upper case letters a word&quot;&quot;&quot;</span>
+    <span class="s2">return </span><span class="s1">len([char </span><span class="s2">for </span><span class="s1">char </span><span class="s2">in </span><span class="s1">word </span><span class="s2">if </span><span class="s1">char.isupper()])</span>
+
+<span class="s1">words = [</span><span class="s4">'Don Dalton'</span><span class="s2">,</span><span class="s4">'dogs'</span><span class="s2">,</span><span class="s4">'APythonVariableName'</span><span class="s2">,</span><span class="s4">'Univerisity of Denver'</span><span class="s2">,</span><span class="s4">'ColORaDO'</span><span class="s1">]</span>
+<span class="s1">words.sort(key=upper_sort)  </span><span class="s0"># Sorting by number of upper case letters in ascending order</span>
+<span class="s1">print(words)  </span><span class="s0"># Printing out sorted list</span>
+<span class="s0">#%% md 
+</span><span class="s1">sort the same list of words by the length of the word 
+</span><span class="s0">#%% 
+</span><span class="s2">def </span><span class="s1">len_sort(word):</span>
+    <span class="s5">&quot;&quot;&quot;This function returns the number of characters in a word&quot;&quot;&quot;</span>
+    <span class="s2">return </span><span class="s1">len([char </span><span class="s2">for </span><span class="s1">char </span><span class="s2">in </span><span class="s1">word])</span>
+<span class="s1">words2 = [</span><span class="s4">'Don Dalton'</span><span class="s2">,</span><span class="s4">'dogs'</span><span class="s2">,</span><span class="s4">'APythonVariableName'</span><span class="s2">,</span><span class="s4">'Univerisity of Denver'</span><span class="s2">,</span><span class="s4">'ColORaDO'</span><span class="s1">]</span>
+<span class="s1">words2.sort(key=len_sort)</span>
+<span class="s1">print(words2)</span>
+
+<span class="s0">#%% md 
+</span><span class="s1">### formatting 
+Take the items from this dictionary and print them as a nicely formatted table.  Name, age and University will be the column headers and one row per student.  The column widths should be as wide as needed to fit the data. 
+</span><span class="s0">#%% 
+</span><span class="s1">details = {</span>
+    <span class="s4">'Name' </span><span class="s1">: [</span><span class="s4">'Ankit'</span><span class="s2">, </span><span class="s4">'Aishwarya'</span><span class="s2">, </span><span class="s4">'Shaurya'</span><span class="s2">, </span><span class="s4">'Shivangi'</span><span class="s1">]</span><span class="s2">,</span>
+    <span class="s4">'Age' </span><span class="s1">: [</span><span class="s3">23</span><span class="s2">, </span><span class="s3">21</span><span class="s2">, </span><span class="s3">22</span><span class="s2">, </span><span class="s3">21</span><span class="s1">]</span><span class="s2">,</span>
+    <span class="s4">'University' </span><span class="s1">: [</span><span class="s4">'BHU'</span><span class="s2">, </span><span class="s4">'JNU'</span><span class="s2">, </span><span class="s4">'DU'</span><span class="s2">, </span><span class="s4">'BHU'</span><span class="s1">]</span><span class="s2">,</span>
+<span class="s1">}</span>
+
+<span class="s1">data = [[i </span><span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">details]]  </span><span class="s0"># Adding in Columns headers</span>
+<span class="s1">row = [i[</span><span class="s3">1</span><span class="s1">] </span><span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">details.items()]  </span><span class="s0"># gathering list of values from dictionary keys</span>
+<span class="s1">newgrid = [[x[i] </span><span class="s2">for </span><span class="s1">x </span><span class="s2">in </span><span class="s1">row] </span><span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">range(len(row[</span><span class="s3">0</span><span class="s1">]))]  </span><span class="s0"># Creating Row Values</span>
+
+<span class="s1">print(</span><span class="s4">&quot;{:&lt;10}{:&lt;10}{:&lt;10}&quot;</span><span class="s1">.format(data[</span><span class="s3">0</span><span class="s1">][</span><span class="s3">0</span><span class="s1">]</span><span class="s2">, </span><span class="s1">data[</span><span class="s3">0</span><span class="s1">][</span><span class="s3">1</span><span class="s1">]</span><span class="s2">, </span><span class="s1">data[</span><span class="s3">0</span><span class="s1">][</span><span class="s3">2</span><span class="s1">]))  </span><span class="s0"># Printing Headers</span>
+<span class="s2">for </span><span class="s1">row </span><span class="s2">in </span><span class="s1">newgrid:</span>
+    <span class="s1">print(</span><span class="s4">&quot;{:&lt;10}{:&lt;10}{:&lt;10}&quot;</span><span class="s1">.format(row[</span><span class="s3">0</span><span class="s1">]</span><span class="s2">, </span><span class="s1">row[</span><span class="s3">1</span><span class="s1">]</span><span class="s2">, </span><span class="s1">row[</span><span class="s3">2</span><span class="s1">]))  </span><span class="s0"># Printing Row values</span>
+</pre>
+</body>
+</html>
