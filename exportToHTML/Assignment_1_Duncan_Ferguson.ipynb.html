@@ -303,28 +303,43 @@ produces the following output:
 <span class="s2">for </span><span class="s1">dog</span><span class="s2">, </span><span class="s1">row </span><span class="s2">in </span><span class="s1">zip(dogs</span><span class="s2">, </span><span class="s1">data):</span>
     <span class="s1">print(format_columns.format(dog</span><span class="s2">, </span><span class="s1">*row))  </span><span class="s0"># Printing out how much each dog walker walked each dog</span>
 <span class="s0">#%% md 
-</span><span class="s1">### sorting 
+</span><span class="s1">### Sorting 
 Sort a list of words by the number of capital letters in the word 
 </span><span class="s0">#%% 
 </span><span class="s2">def </span><span class="s1">upper_sort(word):</span>
     <span class="s5">&quot;&quot;&quot;This Function returns the number of upper case letters a word&quot;&quot;&quot;</span>
     <span class="s2">return </span><span class="s1">len([char </span><span class="s2">for </span><span class="s1">char </span><span class="s2">in </span><span class="s1">word </span><span class="s2">if </span><span class="s1">char.isupper()])</span>
 
+
+<span class="s1">newList = []</span>
 <span class="s1">words = [</span><span class="s4">'Don Dalton'</span><span class="s2">,</span><span class="s4">'dogs'</span><span class="s2">,</span><span class="s4">'APythonVariableName'</span><span class="s2">,</span><span class="s4">'Univerisity of Denver'</span><span class="s2">,</span><span class="s4">'ColORaDO'</span><span class="s1">]</span>
-<span class="s1">words.sort(key=upper_sort)  </span><span class="s0"># Sorting by number of upper case letters in ascending order</span>
-<span class="s1">print(words)  </span><span class="s0"># Printing out sorted list</span>
+<span class="s2">for </span><span class="s1">w </span><span class="s2">in </span><span class="s1">words:</span>
+    <span class="s1">w = w.split()</span>
+    <span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">w:</span>
+        <span class="s2">if </span><span class="s1">len(i) &gt; </span><span class="s3">0</span><span class="s1">: newList.append(i)</span>
+
+
+
+<span class="s1">newList.sort(key=upper_sort)  </span><span class="s0"># Sorting by number of upper case letters in ascending order</span>
+<span class="s1">print(newList)  </span><span class="s0"># Printing out sorted list</span>
 <span class="s0">#%% md 
-</span><span class="s1">sort the same list of words by the length of the word 
+</span><span class="s1">Sort the same list of words by the length of the word 
 </span><span class="s0">#%% 
 </span><span class="s2">def </span><span class="s1">len_sort(word):</span>
     <span class="s5">&quot;&quot;&quot;This function returns the number of characters in a word&quot;&quot;&quot;</span>
     <span class="s2">return </span><span class="s1">len([char </span><span class="s2">for </span><span class="s1">char </span><span class="s2">in </span><span class="s1">word])</span>
 <span class="s1">words2 = [</span><span class="s4">'Don Dalton'</span><span class="s2">,</span><span class="s4">'dogs'</span><span class="s2">,</span><span class="s4">'APythonVariableName'</span><span class="s2">,</span><span class="s4">'Univerisity of Denver'</span><span class="s2">,</span><span class="s4">'ColORaDO'</span><span class="s1">]</span>
-<span class="s1">words2.sort(key=len_sort)</span>
-<span class="s1">print(words2)</span>
+<span class="s1">newList = []</span>
+<span class="s2">for </span><span class="s1">w </span><span class="s2">in </span><span class="s1">words2:</span>
+    <span class="s1">w = w.split()</span>
+    <span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">w:</span>
+        <span class="s2">if </span><span class="s1">len(i) &gt; </span><span class="s3">0</span><span class="s1">: newList.append(i)</span>
+
+<span class="s1">newList.sort(key=len_sort)</span>
+<span class="s1">print(newList)</span>
 
 <span class="s0">#%% md 
-</span><span class="s1">### formatting 
+</span><span class="s1">### Formatting 
 Take the items from this dictionary and print them as a nicely formatted table.  Name, age and University will be the column headers and one row per student.  The column widths should be as wide as needed to fit the data. 
 </span><span class="s0">#%% 
 </span><span class="s1">details = {</span>
