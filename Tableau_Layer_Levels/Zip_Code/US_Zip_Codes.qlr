@@ -1,0 +1,337 @@
+<!DOCTYPE qgis-layer-definition>
+<qlr>
+  <layer-tree-group expanded="1" name="" checked="Qt::Checked">
+    <customproperties/>
+    <layer-tree-layer id="cb_2018_us_county_500k_77188323_9e07_4281_a143_db8ec5a498ef" source="/vsizip/../Shape_Files/cb_2018_us_county_500k.zip/cb_2018_us_county_500k.shp" legend_exp="" expanded="1" name="cb_2018_us_county_500k" providerKey="ogr" checked="Qt::Checked">
+      <customproperties/>
+    </layer-tree-layer>
+  </layer-tree-group>
+  <maplayers>
+    <maplayer refreshOnNotifyEnabled="0" maxScale="0" simplifyAlgorithm="0" geometry="Polygon" simplifyDrawingHints="1" minScale="1e+08" readOnly="0" autoRefreshEnabled="0" simplifyLocal="1" simplifyDrawingTol="1" type="vector" refreshOnNotifyMessage="" simplifyMaxScale="1" hasScaleBasedVisibilityFlag="0" wkbType="MultiPolygon" styleCategories="AllStyleCategories" autoRefreshTime="0" labelsEnabled="0">
+      <extent>
+        <xmin>-179.14890900000000329</xmin>
+        <ymin>-14.54869899999999916</ymin>
+        <xmax>179.77846999999999866</xmax>
+        <ymax>71.36516199999999799</ymax>
+      </extent>
+      <id>cb_2018_us_county_500k_77188323_9e07_4281_a143_db8ec5a498ef</id>
+      <datasource>/vsizip/../Shape_Files/cb_2018_us_county_500k.zip/cb_2018_us_county_500k.shp</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>cb_2018_us_county_500k</layername>
+      <srs>
+        <spatialrefsys>
+          <wkt>GEOGCRS["NAD83",DATUM["North American Datum 1983",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],CS[ellipsoidal,2],AXIS["geodetic latitude (Lat)",north,ORDER[1],ANGLEUNIT["degree",0.0174532925199433]],AXIS["geodetic longitude (Lon)",east,ORDER[2],ANGLEUNIT["degree",0.0174532925199433]],USAGE[SCOPE["unknown"],AREA["North America - NAD83"],BBOX[14.92,167.65,86.46,-47.74]],ID["EPSG",4269]]</wkt>
+          <proj4>+proj=longlat +datum=NAD83 +no_defs</proj4>
+          <srsid>3401</srsid>
+          <srid>4269</srid>
+          <authid>EPSG:4269</authid>
+          <description>NAD83</description>
+          <projectionacronym>longlat</projectionacronym>
+          <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+          <geographicflag>true</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type>dataset</type>
+        <title></title>
+        <abstract></abstract>
+        <contact>
+          <name></name>
+          <organization></organization>
+          <position></position>
+          <voice></voice>
+          <fax></fax>
+          <email></email>
+          <role></role>
+        </contact>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <wkt></wkt>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial crs="" minx="0" maxz="0" dimensions="2" maxy="0" maxx="0" miny="0" minz="0"/>
+          <temporal>
+            <period>
+              <start></start>
+              <end></end>
+            </period>
+          </temporal>
+        </extent>
+      </resourceMetadata>
+      <provider encoding="System">ogr</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <legend type="default-vector"/>
+      <expressionfields/>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <renderer-v2 enableorderby="0" forceraster="0" type="singleSymbol" symbollevels="0">
+        <symbols>
+          <symbol type="fill" force_rhr="0" name="0" alpha="1" clip_to_extent="1">
+            <layer pass="0" locked="0" enabled="1" class="SimpleFill">
+              <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+              <prop k="color" v="255,158,23,0"/>
+              <prop k="joinstyle" v="bevel"/>
+              <prop k="offset" v="0,0"/>
+              <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+              <prop k="offset_unit" v="MM"/>
+              <prop k="outline_color" v="35,35,35,255"/>
+              <prop k="outline_style" v="solid"/>
+              <prop k="outline_width" v="0.26"/>
+              <prop k="outline_width_unit" v="MM"/>
+              <prop k="style" v="solid"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option type="QString" value="" name="name"/>
+                  <Option name="properties"/>
+                  <Option type="QString" value="collection" name="type"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </symbols>
+        <rotation/>
+        <sizescale/>
+      </renderer-v2>
+      <customproperties>
+        <property key="embeddedWidgets/count" value="0"/>
+        <property key="variableNames"/>
+        <property key="variableValues"/>
+      </customproperties>
+      <blendMode>0</blendMode>
+      <featureBlendMode>0</featureBlendMode>
+      <layerOpacity>1</layerOpacity>
+      <SingleCategoryDiagramRenderer diagramType="Histogram" attributeLegend="1">
+        <DiagramCategory minimumSize="0" lineSizeScale="3x:0,0,0,0,0,0" lineSizeType="MM" scaleDependency="Area" opacity="1" backgroundAlpha="255" maxScaleDenominator="1e+08" height="15" enabled="0" width="15" penWidth="0" labelPlacementMethod="XHeight" scaleBasedVisibility="0" barWidth="5" rotationOffset="270" sizeScale="3x:0,0,0,0,0,0" penColor="#000000" penAlpha="255" sizeType="MM" diagramOrientation="Up" minScaleDenominator="0" backgroundColor="#ffffff">
+          <fontProperties description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" style=""/>
+        </DiagramCategory>
+      </SingleCategoryDiagramRenderer>
+      <DiagramLayerSettings zIndex="0" placement="1" linePlacementFlags="18" priority="0" dist="0" showAll="1" obstacle="0">
+        <properties>
+          <Option type="Map">
+            <Option type="QString" value="" name="name"/>
+            <Option name="properties"/>
+            <Option type="QString" value="collection" name="type"/>
+          </Option>
+        </properties>
+      </DiagramLayerSettings>
+      <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
+        <activeChecks/>
+        <checkConfiguration type="Map">
+          <Option type="Map" name="QgsGeometryGapCheck">
+            <Option type="double" value="0" name="allowedGapsBuffer"/>
+            <Option type="bool" value="false" name="allowedGapsEnabled"/>
+            <Option type="QString" value="" name="allowedGapsLayer"/>
+          </Option>
+        </checkConfiguration>
+      </geometryOptions>
+      <fieldConfiguration>
+        <field name="STATEFP">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="COUNTYFP">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="COUNTYNS">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="AFFGEOID">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="GEOID">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="NAME">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="LSAD">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="ALAND">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="AWATER">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias index="0" field="STATEFP" name=""/>
+        <alias index="1" field="COUNTYFP" name=""/>
+        <alias index="2" field="COUNTYNS" name=""/>
+        <alias index="3" field="AFFGEOID" name=""/>
+        <alias index="4" field="GEOID" name=""/>
+        <alias index="5" field="NAME" name=""/>
+        <alias index="6" field="LSAD" name=""/>
+        <alias index="7" field="ALAND" name=""/>
+        <alias index="8" field="AWATER" name=""/>
+      </aliases>
+      <excludeAttributesWMS/>
+      <excludeAttributesWFS/>
+      <defaults>
+        <default applyOnUpdate="0" field="STATEFP" expression=""/>
+        <default applyOnUpdate="0" field="COUNTYFP" expression=""/>
+        <default applyOnUpdate="0" field="COUNTYNS" expression=""/>
+        <default applyOnUpdate="0" field="AFFGEOID" expression=""/>
+        <default applyOnUpdate="0" field="GEOID" expression=""/>
+        <default applyOnUpdate="0" field="NAME" expression=""/>
+        <default applyOnUpdate="0" field="LSAD" expression=""/>
+        <default applyOnUpdate="0" field="ALAND" expression=""/>
+        <default applyOnUpdate="0" field="AWATER" expression=""/>
+      </defaults>
+      <constraints>
+        <constraint exp_strength="0" field="STATEFP" notnull_strength="0" unique_strength="0" constraints="0"/>
+        <constraint exp_strength="0" field="COUNTYFP" notnull_strength="0" unique_strength="0" constraints="0"/>
+        <constraint exp_strength="0" field="COUNTYNS" notnull_strength="0" unique_strength="0" constraints="0"/>
+        <constraint exp_strength="0" field="AFFGEOID" notnull_strength="0" unique_strength="0" constraints="0"/>
+        <constraint exp_strength="0" field="GEOID" notnull_strength="0" unique_strength="0" constraints="0"/>
+        <constraint exp_strength="0" field="NAME" notnull_strength="0" unique_strength="0" constraints="0"/>
+        <constraint exp_strength="0" field="LSAD" notnull_strength="0" unique_strength="0" constraints="0"/>
+        <constraint exp_strength="0" field="ALAND" notnull_strength="0" unique_strength="0" constraints="0"/>
+        <constraint exp_strength="0" field="AWATER" notnull_strength="0" unique_strength="0" constraints="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint field="STATEFP" desc="" exp=""/>
+        <constraint field="COUNTYFP" desc="" exp=""/>
+        <constraint field="COUNTYNS" desc="" exp=""/>
+        <constraint field="AFFGEOID" desc="" exp=""/>
+        <constraint field="GEOID" desc="" exp=""/>
+        <constraint field="NAME" desc="" exp=""/>
+        <constraint field="LSAD" desc="" exp=""/>
+        <constraint field="ALAND" desc="" exp=""/>
+        <constraint field="AWATER" desc="" exp=""/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions>
+        <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
+      </attributeactions>
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
+        <columns>
+          <column hidden="0" type="field" width="-1" name="STATEFP"/>
+          <column hidden="0" type="field" width="-1" name="COUNTYFP"/>
+          <column hidden="0" type="field" width="-1" name="COUNTYNS"/>
+          <column hidden="0" type="field" width="-1" name="AFFGEOID"/>
+          <column hidden="0" type="field" width="-1" name="GEOID"/>
+          <column hidden="0" type="field" width="-1" name="NAME"/>
+          <column hidden="0" type="field" width="-1" name="LSAD"/>
+          <column hidden="0" type="field" width="-1" name="ALAND"/>
+          <column hidden="0" type="field" width="-1" name="AWATER"/>
+          <column hidden="1" type="actions" width="-1"/>
+        </columns>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <storedexpressions/>
+      <editform tolerant="1"></editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
+"""
+QGIS forms can have a Python function that is called when the form is
+opened.
+
+Use this function to add extra logic to your forms.
+
+Enter the name of the function in the "Python Init function"
+field.
+An example follows:
+"""
+from qgis.PyQt.QtWidgets import QWidget
+
+def my_form_open(dialog, layer, feature):
+	geom = feature.geometry()
+	control = dialog.findChild(QWidget, "MyLineEdit")
+]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>generatedlayout</editorlayout>
+      <editable>
+        <field editable="1" name="AFFGEOID"/>
+        <field editable="1" name="ALAND"/>
+        <field editable="1" name="AWATER"/>
+        <field editable="1" name="COUNTYFP"/>
+        <field editable="1" name="COUNTYNS"/>
+        <field editable="1" name="GEOID"/>
+        <field editable="1" name="LSAD"/>
+        <field editable="1" name="NAME"/>
+        <field editable="1" name="STATEFP"/>
+      </editable>
+      <labelOnTop>
+        <field labelOnTop="0" name="AFFGEOID"/>
+        <field labelOnTop="0" name="ALAND"/>
+        <field labelOnTop="0" name="AWATER"/>
+        <field labelOnTop="0" name="COUNTYFP"/>
+        <field labelOnTop="0" name="COUNTYNS"/>
+        <field labelOnTop="0" name="GEOID"/>
+        <field labelOnTop="0" name="LSAD"/>
+        <field labelOnTop="0" name="NAME"/>
+        <field labelOnTop="0" name="STATEFP"/>
+      </labelOnTop>
+      <widgets/>
+      <previewExpression>NAME</previewExpression>
+      <mapTip></mapTip>
+    </maplayer>
+  </maplayers>
+</qlr>
