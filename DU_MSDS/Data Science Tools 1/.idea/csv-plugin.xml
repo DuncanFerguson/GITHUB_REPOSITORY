@@ -59,20 +59,6 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\Data _Sets\wta_matches_2019.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\Data _Sets\wta_matches_2020.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
       </map>
     </option>
   </component>
