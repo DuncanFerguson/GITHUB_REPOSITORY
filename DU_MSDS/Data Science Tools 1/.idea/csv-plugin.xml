@@ -59,6 +59,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\Data _Sets\mushrooms.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Final_Assignment\mushrooms.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
