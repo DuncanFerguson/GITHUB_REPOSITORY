@@ -58,7 +58,7 @@ def main():
     """This is the main Code that Runs the hand coded version of the K-means"""
 
     # Importing the Data
-    df = pd.read_csv("exercise8_infile1.csv")
+    df = pd.read_csv("C:\Users\dunca\Dropbox (Personal)\Duncan\GITHUB_REPOSITORY\DU_MSDS\Data_Mining\Exercises\Exercise_8\exercise8_infile1.csv")
     
     df = df.values
     k = 3  # Number of Clusters
