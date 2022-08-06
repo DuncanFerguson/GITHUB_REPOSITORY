@@ -4,6 +4,8 @@ import pickle
 import sqlite3
 import os
 import numpy as np
+from sklearn.linear_model import stochastic_gradient
+
 
 # import HashingVectorizer from local dir
 from vectorizer import vect
