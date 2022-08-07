@@ -4,19 +4,17 @@ import pickle
 import sqlite3
 import os
 import numpy as np
-from sklearn.linear_model import stochastic_gradient
 
 
 # import HashingVectorizer from local dir
 from vectorizer import vect
+# import vectorizer
 
 app = Flask(__name__)
 
 ######## Preparing the Classifier
 cur_dir = os.path.dirname(__file__)
-clf = pickle.load(open(os.path.join(cur_dir,
-                 'pkl_objects',
-                 'classifier.pkl'), 'rb'))
+clf = pickle.load(open(os.path.join(cur_dir, 'pkl_objects', 'classifier.pkl'), 'rb'))
 db = os.path.join(cur_dir, 'reviews.sqlite')
 
 def classify(document):

@@ -7,6 +7,7 @@ import numpy as np
 
 # import HashingVectorizer from local dir
 from vectorizer import vect
+# import vectorizer
 
 app = Flask(__name__)
 
