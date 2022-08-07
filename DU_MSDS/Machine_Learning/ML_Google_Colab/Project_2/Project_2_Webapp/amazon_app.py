@@ -4,21 +4,19 @@ import pickle
 import sqlite3
 import os
 import numpy as np
-from sklearn.linear_model import SGDRegressor, stochastic_gradient
-
 
 # import HashingVectorizer from local dir
 from vectorizer import vect
 # import vectorizer
 
-model_SGDRegressor=SGDRegressor()
-
 app = Flask(__name__)
 
 ######## Preparing the Classifier
 cur_dir = os.path.dirname(__file__)
-clf = pickle.load(open(os.path.join(cur_dir, 'pkl_objects', 'classifier.pkl'), 'rb'))
-db = os.path.join(cur_dir, 'reviews.sqlite')
+clf = pickle.load(open(os.path.join(cur_dir,
+                 'pkl_objects',
+                 'classifier.pkl'), 'rb'))
+db = os.path.join(cur_dir, 'amazon_reviews.sqlite')
 
 def classify(document):
     label = {0: 'negative', 1: 'positive'}
@@ -34,8 +32,7 @@ def train(document, y):
 def sqlite_entry(path, document, y):
     conn = sqlite3.connect(path)
     c = conn.cursor()
-    c.execute("INSERT INTO review_db (review, sentiment, date)"\
-    " VALUES (?, ?, DATETIME('now'))", (document, y))
+    c.execute("INSERT INTO review_db (review, sentiment) VALUES (?, ?)", (document, y))
     conn.commit()
     conn.close()
 
@@ -54,7 +51,7 @@ def index():
 def results():
     form = ReviewForm(request.form)
     if request.method == 'POST' and form.validate():
-        review = request.form['moviereview']
+        review = request.form['amazonreview']
         y, proba = classify(review)
         return render_template('results.html',
                                 content=review,
