@@ -40,6 +40,6 @@ clf = update_model(db_path=db, model=clf, batch_size=10000)
 # you want to update your classifier.pkl file
 # permanently.
 
-# pickle.dump(clf, open(os.path.join(cur_dir,
-#             'pkl_objects', 'classifier.pkl'), 'wb')
-#             , protocol=4)
+pickle.dump(clf, open(os.path.join(cur_dir,
+            'pkl_objects', 'classifier.pkl'), 'wb')
+            , protocol=4)

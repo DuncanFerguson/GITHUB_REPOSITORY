@@ -4,11 +4,14 @@ import pickle
 import sqlite3
 import os
 import numpy as np
+from sklearn.linear_model import SGDRegressor
 
 
 # import HashingVectorizer from local dir
 from vectorizer import vect
 # import vectorizer
+
+model_SGDRegressor=SGDRegressor()
 
 app = Flask(__name__)
 
