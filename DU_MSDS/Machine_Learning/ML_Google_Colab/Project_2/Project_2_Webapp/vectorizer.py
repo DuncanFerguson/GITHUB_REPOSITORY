@@ -28,4 +28,5 @@ vect = HashingVectorizer(decode_error='ignore',
                          ngram_range=(1,2),
                          preprocessor=preprocessor,
                          tokenizer=tokenizer_porter,
-                         stop_words=stop)
+                         stop_words=None)
+                         

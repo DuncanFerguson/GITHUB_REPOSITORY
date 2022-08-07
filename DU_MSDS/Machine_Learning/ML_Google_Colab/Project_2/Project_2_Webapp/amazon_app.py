@@ -16,7 +16,7 @@ cur_dir = os.path.dirname(__file__)
 clf = pickle.load(open(os.path.join(cur_dir,
                  'pkl_objects',
                  'classifier.pkl'), 'rb'))
-db = os.path.join(cur_dir, 'amazon_reviews.sqlite')
+db = os.path.join(cur_dir, 'amazon_reviews.db')
 
 def classify(document):
     label = {0: 'negative', 1: 'positive'}
@@ -32,7 +32,7 @@ def train(document, y):
 def sqlite_entry(path, document, y):
     conn = sqlite3.connect(path)
     c = conn.cursor()
-    c.execute("INSERT INTO review_db (review, sentiment) VALUES (?, ?)", (document, y))
+    c.execute("INSERT INTO amazon_review_db (review, sentiment) VALUES (?, ?)", (document, y))
     conn.commit()
     conn.close()
 
@@ -51,7 +51,7 @@ def index():
 def results():
     form = ReviewForm(request.form)
     if request.method == 'POST' and form.validate():
-        review = request.form['amazonreview']
+        review = request.form['moviereview']
         y, proba = classify(review)
         return render_template('results.html',
                                 content=review,
